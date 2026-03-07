@@ -1,274 +1,819 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MarginSignal OS — Operational Margin Intelligence</title>
-<meta name="description" content="Find the margin leaks your dashboards hide. Operational intelligence for Contact Center, ITSM, and Field Service operations.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-<style>
-*{margin:0;padding:0;box-sizing:border-box}
-:root{
---bg:#070714;--bg2:#0c0c1f;--surface:#111128;--border:#1a1a3a;
---teal:#2A9D8F;--teal-dim:#1a6b62;--red:#E63946;--gold:#E9C46A;
---text:#c8cee0;--text-dim:#6b7394;--text-bright:#eef0f6;
---mono:'DM Mono',monospace;--sans:'Outfit',sans-serif;
-}
-html{scroll-behavior:smooth;font-size:16px}
-body{background:var(--bg);color:var(--text);font-family:var(--sans);line-height:1.7;overflow-x:hidden}
-
-/* GRAIN OVERLAY */
-body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;
-background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
-}
-
-/* GRID BACKGROUND */
-.grid-bg{position:fixed;inset:0;z-index:0;pointer-events:none;
-background-image:
-  linear-gradient(rgba(42,157,143,0.03) 1px, transparent 1px),
-  linear-gradient(90deg, rgba(42,157,143,0.03) 1px, transparent 1px);
-background-size:60px 60px;
-}
-
-a{color:var(--teal);text-decoration:none;transition:color 0.2s}
-a:hover{color:var(--gold)}
-
-.container{max-width:1100px;margin:0 auto;padding:0 2rem;position:relative;z-index:1}
-
-/* HEADER */
-header{padding:1.5rem 0;border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;background:rgba(7,7,20,0.9);backdrop-filter:blur(12px)}
-.header-inner{display:flex;justify-content:space-between;align-items:center}
-.logo{font-family:var(--mono);font-size:1.1rem;font-weight:500;letter-spacing:-0.5px}
-.logo .t{color:var(--teal)}.logo .r{color:var(--red)}.logo .d{color:var(--text-dim);font-weight:400}
-.header-cta{font-family:var(--mono);font-size:0.8rem;padding:0.6rem 1.4rem;border:1px solid var(--teal);color:var(--teal);border-radius:2px;transition:all 0.3s;letter-spacing:0.5px;text-transform:uppercase}
-.header-cta:hover{background:var(--teal);color:var(--bg)}
-
-/* HERO */
-.hero{padding:8rem 0 6rem;text-align:left}
-.hero-label{font-family:var(--mono);font-size:0.75rem;color:var(--teal);text-transform:uppercase;letter-spacing:3px;margin-bottom:1.5rem;
-animation:fadeUp 0.8s ease both}
-.hero h1{font-size:clamp(2.4rem,5vw,3.8rem);font-weight:800;line-height:1.1;color:var(--text-bright);max-width:800px;
-animation:fadeUp 0.8s ease 0.1s both}
-.hero h1 .accent{color:var(--red);position:relative}
-.hero h1 .accent::after{content:'';position:absolute;bottom:-4px;left:0;width:100%;height:3px;background:var(--red);opacity:0.4}
-.hero-sub{font-size:1.15rem;color:var(--text-dim);max-width:600px;margin-top:1.5rem;font-weight:300;line-height:1.8;
-animation:fadeUp 0.8s ease 0.2s both}
-.hero-spine{font-family:var(--mono);font-size:0.85rem;color:var(--text);margin-top:2.5rem;padding:1rem 1.5rem;border-left:3px solid var(--teal);background:var(--surface);display:inline-block;
-animation:fadeUp 0.8s ease 0.3s both}
-.hero-spine span{color:var(--teal)}
-
-/* PROBLEM */
-.section{padding:5rem 0}
-.section-label{font-family:var(--mono);font-size:0.7rem;color:var(--red);text-transform:uppercase;letter-spacing:3px;margin-bottom:1rem}
-.section h2{font-size:clamp(1.8rem,3.5vw,2.6rem);font-weight:700;color:var(--text-bright);margin-bottom:1.5rem;line-height:1.2}
-.section p{color:var(--text-dim);font-size:1.05rem;max-width:700px;margin-bottom:1rem;font-weight:300}
-
-.problem-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.5rem;margin-top:3rem}
-.problem-card{padding:1.8rem;background:var(--surface);border:1px solid var(--border);border-radius:3px;transition:border-color 0.3s,transform 0.3s}
-.problem-card:hover{border-color:var(--red);transform:translateY(-2px)}
-.problem-card .num{font-family:var(--mono);font-size:2.5rem;font-weight:500;color:var(--red);opacity:0.3;margin-bottom:0.5rem}
-.problem-card h3{font-size:1rem;font-weight:600;color:var(--text-bright);margin-bottom:0.5rem}
-.problem-card p{font-size:0.85rem;color:var(--text-dim);line-height:1.6;margin:0}
-
-/* WHAT WE DO */
-.what-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:3rem;background:var(--border);border:1px solid var(--border)}
-.what-card{background:var(--bg);padding:2.5rem 2rem;transition:background 0.3s}
-.what-card:hover{background:var(--surface)}
-.what-card .icon{font-size:1.8rem;margin-bottom:1rem}
-.what-card h3{font-family:var(--mono);font-size:0.85rem;color:var(--teal);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:0.8rem}
-.what-card p{font-size:0.9rem;color:var(--text-dim);line-height:1.7}
-.what-card .detail{font-family:var(--mono);font-size:0.75rem;color:var(--text-dim);margin-top:1rem;opacity:0.6}
-
-/* TIERS */
-.tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3rem}
-.tier{padding:2.5rem 2rem;background:var(--surface);border:1px solid var(--border);border-radius:3px;position:relative;transition:border-color 0.3s}
-.tier:hover{border-color:var(--teal)}
-.tier-name{font-family:var(--mono);font-size:0.75rem;color:var(--teal);text-transform:uppercase;letter-spacing:2px;margin-bottom:0.3rem}
-.tier-title{font-size:1.4rem;font-weight:700;color:var(--text-bright);margin-bottom:0.3rem}
-.tier-time{font-family:var(--mono);font-size:0.75rem;color:var(--text-dim);margin-bottom:1.2rem}
-.tier ul{list-style:none;padding:0}
-.tier li{font-size:0.85rem;color:var(--text-dim);padding:0.4rem 0;padding-left:1.2rem;position:relative}
-.tier li::before{content:'→';position:absolute;left:0;color:var(--teal);font-family:var(--mono)}
-
-/* DIFFERENT */
-.diff-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3rem}
-.diff-item{padding:2rem;border-top:2px solid var(--teal)}
-.diff-item h3{font-size:1rem;font-weight:600;color:var(--text-bright);margin-bottom:0.5rem}
-.diff-item p{font-size:0.85rem;color:var(--text-dim);line-height:1.7}
-
-/* CTA */
-.cta-section{padding:6rem 0;text-align:center;border-top:1px solid var(--border)}
-.cta-section h2{font-size:clamp(1.6rem,3vw,2.2rem);color:var(--text-bright);font-weight:700;margin-bottom:1rem}
-.cta-section p{color:var(--text-dim);max-width:500px;margin:0 auto 2rem;font-size:1rem}
-.cta-btn{display:inline-block;font-family:var(--mono);font-size:0.9rem;padding:1rem 2.5rem;background:var(--teal);color:var(--bg);font-weight:500;letter-spacing:0.5px;border-radius:2px;transition:all 0.3s;text-transform:uppercase}
-.cta-btn:hover{background:var(--gold);color:var(--bg);transform:translateY(-1px)}
-.cta-sub{font-family:var(--mono);font-size:0.7rem;color:var(--text-dim);margin-top:1rem;letter-spacing:0.5px}
-
-/* FOOTER */
-footer{padding:3rem 0;border-top:1px solid var(--border);text-align:center}
-footer p{font-family:var(--mono);font-size:0.75rem;color:var(--text-dim)}
-
-/* RESPONSIVE */
-@media(max-width:768px){
-.what-grid,.tiers,.diff-grid{grid-template-columns:1fr}
-.hero{padding:5rem 0 3rem}
-.section{padding:3rem 0}
-}
-
-/* ANIMATIONS */
-@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
-.reveal{opacity:0;transform:translateY(30px);transition:opacity 0.7s ease,transform 0.7s ease}
-.reveal.visible{opacity:1;transform:translateY(0)}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MarginSignal OS | Operational Margin Intelligence</title>
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'SF Pro Display', 'sans-serif'],
+                        mono: ['Fira Code', 'monospace'],
+                    },
+                    colors: {
+                        brand: {
+                            bg: '#F8FAFC',     /* Slate White */
+                            navy: '#0F172A',   /* Executive Navy */
+                            orange: '#F97316', /* Signal Orange */
+                            muted: '#94A3B8'   /* Muted Silver/Gray */
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom styles for precise element control */
+        body { background-color: #F8FAFC; color: #0F172A; }
+        .glass-nav {
+            background-color: rgba(248, 250, 252, 0.85);
+            backdrop-filter: blur(12px);
+        }
+        .reveal-on-scroll {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal-on-scroll.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        /* Form transitions */
+        .form-step {
+            transition: all 0.4s ease-in-out;
+        }
+        .form-step-hidden {
+            opacity: 0;
+            transform: translateX(20px);
+            pointer-events: none;
+            position: absolute;
+            visibility: hidden;
+        }
+        .form-step-active {
+            opacity: 1;
+            transform: translateX(0);
+            position: relative;
+            visibility: visible;
+        }
+    </style>
 </head>
-<body>
-<div class="grid-bg"></div>
+<body class="antialiased selection:bg-brand-orange selection:text-white">
 
-<header>
-<div class="container header-inner">
-<div class="logo"><span class="t">MARGIN</span><span class="r">SIGNAL</span><span class="d"> OS</span></div>
-<a href="#contact" class="header-cta">Get Your Fault Line Card</a>
-</div>
-</header>
+    <!-- Global Navigation -->
+    <nav class="fixed w-full top-0 z-50 glass-nav border-b border-gray-200 transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <div class="flex-shrink-0 flex items-center cursor-pointer" onclick="window.scrollTo(0,0)">
+                    <span class="font-extrabolid text-2xl tracking-tight font-bold text-brand-navy">MarginSignal<span class="text-brand-orange">OS</span></span>
+                </div>
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="#problem" class="text-sm font-medium text-brand-muted hover:text-brand-navy transition-colors">The Gap</a>
+                    <a href="#frameworks" class="text-sm font-medium text-brand-muted hover:text-brand-navy transition-colors">Methodology</a>
+                    <a href="#case-study" class="text-sm font-medium text-brand-muted hover:text-brand-navy transition-colors">Proof</a>
+                    <a href="#offer-ladder" class="text-sm font-medium text-brand-muted hover:text-brand-navy transition-colors">Pricing</a>
+                    <a href="#intake-form" class="bg-brand-navy text-white px-5 py-2.5 rounded-md text-sm font-medium hover:bg-gray-800 transition-all shadow-sm hover:shadow-md">
+                        Book Diagnostic
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
 
-<section class="hero">
-<div class="container">
-<div class="hero-label">Operational Margin Intelligence</div>
-<h1>Find the margin leaks your <span class="accent">dashboards hide</span></h1>
-<p class="hero-sub">Your metrics say fine. Your P&L says otherwise. We find the operational fault lines that silently erode margins in Contact Center, ITSM, and Field Service operations.</p>
-<div class="hero-spine"><span>Signal</span> → Behaviour → Financial Impact</div>
-</div>
-</section>
+    <!-- Hero / Positioning -->
+    <section class="pt-40 pb-20 md:pt-48 md:pb-32 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto flex flex-col items-center text-center">
+        <div class="inline-flex items-center space-x-2 bg-white border border-gray-200 px-4 py-2 rounded-full mb-8 shadow-sm reveal-on-scroll">
+            <span class="text-xs font-mono font-medium text-brand-muted uppercase tracking-wider">The Core Spine</span>
+            <div class="flex items-center space-x-2 text-sm font-medium text-brand-navy">
+                <span>Signal</span>
+                <svg class="w-4 h-4 text-brand-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                <span>Behaviour</span>
+                <svg class="w-4 h-4 text-brand-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                <span>Financial Impact</span>
+            </div>
+        </div>
+        
+        <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight mb-6 max-w-4xl leading-tight text-brand-navy reveal-on-scroll" style="transition-delay: 100ms;">
+            Operational Margin Intelligence for Service Operations
+        </h1>
+        
+        <p class="text-lg md:text-xl text-brand-muted max-w-2xl mb-10 leading-relaxed font-medium reveal-on-scroll" style="transition-delay: 200ms;">
+            VP/SVP of Operations, CX Leaders, and CFOs: If you suspect your margins are leaking in ways your current reporting does not show — this is for you.
+        </p>
+        
+        <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 reveal-on-scroll" style="transition-delay: 300ms;">
+            <a href="#intake-form" class="bg-brand-orange text-white px-8 py-4 rounded-md text-base font-semibold hover:bg-orange-600 transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5">
+                See Your Fault Line Card
+            </a>
+            <a href="#problem" class="bg-white text-brand-navy border border-gray-200 px-8 py-4 rounded-md text-base font-semibold hover:bg-gray-50 transition-all shadow-sm hover:shadow">
+                Explore The Methodology
+            </a>
+        </div>
+    </section>
 
-<section class="section" id="problem">
-<div class="container">
-<div class="section-label">The Problem</div>
-<h2>Averages lie. Compounding is invisible.</h2>
-<p>A 5% repeat contact rate doesn't mean 5% waste. It means every failed resolution chain expands — adding transfers, escalations, handle time, and cost. Standard dashboards compress this into averages. The erosion compounds underneath.</p>
-<div class="problem-grid">
-<div class="problem-card reveal"><div class="num">01</div><h3>Repeat Contact Chains</h3><p>Customers contact you 2, 3, 4 times for the same issue. Each touch adds cost. Your FCR metric doesn't catch the ones that come back on day 5.</p></div>
-<div class="problem-card reveal"><div class="num">02</div><h3>Transfer & Escalation Loops</h3><p>Every handoff is a confession: the system put this in front of someone who couldn't resolve it. Three transfers isn't 3x the cost — it's 5-7x.</p></div>
-<div class="problem-card reveal"><div class="num">03</div><h3>Decision Latency</h3><p>The gap between detecting a signal and acting on it. Hours, days, sometimes weeks. Every hour of delay compounds the financial exposure.</p></div>
-<div class="problem-card reveal"><div class="num">04</div><h3>Dispatch Waste</h3><p>Field service revisits from skill-match gaps, parts failures, and scope misalignment. One failed visit triggers a cascade of cost and trust erosion.</p></div>
-</div>
-</div>
-</section>
+    <!-- The Pain / The Gap -->
+    <section id="problem" class="py-24 bg-white border-y border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 gap-16 items-center">
+                <div class="reveal-on-scroll">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6 text-brand-navy">The Problem Nobody Is Measuring</h2>
+                    <p class="text-gray-600 text-lg mb-6 leading-relaxed">
+                        Your dashboards show you averages. Averages hide the margin erosion happening inside every repeat contact, every transfer chain, every escalation loop, and every dispatch revisit.
+                    </p>
+                    <p class="text-gray-600 text-lg mb-8 leading-relaxed">
+                        These friction patterns compound silently — a 3% repeat rate is not 3% waste. It is 3% compounding across every resolution chain, every day, in every domain you operate.
+                    </p>
+                    
+                    <div class="flex flex-wrap gap-3">
+                        <span class="inline-flex items-center px-3 py-1 rounded-md text-xs font-mono font-medium bg-brand-bg text-brand-navy border border-gray-200">
+                            [Contact_Center]
+                        </span>
+                        <span class="inline-flex items-center px-3 py-1 rounded-md text-xs font-mono font-medium bg-brand-bg text-brand-navy border border-gray-200">
+                            [ITSM]
+                        </span>
+                        <span class="inline-flex items-center px-3 py-1 rounded-md text-xs font-mono font-medium bg-brand-bg text-brand-navy border border-gray-200">
+                            [Field_Service]
+                        </span>
+                    </div>
+                </div>
+                
+                <!-- Metric Comparison Block -->
+                <div class="bg-brand-bg p-8 rounded-xl border border-gray-200 shadow-sm relative group hover:shadow-md transition-all reveal-on-scroll" style="transition-delay: 200ms;">
+                    <div class="absolute top-0 right-0 -mt-4 -mr-4 bg-brand-orange text-white text-xs font-bold px-3 py-1.5 rounded uppercase tracking-wide transform rotate-3 shadow-sm">
+                        The Signal Gap
+                    </div>
+                    
+                    <h3 class="text-xl font-semibold mb-6 pb-4 border-b border-gray-200 text-brand-navy">Why Your Dashboard Is Lying To You</h3>
+                    
+                    <div class="space-y-6">
+                        <div class="flex flex-col space-y-2">
+                            <span class="text-sm font-semibold text-brand-muted uppercase tracking-wider">What The Dashboard Shows</span>
+                            <div class="bg-white p-4 rounded-md border border-gray-200 text-brand-navy font-mono text-sm">
+                                Average handle time: 7.2 minutes (Stable)
+                            </div>
+                        </div>
+                        
+                        <div class="flex flex-col space-y-2">
+                            <span class="text-sm font-semibold text-brand-orange uppercase tracking-wider">What It Doesn't Say (Floor Reality)</span>
+                            <div class="bg-orange-50 p-5 rounded-md border border-orange-100 text-brand-navy text-sm leading-relaxed space-y-2">
+                                <p>• 22% of those interactions required a callback within 7 days.</p>
+                                <p>• The callbacks averaged 12 minutes.</p>
+                                <p>• 3 of them escalated (Authority Misalignment).</p>
+                                <p>• 1 dispatched a truck.</p>
+                                <div class="pt-3 mt-3 border-t border-orange-200 font-semibold text-orange-900">
+                                    That "7-minute interaction" actually cost you 47 minutes of operational capacity and a $180 truck roll.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<section class="section" id="solution">
-<div class="container">
-<div class="section-label">What We Do</div>
-<h2>Diagnose. Quantify. Contain.</h2>
-<p>Three capabilities. One connected system. Every output links a signal to a behavior to a financial impact.</p>
-<div class="what-grid reveal">
-<div class="what-card">
-<div class="icon">◈</div>
-<h3>Diagnose</h3>
-<p>12 Fault Line Cards across Contact Center, ITSM, and Field Service. Each maps a specific friction pattern that erodes margin.</p>
-<div class="detail">Baseline-free. Insight from day one.</div>
-</div>
-<div class="what-card">
-<div class="icon">◆</div>
-<h3>Quantify</h3>
-<p>Cost Per Resolution (CPR) model. Not cost per call — cost per outcome. The metric your dashboard should have but doesn't.</p>
-<div class="detail">Gated: no dollar outputs until real data.</div>
-</div>
-<div class="what-card">
-<div class="icon">◇</div>
-<h3>Contain</h3>
-<p>Behavioral coaching kits and 30-day containment plans. Not just what to measure — what to do differently, starting tomorrow.</p>
-<div class="detail">Every output includes the next action.</div>
-</div>
-</div>
-</div>
-</section>
+    <!-- The Frameworks (CPR Economics & Matrix) -->
+    <section id="frameworks" class="py-24 bg-brand-navy text-white overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16 reveal-on-scroll">
+                <h2 class="text-3xl md:text-4xl font-bold mb-6">The Diagnostic Framework</h2>
+                <p class="text-xl text-brand-muted">
+                    We do not guess. We map 12 operational Fault Lines to our CPR (Cost Per Resolution) economics model to prove exactly where margin is leaking.
+                </p>
+            </div>
 
-<section class="section" id="tiers">
-<div class="container">
-<div class="section-label">How We Work</div>
-<h2>Three tiers. Start small. Scale when the data justifies it.</h2>
-<div class="tiers">
-<div class="tier reveal">
-<div class="tier-name">Tier 1</div>
-<div class="tier-title">Signal Scan</div>
-<div class="tier-time">1–2 weeks</div>
-<ul>
-<li>Fault Line Card assessment</li>
-<li>Diagnostic index dashboard</li>
-<li>CPR parameter shell</li>
-<li>90-day proof plan</li>
-</ul>
-</div>
-<div class="tier reveal">
-<div class="tier-name">Tier 2</div>
-<div class="tier-title">Margin Diagnostic</div>
-<div class="tier-time">4–6 weeks</div>
-<ul>
-<li>Everything in Signal Scan</li>
-<li>Full CPR financial model</li>
-<li>Coaching dashboard</li>
-<li>30-day containment plan</li>
-<li>Executive briefing deck</li>
-</ul>
-</div>
-<div class="tier reveal">
-<div class="tier-name">Tier 3</div>
-<div class="tier-title">Embedded OS</div>
-<div class="tier-time">Ongoing monthly</div>
-<ul>
-<li>Everything in Margin Diagnostic</li>
-<li>Monthly CPR drift reports</li>
-<li>Fault line status updates</li>
-<li>Coaching refresh (quarterly)</li>
-<li>Executive review (quarterly)</li>
-</ul>
-</div>
-</div>
-</div>
-</section>
+            <!-- The Diagnostic Matrix Visualizer -->
+            <div class="mb-16 reveal-on-scroll" style="transition-delay: 150ms;">
+                <div class="bg-gray-900 border border-gray-700 rounded-xl overflow-hidden shadow-2xl">
+                    <div class="bg-gray-800 px-6 py-4 border-b border-gray-700 flex justify-between items-center">
+                        <div class="flex space-x-2">
+                            <div class="w-3 h-3 rounded-full bg-gray-600"></div>
+                            <div class="w-3 h-3 rounded-full bg-gray-600"></div>
+                            <div class="w-3 h-3 rounded-full bg-gray-600"></div>
+                        </div>
+                        <span class="text-xs font-mono text-brand-muted">MSOS Output Terminal // 12-Card Set</span>
+                    </div>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left text-sm">
+                            <thead class="bg-gray-800/50 text-gray-400 font-mono uppercase text-xs tracking-wider">
+                                <tr>
+                                    <th class="px-6 py-4 border-b border-gray-700">The Pivot Point</th>
+                                    <th class="px-6 py-4 border-b border-gray-700">Behavioral Gap</th>
+                                    <th class="px-6 py-4 border-b border-gray-700">Friction Risk</th>
+                                    <th class="px-6 py-4 border-b border-gray-700">Financial Impact</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-gray-800 font-medium">
+                                <tr class="hover:bg-gray-800/30 transition-colors">
+                                    <td class="px-6 py-5 text-gray-200">Transfer Count > 2</td>
+                                    <td class="px-6 py-5 text-gray-300">Ownership Diffusion Across Handoffs</td>
+                                    <td class="px-6 py-5"><span class="text-red-400 font-bold">High</span></td>
+                                    <td class="px-6 py-5">
+                                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-brand-muted/10 text-brand-muted border border-brand-muted/30">
+                                            Data Insufficient
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr class="hover:bg-gray-800/30 transition-colors">
+                                    <td class="px-6 py-5 text-gray-200">Escalation Returned</td>
+                                    <td class="px-6 py-5 text-gray-300">Escalation Bounce (Authority Misalignment)</td>
+                                    <td class="px-6 py-5"><span class="text-orange-400 font-bold">Medium</span></td>
+                                    <td class="px-6 py-5 text-gray-400 font-mono">
+                                        <span class="text-white font-sans">Requires Client Cost/Touch Inputs</span>
+                                    </td>
+                                </tr>
+                                <tr class="hover:bg-gray-800/30 transition-colors">
+                                    <td class="px-6 py-5 text-gray-200">Revisit within 14 Days</td>
+                                    <td class="px-6 py-5 text-gray-300">Field Revisit Normalization</td>
+                                    <td class="px-6 py-5"><span class="text-red-400 font-bold">High</span></td>
+                                    <td class="px-6 py-5">
+                                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-brand-muted/10 text-brand-muted border border-brand-muted/30">
+                                            Data Insufficient
+                                        </span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
 
-<section class="section" id="different">
-<div class="container">
-<div class="section-label">What Makes This Different</div>
-<h2>Honest by design.</h2>
-<div class="diff-grid">
-<div class="diff-item reveal">
-<h3>Baseline-Free</h3>
-<p>Most consultants need 6 months of your data before they can tell you anything. Our indices produce insight from day one — no historical baseline required.</p>
-</div>
-<div class="diff-item reveal">
-<h3>Data Insufficient</h3>
-<p>When we don't have enough information, we say so. No fabricated numbers. No template outputs. We show the formula and tell you what we need.</p>
-</div>
-<div class="diff-item reveal">
-<h3>Behavioral, Not Just Analytical</h3>
-<p>Every output answers two questions: what is happening, and what should we do about it. Metrics without action plans are expensive screensavers.</p>
-</div>
-</div>
-</div>
-</section>
+            <!-- The Methodology (3 Steps) -->
+            <div class="grid md:grid-cols-3 gap-8 border-t border-gray-800 pt-16">
+                <div class="reveal-on-scroll">
+                    <div class="text-brand-orange font-mono text-sm mb-3">01 // DIAGNOSE</div>
+                    <h3 class="text-xl font-bold mb-3">12 Fault Line Cards</h3>
+                    <p class="text-brand-muted leading-relaxed">
+                        We identify your specific friction patterns across Contact Center, ITSM, and Field Service. Examples include Weak Close, Blind Transfer Dependency, and Ticket Reopen Loops.
+                    </p>
+                </div>
+                <div class="reveal-on-scroll" style="transition-delay: 100ms;">
+                    <div class="text-brand-orange font-mono text-sm mb-3">02 // QUANTIFY</div>
+                    <h3 class="text-xl font-bold mb-3">CPR Economics</h3>
+                    <p class="text-brand-muted leading-relaxed">
+                        Our Cost Per Resolution model translates operational recurrence into margin pressure. We measure <strong>Effective Resolution Stability (ERS = 1 - R7)</strong> to prove economic distortion.
+                    </p>
+                </div>
+                <div class="reveal-on-scroll" style="transition-delay: 200ms;">
+                    <div class="text-brand-orange font-mono text-sm mb-3">03 // CONTAIN</div>
+                    <h3 class="text-xl font-bold mb-3">Behavioral Playbooks</h3>
+                    <p class="text-brand-muted leading-relaxed">
+                        We don't hand you a dashboard and walk away. We provide behavioral coaching kits and 30-day containment plans giving leaders specific actions to compress volatility.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<section class="cta-section" id="contact">
-<div class="container">
-<h2>Want to see your Fault Line Card?</h2>
-<p>One conversation. One framework relevant to your operation. No pitch — and if it's not useful, we'll say so.</p>
-<a href="mailto:brandon@marginsignalos.com?subject=Fault%20Line%20Card%20Request" class="cta-btn">Let's Talk</a>
-<div class="cta-sub">brandon@marginsignalos.com · LinkedIn: /in/brandonburdin</div>
-</div>
-</section>
+    <!-- Interactive AI Diagnostic Demo (Gemini Integration) -->
+    <section id="ai-demo" class="py-24 bg-white border-b border-gray-200 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                
+                <!-- Left: Instructions -->
+                <div class="reveal-on-scroll">
+                    <div class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-brand-orange/10 text-brand-orange mb-6 uppercase tracking-wide border border-brand-orange/20">
+                        Live Engine Demo
+                    </div>
+                    <h2 class="text-3xl md:text-4xl font-bold text-brand-navy mb-6">Test the Diagnostic Engine.</h2>
+                    <p class="text-gray-600 text-lg mb-6 leading-relaxed">
+                        Don't wait for a 4-week consulting engagement. Describe an operational symptom you are experiencing on the floor right now, and our intelligence engine will map it to a structural Fault Line.
+                    </p>
+                    
+                    <div class="bg-brand-bg border border-gray-200 rounded-xl p-6 shadow-inner">
+                        <label for="symptomInput" class="block text-sm font-bold text-brand-navy mb-3">Describe what you are seeing:</label>
+                        <textarea id="symptomInput" rows="4" class="w-full px-4 py-3 rounded-md border border-gray-300 focus:border-brand-navy focus:ring-1 focus:ring-brand-navy outline-none transition-colors text-sm mb-4 resize-none" placeholder="E.g., Our First Contact Resolution (FCR) looks stable at 80%, but our cost per ticket keeps rising and customers complain about having to repeat their issue to different departments..."></textarea>
+                        
+                        <button id="analyzeBtn" onclick="analyzeSymptom()" class="w-full bg-brand-navy text-white px-6 py-3 rounded-md font-semibold hover:bg-gray-800 transition-all shadow-md flex justify-center items-center">
+                            ✨ Run Signal Scan
+                        </button>
+                    </div>
+                </div>
 
-<footer>
-<div class="container">
-<p>© 2026 MarginSignal OS LLC · Lawrenceville, GA · Signal → Behaviour → Financial Impact</p>
-</div>
-</footer>
+                <!-- Right: AI Output Terminal -->
+                <div class="reveal-on-scroll" style="transition-delay: 200ms;">
+                    <div class="bg-gray-900 rounded-xl border border-gray-700 shadow-2xl h-full min-h-[400px] flex flex-col relative overflow-hidden">
+                        
+                        <!-- Terminal Header -->
+                        <div class="bg-gray-800 px-6 py-3 border-b border-gray-700 flex items-center justify-between z-10 relative">
+                            <div class="flex space-x-2">
+                                <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                                <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                                <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                            </div>
+                            <span class="text-xs font-mono text-gray-400">MSOS // Fault_Line_Assessor</span>
+                        </div>
 
-<script>
-// Scroll reveal
-const observer = new IntersectionObserver((entries) => {
-entries.forEach(e => { if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target)} });
-}, {threshold:0.1});
-document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-</script>
+                        <!-- Terminal Body -->
+                        <div class="p-8 flex-grow flex flex-col justify-center relative z-10">
+                            
+                            <!-- Initial State -->
+                            <div id="aiInitial" class="text-center text-gray-500 font-mono text-sm">
+                                <svg class="w-12 h-12 mx-auto mb-4 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"></path></svg>
+                                <p>Awaiting operational telemetry...</p>
+                            </div>
+
+                            <!-- Loading State -->
+                            <div id="aiLoading" class="hidden text-center">
+                                <div class="inline-block relative w-16 h-16 mb-4">
+                                    <div class="absolute top-0 left-0 w-full h-full border-4 border-gray-700 rounded-full"></div>
+                                    <div class="absolute top-0 left-0 w-full h-full border-4 border-brand-orange rounded-full border-t-transparent animate-spin"></div>
+                                </div>
+                                <p class="text-brand-orange font-mono text-sm animate-pulse">Isolating signal from noise...</p>
+                            </div>
+
+                            <!-- Result State -->
+                            <div id="aiResult" class="hidden h-full flex flex-col justify-center space-y-6">
+                                <div>
+                                    <div class="text-xs font-mono text-gray-400 uppercase tracking-wider mb-2">Detected Fault Line</div>
+                                    <div id="resFaultLine" class="inline-block bg-red-900/30 text-red-400 border border-red-800/50 px-3 py-1 rounded-md font-bold text-lg">
+                                        <!-- Populated via JS -->
+                                    </div>
+                                </div>
+                                
+                                <div>
+                                    <div class="text-xs font-mono text-gray-400 uppercase tracking-wider mb-2">The Behavioral Gap</div>
+                                    <p id="resBehavior" class="text-gray-200 text-sm leading-relaxed">
+                                        <!-- Populated via JS -->
+                                    </p>
+                                </div>
+
+                                <div>
+                                    <div class="text-xs font-mono text-gray-400 uppercase tracking-wider mb-2">Dashboard Blind Spot</div>
+                                    <div class="bg-gray-800/50 border-l-2 border-brand-orange p-4 rounded-r-md">
+                                        <p id="resBlindSpot" class="text-gray-300 text-sm leading-relaxed italic">
+                                            <!-- Populated via JS -->
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Error State -->
+                            <div id="aiError" class="hidden text-center text-red-400 bg-red-900/20 p-4 rounded border border-red-800/50 font-mono text-sm">
+                                Error connecting to diagnostic engine. Please try again.
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Proof / Case Study -->
+    <section id="case-study" class="py-24 bg-brand-bg border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-white p-10 md:p-14 rounded-2xl shadow-sm border border-gray-200 reveal-on-scroll">
+                <div class="flex flex-col md:flex-row gap-12 items-center">
+                    <div class="md:w-1/2">
+                        <div class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-green-100 text-green-800 mb-6 uppercase tracking-wide">
+                            Case Study
+                        </div>
+                        <h2 class="text-3xl md:text-4xl font-bold text-brand-navy mb-6 leading-tight">
+                            How a 2,000-Agent Contact Center Found $1.2M in Hidden Margin Erosion in 10 Days
+                        </h2>
+                        <p class="text-gray-600 mb-6 leading-relaxed">
+                            The dashboard showed an FCR of 78% (within target). The reality? 22% of interactions generated a repeat within 7 days, and average transfer depth was inflating handle times.
+                        </p>
+                        <p class="text-gray-600 mb-6 leading-relaxed">
+                            By mapping their data against the <strong>Ownership Diffusion</strong> and <strong>Escalation Bounce</strong> Fault Lines, we provided the baseline-free diagnostic and CPR calculations that isolated the leak.
+                        </p>
+                    </div>
+                    <div class="md:w-1/2 w-full">
+                        <div class="bg-brand-bg rounded-xl p-6 border border-gray-200">
+                            <h4 class="font-bold text-brand-navy mb-4 border-b border-gray-200 pb-2">The Result (After 90 Days)</h4>
+                            <div class="space-y-4">
+                                <div class="flex justify-between items-center">
+                                    <span class="text-gray-600 font-medium">7-Day Repeat Rate</span>
+                                    <div class="flex items-center space-x-3">
+                                        <span class="text-sm text-gray-400 line-through">22.0%</span>
+                                        <span class="font-bold text-brand-navy">18.5%</span>
+                                    </div>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <span class="text-gray-600 font-medium">Escalation Bounce Rate</span>
+                                    <div class="flex items-center space-x-3">
+                                        <span class="text-sm text-gray-400 line-through">8.4%</span>
+                                        <span class="font-bold text-brand-navy">3.2%</span>
+                                    </div>
+                                </div>
+                                <div class="flex justify-between items-center pt-4 border-t border-gray-200">
+                                    <span class="text-brand-navy font-bold">Annualized Margin Saved</span>
+                                    <span class="font-bold text-green-600 text-xl">$1,240,000</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Offer Ladder (Pricing) -->
+    <section id="offer-ladder" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16 reveal-on-scroll">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-brand-navy">How We Work</h2>
+                <p class="text-xl text-brand-muted">Transparent scoping. No hidden hours. Price the outcome, not the hours.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                
+                <!-- Tier 1 -->
+                <div class="flex flex-col bg-brand-bg rounded-xl border border-gray-200 p-8 hover:shadow-lg transition-all duration-300 reveal-on-scroll">
+                    <h3 class="text-2xl font-bold text-brand-navy mb-2">Signal Scan</h3>
+                    <div class="text-brand-muted font-mono text-sm mb-6">1–2 Weeks</div>
+                    <div class="text-3xl font-extrabold text-brand-navy mb-6">$3k – $5k</div>
+                    <p class="text-gray-600 mb-8 flex-grow leading-relaxed">Find your fault lines. Baseline-free diagnostic + 90-day proof plan.</p>
+                    <ul class="space-y-4 mb-8 text-sm text-brand-navy font-medium">
+                        <li class="flex items-start"><svg class="h-5 w-5 text-brand-orange mr-2 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Ranked Fault Line Cards</li>
+                        <li class="flex items-start"><svg class="h-5 w-5 text-brand-orange mr-2 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Index Dashboard (RCEI, DLI, BVI, IRI)</li>
+                        <li class="flex items-start"><svg class="h-5 w-5 text-brand-orange mr-2 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> CPR Parameter Shell</li>
+                    </ul>
+                </div>
+
+                <!-- Tier 2 -->
+                <div class="flex flex-col bg-brand-navy text-white rounded-xl border-2 border-brand-navy p-8 shadow-xl relative z-10 transform md:scale-105 reveal-on-scroll" style="transition-delay: 100ms;">
+                    <div class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-brand-orange text-white px-4 py-1 rounded-full text-xs font-bold uppercase tracking-wider shadow-sm">
+                        The Proof
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-2">Margin Diagnostic</h3>
+                    <div class="text-gray-400 font-mono text-sm mb-6">4–6 Weeks</div>
+                    <div class="text-3xl font-extrabold text-white mb-6">$8k – $15k</div>
+                    <p class="text-gray-300 mb-8 flex-grow leading-relaxed">Full CPR financial model + coaching dashboard + 30-day containment plan.</p>
+                    <ul class="space-y-4 mb-8 text-sm text-gray-200 font-medium">
+                        <li class="flex items-start"><svg class="h-5 w-5 text-brand-orange mr-2 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Everything in Signal Scan</li>
+                        <li class="flex items-start"><svg class="h-5 w-5 text-brand-orange mr-2 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Full CPR Financial Model (Client Data)</li>
+                        <li class="flex items-start"><svg class="h-5 w-5 text-brand-orange mr-2 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Leader-Ready Coaching Dashboard</li>
+                        <li class="flex items-start"><svg class="h-5 w-5 text-brand-orange mr-2 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Executive Briefing Deck</li>
+                    </ul>
+                </div>
+
+                <!-- Tier 3 -->
+                <div class="flex flex-col bg-brand-bg rounded-xl border border-gray-200 p-8 hover:shadow-lg transition-all duration-300 reveal-on-scroll" style="transition-delay: 200ms;">
+                    <h3 class="text-2xl font-bold text-brand-navy mb-2">Embedded OS</h3>
+                    <div class="text-brand-muted font-mono text-sm mb-6">Ongoing Monthly</div>
+                    <div class="text-3xl font-extrabold text-brand-navy mb-6">$5k – $10k <span class="text-lg text-brand-muted font-normal">/mo</span></div>
+                    <p class="text-gray-600 mb-8 flex-grow leading-relaxed">Continuous margin monitoring, coaching refresh, and quarterly executive review.</p>
+                    <ul class="space-y-4 mb-8 text-sm text-brand-navy font-medium">
+                        <li class="flex items-start"><svg class="h-5 w-5 text-brand-orange mr-2 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Everything in Diagnostic</li>
+                        <li class="flex items-start"><svg class="h-5 w-5 text-brand-orange mr-2 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Monthly CPR Drift Reports</li>
+                        <li class="flex items-start"><svg class="h-5 w-5 text-brand-orange mr-2 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Fault Line Status Updates</li>
+                        <li class="flex items-start"><svg class="h-5 w-5 text-brand-orange mr-2 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Quarterly Executive Review</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Intake Form Section (Airtable Integrated Mock) -->
+    <section id="intake-form" class="py-24 bg-brand-bg border-t border-gray-200 relative overflow-hidden">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="bg-white rounded-2xl shadow-xl border border-gray-200 p-8 md:p-12 reveal-on-scroll">
+                
+                <div class="text-center mb-10">
+                    <h2 class="text-3xl font-bold text-brand-navy mb-4">Request a Diagnostic</h2>
+                    <p class="text-gray-600">Start baseline-free. We'll identify your fault lines in 1-2 weeks.</p>
+                </div>
+
+                <!-- Form Container -->
+                <div class="relative overflow-hidden" style="min-height: 350px;">
+                    <form id="leadForm" onsubmit="event.preventDefault(); submitForm();">
+                        
+                        <!-- Step 1: Contact Details -->
+                        <div id="form-step-1" class="form-step form-step-active w-full">
+                            <div class="space-y-6">
+                                <div>
+                                    <label for="name" class="block text-sm font-semibold text-brand-navy mb-2">Full Name</label>
+                                    <input type="text" id="name" required class="w-full px-4 py-3 rounded-md border border-gray-300 focus:border-brand-navy focus:ring-1 focus:ring-brand-navy outline-none transition-colors" placeholder="e.g. Jane Doe">
+                                </div>
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                    <div>
+                                        <label for="email" class="block text-sm font-semibold text-brand-navy mb-2">Work Email</label>
+                                        <input type="email" id="email" required class="w-full px-4 py-3 rounded-md border border-gray-300 focus:border-brand-navy focus:ring-1 focus:ring-brand-navy outline-none transition-colors" placeholder="jane@company.com">
+                                    </div>
+                                    <div>
+                                        <label for="company" class="block text-sm font-semibold text-brand-navy mb-2">Company</label>
+                                        <input type="text" id="company" required class="w-full px-4 py-3 rounded-md border border-gray-300 focus:border-brand-navy focus:ring-1 focus:ring-brand-navy outline-none transition-colors" placeholder="Acme Corp">
+                                    </div>
+                                </div>
+                                <button type="button" onclick="nextStep()" class="w-full mt-6 bg-brand-navy text-white px-6 py-3.5 rounded-md font-semibold hover:bg-gray-800 transition-all shadow-md flex justify-center items-center">
+                                    Next Step
+                                    <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Step 2: Ops Details -->
+                        <div id="form-step-2" class="form-step form-step-hidden w-full">
+                            <div class="space-y-6">
+                                <div>
+                                    <label class="block text-sm font-semibold text-brand-navy mb-3">Primary Domains (Select all that apply)</label>
+                                    <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+                                        <label class="flex items-center p-3 border border-gray-200 rounded-md cursor-pointer hover:bg-gray-50 transition-colors">
+                                            <input type="checkbox" class="h-4 w-4 text-brand-orange focus:ring-brand-orange border-gray-300 rounded">
+                                            <span class="ml-3 text-sm text-brand-navy font-medium">Contact Center</span>
+                                        </label>
+                                        <label class="flex items-center p-3 border border-gray-200 rounded-md cursor-pointer hover:bg-gray-50 transition-colors">
+                                            <input type="checkbox" class="h-4 w-4 text-brand-orange focus:ring-brand-orange border-gray-300 rounded">
+                                            <span class="ml-3 text-sm text-brand-navy font-medium">ITSM</span>
+                                        </label>
+                                        <label class="flex items-center p-3 border border-gray-200 rounded-md cursor-pointer hover:bg-gray-50 transition-colors">
+                                            <input type="checkbox" class="h-4 w-4 text-brand-orange focus:ring-brand-orange border-gray-300 rounded">
+                                            <span class="ml-3 text-sm text-brand-navy font-medium">Field Service</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div>
+                                    <label for="volume" class="block text-sm font-semibold text-brand-navy mb-2">Monthly Interaction Volume</label>
+                                    <select id="volume" required class="w-full px-4 py-3 rounded-md border border-gray-300 focus:border-brand-navy focus:ring-1 focus:ring-brand-navy outline-none bg-white transition-colors">
+                                        <option value="" disabled selected>Select volume range...</option>
+                                        <option value="under_5k">Under 5,000 touches</option>
+                                        <option value="5k_50k">5,000 - 50,000 touches</option>
+                                        <option value="50k_plus">50,000+ touches</option>
+                                    </select>
+                                </div>
+                                <div class="flex space-x-4 mt-6">
+                                    <button type="button" onclick="prevStep()" class="w-1/3 bg-white border border-gray-300 text-brand-navy px-6 py-3.5 rounded-md font-semibold hover:bg-gray-50 transition-all">
+                                        Back
+                                    </button>
+                                    <button type="submit" id="submitBtn" class="w-2/3 bg-brand-orange text-white px-6 py-3.5 rounded-md font-semibold hover:bg-orange-600 transition-all shadow-md">
+                                        Submit Request
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Step 3: Success State -->
+                        <div id="form-step-success" class="form-step form-step-hidden w-full text-center py-8">
+                            <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                                <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            </div>
+                            <h3 class="text-2xl font-bold text-brand-navy mb-2">Received.</h3>
+                            <p class="text-gray-600">I'll review your details and reach out within 24 hours to schedule a brief scoping call.</p>
+                        </div>
+                    </form>
+                </div>
+                <!-- End Form Container -->
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-brand-navy py-16 border-t border-gray-800 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+                <!-- Brand -->
+                <div>
+                    <span class="font-extrabold text-2xl tracking-tight text-white mb-4 block">MarginSignal<span class="text-brand-orange">OS</span></span>
+                    <p class="text-brand-muted text-sm leading-relaxed mb-6">
+                        Operational Margin Intelligence for Service Operations. We replace dashboard averages with resolution economics.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="https://linkedin.com/in/brandonburdin" target="_blank" rel="noopener noreferrer" class="text-brand-muted hover:text-white transition-colors">
+                            <span class="sr-only">LinkedIn</span>
+                            <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Disqualifiers -->
+                <div>
+                    <h4 class="text-sm font-bold uppercase tracking-wider text-gray-400 mb-4">Who This Is Not For</h4>
+                    <ul class="text-sm text-brand-muted space-y-3 font-medium">
+                        <li>• Operations without access to raw data.</li>
+                        <li>• Teams with fewer than 50 agents.</li>
+                        <li>• Leaders looking to buy a "dashboard tool".</li>
+                    </ul>
+                </div>
+
+                <!-- Contact -->
+                <div>
+                    <h4 class="text-sm font-bold uppercase tracking-wider text-gray-400 mb-4">Contact</h4>
+                    <p class="text-sm text-brand-muted mb-4">Have questions before booking? Send an email or connect on LinkedIn.</p>
+                    <a href="mailto:brandon@marginsignalos.com" class="text-brand-orange hover:text-orange-400 font-medium transition-colors">
+                        brandon@marginsignalos.com
+                    </a>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-gray-500 font-mono">
+                <p>&copy; 2026 MarginSignal OS LLC. All rights reserved.</p>
+                <div class="flex space-x-6 mt-4 md:mt-0">
+                    <span>"Data Insufficient is a feature, not a bug."</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Interactive Scripts -->
+    <script>
+        // Scroll Reveal Logic
+        document.addEventListener('DOMContentLoaded', () => {
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            const sections = document.querySelectorAll('.reveal-on-scroll');
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+            
+            // Navbar shadow on scroll
+            const nav = document.getElementById('navbar');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 20) {
+                    nav.classList.add('shadow-sm');
+                } else {
+                    nav.classList.remove('shadow-sm');
+                }
+            });
+        });
+
+        // Multi-Step Form Logic (Airtable Mock)
+        const step1 = document.getElementById('form-step-1');
+        const step2 = document.getElementById('form-step-2');
+        const stepSuccess = document.getElementById('form-step-success');
+
+        function nextStep() {
+            // Basic validation check before moving on
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            if(name === '' || email === '') {
+                alert('Please fill out Name and Email.');
+                return;
+            }
+
+            step1.classList.remove('form-step-active');
+            step1.classList.add('form-step-hidden');
+            
+            setTimeout(() => {
+                step2.classList.remove('form-step-hidden');
+                step2.classList.add('form-step-active');
+            }, 300); // Wait for fade out
+        }
+
+        function prevStep() {
+            step2.classList.remove('form-step-active');
+            step2.classList.add('form-step-hidden');
+            
+            setTimeout(() => {
+                step1.classList.remove('form-step-hidden');
+                step1.classList.add('form-step-active');
+            }, 300);
+        }
+
+        function submitForm() {
+            const btn = document.getElementById('submitBtn');
+            btn.innerHTML = 'Processing...';
+            btn.disabled = true;
+
+            // Simulate API request to Airtable Serverless function
+            setTimeout(() => {
+                step2.classList.remove('form-step-active');
+                step2.classList.add('form-step-hidden');
+                
+                setTimeout(() => {
+                    stepSuccess.classList.remove('form-step-hidden');
+                    stepSuccess.classList.add('form-step-active');
+                }, 300);
+            }, 1200);
+        }
+
+        // --- Gemini API Integration: Interactive Signal Scanner ---
+        const apiKey = "";
+
+        async function fetchWithExponentialBackoff(url, options, maxRetries = 5) {
+            let delay = 1000;
+            for (let i = 0; i < maxRetries; i++) {
+                try {
+                    const response = await fetch(url, options);
+                    if (!response.ok) {
+                        if (response.status === 429 || response.status >= 500) {
+                            throw new Error(`HTTP Error: ${response.status}`);
+                        }
+                        // Non-retriable errors (e.g., 400 Bad Request)
+                        throw new Error(`Client Error: ${response.status}`);
+                    }
+                    return await response.json();
+                } catch (error) {
+                    if (i === maxRetries - 1) throw error;
+                    await new Promise(resolve => setTimeout(resolve, delay));
+                    delay *= 2;
+                }
+            }
+        }
+
+        async function analyzeSymptom() {
+            const inputEl = document.getElementById('symptomInput');
+            const btn = document.getElementById('analyzeBtn');
+            const initialEl = document.getElementById('aiInitial');
+            const loadingEl = document.getElementById('aiLoading');
+            const resultEl = document.getElementById('aiResult');
+            const errorEl = document.getElementById('aiError');
+
+            const text = inputEl.value.trim();
+            if (!text) {
+                inputEl.focus();
+                return;
+            }
+
+            // Update UI to Loading State
+            btn.disabled = true;
+            btn.classList.add('opacity-70', 'cursor-not-allowed');
+            initialEl.classList.add('hidden');
+            resultEl.classList.add('hidden');
+            errorEl.classList.add('hidden');
+            loadingEl.classList.remove('hidden');
+
+            const systemPrompt = `You are the MarginSignal OS diagnostic engine. Your job is to analyze the user's service operations symptom and identify the most likely structural 'Fault Line'.
+            
+            You MUST map their issue to EXACTLY ONE of these 12 MSOS Fault Lines:
+            1. Ownership Diffusion Across Handoffs
+            2. Escalation Bounce (Authority Misalignment)
+            3. Blind Transfer Dependency
+            4. Weak Close / No Assurance Standard
+            5. Ticket Reopen Loop
+            6. Resolver Group Ping-Pong
+            7. Field Revisit Normalization
+            8. Taxonomy Integrity Failure (Signal Blindness)
+            9. Decision Latency Drag
+            10. Policy Interpretation Variability
+            11. Tool Latency Constraint
+            12. Cross-Domain "Hallway" Problem
+            
+            Respond as a highly technical, white-glove consultant. Do not use hype.`;
+
+            const payload = {
+                contents: [{ parts: [{ text: `Analyze this operational symptom: "${text}"` }] }],
+                systemInstruction: { parts: [{ text: systemPrompt }] },
+                generationConfig: {
+                    responseMimeType: "application/json",
+                    responseSchema: {
+                        type: "OBJECT",
+                        properties: {
+                            predictedFaultLine: { type: "STRING", description: "The exact name of the matched Fault Line from the list." },
+                            behavioralGap: { type: "STRING", description: "2 concise sentences explaining the behavioral root cause of this specific fault." },
+                            dashboardBlindSpot: { type: "STRING", description: "2 concise sentences explaining why standard averages (AHT, FCR, etc.) are failing to show the true cost of this issue." }
+                        },
+                        required: ["predictedFaultLine", "behavioralGap", "dashboardBlindSpot"]
+                    }
+                }
+            };
+
+            try {
+                const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`;
+                const data = await fetchWithExponentialBackoff(url, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                const responseText = data.candidates?.[0]?.content?.parts?.[0]?.text;
+                if (!responseText) throw new Error("Invalid API response structure");
+
+                const result = JSON.parse(responseText);
+
+                // Populate UI
+                document.getElementById('resFaultLine').textContent = result.predictedFaultLine;
+                document.getElementById('resBehavior').textContent = result.behavioralGap;
+                document.getElementById('resBlindSpot').textContent = result.dashboardBlindSpot;
+
+                // Show Result
+                loadingEl.classList.add('hidden');
+                resultEl.classList.remove('hidden');
+
+            } catch (error) {
+                loadingEl.classList.add('hidden');
+                errorEl.classList.remove('hidden');
+            } finally {
+                btn.disabled = false;
+                btn.classList.remove('opacity-70', 'cursor-not-allowed');
+            }
+        }
+    </script>
 </body>
 </html>
