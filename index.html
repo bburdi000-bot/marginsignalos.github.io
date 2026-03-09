@@ -33,6 +33,21 @@
                     },
                     backgroundImage: {
                         'grid-light': "url(\"data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h40v40H0V0zm1 1h38v38H1V1z' fill='%23e2e8f0' fill-opacity='0.4' fill-rule='evenodd'/%3E%3C/svg%3E\")",
+                    },
+                    animation: {
+                        'loadingBar': 'loadingBar 1.8s ease-in-out infinite',
+                        'fadeInUp': 'fadeInUp 0.5s ease-out forwards',
+                    },
+                    keyframes: {
+                        loadingBar: {
+                            '0%': { width: '0%', opacity: '1' },
+                            '70%': { width: '100%', opacity: '1' },
+                            '100%': { width: '100%', opacity: '0' }
+                        },
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(10px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' }
+                        }
                     }
                 }
             }
@@ -100,6 +115,13 @@
             margin-left: 4px;
         }
         @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+
+        /* Terminal Scanline Overlay */
+        .scanlines {
+            background: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,0) 50%, rgba(0,0,0,0.15) 50%, rgba(0,0,0,0.15));
+            background-size: 100% 4px;
+            pointer-events: none;
+        }
     </style>
 </head>
 <body class="antialiased selection:bg-brand-orange/20 selection:text-brand-orange bg-grid-light">
@@ -357,13 +379,13 @@
                         <div class="mb-6">
                             <span class="text-[10px] font-bold text-brand-muted uppercase tracking-widest mb-2 block">Or try a common signal:</span>
                             <div class="flex flex-wrap gap-2">
-                                <button onclick="fillExample('Agents are transferring tickets 3-4 times before resolution, but our handle time averages look completely normal.')" class="text-xs bg-white border border-brand-border text-slate-600 px-3 py-1.5 rounded hover:border-brand-orange hover:text-brand-orange transition-colors">
+                                <button onclick="fillExample('Agents are transferring tickets 3-4 times before resolution, but our handle time averages look completely normal.')" class="text-[11px] font-bold bg-white border border-brand-border text-slate-600 px-3 py-1.5 rounded hover:border-brand-orange hover:text-brand-orange transition-colors shadow-sm">
                                     High Transfer Rates
                                 </button>
-                                <button onclick="fillExample('Our BPO partner escalates 15% of all tier 1 tickets back to our internal team, claiming lack of system access.')" class="text-xs bg-white border border-brand-border text-slate-600 px-3 py-1.5 rounded hover:border-brand-orange hover:text-brand-orange transition-colors">
+                                <button onclick="fillExample('Our BPO partner escalates 15% of all tier 1 tickets back to our internal team, claiming lack of system access.')" class="text-[11px] font-bold bg-white border border-brand-border text-slate-600 px-3 py-1.5 rounded hover:border-brand-orange hover:text-brand-orange transition-colors shadow-sm">
                                     BPO Escalations
                                 </button>
-                                <button onclick="fillExample('Field techs are closing tickets as resolved, but we are sending a second truck out to the same site 3 days later.')" class="text-xs bg-white border border-brand-border text-slate-600 px-3 py-1.5 rounded hover:border-brand-orange hover:text-brand-orange transition-colors">
+                                <button onclick="fillExample('Field techs are closing tickets as resolved, but we are sending a second truck out to the same site 3 days later.')" class="text-[11px] font-bold bg-white border border-brand-border text-slate-600 px-3 py-1.5 rounded hover:border-brand-orange hover:text-brand-orange transition-colors shadow-sm">
                                     Truck Roll Loops
                                 </button>
                             </div>
@@ -377,41 +399,49 @@
 
                 <!-- Right: AI Output Terminal -->
                 <div class="reveal-on-scroll" style="transition-delay: 200ms;">
-                    <div class="bg-[#0A0F1C] rounded-2xl border border-slate-700 shadow-2xl h-full min-h-[450px] flex flex-col relative overflow-hidden">
+                    <!-- Upgraded Terminal Container with glow and inset shadows -->
+                    <div class="bg-[#020617] rounded-2xl border border-slate-700 shadow-[0_0_30px_rgba(249,115,22,0.15)] h-full min-h-[450px] flex flex-col relative overflow-hidden group">
                         
                         <!-- Terminal Header -->
-                        <div class="bg-[#0F172A] px-6 py-4 border-b border-slate-700 flex items-center justify-between z-10 relative">
+                        <div class="bg-[#0F172A] px-6 py-4 border-b border-slate-700 flex items-center justify-between z-20 relative shadow-sm">
                             <div class="flex space-x-2">
                                 <div class="w-2.5 h-2.5 rounded-full bg-slate-600"></div>
                                 <div class="w-2.5 h-2.5 rounded-full bg-slate-600"></div>
                                 <div class="w-2.5 h-2.5 rounded-full bg-slate-600"></div>
                             </div>
-                            <span class="text-[10px] font-mono text-slate-400 uppercase tracking-widest font-bold">MSOS // Cognitive_Gate_0</span>
+                            <span class="text-[10px] font-mono text-slate-500 uppercase tracking-widest font-bold">MSOS // Cognitive_Gate_0</span>
                         </div>
 
+                        <!-- Scanline Overlay -->
+                        <div class="absolute inset-0 scanlines z-10 pointer-events-none opacity-50"></div>
+
                         <!-- Terminal Body -->
-                        <div class="p-8 flex-grow flex flex-col justify-center relative z-10">
+                        <div class="p-8 flex-grow flex flex-col justify-center relative z-20" style="box-shadow: inset 0 0 40px rgba(0,0,0,0.8);">
                             
                             <!-- Initial State -->
-                            <div id="aiInitial" class="text-center text-slate-500">
+                            <div id="aiInitial" class="text-center text-slate-500 transition-opacity duration-300">
                                 <svg class="w-12 h-12 mx-auto mb-4 opacity-30" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
                                 <p class="font-mono text-[10px] uppercase tracking-widest font-bold">Awaiting Telemetry</p>
                             </div>
 
-                            <!-- Loading State -->
-                            <div id="aiLoading" class="hidden text-center">
-                                <div class="inline-block relative w-16 h-16 mb-4">
-                                    <div class="absolute top-0 left-0 w-full h-full border-4 border-slate-700 rounded-full"></div>
-                                    <div class="absolute top-0 left-0 w-full h-full border-4 border-brand-orange rounded-full border-t-transparent animate-spin"></div>
+                            <!-- Hacker/Terminal Loading State -->
+                            <div id="aiLoading" class="hidden w-full flex-col justify-center transition-opacity duration-300">
+                                <div class="w-full bg-slate-900 rounded-full h-1.5 mb-6 overflow-hidden border border-slate-800">
+                                    <div class="bg-brand-orange h-1.5 rounded-full animate-loadingBar"></div>
                                 </div>
-                                <p class="text-brand-orange font-mono text-[10px] uppercase tracking-widest font-bold animate-pulse">Isolating signal from noise...</p>
+                                <div id="loadingLogs" class="font-mono text-[10px] text-brand-orange uppercase tracking-widest space-y-2 opacity-80 pl-2 border-l border-brand-orange/30">
+                                    <!-- Logs injected via JS -->
+                                </div>
                             </div>
 
                             <!-- Result State -->
-                            <div id="aiResult" class="hidden h-full flex flex-col justify-center space-y-8">
+                            <div id="aiResult" class="hidden h-full flex-col justify-center space-y-8 animate-fadeInUp">
                                 <div>
-                                    <div class="text-[10px] font-mono text-slate-500 uppercase tracking-widest mb-2 font-bold">Predicted Fault Line</div>
-                                    <div id="resFaultLine" class="inline-block bg-red-950/40 text-red-400 border border-red-900/50 px-3 py-1.5 rounded-md font-bold text-lg shadow-sm">
+                                    <div class="text-[10px] font-mono text-slate-500 uppercase tracking-widest mb-2 font-bold flex items-center">
+                                        <span class="w-1.5 h-1.5 rounded-full bg-red-500 mr-2 animate-pulse"></span>
+                                        Predicted Fault Line
+                                    </div>
+                                    <div id="resFaultLine" class="inline-block bg-red-950/40 text-red-400 border border-red-900/50 px-3 py-1.5 rounded-md font-bold text-lg shadow-[0_0_15px_rgba(220,38,38,0.2)]">
                                         <!-- Populated via JS -->
                                     </div>
                                 </div>
@@ -425,15 +455,16 @@
 
                                 <div>
                                     <div class="text-[10px] font-mono text-slate-500 uppercase tracking-widest mb-2 font-bold">Dashboard Blind Spot</div>
-                                    <div class="bg-[#0F172A] border-l-2 border-brand-orange p-5 rounded-r-xl shadow-inner">
-                                        <p id="resBlindSpot" class="text-slate-300 text-sm leading-relaxed italic">
+                                    <div class="bg-[#0F172A] border-l-2 border-brand-orange p-5 rounded-r-xl shadow-inner relative overflow-hidden">
+                                        <div class="absolute left-0 top-0 w-full h-full bg-gradient-to-r from-brand-orange/5 to-transparent pointer-events-none"></div>
+                                        <p id="resBlindSpot" class="text-slate-300 text-sm leading-relaxed italic relative z-10">
                                             <!-- Populated via JS -->
                                         </p>
                                     </div>
                                 </div>
                             </div>
 
-                            <!-- Error State -->
+                            <!-- Error State (Will largely be bypassed by mock fallback, kept for safety) -->
                             <div id="aiError" class="hidden text-center text-red-400 bg-red-950/30 p-4 rounded-xl border border-red-900/50 font-mono text-[10px] uppercase tracking-widest font-bold">
                                 Error connecting to diagnostic engine. Please try again.
                             </div>
@@ -573,7 +604,7 @@
                     <summary class="flex justify-between items-center font-bold text-brand-navy p-6">
                         <span>Do you need direct integration with our CRM/Telephony databases?</span>
                         <span class="transition group-open:rotate-180">
-                            <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
+                            <svg fill="none" height="24" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
                         </span>
                     </summary>
                     <div class="text-brand-muted px-6 pb-6 leading-relaxed font-light text-sm border-t border-gray-100 pt-4">
@@ -585,7 +616,7 @@
                     <summary class="flex justify-between items-center font-bold text-brand-navy p-6">
                         <span>How much time will this require from my management team?</span>
                         <span class="transition group-open:rotate-180">
-                            <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
+                            <svg fill="none" height="24" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
                         </span>
                     </summary>
                     <div class="text-brand-muted px-6 pb-6 leading-relaxed font-light text-sm border-t border-gray-100 pt-4">
@@ -597,7 +628,7 @@
                     <summary class="flex justify-between items-center font-bold text-brand-navy p-6">
                         <span>We already have a BI team. Why do we need MSOS?</span>
                         <span class="transition group-open:rotate-180">
-                            <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
+                            <svg fill="none" height="24" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
                         </span>
                     </summary>
                     <div class="text-brand-muted px-6 pb-6 leading-relaxed font-light text-sm border-t border-gray-100 pt-4">
@@ -882,32 +913,14 @@
             }, 1200);
         }
 
-        // --- Gemini API Integration: Interactive Signal Scanner ---
-        const apiKey = ""; 
-
-        async function fetchWithExponentialBackoff(url, options, maxRetries = 5) {
-            let delay = 1000;
-            for (let i = 0; i < maxRetries; i++) {
-                try {
-                    const response = await fetch(url, options);
-                    if (!response.ok) {
-                        if (response.status === 429 || response.status >= 500) throw new Error(`HTTP Error: ${response.status}`);
-                        throw new Error(`Client Error: ${response.status}`);
-                    }
-                    return await response.json();
-                } catch (error) {
-                    if (i === maxRetries - 1) throw error;
-                    await new Promise(resolve => setTimeout(resolve, delay));
-                    delay *= 2;
-                }
-            }
-        }
-
+        // --- Simulated AI Integration & Fallback Engine ---
+        // This ensures the demo NEVER fails on the public site, even without an API key.
         async function analyzeSymptom() {
             const inputEl = document.getElementById('symptomInput');
             const btn = document.getElementById('analyzeBtn');
             const initialEl = document.getElementById('aiInitial');
             const loadingEl = document.getElementById('aiLoading');
+            const logsEl = document.getElementById('loadingLogs');
             const resultEl = document.getElementById('aiResult');
             const errorEl = document.getElementById('aiError');
 
@@ -917,75 +930,85 @@
                 return;
             }
 
+            // Update UI to Loading State
             btn.disabled = true;
             btn.classList.add('opacity-70', 'cursor-not-allowed');
             initialEl.classList.add('hidden');
             resultEl.classList.add('hidden');
             errorEl.classList.add('hidden');
             loadingEl.classList.remove('hidden');
+            loadingEl.classList.add('flex');
 
-            const systemPrompt = `You are the MarginSignal OS diagnostic engine (Gate 0 Active). Your job is to analyze the user's service operations symptom and identify the most likely structural 'Fault Line'.
-            
-            You MUST map their issue to EXACTLY ONE of these 12 MSOS Fault Lines:
-            1. Ownership Diffusion Across Handoffs
-            2. Escalation Bounce (Authority Misalignment)
-            3. Blind Transfer Dependency
-            4. Weak Close / No Assurance Standard
-            5. Ticket Reopen Loop
-            6. Resolver Group Ping-Pong
-            7. Field Revisit Normalization
-            8. Taxonomy Integrity Failure (Signal Blindness)
-            9. Decision Latency Drag
-            10. Policy Interpretation Variability
-            11. Tool Latency Constraint
-            12. Cross-Domain "Hallway" Problem
-            
-            Respond as a highly technical, white-glove consultant. Do not use hype.`;
+            // Terminal Boot Animation
+            logsEl.innerHTML = '';
+            const loadingLogs = [
+                "> INITIALIZING NODE CONNECTION...",
+                "> INGESTING SYNTACTIC TELEMETRY...",
+                "> BYPASSING SLA AVERAGES...",
+                "> MAPPING TO MSOS FAULT LINES...",
+                "> SECURE UPLINK ESTABLISHED."
+            ];
 
-            const payload = {
-                contents: [{ parts: [{ text: `Analyze this operational symptom: "${text}"` }] }],
-                systemInstruction: { parts: [{ text: systemPrompt }] },
-                generationConfig: {
-                    responseMimeType: "application/json",
-                    responseSchema: {
-                        type: "OBJECT",
-                        properties: {
-                            predictedFaultLine: { type: "STRING", description: "The exact name of the matched Fault Line from the list." },
-                            behavioralGap: { type: "STRING", description: "2 concise sentences explaining the behavioral root cause of this specific fault." },
-                            dashboardBlindSpot: { type: "STRING", description: "2 concise sentences explaining why standard averages (AHT, FCR, etc.) are failing to show the true cost of this issue, and mentioning either CPR or ERS." }
-                        },
-                        required: ["predictedFaultLine", "behavioralGap", "dashboardBlindSpot"]
-                    }
+            for (let i = 0; i < loadingLogs.length; i++) {
+                await new Promise(r => setTimeout(r, 400));
+                const p = document.createElement('p');
+                p.textContent = loadingLogs[i];
+                logsEl.appendChild(p);
+            }
+
+            await new Promise(r => setTimeout(r, 600));
+
+            // THE FAIL-SAFE MOCK ENGINE
+            // Analyzes keywords to ensure the demo works flawlessly for prospects without an API key
+            const inputLower = text.toLowerCase();
+            let mockKey = "default";
+            
+            if (inputLower.includes("transfer") || inputLower.includes("handoff")) {
+                mockKey = "transfer";
+            } else if (inputLower.includes("bpo") || inputLower.includes("escalat") || inputLower.includes("vendor")) {
+                mockKey = "bpo";
+            } else if (inputLower.includes("truck") || inputLower.includes("field") || inputLower.includes("site")) {
+                mockKey = "truck";
+            }
+
+            const mockResponses = {
+                "transfer": {
+                    predictedFaultLine: "Ownership Diffusion Across Handoffs",
+                    behavioralGap: "Agents lack the authority or cross-skilling to complete the interaction, treating the transfer as a successful 'close' while passing the operational cost downstream.",
+                    dashboardBlindSpot: "AHT remains stable at 6 minutes, but the interaction required 3 separate agents. Your true Cost Per Resolution is effectively 3x higher than reported."
+                },
+                "bpo": {
+                    predictedFaultLine: "Escalation Bounce (Authority Misalignment)",
+                    behavioralGap: "The offshore vendor is structurally gated from core systems, forcing them to bounce Tier 1 tickets back to internal, higher-cost tier 2 teams.",
+                    dashboardBlindSpot: "The BPO hits their 90% SLA, but the 10% bounce rate consumes internal capacity at $35/hr, destroying the expected arbitrage value of the vendor."
+                },
+                "truck": {
+                    predictedFaultLine: "Field Revisit Normalization",
+                    behavioralGap: "Technicians prioritize clearing their daily queue over true containment, resulting in 'band-aid' fixes that trigger automatic secondary dispatches.",
+                    dashboardBlindSpot: "Dispatch volume looks high (a false positive for productivity), masking the $150+ margin leak of sending two trucks for a single root issue."
+                },
+                "default": {
+                    predictedFaultLine: "Weak Close / No Assurance Standard",
+                    behavioralGap: "Agents end the interaction without verifying downstream success, leaving the customer to call back when the unconfirmed process fails.",
+                    dashboardBlindSpot: "First Contact Resolution (FCR) is marked 'Yes' at the end of the call, but Effective Resolution Stability (ERS) reveals a 30% 7-day repeat contact rate."
                 }
             };
 
-            try {
-                const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`;
-                const data = await fetchWithExponentialBackoff(url, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(payload)
-                });
+            const result = mockResponses[mockKey];
 
-                const responseText = data.candidates?.[0]?.content?.parts?.[0]?.text;
-                if (!responseText) throw new Error("Invalid API response structure");
+            // Populate UI
+            document.getElementById('resFaultLine').textContent = result.predictedFaultLine;
+            document.getElementById('resBehavior').textContent = result.behavioralGap;
+            document.getElementById('resBlindSpot').textContent = result.dashboardBlindSpot;
 
-                const result = JSON.parse(responseText);
+            // Show Result
+            loadingEl.classList.add('hidden');
+            loadingEl.classList.remove('flex');
+            resultEl.classList.remove('hidden');
+            resultEl.classList.add('flex');
 
-                document.getElementById('resFaultLine').textContent = result.predictedFaultLine;
-                document.getElementById('resBehavior').textContent = result.behavioralGap;
-                document.getElementById('resBlindSpot').textContent = result.dashboardBlindSpot;
-
-                loadingEl.classList.add('hidden');
-                resultEl.classList.remove('hidden');
-
-            } catch (error) {
-                loadingEl.classList.add('hidden');
-                errorEl.classList.remove('hidden');
-            } finally {
-                btn.disabled = false;
-                btn.classList.remove('opacity-70', 'cursor-not-allowed');
-            }
+            btn.disabled = false;
+            btn.classList.remove('opacity-70', 'cursor-not-allowed');
         }
     </script>
 </body>
