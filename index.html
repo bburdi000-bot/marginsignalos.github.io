@@ -379,13 +379,13 @@
                         <div class="mb-6">
                             <span class="text-[10px] font-bold text-brand-muted uppercase tracking-widest mb-2 block">Or try a common signal:</span>
                             <div class="flex flex-wrap gap-2">
-                                <button onclick="fillExample('Agents are transferring tickets 3-4 times before resolution, but our handle time averages look completely normal.')" class="text-[11px] font-bold bg-white border border-brand-border text-slate-600 px-3 py-1.5 rounded hover:border-brand-orange hover:text-brand-orange transition-colors shadow-sm">
+                                <button onclick="fillExample('Agents are transferring tickets 3-4 times before resolution, but our handle time averages look completely normal.')" class="text-xs bg-white border border-brand-border text-slate-600 px-3 py-1.5 rounded hover:border-brand-orange hover:text-brand-orange transition-colors">
                                     High Transfer Rates
                                 </button>
-                                <button onclick="fillExample('Our BPO partner escalates 15% of all tier 1 tickets back to our internal team, claiming lack of system access.')" class="text-[11px] font-bold bg-white border border-brand-border text-slate-600 px-3 py-1.5 rounded hover:border-brand-orange hover:text-brand-orange transition-colors shadow-sm">
+                                <button onclick="fillExample('Our BPO partner escalates 15% of all tier 1 tickets back to our internal team, claiming lack of system access.')" class="text-xs bg-white border border-brand-border text-slate-600 px-3 py-1.5 rounded hover:border-brand-orange hover:text-brand-orange transition-colors">
                                     BPO Escalations
                                 </button>
-                                <button onclick="fillExample('Field techs are closing tickets as resolved, but we are sending a second truck out to the same site 3 days later.')" class="text-[11px] font-bold bg-white border border-brand-border text-slate-600 px-3 py-1.5 rounded hover:border-brand-orange hover:text-brand-orange transition-colors shadow-sm">
+                                <button onclick="fillExample('Field techs are closing tickets as resolved, but we are sending a second truck out to the same site 3 days later.')" class="text-xs bg-white border border-brand-border text-slate-600 px-3 py-1.5 rounded hover:border-brand-orange hover:text-brand-orange transition-colors">
                                     Truck Roll Loops
                                 </button>
                             </div>
@@ -639,7 +639,7 @@
         </div>
     </section>
 
-    <!-- Intake Form Section (Airtable Integrated Mock) -->
+    <!-- Intake Form Section -->
     <section id="intake-form" class="pb-24 bg-brand-bg relative overflow-hidden">
         <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="bg-white rounded-3xl shadow-2xl border border-brand-border p-8 md:p-12 reveal-on-scroll">
@@ -656,6 +656,7 @@
 
                 <!-- Form Container -->
                 <div class="relative overflow-hidden" style="min-height: 380px;">
+                    <!-- No backend required: Uses FormSubmit to securely send leads directly to Support@marginsignalos.com -->
                     <form id="leadForm" onsubmit="event.preventDefault(); submitForm();">
                         
                         <!-- Step 1: Contact Details -->
@@ -663,16 +664,16 @@
                             <div class="space-y-6">
                                 <div>
                                     <label for="name" class="block text-[10px] font-bold text-brand-muted uppercase tracking-widest mb-2 font-mono">Full Name</label>
-                                    <input type="text" id="name" required class="w-full px-4 py-4 rounded-xl border border-brand-border focus:border-brand-navy focus:ring-1 focus:ring-brand-navy outline-none transition-colors shadow-sm" placeholder="e.g. Jane Doe">
+                                    <input type="text" id="name" name="Name" required class="w-full px-4 py-4 rounded-xl border border-brand-border focus:border-brand-navy focus:ring-1 focus:ring-brand-navy outline-none transition-colors shadow-sm" placeholder="e.g. Jane Doe">
                                 </div>
                                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                                     <div>
                                         <label for="email" class="block text-[10px] font-bold text-brand-muted uppercase tracking-widest mb-2 font-mono">Work Email</label>
-                                        <input type="email" id="email" required class="w-full px-4 py-4 rounded-xl border border-brand-border focus:border-brand-navy focus:ring-1 focus:ring-brand-navy outline-none transition-colors shadow-sm" placeholder="jane@company.com">
+                                        <input type="email" id="email" name="Email" required class="w-full px-4 py-4 rounded-xl border border-brand-border focus:border-brand-navy focus:ring-1 focus:ring-brand-navy outline-none transition-colors shadow-sm" placeholder="jane@company.com">
                                     </div>
                                     <div>
                                         <label for="company" class="block text-[10px] font-bold text-brand-muted uppercase tracking-widest mb-2 font-mono">Company</label>
-                                        <input type="text" id="company" required class="w-full px-4 py-4 rounded-xl border border-brand-border focus:border-brand-navy focus:ring-1 focus:ring-brand-navy outline-none transition-colors shadow-sm" placeholder="Acme Corp">
+                                        <input type="text" id="company" name="Company" required class="w-full px-4 py-4 rounded-xl border border-brand-border focus:border-brand-navy focus:ring-1 focus:ring-brand-navy outline-none transition-colors shadow-sm" placeholder="Acme Corp">
                                     </div>
                                 </div>
                                 <button type="button" onclick="nextStep()" class="w-full mt-8 bg-brand-navy text-white px-6 py-4 rounded-xl font-bold hover:bg-slate-800 transition-all shadow-md flex justify-center items-center">
@@ -689,22 +690,22 @@
                                     <label class="block text-[10px] font-bold text-brand-muted uppercase tracking-widest mb-3 font-mono">Primary Domains</label>
                                     <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
                                         <label class="flex items-center p-4 border border-brand-border rounded-xl cursor-pointer hover:bg-slate-50 transition-colors shadow-sm">
-                                            <input type="checkbox" class="h-4 w-4 text-brand-orange focus:ring-brand-orange border-gray-300 rounded">
+                                            <input type="checkbox" value="Contact Center" class="domain-checkbox h-4 w-4 text-brand-orange border-gray-300 rounded">
                                             <span class="ml-3 text-sm text-brand-navy font-semibold">Contact Center</span>
                                         </label>
                                         <label class="flex items-center p-4 border border-brand-border rounded-xl cursor-pointer hover:bg-slate-50 transition-colors shadow-sm">
-                                            <input type="checkbox" class="h-4 w-4 text-brand-orange focus:ring-brand-orange border-gray-300 rounded">
+                                            <input type="checkbox" value="ITSM" class="domain-checkbox h-4 w-4 text-brand-orange border-gray-300 rounded">
                                             <span class="ml-3 text-sm text-brand-navy font-semibold">ITSM</span>
                                         </label>
                                         <label class="flex items-center p-4 border border-brand-border rounded-xl cursor-pointer hover:bg-slate-50 transition-colors shadow-sm">
-                                            <input type="checkbox" class="h-4 w-4 text-brand-orange focus:ring-brand-orange border-gray-300 rounded">
+                                            <input type="checkbox" value="Field Service" class="domain-checkbox h-4 w-4 text-brand-orange border-gray-300 rounded">
                                             <span class="ml-3 text-sm text-brand-navy font-semibold">Field Service</span>
                                         </label>
                                     </div>
                                 </div>
                                 <div>
                                     <label for="volume" class="block text-[10px] font-bold text-brand-muted uppercase tracking-widest mb-2 font-mono">Monthly Interaction Volume</label>
-                                    <select id="volume" required class="w-full px-4 py-4 rounded-xl border border-brand-border focus:border-brand-navy focus:ring-1 focus:ring-brand-navy outline-none bg-white transition-colors shadow-sm appearance-none cursor-pointer">
+                                    <select id="volume" name="Volume" required class="w-full px-4 py-4 rounded-xl border border-brand-border focus:border-brand-navy focus:ring-1 focus:ring-brand-navy outline-none bg-white transition-colors shadow-sm appearance-none cursor-pointer">
                                         <option value="" disabled selected>Select volume range...</option>
                                         <option value="under_5k">Under 5,000 touches</option>
                                         <option value="5k_50k">5,000 - 50,000 touches</option>
@@ -902,7 +903,34 @@
             btn.innerHTML = '<div class="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>';
             btn.disabled = true;
 
-            setTimeout(() => {
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const company = document.getElementById('company').value;
+            const volume = document.getElementById('volume').value;
+            
+            const domains = [];
+            document.querySelectorAll('.domain-checkbox:checked').forEach(cb => {
+                domains.push(cb.value);
+            });
+
+            // Send payload via FormSubmit API (AJAX) securely without refreshing
+            fetch("https://formsubmit.co/ajax/Support@marginsignalos.com", {
+                method: "POST",
+                headers: { 
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify({
+                    _subject: `New MSOS Diagnostic Request: ${company}`,
+                    Name: name,
+                    Email: email,
+                    Company: company,
+                    Domains: domains.length > 0 ? domains.join(", ") : "None selected",
+                    Volume: volume
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
                 step2.classList.remove('form-step-active');
                 step2.classList.add('form-step-hidden');
                 
@@ -910,7 +938,13 @@
                     stepSuccess.classList.remove('form-step-hidden');
                     stepSuccess.classList.add('form-step-active');
                 }, 300);
-            }, 1200);
+            })
+            .catch(error => {
+                console.error(error);
+                alert("Submission failed. Please email Support@marginsignalos.com directly to request your diagnostic.");
+                btn.innerHTML = 'Submit Request';
+                btn.disabled = false;
+            });
         }
 
         // --- Simulated AI Integration & Fallback Engine ---
