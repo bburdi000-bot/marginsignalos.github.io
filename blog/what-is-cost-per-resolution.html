@@ -93,6 +93,30 @@
             "@type": "Answer",
             "text": "Most contact center platforms log interactions, not resolutions. ACD systems log calls, chat platforms log sessions, and CRM systems log tickets, but none natively link multiple interactions to a single customer issue. Calculating CPR requires data integration and a verified resolution definition that most operations have not built."
           }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the automation tax in contact centers?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The automation tax is the phenomenon where automating low-complexity issues (password resets, balance inquiries) removes the cheapest resolutions from the pool, increasing the average cost of remaining human-handled resolutions. It partially or fully offsets the per-unit savings from automation, which is why CPR often stays flat even after deploying AI and chatbots."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How much does failure demand cost contact centers?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Failure demand — contacts generated because a previous contact failed to resolve the issue — typically accounts for 30–60% of total contact volume. This includes callbacks, transfers, re-opens, channel switches, and escalations. Eliminating failure demand reduces CPR and releases agent capacity simultaneously."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is a good first call resolution rate?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The industry average first call resolution (FCR) rate is 70–75%, according to SQM Group benchmarking data. Every 1% improvement in FCR correlates with approximately $286,000 in annual operating savings. However, FCR alone does not capture the full cost picture — Cost Per Resolution accounts for the total cost across all contacts required to resolve an issue."
+          }
         }
       ]
     }
@@ -199,6 +223,10 @@
         <!-- Article Body -->
         <div class="prose max-w-none">
 
+            <blockquote style="background:#FFF7ED;border-left:4px solid #F97316;padding:1rem 1.25rem;border-radius:0 0.5rem 0.5rem 0;margin-bottom:1.5rem;font-style:normal;">
+                <strong>Cost Per Resolution (CPR) is the fully loaded cost to resolve one customer issue to completion &mdash; typically 2x to 5x higher than the Cost Per Call number on the dashboard.</strong>
+            </blockquote>
+
             <p>That distinction &mdash; <em>to completion</em> &mdash; is the part most contact center finance teams get wrong. They measure cost per call, cost per contact, or cost per interaction. They report a number. The number looks manageable. And then margin bleeds out through callbacks, transfers, escalations, re-opens, and channel switches that never appear in the same row of the same spreadsheet.</p>
 
             <p>This guide defines CPR with clinical precision, walks through the math, exposes the hidden costs that inflate it, and explains why automation alone does not fix it.</p>
@@ -206,6 +234,8 @@
             <hr>
 
             <h2>Why This Metric Exists</h2>
+
+            <p><strong>Cost Per Resolution exists because volume-based metrics like cost per call hide the true cost of fragmented, multi-contact customer issues.</strong></p>
 
             <p>Contact centers have operated for decades on volume-based unit economics: cost per call, cost per minute, cost per chat. These metrics were designed for an era when one call equaled one issue equaled one resolution.</p>
 
@@ -216,6 +246,8 @@
             <hr>
 
             <h2>Cost Per Resolution vs. Cost Per Call: The $35 Gap</h2>
+
+            <p><strong>The average contact center reports cost per call at $7&ndash;$12, but the actual cost per resolution is $35&ndash;$55 &mdash; a structural gap caused by callbacks, transfers, and escalations.</strong></p>
 
             <p>The most widely cited benchmark for inbound call cost is <strong>$7.16</strong>, per <a href="https://www.contactbabel.com/the-us-contact-center-decision-makers-guide/" target="_blank" rel="noopener" class="text-brand-orange hover:underline">ContactBabel&rsquo;s U.S. Contact Center Decision-Makers&rsquo; Guide</a>.<sup><a href="#ref-1" class="text-brand-orange">[1]</a></sup> That figure represents the average cost of handling a single inbound telephone call &mdash; agent labor, telephony, allocated overhead.</p>
 
@@ -248,6 +280,8 @@
             <hr>
 
             <h2>The CPR Formula: How to Calculate Cost Per Resolution</h2>
+
+            <p><strong>CPR = (Direct Labor + Indirect Labor + Technology + Overhead + Failure Demand Cost) &divide; Verified Resolutions &mdash; where failure demand and verified resolutions are the components most operations miss.</strong></p>
 
             <h3>Basic Formula</h3>
 
@@ -337,6 +371,8 @@ Compare: CPC = $1,365,000 &divide; 120,000 contacts = $11.38</code></pre>
 
             <h2>The Hidden Costs That Inflate CPR</h2>
 
+            <p><strong>Callbacks, transfers, re-opens, escalations, channel switches, and silent failure demand are six cost categories that inflate CPR while remaining invisible to cost-per-call reporting.</strong></p>
+
             <p>Six categories of cost routinely escape standard contact center reporting.</p>
 
             <h3>1. Callbacks</h3>
@@ -361,6 +397,8 @@ Compare: CPC = $1,365,000 &divide; 120,000 contacts = $11.38</code></pre>
 
             <h2>CPR by Industry</h2>
 
+            <p><strong>CPR ranges from $12&ndash;$28 in e-commerce to $45&ndash;$85 in health insurance, driven primarily by transfer rates, regulatory complexity, and multi-party resolution chains.</strong></p>
+
             <table>
                 <thead><tr><th>Industry</th><th>Estimated CPR Range</th><th>Primary Cost Driver</th></tr></thead>
                 <tbody>
@@ -378,6 +416,8 @@ Compare: CPC = $1,365,000 &divide; 120,000 contacts = $11.38</code></pre>
             <hr>
 
             <h2>Why Automation Does Not Automatically Reduce CPR</h2>
+
+            <p><strong>Automating the simplest issues removes the cheapest resolutions from the pool, increasing average cost per remaining human-handled resolution &mdash; a phenomenon called the Automation Tax.</strong></p>
 
             <p>According to <a href="https://www.deloitte.com/us/en/about/press-room/the-future-of-service.html" target="_blank" rel="noopener" class="text-brand-orange hover:underline">Deloitte&rsquo;s research on the future of customer service</a>, AI-driven automation can reduce service costs by <strong>30% or more</strong> when applied to interactions that are fully automated end-to-end.<sup><a href="#ref-3" class="text-brand-orange">[3]</a></sup> That figure is meaningful &mdash; for the subset of issues where full automation applies.</p>
 
@@ -411,6 +451,8 @@ After automating 30,000 simple resolutions at $2.50/each:
 
             <h2>How to Use CPR to Find Margin</h2>
 
+            <p><strong>Map every contact to an issue ID, calculate CPR by issue type, identify outliers, quantify failure demand, and model every intervention against resolution cost &mdash; not call cost.</strong></p>
+
             <ol>
                 <li><strong>Build the Resolution Graph</strong> &mdash; Map every contact to an issue ID across CRM, call records, chat, email, and escalations</li>
                 <li><strong>Calculate CPR by Issue Type</strong> &mdash; Segment by category, resolution path, channel, and customer segment</li>
@@ -437,6 +479,15 @@ After automating 30,000 simple resolutions at $2.50/each:
 
             <h3>Why do most contact centers not track Cost Per Resolution?</h3>
             <p>Most platforms are built around interaction management, not resolution management. Calculating CPR requires data integration across ACD, chat, CRM, and a verified resolution definition that most operations have not built.</p>
+
+            <h3>What is the automation tax in contact centers?</h3>
+            <p>The automation tax is the phenomenon where automating low-complexity issues (password resets, balance inquiries) removes the cheapest resolutions from the pool, increasing the average cost of remaining human-handled resolutions. It partially or fully offsets per-unit savings from automation, which is why CPR often stays flat even after deploying AI and chatbots.</p>
+
+            <h3>How much does failure demand cost contact centers?</h3>
+            <p>Failure demand &mdash; contacts generated because a previous contact failed to resolve the issue &mdash; typically accounts for 30&ndash;60% of total contact volume. This includes callbacks, transfers, re-opens, channel switches, and escalations. Eliminating failure demand reduces CPR and releases agent capacity simultaneously.</p>
+
+            <h3>What is a good first call resolution rate?</h3>
+            <p>The industry average first call resolution (FCR) rate is 70&ndash;75%, according to SQM Group. Every 1% improvement in FCR correlates with approximately $286,000 in annual operating savings. However, FCR alone does not capture the full cost picture &mdash; Cost Per Resolution accounts for the total cost across all contacts required to resolve an issue.</p>
 
             <hr>
 
