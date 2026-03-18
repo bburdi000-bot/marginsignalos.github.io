@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    <title>Quick Assessment | MarginSignal OS — What Does One Resolution Actually Cost?</title>
+    <meta name="description" content="Answer 9 questions about your operation. Get your estimated Cost Per Resolution, top fault lines, and annual margin gap — instantly.">
+    <link rel="canonical" href="https://www.marginsignalos.com/assessment.html">
+
+    <meta property="og:title" content="Resolution Economics Quick Assessment — MarginSignal OS">
+    <meta property="og:description" content="Most operations report $7-12 per contact. The actual Cost Per Resolution is $35+ higher. Find your gap in 5 minutes.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.marginsignalos.com/assessment.html">
+
+    <!-- Microsoft Clarity -->
+    <script type="text/javascript">
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "vtbd9ybs7t");
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'SF Pro Display', 'sans-serif'],
+                        mono: ['Fira Code', 'monospace'],
+                    },
+                    colors: {
+                        brand: {
+                            bg: '#F8FAFC',
+                            navy: '#0F172A',
+                            orange: '#F97316',
+                            muted: '#64748B',
+                            border: '#E2E8F0',
+                            dark: '#020617',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { background-color: #F8FAFC; color: #0F172A; -webkit-font-smoothing: antialiased; }
+        .fade-in { animation: fadeIn 0.5s ease-out forwards; opacity: 0; }
+        @keyframes fadeIn { to { opacity: 1; } }
+        input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer-spin-button { -webkit-appearance: none; margin: 0; }
+        input[type=number] { -moz-appearance: textfield; }
+        .result-bar { transition: width 1.2s cubic-bezier(0.16, 1, 0.3, 1); }
+    </style>
+</head>
+<body class="font-sans min-h-screen">
+
+    <!-- Nav -->
+    <nav class="fixed top-0 w-full z-50 bg-white/85 backdrop-blur-md border-b border-brand-border">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between">
+            <a href="/" class="font-extrabold text-xl tracking-tight text-brand-navy">MarginSignal<span class="text-brand-orange">OS</span></a>
+            <a href="/" class="text-sm text-brand-muted hover:text-brand-navy transition-colors">&larr; Back to Home</a>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="pt-32 pb-12 px-4 sm:px-6 max-w-3xl mx-auto text-center">
+        <div class="inline-flex items-center px-4 py-1.5 rounded-full text-[10px] font-bold bg-orange-50 text-brand-orange mb-6 uppercase tracking-widest border border-orange-200">
+            <span class="w-2 h-2 rounded-full bg-brand-orange animate-pulse mr-2"></span> 5-Minute Assessment
+        </div>
+        <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight mb-4 text-brand-navy leading-[1.1]">
+            What Does One Resolution Actually Cost You?
+        </h1>
+        <p class="text-lg text-brand-muted font-light leading-relaxed max-w-2xl mx-auto">
+            Answer 9 questions. Get your estimated Cost Per Resolution, top fault lines, and annual margin gap — instantly. No login. No sales call required.
+        </p>
+    </section>
+
+    <!-- Assessment Form -->
+    <section id="assessment-form" class="pb-24 px-4 sm:px-6 max-w-3xl mx-auto">
+        <div class="bg-white rounded-3xl shadow-xl border border-brand-border p-8 md:p-12">
+
+            <form id="qaForm" onsubmit="event.preventDefault(); runAssessment();">
+
+                <!-- Contact Info -->
+                <div class="mb-10">
+                    <h2 class="text-lg font-bold text-brand-navy mb-6 pb-3 border-b border-brand-border">About You</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                        <div>
+                            <label class="block text-[10px] font-bold text-brand-muted uppercase tracking-widest mb-2 font-mono">Company Name *</label>
+                            <input type="text" id="qa-company" required class="w-full px-4 py-3 rounded-xl border border-brand-border focus:border-brand-orange focus:ring-1 focus:ring-brand-orange outline-none transition-colors shadow-sm" placeholder="Acme Insurance">
+                        </div>
+                        <div>
+                            <label class="block text-[10px] font-bold text-brand-muted uppercase tracking-widest mb-2 font-mono">Your Name *</label>
+                            <input type="text" id="qa-name" required class="w-full px-4 py-3 rounded-xl border border-brand-border focus:border-brand-orange focus:ring-1 focus:ring-brand-orange outline-none transition-colors shadow-sm" placeholder="Jane Smith">
+                        </div>
+                        <div>
+                            <label class="block text-[10px] font-bold text-brand-muted uppercase tracking-widest mb-2 font-mono">Work Email *</label>
+                            <input type="email" id="qa-email" required class="w-full px-4 py-3 rounded-xl border border-brand-border focus:border-brand-orange focus:ring-1 focus:ring-brand-orange outline-none transition-colors shadow-sm" placeholder="jane@acme.com">
+                        </div>
+                        <div>
+                            <label class="block text-[10px] font-bold text-brand-muted uppercase tracking-widest mb-2 font-mono">Industry *</label>
+                            <select id="qa-industry" required class="w-full px-4 py-3 rounded-xl border border-brand-border focus:border-brand-orange focus:ring-1 focus:ring-brand-orange outline-none bg-white transition-colors shadow-sm appearance-none cursor-pointer">
+                                <option value="" disabled selected>Select your industry</option>
+                                <option value="Insurance">Insurance (P&amp;C / Health)</option>
+                                <option value="Healthcare">Healthcare (RCM / Patient Access)</option>
+                                <option value="BPO">BPO / Outsourcing</option>
+                                <option value="MSP">Managed Service Provider (MSP)</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Operational Data -->
+                <div class="mb-10">
+                    <h2 class="text-lg font-bold text-brand-navy mb-6 pb-3 border-b border-brand-border">Your Operation</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                        <div>
+                            <label class="block text-[10px] font-bold text-brand-muted uppercase tracking-widest mb-2 font-mono">Number of Agents (FTE) *</label>
+                            <input type="number" id="qa-agents" required min="1" class="w-full px-4 py-3 rounded-xl border border-brand-border focus:border-brand-orange focus:ring-1 focus:ring-brand-orange outline-none transition-colors shadow-sm" placeholder="500">
+                        </div>
+                        <div>
+                            <label class="block text-[10px] font-bold text-brand-muted uppercase tracking-widest mb-2 font-mono">Monthly Contact Volume *</label>
+                            <input type="number" id="qa-volume" required min="1" class="w-full px-4 py-3 rounded-xl border border-brand-border focus:border-brand-orange focus:ring-1 focus:ring-brand-orange outline-none transition-colors shadow-sm" placeholder="50000">
+                            <span class="text-[10px] text-brand-muted mt-1 block">All channels: phone, chat, email, tickets</span>
+                        </div>
+                        <div>
+                            <label class="block text-[10px] font-bold text-brand-muted uppercase tracking-widest mb-2 font-mono">First Contact Resolution Rate (%) *</label>
+                            <input type="number" id="qa-fcr" required min="0" max="100" class="w-full px-4 py-3 rounded-xl border border-brand-border focus:border-brand-orange focus:ring-1 focus:ring-brand-orange outline-none transition-colors shadow-sm" placeholder="78">
+                        </div>
+                        <div>
+                            <label class="block text-[10px] font-bold text-brand-muted uppercase tracking-widest mb-2 font-mono">Average Handle Time (minutes) *</label>
+                            <input type="number" id="qa-aht" required min="0.1" step="0.1" class="w-full px-4 py-3 rounded-xl border border-brand-border focus:border-brand-orange focus:ring-1 focus:ring-brand-orange outline-none transition-colors shadow-sm" placeholder="7.5">
+                        </div>
+                        <div>
+                            <label class="block text-[10px] font-bold text-brand-muted uppercase tracking-widest mb-2 font-mono">Fully Loaded Agent Cost (Annual $) *</label>
+                            <input type="number" id="qa-cost" required min="1" class="w-full px-4 py-3 rounded-xl border border-brand-border focus:border-brand-orange focus:ring-1 focus:ring-brand-orange outline-none transition-colors shadow-sm" placeholder="55000">
+                            <span class="text-[10px] text-brand-muted mt-1 block">Salary + benefits + facilities + tech</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Optional Fields -->
+                <div class="mb-10">
+                    <h2 class="text-lg font-bold text-brand-navy mb-2 pb-3 border-b border-brand-border">Optional (Improves Accuracy)</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-5 mt-4">
+                        <div>
+                            <label class="block text-[10px] font-bold text-brand-muted uppercase tracking-widest mb-2 font-mono">Transfer Rate (%)</label>
+                            <input type="number" id="qa-transfer" min="0" max="100" class="w-full px-4 py-3 rounded-xl border border-brand-border focus:border-brand-orange focus:ring-1 focus:ring-brand-orange outline-none transition-colors shadow-sm" placeholder="18">
+                        </div>
+                        <div>
+                            <label class="block text-[10px] font-bold text-brand-muted uppercase tracking-widest mb-2 font-mono">Ticket Reopen Rate Within 7 Days (%)</label>
+                            <input type="number" id="qa-reopen" min="0" max="100" class="w-full px-4 py-3 rounded-xl border border-brand-border focus:border-brand-orange focus:ring-1 focus:ring-brand-orange outline-none transition-colors shadow-sm" placeholder="12">
+                        </div>
+                    </div>
+                </div>
+
+                <button type="submit" id="qa-submit" class="w-full bg-brand-orange text-white px-8 py-4 rounded-xl text-base font-bold hover:bg-orange-600 transition-all shadow-[0_4px_14px_rgba(249,115,22,0.3)] flex items-center justify-center">
+                    Calculate My Cost Per Resolution
+                </button>
+            </form>
+
+            <!-- Results (hidden until calculated) -->
+            <div id="qa-results" class="hidden mt-12 fade-in">
+
+                <!-- The Big Number -->
+                <div class="bg-brand-dark rounded-2xl p-8 md:p-10 text-center mb-8 border border-slate-700 shadow-[0_0_30px_rgba(249,115,22,0.1)]">
+                    <div class="text-[10px] font-mono text-slate-500 uppercase tracking-widest mb-3 font-bold">Estimated Annual Margin Gap</div>
+                    <div id="res-annual-gap" class="text-5xl md:text-6xl font-extrabold text-brand-orange tracking-tight font-mono mb-3"></div>
+                    <p class="text-slate-400 text-sm font-light max-w-lg mx-auto">
+                        This is the estimated difference between what your dashboard reports and what resolutions actually cost — across <span id="res-annual-resolutions" class="text-white font-semibold"></span> annual resolutions.
+                    </p>
+                </div>
+
+                <!-- CPR vs CPC -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                    <div class="bg-white border border-brand-border rounded-2xl p-6 shadow-sm">
+                        <div class="text-[10px] font-mono text-brand-muted uppercase tracking-widest mb-2 font-bold">Reported Cost Per Contact</div>
+                        <div id="res-cpc" class="text-3xl font-extrabold text-brand-navy font-mono"></div>
+                        <div class="text-xs text-brand-muted mt-1">What your dashboard shows</div>
+                    </div>
+                    <div class="bg-white border border-brand-orange/30 rounded-2xl p-6 shadow-sm">
+                        <div class="text-[10px] font-mono text-brand-orange uppercase tracking-widest mb-2 font-bold">Estimated Cost Per Resolution</div>
+                        <div id="res-cpr" class="text-3xl font-extrabold text-brand-orange font-mono"></div>
+                        <div class="text-xs text-brand-muted mt-1">What it actually costs to resolve an issue</div>
+                    </div>
+                </div>
+
+                <!-- Fault Lines -->
+                <div class="bg-white border border-brand-border rounded-2xl p-6 md:p-8 shadow-sm mb-8">
+                    <h3 class="text-lg font-bold text-brand-navy mb-6 pb-3 border-b border-brand-border">Where the Cost Hides</h3>
+                    <div id="res-fault-lines" class="space-y-5"></div>
+
+                    <!-- Total -->
+                    <div class="mt-6 pt-6 border-t border-brand-border flex justify-between items-center">
+                        <span class="font-bold text-brand-navy">Total Estimated Annual Leakage</span>
+                        <span id="res-total-leakage" class="text-2xl font-extrabold text-brand-orange font-mono"></span>
+                    </div>
+                </div>
+
+                <!-- Industry Benchmark -->
+                <div class="bg-white border border-brand-border rounded-2xl p-6 md:p-8 shadow-sm mb-8">
+                    <h3 class="text-lg font-bold text-brand-navy mb-4 pb-3 border-b border-brand-border">Industry Comparison</h3>
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="text-sm text-brand-muted"><span id="res-industry-name" class="font-semibold text-brand-navy"></span> benchmark range</span>
+                        <span id="res-benchmark-range" class="text-sm font-mono text-brand-navy font-semibold"></span>
+                    </div>
+                    <div class="w-full bg-slate-100 rounded-full h-4 relative overflow-hidden">
+                        <div id="res-benchmark-bar-range" class="absolute h-full bg-slate-200 rounded-full"></div>
+                        <div id="res-benchmark-bar-you" class="absolute h-full w-1.5 bg-brand-orange rounded-full shadow-md" style="left:50%"></div>
+                    </div>
+                    <div class="flex justify-between mt-2 text-[10px] font-mono text-brand-muted uppercase tracking-widest">
+                        <span>Low</span>
+                        <span id="res-position" class="text-brand-orange font-bold"></span>
+                        <span>High</span>
+                    </div>
+                </div>
+
+                <!-- CTA -->
+                <div class="bg-brand-navy rounded-2xl p-8 md:p-10 text-center border border-slate-700">
+                    <h3 class="text-2xl font-bold text-white mb-3 tracking-tight">This Assessment Estimates. A Signal Scan Verifies.</h3>
+                    <p class="text-slate-400 font-light text-sm mb-6 max-w-lg mx-auto">
+                        We analyze your actual operational data — anonymized CSV exports, no API integration required — and map all 12 structural fault lines. Findings guarantee: we identify at least 3x the fee in verified leakage, or you pay nothing.
+                    </p>
+                    <a href="/#intake-form" class="inline-block bg-brand-orange text-white px-8 py-4 rounded-xl font-bold hover:bg-orange-600 transition-all shadow-[0_4px_14px_rgba(249,115,22,0.3)]">
+                        Book a 15-Minute Findings Call
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-brand-navy py-10 border-t border-[#1E293B] text-white">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 flex flex-col md:flex-row justify-between items-center text-xs text-slate-500 font-mono">
+            <p>&copy; 2026 MarginSignal OS&trade; LLC. All rights reserved.</p>
+            <a href="/" class="mt-2 md:mt-0 text-slate-500 hover:text-white transition-colors">marginsignalos.com</a>
+        </div>
+    </footer>
+
+    <script>
+        // Industry benchmarks: [low, mid, high]
+        const benchmarks = {
+            'Insurance':   [28, 42, 65],
+            'Healthcare':  [32, 48, 72],
+            'BPO':         [18, 30, 50],
+            'MSP':         [22, 35, 55],
+            'Other':       [20, 35, 55]
+        };
+
+        function fmt(n) {
+            return '$' + Math.round(n).toLocaleString('en-US');
+        }
+
+        function runAssessment() {
+            // Gather inputs
+            const company  = document.getElementById('qa-company').value;
+            const name     = document.getElementById('qa-name').value;
+            const email    = document.getElementById('qa-email').value;
+            const industry = document.getElementById('qa-industry').value;
+            const agents   = parseFloat(document.getElementById('qa-agents').value);
+            const volume   = parseFloat(document.getElementById('qa-volume').value);
+            const fcr      = parseFloat(document.getElementById('qa-fcr').value) / 100;
+            const aht      = parseFloat(document.getElementById('qa-aht').value);
+            const annCost  = parseFloat(document.getElementById('qa-cost').value);
+            const transfer = document.getElementById('qa-transfer').value ? parseFloat(document.getElementById('qa-transfer').value) / 100 : null;
+            const reopen   = document.getElementById('qa-reopen').value ? parseFloat(document.getElementById('qa-reopen').value) / 100 : null;
+
+            // Core calculations
+            const monthlyAgentCost = annCost / 12;
+            const hourlyRate       = annCost / 2080;
+            const ahtHours         = aht / 60;
+            const monthlyLabor     = agents * monthlyAgentCost;
+            const monthlyRes       = volume * (fcr + (1 - fcr) * 0.6);
+            const estCPR           = monthlyLabor / monthlyRes;
+            const reportedCPC      = monthlyLabor / volume;
+            const cprGap           = estCPR - reportedCPC;
+            const annualRes        = monthlyRes * 12;
+            const annualGap        = cprGap * annualRes;
+
+            // Fault lines
+            const monthlyRepeats    = volume * (1 - fcr);
+            const costPerRepeat     = hourlyRate * ahtHours;
+            const annFailureDemand  = monthlyRepeats * costPerRepeat * 12;
+
+            let annTransferTax = 0;
+            if (transfer !== null) {
+                annTransferTax = volume * transfer * (ahtHours * 0.5) * hourlyRate * 12;
+            }
+
+            let annRework = 0;
+            if (reopen !== null) {
+                annRework = volume * reopen * (ahtHours * 1.5) * hourlyRate * 12;
+            }
+
+            const silentLeakage = monthlyLabor * 12 * 0.08;
+            const totalLeakage  = annFailureDemand + annTransferTax + annRework + silentLeakage;
+
+            // Benchmarks
+            const bench = benchmarks[industry] || benchmarks['Other'];
+
+            // --- Render Results ---
+
+            document.getElementById('res-annual-gap').textContent = fmt(annualGap);
+            document.getElementById('res-annual-resolutions').textContent = Math.round(annualRes).toLocaleString('en-US');
+            document.getElementById('res-cpc').textContent = fmt(reportedCPC);
+            document.getElementById('res-cpr').textContent = fmt(estCPR);
+
+            // Fault lines
+            const faultContainer = document.getElementById('res-fault-lines');
+            faultContainer.innerHTML = '';
+
+            const faults = [
+                { name: 'Failure Demand', value: annFailureDemand, desc: Math.round(monthlyRepeats).toLocaleString() + ' repeat contacts/month at ' + fmt(costPerRepeat) + ' each', show: true },
+                { name: 'Transfer Tax', value: annTransferTax, desc: (transfer * 100).toFixed(0) + '% transfer rate adding ~50% handle time on receiving end', show: transfer !== null && transfer > 0 },
+                { name: 'Rework Loop', value: annRework, desc: (reopen * 100).toFixed(0) + '% reopen rate — reopens cost ~150% of original resolution', show: reopen !== null && reopen > 0 },
+                { name: 'Silent Leakage', value: silentLeakage, desc: 'Estimated 8% untracked cost: idle time, supervisor escalation reviews, cross-channel context loss', show: true }
+            ];
+
+            faults.forEach(f => {
+                if (!f.show) return;
+                const pct = totalLeakage > 0 ? (f.value / totalLeakage * 100) : 0;
+                const el = document.createElement('div');
+                el.innerHTML = `
+                    <div class="flex justify-between items-center mb-1.5">
+                        <span class="font-semibold text-brand-navy text-sm">${f.name}</span>
+                        <span class="font-bold text-brand-navy font-mono text-sm">${fmt(f.value)}/yr</span>
+                    </div>
+                    <div class="w-full bg-slate-100 rounded-full h-2.5 mb-1.5 overflow-hidden">
+                        <div class="result-bar bg-brand-orange h-2.5 rounded-full" style="width: 0%"></div>
+                    </div>
+                    <p class="text-[11px] text-brand-muted">${f.desc}</p>
+                `;
+                faultContainer.appendChild(el);
+                // Animate bar
+                requestAnimationFrame(() => {
+                    requestAnimationFrame(() => {
+                        el.querySelector('.result-bar').style.width = pct + '%';
+                    });
+                });
+            });
+
+            document.getElementById('res-total-leakage').textContent = fmt(totalLeakage);
+
+            // Benchmark
+            document.getElementById('res-industry-name').textContent = industry;
+            document.getElementById('res-benchmark-range').textContent = fmt(bench[0]) + ' — ' + fmt(bench[2]);
+
+            const barRange = document.getElementById('res-benchmark-bar-range');
+            const barYou   = document.getElementById('res-benchmark-bar-you');
+
+            // Position the range bar (bench low to high as % of high * 1.3 scale)
+            const scale = bench[2] * 1.4;
+            const rangeLeft  = (bench[0] / scale) * 100;
+            const rangeWidth = ((bench[2] - bench[0]) / scale) * 100;
+            const youPos     = Math.min((estCPR / scale) * 100, 98);
+
+            barRange.style.left  = rangeLeft + '%';
+            barRange.style.width = rangeWidth + '%';
+            barYou.style.left    = youPos + '%';
+
+            // Position text
+            const posEl = document.getElementById('res-position');
+            if (estCPR < bench[0]) {
+                posEl.textContent = 'Below average';
+            } else if (estCPR < bench[1]) {
+                posEl.textContent = 'Near average';
+            } else if (estCPR < bench[2]) {
+                posEl.textContent = 'Above average';
+            } else {
+                posEl.textContent = 'Significantly above average';
+            }
+
+            // Show results
+            document.getElementById('qa-results').classList.remove('hidden');
+            document.getElementById('qa-results').scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+            // Send lead data to FormSubmit (silent — no redirect)
+            const formData = new FormData();
+            formData.append('Company', company);
+            formData.append('Name', name);
+            formData.append('Email', email);
+            formData.append('Industry', industry);
+            formData.append('Agents', agents);
+            formData.append('Monthly Volume', volume);
+            formData.append('FCR Rate', (fcr * 100) + '%');
+            formData.append('AHT', aht + ' min');
+            formData.append('Annual Agent Cost', fmt(annCost));
+            formData.append('Transfer Rate', transfer !== null ? (transfer * 100) + '%' : 'Not provided');
+            formData.append('Reopen Rate', reopen !== null ? (reopen * 100) + '%' : 'Not provided');
+            formData.append('Estimated CPR', fmt(estCPR));
+            formData.append('Estimated Annual Gap', fmt(annualGap));
+            formData.append('Total Leakage', fmt(totalLeakage));
+            formData.append('_subject', 'Quick Assessment: ' + company + ' — ' + fmt(annualGap) + ' gap');
+            formData.append('_template', 'table');
+            formData.append('_captcha', 'false');
+
+            fetch('https://formsubmit.co/ajax/support@marginsignalos.com', {
+                method: 'POST',
+                body: formData
+            }).catch(() => {});
+
+            // GA event
+            if (typeof gtag === 'function') {
+                gtag('event', 'assessment_complete', {
+                    'event_category': 'Quick Assessment',
+                    'event_label': industry,
+                    'value': Math.round(annualGap)
+                });
+            }
+        }
+    </script>
+</body>
+</html>
