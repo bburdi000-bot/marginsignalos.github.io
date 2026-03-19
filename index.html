@@ -238,6 +238,8 @@
             margin-left: 4px;
         }
         @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+        @keyframes pulse-subtle { 0%, 100% { box-shadow: 0 4px 6px -1px rgba(249,115,22,0.25); } 50% { box-shadow: 0 8px 20px -2px rgba(249,115,22,0.4); } }
+        .animate-pulse-subtle { animation: pulse-subtle 2s ease-in-out infinite; }
 
         /* Terminal Scanline Overlay */
         .scanlines {
@@ -718,8 +720,8 @@
                         <li class="flex items-start"><svg class="h-5 w-5 text-brand-orange mr-3 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Industry Benchmark Comparison</li>
                         <li class="flex items-start"><svg class="h-5 w-5 text-brand-orange mr-3 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> 15-Min Findings Call Included</li>
                     </ul>
-                    <a href="https://buy.stripe.com/6oU00cccRfhGfkGcHogbm00" class="mt-auto block w-full text-center bg-white border border-brand-border text-brand-navy font-bold py-3 rounded-xl hover:bg-gray-50 hover:border-brand-navy transition-colors">
-                        Get Your Assessment — $500
+                    <a href="https://buy.stripe.com/6oU00cccRfhGfkGcHogbm00" class="mt-auto block w-full text-center bg-brand-orange text-white font-bold py-3.5 rounded-xl hover:brightness-110 transition-all shadow-md hover:shadow-lg animate-pulse-subtle">
+                        ⚡ Find Your CPR Gap — $500
                     </a>
                 </div>
 
