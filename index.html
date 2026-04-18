@@ -366,10 +366,10 @@
 
         <!-- Conversion Optimized CTAs -->
         <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 w-full sm:w-auto mb-10 reveal-on-scroll" style="transition-delay: 300ms;">
-            <a href="#intake-form" onclick="if(typeof gtag==='function')gtag('event','cta_click',{'event_category':'Hero','event_label':'Book Diagnostic'});" class="bg-brand-orange text-white px-8 py-4 rounded-xl text-base font-bold hover:bg-orange-600 transition-all shadow-[0_4px_14px_rgba(249,115,22,0.3)] hover:shadow-[0_6px_20px_rgba(249,115,22,0.4)] hover:-translate-y-0.5 text-center flex items-center justify-center group">
+            <a href="#intake-form" onclick="if(typeof gtag==='function')gtag('event','hero_primary_cta_click',{'event_category':'Hero','event_label':'Book Diagnostic'});" class="bg-brand-orange text-white px-8 py-4 rounded-xl text-base font-bold hover:bg-orange-600 transition-all shadow-[0_4px_14px_rgba(249,115,22,0.3)] hover:shadow-[0_6px_20px_rgba(249,115,22,0.4)] hover:-translate-y-0.5 text-center flex items-center justify-center group">
                 <svg class="w-5 h-5 mr-2 group-hover:rotate-12 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg> Book Diagnostic
             </a>
-            <a href="/sample" onclick="if(typeof gtag==='function')gtag('event','cta_click',{'event_category':'Hero','event_label':'See Sample Output'});" class="bg-white text-brand-navy border border-brand-border px-8 py-4 rounded-xl text-base font-bold hover:bg-gray-50 transition-all shadow-sm hover:shadow text-center flex items-center justify-center">
+            <a href="/sample" onclick="if(typeof gtag==='function')gtag('event','sample_output_cta_click',{'event_category':'Hero','event_label':'See Sample Output'});" class="bg-white text-brand-navy border border-brand-border px-8 py-4 rounded-xl text-base font-bold hover:bg-gray-50 transition-all shadow-sm hover:shadow text-center flex items-center justify-center">
                 <svg class="w-5 h-5 mr-2 text-brand-muted" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg> See Sample Output
             </a>
         </div>
@@ -1043,7 +1043,7 @@
 
             <!-- Sample Output CTA -->
             <div class="text-center mb-16 reveal-on-scroll">
-                <a href="#intake-form" onclick="if(typeof gtag==='function')gtag('event','cta_click',{'event_category':'CaseStudy','event_label':'Request Sample Briefing'});" class="inline-flex items-center bg-brand-navy text-white px-8 py-4 rounded-xl text-base font-bold hover:bg-slate-800 transition-all shadow-md hover:shadow-lg group">
+                <a href="#intake-form" onclick="if(typeof gtag==='function')gtag('event','sample_output_cta_click',{'event_category':'CaseStudy','event_label':'Request Sample Briefing'});" class="inline-flex items-center bg-brand-navy text-white px-8 py-4 rounded-xl text-base font-bold hover:bg-slate-800 transition-all shadow-md hover:shadow-lg group">
                     <svg class="w-5 h-5 mr-2 text-brand-orange group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
                     Request a Sample Executive Briefing
                 </a>
@@ -1897,6 +1897,96 @@
 
             document.getElementById('resFaultLine').textContent=result.predictedFaultLine;document.getElementById('resBehavior').textContent=result.behavioralGap;document.getElementById('resBlindSpot').textContent=result.dashboardBlindSpot;document.getElementById('resFinancialImpact').textContent=result.financialImpact;document.getElementById('resDiagnostic').textContent=recommendedDiagnostic;var confEl=document.getElementById('resConfidence');confEl.textContent=confidence;confEl.className='inline-block px-3 py-1 rounded-full text-xs font-bold tracking-wide';if(confidence==='High'){confEl.classList.add('bg-green-950/50','text-green-400','border','border-green-900/50')}else if(confidence==='Moderate'){confEl.classList.add('bg-yellow-950/50','text-yellow-400','border','border-yellow-900/50')}else{confEl.classList.add('bg-slate-800','text-slate-400','border','border-slate-700')}loadingEl.classList.add('hidden');loadingEl.classList.remove('flex');resultEl.classList.remove('hidden');resultEl.classList.add('flex');btn.disabled=false;btn.classList.remove('opacity-70','cursor-not-allowed');if(typeof gtag==='function'){gtag('event','diagnostic_analysis',{'event_category':'Terminal Engine','event_label':result.predictedFaultLine,'user_input':text.substring(0,100),'fault_line':result.id||'default','confidence':confidence})}
         }
+    </script>
+
+    <!-- Event Tracking — 30-Day Traffic Plan -->
+    <script>
+    (function() {
+        if (typeof gtag !== 'function') return;
+        var fired = {};
+        function fireOnce(name, params) {
+            if (fired[name]) return;
+            fired[name] = true;
+            gtag('event', name, params || {});
+        }
+
+        // Section visibility tracking via IntersectionObserver
+        var sectionMap = {
+            'sample-output': 'sample_output_section_view',
+            'offer-ladder': 'pricing_section_view',
+            'case-study': 'case_study_section_view',
+            'founder': 'founder_section_view'
+        };
+        // Also track FAQ by finding it
+        var faqEl = document.querySelector('section:has(details)');
+        if (faqEl && !faqEl.id) faqEl.id = 'faq-section';
+        sectionMap['faq-section'] = 'faq_section_view';
+
+        if ('IntersectionObserver' in window) {
+            var sectionObs = new IntersectionObserver(function(entries) {
+                entries.forEach(function(entry) {
+                    if (entry.isIntersecting && entry.target.id && sectionMap[entry.target.id]) {
+                        fireOnce(sectionMap[entry.target.id], { section: entry.target.id });
+                    }
+                });
+            }, { threshold: 0.3 });
+            Object.keys(sectionMap).forEach(function(id) {
+                var el = document.getElementById(id);
+                if (el) sectionObs.observe(el);
+            });
+        }
+
+        // Scroll depth tracking
+        var scrollFired = {};
+        window.addEventListener('scroll', function() {
+            var scrollPct = Math.round((window.scrollY + window.innerHeight) / document.documentElement.scrollHeight * 100);
+            [50, 75, 90].forEach(function(threshold) {
+                if (scrollPct >= threshold && !scrollFired[threshold]) {
+                    scrollFired[threshold] = true;
+                    gtag('event', 'scroll_' + threshold, { percent: threshold });
+                }
+            });
+        }, { passive: true });
+
+        // Screenshot expand tracking (lightbox opens)
+        var origOpen = window.openLightbox;
+        window.openLightbox = function(src, caption) {
+            gtag('event', 'screenshot_expand_click', { image: src.split('/').pop(), caption: (caption || '').substring(0, 80) });
+            origOpen(src, caption);
+        };
+
+        // Calculator tracking — Typeform link clicks
+        document.querySelectorAll('a[href*="typeform.com"]').forEach(function(el) {
+            el.addEventListener('click', function() {
+                fireOnce('calculator_start', { source: 'typeform_link' });
+            });
+        });
+
+        // Assessment booked — Stripe link clicks
+        document.querySelectorAll('a[href*="buy.stripe.com"]').forEach(function(el) {
+            el.addEventListener('click', function() {
+                fireOnce('assessment_booked', { source: 'stripe_link' });
+            });
+        });
+
+        // Form submit tracking
+        var form = document.getElementById('leadForm');
+        if (form) {
+            form.addEventListener('submit', function() {
+                fireOnce('contact_form_submit', { source: 'intake_form' });
+            });
+        }
+
+        // Return visitor CTA tracking
+        if (document.cookie.indexOf('msos_visited=1') !== -1) {
+            document.querySelectorAll('a[href="#intake-form"], a[href="/sample"]').forEach(function(el) {
+                el.addEventListener('click', function() {
+                    gtag('event', 'return_visitor_cta_click', { cta: el.textContent.trim().substring(0, 40) });
+                });
+            });
+        }
+        document.cookie = 'msos_visited=1;max-age=2592000;path=/;SameSite=Lax';
+    })();
     </script>
 </body>
 </html>
