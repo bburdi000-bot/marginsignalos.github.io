@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BPO &amp; MSP Margin Diagnostics | MarginSignal OS</title>
+    <meta name="description" content="BPO and MSP operations leak margin through hidden repeat demand, transfer inflation, and SLA-compliant underperformance. MarginSignal OS finds the gap.">
+    <link rel="canonical" href="https://www.marginsignalos.com/bpo-msp">
+    <meta property="og:title" content="BPO & MSP Margin Diagnostics | MarginSignal OS">
+    <meta property="og:description" content="Your SLA dashboard says green. Your margin says otherwise. We find where BPO and MSP operations leak resolution cost.">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%230F172A'/><text x='4' y='24' font-size='22' font-weight='bold' fill='%23F97316'>M</text></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = { theme: { extend: { fontFamily: { sans: ['Inter', 'sans-serif'], mono: ['Fira Code', 'monospace'] }, colors: { brand: { bg: '#F8FAFC', navy: '#0F172A', orange: '#F97316', muted: '#64748B', border: '#E2E8F0', dark: '#020617' } } } } }
+    </script>
+    <style>body { background-color: #F8FAFC; color: #0F172A; -webkit-font-smoothing: antialiased; }</style>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q93WQ98N9L"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-Q93WQ98N9L');</script>
+</head>
+<body class="antialiased">
+    <nav class="w-full top-0 z-50 bg-white border-b border-brand-border">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <a href="/" class="font-extrabold text-xl tracking-tight text-brand-navy">MarginSignal<span class="text-brand-orange">OS&trade;</span></a>
+                <a href="/#intake-form" class="bg-brand-navy text-white px-5 py-2 rounded-lg text-sm font-medium hover:bg-gray-800 transition-all">Book Diagnostic</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="pt-16 pb-12 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto">
+        <div class="inline-flex items-center px-3 py-1 rounded-full text-[10px] font-bold bg-orange-50 text-brand-orange mb-4 uppercase tracking-widest border border-orange-200">BPO &amp; MSP</div>
+        <h1 class="text-3xl md:text-4xl font-extrabold text-brand-navy mb-4 tracking-tight">Your SLA Dashboard Says Green. Your Margin Says Otherwise.</h1>
+        <p class="text-brand-muted text-lg font-light max-w-2xl">BPO and MSP operations are measured on SLA compliance. But SLA-compliant delivery can still hemorrhage margin through hidden repeat demand, transfer inflation, and escalation loops that never surface in client reporting.</p>
+    </section>
+
+    <section class="pb-16 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto">
+        <h2 class="text-xl font-bold text-brand-navy mb-6 tracking-tight">3 Fault Lines That Hit BPO/MSP Operations Hardest</h2>
+        <div class="grid md:grid-cols-3 gap-6">
+            <div class="bg-white rounded-2xl border border-brand-border p-6 shadow-sm">
+                <div class="text-brand-orange font-mono text-[10px] font-bold uppercase tracking-widest mb-3">Fault Line</div>
+                <h3 class="font-bold text-brand-navy mb-2">SLA-Compliant Underperformance</h3>
+                <p class="text-brand-muted text-sm font-light mb-4">Hitting response time targets while resolution quality degrades. Tickets close within SLA but reopen within 7 days at 2-3x the original cost.</p>
+                <div class="text-[10px] font-mono text-brand-muted uppercase tracking-widest">Typical exposure: <span class="text-red-600 font-bold">8-15% of contract value</span></div>
+            </div>
+            <div class="bg-white rounded-2xl border border-brand-border p-6 shadow-sm">
+                <div class="text-brand-orange font-mono text-[10px] font-bold uppercase tracking-widest mb-3">Fault Line</div>
+                <h3 class="font-bold text-brand-navy mb-2">Escalation Bounce Between Client &amp; BPO</h3>
+                <p class="text-brand-muted text-sm font-light mb-4">Tickets escalated to the client's internal team and bounced back. Each bounce adds $20-40 in handling cost that neither party tracks.</p>
+                <div class="text-[10px] font-mono text-brand-muted uppercase tracking-widest">Typical exposure: <span class="text-red-600 font-bold">$80K-$200K/yr per client</span></div>
+            </div>
+            <div class="bg-white rounded-2xl border border-brand-border p-6 shadow-sm">
+                <div class="text-brand-orange font-mono text-[10px] font-bold uppercase tracking-widest mb-3">Fault Line</div>
+                <h3 class="font-bold text-brand-navy mb-2">Transfer Inflation Across Queues</h3>
+                <p class="text-brand-muted text-sm font-light mb-4">Multi-queue routing creates phantom handle time. A 7-minute call that touches 3 queues costs 21 minutes of agent capacity but reports as 7.</p>
+                <div class="text-[10px] font-mono text-brand-muted uppercase tracking-widest">Typical exposure: <span class="text-red-600 font-bold">$150K-$400K/yr</span></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="pb-16 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto">
+        <h2 class="text-xl font-bold text-brand-navy mb-6 tracking-tight">What Data We Need</h2>
+        <div class="bg-white rounded-2xl border border-brand-border p-8 shadow-sm">
+            <p class="text-brand-muted text-sm font-light mb-6">Standard CSV exports. No API integrations. No IT security review. Most BPO operations can provide this within 48 hours.</p>
+            <div class="grid sm:grid-cols-2 gap-4">
+                <div class="flex items-center text-sm text-brand-navy font-medium"><svg class="w-4 h-4 text-brand-orange mr-2 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Interaction-level records (30 days)</div>
+                <div class="flex items-center text-sm text-brand-navy font-medium"><svg class="w-4 h-4 text-brand-orange mr-2 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Transfer/routing logs</div>
+                <div class="flex items-center text-sm text-brand-navy font-medium"><svg class="w-4 h-4 text-brand-orange mr-2 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Escalation disposition data</div>
+                <div class="flex items-center text-sm text-brand-navy font-medium"><svg class="w-4 h-4 text-brand-orange mr-2 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Ticket reopen / callback logs</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="pb-20 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto">
+        <div class="bg-brand-navy rounded-2xl p-10 text-center">
+            <h2 class="text-2xl font-extrabold text-white mb-3 tracking-tight">Find the margin your SLA dashboard is hiding.</h2>
+            <p class="text-slate-400 font-light mb-8 max-w-lg mx-auto">Most BPO/MSP teams start with a Signal Scan. 2-4 weeks. 3x findings guarantee.</p>
+            <a href="/#intake-form" class="inline-block bg-brand-orange text-white px-8 py-4 rounded-xl font-bold hover:bg-orange-600 transition-all shadow-[0_4px_14px_rgba(249,115,22,0.3)]">Request Signal Scan</a>
+        </div>
+    </section>
+
+    <footer class="py-8 border-t border-brand-border">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center gap-4">
+            <span class="text-brand-muted text-xs font-light">&copy; 2026 MarginSignal OS LLC. Patent Pending.</span>
+            <div class="flex gap-6">
+                <a href="/" class="text-brand-muted text-xs hover:text-brand-navy transition-colors">Home</a>
+                <a href="/sample" class="text-brand-muted text-xs hover:text-brand-navy transition-colors">Sample Output</a>
+                <a href="/#intake-form" class="text-brand-muted text-xs hover:text-brand-navy transition-colors">Contact</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
