@@ -561,6 +561,69 @@
         </div>
     </section>
 
+    <!-- See Sample Output — Product Proof -->
+    <section id="sample-output" class="py-24 bg-brand-dark text-white relative overflow-hidden">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center max-w-3xl mx-auto mb-12 reveal-on-scroll">
+                <div class="inline-flex items-center px-3 py-1 rounded-full text-[10px] font-bold bg-brand-orange/10 text-brand-orange mb-4 uppercase tracking-widest border border-brand-orange/30">
+                    What the system actually produces
+                </div>
+                <h2 class="text-3xl md:text-4xl font-extrabold mb-4 tracking-tight">See Sample Output</h2>
+                <p class="text-slate-400 font-light leading-relaxed">MarginSignal OS turns operational telemetry into an executive view of margin health, drift signals, proof windows, and fix accountability.</p>
+            </div>
+
+            <!-- Primary Screenshot -->
+            <div class="mb-8 reveal-on-scroll">
+                <div class="rounded-2xl border border-slate-700 overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] cursor-pointer group" onclick="this.classList.toggle('fixed');this.classList.toggle('inset-4');this.classList.toggle('z-[100]');this.classList.toggle('mb-8');this.classList.toggle('bg-black/90');this.classList.toggle('p-4');this.classList.toggle('flex');this.classList.toggle('items-center');this.classList.toggle('justify-center');">
+                    <img src="/assets/proof-scorecard.png"
+                         alt="MarginSignal OS 90-Day Proof Scorecard showing fix accountability, completion tracking, and blocker identification across decision rights, workflow design, instrumentation, and behavioral categories"
+                         class="w-full h-auto group-hover:scale-[1.01] transition-transform duration-300"
+                         loading="lazy"
+                         decoding="async">
+                </div>
+                <p class="text-center text-slate-500 text-xs font-light mt-3">
+                    <span class="text-slate-400 font-medium">Illustrative sample environment.</span> 90-day proof scorecard tying fixes to ownership, blockers, and completion status so improvement can be verified, not just observed.
+                </p>
+            </div>
+
+            <!-- Supporting Screenshots -->
+            <div class="grid md:grid-cols-2 gap-6 reveal-on-scroll" style="transition-delay: 150ms;">
+                <div>
+                    <div class="rounded-xl border border-slate-700 overflow-hidden shadow-lg cursor-pointer group" onclick="this.classList.toggle('fixed');this.classList.toggle('inset-8');this.classList.toggle('z-[100]');this.classList.toggle('bg-black/90');this.classList.toggle('p-4');this.classList.toggle('flex');this.classList.toggle('items-center');this.classList.toggle('justify-center');">
+                        <img src="/assets/cpr-drift.png"
+                             alt="Monthly Cost-Per-Resolution Drift chart showing $94,500 protected margin over 30 days with -$1.84 per resolution drift"
+                             class="w-full h-auto group-hover:scale-[1.02] transition-transform duration-300"
+                             loading="lazy"
+                             decoding="async">
+                    </div>
+                    <p class="text-slate-500 text-xs font-light mt-3">
+                        <span class="text-slate-400 font-medium">Illustrative sample environment.</span> Protected margin view connecting cost-per-resolution movement to projected margin exposure within the current review period.
+                    </p>
+                </div>
+                <div>
+                    <div class="rounded-xl border border-slate-700 overflow-hidden shadow-lg cursor-pointer group" onclick="this.classList.toggle('fixed');this.classList.toggle('inset-8');this.classList.toggle('z-[100]');this.classList.toggle('bg-black/90');this.classList.toggle('p-4');this.classList.toggle('flex');this.classList.toggle('items-center');this.classList.toggle('justify-center');">
+                        <img src="/assets/predictive-forecasts.png"
+                             alt="Predictive Forecasts showing 3-month projections for Transfer Depth, Cost Per Touch, Cost Per Resolution, and Margin Health with threshold breach warnings"
+                             class="w-full h-auto group-hover:scale-[1.02] transition-transform duration-300"
+                             loading="lazy"
+                             decoding="async">
+                    </div>
+                    <p class="text-slate-500 text-xs font-light mt-3">
+                        <span class="text-slate-400 font-medium">Illustrative sample environment.</span> Predictive forecast layer surfacing threshold breaches and directional risk across transfer depth, cost per touch, CPR, and margin health.
+                    </p>
+                </div>
+            </div>
+
+            <div class="text-center mt-10 reveal-on-scroll">
+                <p class="text-slate-500 text-sm font-light">Available as part of the Signal Scan and Margin Diagnostic workflow.</p>
+                <a href="/sample" class="inline-flex items-center text-brand-orange hover:text-orange-400 font-semibold text-sm mt-3 transition-colors">
+                    See full sample deliverable set
+                    <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
     <!-- The Pain / The Gap -->
     <section id="problem" class="py-24 bg-white border-y border-brand-border relative">
         <div class="absolute left-0 top-1/2 -translate-y-1/2 w-64 h-64 bg-brand-orange/5 rounded-full blur-[80px] pointer-events-none"></div>
@@ -570,7 +633,7 @@
                 <div class="reveal-on-scroll">
                     <h2 class="text-3xl md:text-4xl font-bold mb-6 text-brand-navy tracking-tight">The Problem Nobody Is Measuring</h2>
                     <p class="text-brand-muted text-lg mb-6 leading-relaxed font-light">
-                        Your dashboards show you averages. Averages hide the margin erosion happening inside every repeat contact, every transfer chain, every escalation loop, and every dispatch revisit.
+                        Your dashboards may be tracking activity without exposing resolution economics. The margin erosion happening inside repeat contacts, transfer chains, escalation loops, and dispatch revisits rarely surfaces in standard reporting.
                     </p>
                     <p class="text-brand-muted text-lg mb-8 leading-relaxed font-light">
                         These friction patterns compound silently — a 3% repeat rate is not 3% waste. It is 3% compounding across every resolution chain, every day, in every domain you operate.
@@ -619,7 +682,7 @@
             <div class="text-center max-w-3xl mx-auto mb-16 reveal-on-scroll">
                 <h2 class="text-3xl md:text-5xl font-extrabold mb-6 tracking-tight">The Diagnostic Framework</h2>
                 <p class="text-lg text-slate-400 font-light leading-relaxed mb-8">
-                    We do not guess. We map <strong class="text-white">12 operational Fault Lines</strong> to our CPR (Cost Per Resolution)&trade; economics model to prove exactly where margin is leaking.
+                    We map <strong class="text-white">12 operational Fault Lines</strong> to our CPR (Cost Per Resolution)&trade; economics model. Built from your operating data, not generic industry averages.
                 </p>
                 <div class="inline-flex items-center px-5 py-2.5 rounded-full border border-brand-orange/40 bg-brand-orange/10 text-brand-orange font-mono text-sm font-bold uppercase tracking-widest shadow-[0_0_20px_rgba(249,115,22,0.15)]">
                     <span class="w-2 h-2 rounded-full bg-brand-orange animate-pulse mr-3"></span>
@@ -988,64 +1051,8 @@
                     <div class="w-12 h-12 rounded-xl bg-orange-50 border border-orange-200 flex items-center justify-center mb-5">
                         <svg class="w-6 h-6 text-brand-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
                     </div>
-                    <h4 class="text-brand-navy font-bold text-lg mb-2">No Baseline Required</h4>
-                    <p class="text-brand-muted text-sm font-light leading-relaxed">Traditional consultants need 6-8 weeks to establish a baseline. Our CPR model generates findings from Day 1 using data you already have.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- How It Works — Process Timeline -->
-    <section class="py-24 bg-white border-b border-brand-border">
-        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto mb-16 reveal-on-scroll">
-                <h2 class="text-3xl md:text-5xl font-extrabold text-brand-navy mb-4 tracking-tight">How It Works</h2>
-                <p class="text-brand-muted text-lg font-light">From first contact to verified margin recovery in four steps.</p>
-            </div>
-            <div class="relative">
-                <!-- Vertical Line -->
-                <div class="hidden md:block absolute left-1/2 top-0 bottom-0 w-px bg-brand-border -translate-x-1/2"></div>
-                <!-- Step 1 -->
-                <div class="flex flex-col md:flex-row items-center gap-8 mb-16 reveal-on-scroll">
-                    <div class="md:w-1/2 md:text-right md:pr-12">
-                        <div class="text-brand-orange font-mono text-[10px] font-bold uppercase tracking-widest mb-2">Step 01</div>
-                        <h3 class="text-xl font-bold text-brand-navy mb-2">You Share the Data</h3>
-                        <p class="text-brand-muted font-light text-sm leading-relaxed">Anonymized CSV exports from your existing systems. No API integrations, no IT reviews, no 8-week onboarding. Most clients send data within 48 hours.</p>
-                    </div>
-                    <div class="w-12 h-12 rounded-full bg-brand-navy text-white flex items-center justify-center font-bold text-lg shrink-0 shadow-lg z-10 relative">1</div>
-                    <div class="md:w-1/2 md:pl-12"></div>
-                </div>
-                <!-- Step 2 -->
-                <div class="flex flex-col md:flex-row-reverse items-center gap-8 mb-16 reveal-on-scroll" style="transition-delay: 100ms;">
-                    <div class="md:w-1/2 md:text-left md:pl-12">
-                        <div class="text-brand-orange font-mono text-[10px] font-bold uppercase tracking-widest mb-2">Step 02</div>
-                        <h3 class="text-xl font-bold text-brand-navy mb-2">We Run the Diagnostic</h3>
-                        <p class="text-brand-muted font-light text-sm leading-relaxed">Your data is mapped against 12 structural fault lines using our CPR economics model. Every repeat contact, transfer chain, and escalation loop gets a dollar value.</p>
-                    </div>
-                    <div class="w-12 h-12 rounded-full bg-brand-navy text-white flex items-center justify-center font-bold text-lg shrink-0 shadow-lg z-10 relative">2</div>
-                    <div class="md:w-1/2 md:pr-12"></div>
-                </div>
-                <!-- Step 3 -->
-                <div class="flex flex-col md:flex-row items-center gap-8 mb-16 reveal-on-scroll" style="transition-delay: 200ms;">
-                    <div class="md:w-1/2 md:text-right md:pr-12">
-                        <div class="text-brand-orange font-mono text-[10px] font-bold uppercase tracking-widest mb-2">Step 03</div>
-                        <h3 class="text-xl font-bold text-brand-navy mb-2">Executive Briefing</h3>
-                        <p class="text-brand-muted font-light text-sm leading-relaxed">A 60-minute session where we present the Fault Line Cards, CPR model, and the dollar figure your CFO can take to the board. No generic decks — every finding is specific to your operation.</p>
-                    </div>
-                    <div class="w-12 h-12 rounded-full bg-brand-navy text-white flex items-center justify-center font-bold text-lg shrink-0 shadow-lg z-10 relative">3</div>
-                    <div class="md:w-1/2 md:pl-12"></div>
-                </div>
-                <!-- Step 4 -->
-                <div class="flex flex-col md:flex-row-reverse items-center gap-8 reveal-on-scroll" style="transition-delay: 300ms;">
-                    <div class="md:w-1/2 md:text-left md:pl-12">
-                        <div class="text-brand-orange font-mono text-[10px] font-bold uppercase tracking-widest mb-2">Step 04</div>
-                        <h3 class="text-xl font-bold text-brand-navy mb-2">Containment & Recovery</h3>
-                        <p class="text-brand-muted font-light text-sm leading-relaxed">You receive behavioral coaching kits, a 30-day containment plan, and Moves-First Metrics for each fault line. Margin recovery begins immediately.</p>
-                    </div>
-                    <div class="w-12 h-12 rounded-full bg-brand-orange text-white flex items-center justify-center font-bold text-lg shrink-0 shadow-lg z-10 relative">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
-                    </div>
-                    <div class="md:w-1/2 md:pr-12"></div>
+                    <h4 class="text-brand-navy font-bold text-lg mb-2">Fast Time-to-Value</h4>
+                    <p class="text-brand-muted text-sm font-light leading-relaxed">No multi-week baselining period. The CPR model generates findings from existing operational data, typically within the first engagement week.</p>
                 </div>
             </div>
         </div>
@@ -1302,7 +1309,7 @@
                     <span class="w-1.5 h-1.5 rounded-full bg-brand-orange mr-2"></span> The Process
                 </div>
                 <h2 class="text-3xl md:text-5xl font-extrabold mb-6 text-brand-navy tracking-tight">How the Signal Scan Works</h2>
-                <p class="text-xl text-brand-muted font-light">A deterministic audit trail from raw data to recoverable margin. No black boxes. No guesswork.</p>
+                <p class="text-xl text-brand-muted font-light">Clear assumptions. Defined logic. Auditable outputs. From raw data to recoverable margin.</p>
             </div>
 
             <div class="grid md:grid-cols-4 gap-8 reveal-on-scroll">
@@ -1332,35 +1339,40 @@
                 </div>
             </div>
 
-            <!-- Patent Badge + Trust Signals -->
-            <div class="mt-16 flex flex-wrap justify-center gap-6 reveal-on-scroll">
-                <div class="inline-flex items-center px-5 py-3 rounded-xl bg-slate-50 border border-slate-200">
-                    <svg class="w-5 h-5 text-brand-navy mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
-                    <span class="text-sm font-bold text-brand-navy">Patent Pending</span>
-                    <span class="text-xs text-brand-muted ml-2">U.S. Patent Pending</span>
-                </div>
-                <div class="inline-flex items-center px-5 py-3 rounded-xl bg-slate-50 border border-slate-200">
-                    <svg class="w-5 h-5 text-brand-navy mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
-                    <span class="text-sm font-bold text-brand-navy">CAIQ Certified</span>
-                    <span class="text-xs text-brand-muted ml-2">138/138 Controls</span>
-                </div>
-                <div class="inline-flex items-center px-5 py-3 rounded-xl bg-slate-50 border border-slate-200">
-                    <svg class="w-5 h-5 text-brand-navy mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
-                    <span class="text-sm font-bold text-brand-navy">E&O Insured</span>
-                    <span class="text-xs text-brand-muted ml-2">Professional Liability</span>
-                </div>
-                <div class="inline-flex items-center px-5 py-3 rounded-xl bg-slate-50 border border-slate-200">
-                    <svg class="w-5 h-5 text-brand-navy mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/></svg>
-                    <span class="text-sm font-bold text-brand-navy">72hr Data Wipe</span>
-                    <span class="text-xs text-brand-muted ml-2">Certificate Issued</span>
-                </div>
-            </div>
-
-            <!-- Findings Guarantee -->
-            <div class="mt-12 text-center reveal-on-scroll">
-                <div class="inline-flex items-center px-8 py-4 rounded-2xl bg-brand-navy text-white">
-                    <span class="text-lg font-bold">Findings Guarantee</span>
-                    <span class="text-sm text-slate-300 ml-3">If we don't identify verified leakage, you don't pay.</span>
+            <!-- Trust + Security — Grouped -->
+            <div class="mt-16 reveal-on-scroll">
+                <h3 class="text-lg font-bold text-brand-navy text-center mb-8 tracking-tight">Built for Enterprise Review</h3>
+                <div class="grid sm:grid-cols-3 gap-6">
+                    <!-- Security + Handling -->
+                    <div class="bg-brand-bg rounded-xl border border-brand-border p-6">
+                        <div class="text-[10px] font-mono font-bold text-brand-muted uppercase tracking-widest mb-4">Security &amp; Handling</div>
+                        <ul class="space-y-3 text-sm text-brand-navy">
+                            <li class="flex items-center"><svg class="w-4 h-4 text-brand-orange mr-2 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Anonymized CSV intake</li>
+                            <li class="flex items-center"><svg class="w-4 h-4 text-brand-orange mr-2 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> No live system integration</li>
+                            <li class="flex items-center"><svg class="w-4 h-4 text-brand-orange mr-2 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> 72-hour data wipe certificate</li>
+                            <li class="flex items-center"><svg class="w-4 h-4 text-brand-orange mr-2 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> E&amp;O insured</li>
+                        </ul>
+                    </div>
+                    <!-- Operational Trust -->
+                    <div class="bg-brand-bg rounded-xl border border-brand-border p-6">
+                        <div class="text-[10px] font-mono font-bold text-brand-muted uppercase tracking-widest mb-4">Engagement</div>
+                        <ul class="space-y-3 text-sm text-brand-navy">
+                            <li class="flex items-center"><svg class="w-4 h-4 text-brand-orange mr-2 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Founder-led diagnostic</li>
+                            <li class="flex items-center"><svg class="w-4 h-4 text-brand-orange mr-2 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Executive briefing included</li>
+                            <li class="flex items-center"><svg class="w-4 h-4 text-brand-orange mr-2 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Sample output available</li>
+                            <li class="flex items-center"><svg class="w-4 h-4 text-brand-orange mr-2 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> 90-day proof window</li>
+                        </ul>
+                    </div>
+                    <!-- Commercial Assurance -->
+                    <div class="bg-brand-bg rounded-xl border border-brand-border p-6">
+                        <div class="text-[10px] font-mono font-bold text-brand-muted uppercase tracking-widest mb-4">Commercial Assurance</div>
+                        <ul class="space-y-3 text-sm text-brand-navy">
+                            <li class="flex items-center"><svg class="w-4 h-4 text-brand-orange mr-2 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Findings guarantee</li>
+                            <li class="flex items-center"><svg class="w-4 h-4 text-brand-orange mr-2 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> U.S. Patent Pending</li>
+                            <li class="flex items-center"><svg class="w-4 h-4 text-brand-orange mr-2 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> CAIQ-aligned controls</li>
+                            <li class="flex items-center"><svg class="w-4 h-4 text-brand-orange mr-2 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Terms available on request</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1614,7 +1626,7 @@
 
             <!-- Safe Harbor Notice -->
             <div class="border-t border-[#1E293B] pt-6 pb-4 text-[10px] text-slate-600 leading-relaxed max-w-4xl mx-auto text-center">
-                MarginSignal OS provides operational intelligence based on publicly available data and client-provided information. All findings are probabilistic estimates and do not constitute financial advice, audit attestation, or guarantees of future performance. Analysis utilizes AI-assisted pattern recognition; all strategic decisions are made by client personnel. U.S. Patent Pending.
+                Sample environment shown. No confidential client information displayed. Financial outputs require client-provided operational inputs and are produced from defined business rules, scenario logic, and platform calculations. Forward-looking views are illustrative until validated against live client data. Refund guarantee applies to engagement findings only, not realized savings or future operating performance. All strategic decisions are made by client personnel. U.S. Patent Pending.
             </div>
 
             <div class="border-t border-[#1E293B] pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-slate-500 font-mono gap-4">
