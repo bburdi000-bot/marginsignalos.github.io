@@ -1965,7 +1965,7 @@
         // Assessment booked — Stripe link clicks
         document.querySelectorAll('a[href*="buy.stripe.com"]').forEach(function(el) {
             el.addEventListener('click', function() {
-                fireOnce('assessment_booked', { source: 'stripe_link' });
+                fireOnce('assessment_checkout_click', { source: 'stripe_link' });
             });
         });
 
