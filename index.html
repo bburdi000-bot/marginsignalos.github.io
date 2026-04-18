@@ -108,7 +108,7 @@
           "name": "How much does a MarginSignal OS diagnostic cost?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "MarginSignal OS offers four tiers: Resolution Economics Quick Assessment ($500, self-service) for an initial margin gap estimate with a 15-minute findings call, Signal Scan ($15K-$25K, 2-4 weeks) for baseline fault line identification with a findings guarantee, Margin Diagnostic ($25K-$35K, 4-6 weeks) for a full CPR financial model with coaching dashboard, and Enterprise Gain-Share (custom scoping) with a performance-based fee tied to verified margin recovery."
+            "text": "MarginSignal OS offers three tiers: a free CPR Calculator or $500 Diagnostic Readiness Assessment for initial exposure estimates, Signal Scan ($15K-$25K, 2-4 weeks) for forensic fault-line identification with a findings guarantee, and Margin Diagnostic ($25K-$35K, 4-6 weeks) for a full CPR financial model with coaching dashboard and 30-day containment plan. Enterprise and BPO network engagements are scoped on request."
           }
         }
       ]
@@ -399,7 +399,7 @@
                         <svg class="w-5 h-5 text-brand-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                     </div>
                     <h3 class="text-base font-bold text-brand-navy mb-2">CPR Economics Model</h3>
-                    <p class="text-brand-muted text-sm font-light leading-relaxed">Assigns dollar impact to hidden friction. Every fault line gets a financial exposure number your CFO can act on — not averages, not estimates.</p>
+                    <p class="text-brand-muted text-sm font-light leading-relaxed">Assigns dollar impact to hidden friction using resolution-chain reconstruction and operational cost modeling. Every fault line gets a financial exposure number your CFO can act on.</p>
                 </div>
                 <div class="bg-brand-bg rounded-2xl p-6 border border-brand-border">
                     <div class="w-10 h-10 rounded-xl bg-brand-navy flex items-center justify-center mb-4">
@@ -582,7 +582,7 @@
                         The Signal Gap
                     </div>
                     
-                    <h3 class="text-xl font-bold mb-6 pb-4 border-b border-brand-border text-brand-navy tracking-tight">Why Your Dashboard Is Lying To You</h3>
+                    <h3 class="text-xl font-bold mb-6 pb-4 border-b border-brand-border text-brand-navy tracking-tight">Why Dashboards Miss Structural Leakage</h3>
                     
                     <div class="space-y-6">
                         <div class="flex flex-col space-y-2">
@@ -856,7 +856,7 @@
 
                             <!-- Error State (Will largely be bypassed by mock fallback, kept for safety) -->
                             <div id="aiError" class="hidden text-center text-red-400 bg-red-950/30 p-4 rounded-xl border border-red-900/50 font-mono text-[10px] uppercase tracking-widest font-bold">
-                                Error connecting to diagnostic engine. Please try again.
+                                Submit a signal to generate a preliminary fault-line hypothesis.
                             </div>
                         </div>
 
@@ -975,14 +975,14 @@
                         <svg class="w-6 h-6 text-brand-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
                     </div>
                     <h4 class="text-brand-navy font-bold text-lg mb-2">Findings Guarantee</h4>
-                    <p class="text-brand-muted text-sm font-light leading-relaxed">Every Signal Scan is backed by a 3x findings guarantee: we identify at least 3x the engagement fee in verified margin leakage, or you get a full refund.</p>
+                    <p class="text-brand-muted text-sm font-light leading-relaxed">Every Signal Scan is backed by a findings guarantee: if we do not identify verified leakage equal to at least 3x the engagement fee, we refund the fee.</p>
                 </div>
                 <div class="bg-white rounded-2xl p-8 border border-brand-border shadow-sm reveal-on-scroll" style="transition-delay: 100ms;">
                     <div class="w-12 h-12 rounded-xl bg-orange-50 border border-orange-200 flex items-center justify-center mb-5">
                         <svg class="w-6 h-6 text-brand-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
                     </div>
                     <h4 class="text-brand-navy font-bold text-lg mb-2">Zero-Trust Compliant</h4>
-                    <p class="text-brand-muted text-sm font-light leading-relaxed">No API integrations. No database access. We work from anonymized CSV exports via a secure browser uplink. Your InfoSec team will say yes in one meeting.</p>
+                    <p class="text-brand-muted text-sm font-light leading-relaxed">No API integrations. No database access. Built for low-friction security review using anonymized CSV exports via a secure browser uplink.</p>
                 </div>
                 <div class="bg-white rounded-2xl p-8 border border-brand-border shadow-sm reveal-on-scroll" style="transition-delay: 200ms;">
                     <div class="w-12 h-12 rounded-xl bg-orange-50 border border-orange-200 flex items-center justify-center mb-5">
@@ -1141,7 +1141,7 @@
         <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-6 reveal-on-scroll">
                 <h2 class="text-3xl md:text-5xl font-extrabold mb-4 text-brand-navy tracking-tight">Pricing</h2>
-                <p class="text-lg text-brand-muted font-light">Every engagement ties to verified margin recovery. If we don't find it, you don't pay.</p>
+                <p class="text-lg text-brand-muted font-light">Every engagement ties to verified margin recovery. Findings guarantee on every Signal Scan.</p>
             </div>
             <p class="text-center text-brand-muted text-sm font-light max-w-2xl mx-auto mb-16">Most teams start with a Signal Scan to quantify hidden resolution cost before committing to a larger diagnostic or pilot.</p>
 
@@ -1179,7 +1179,7 @@
                     <h3 class="text-xl font-bold text-brand-navy mb-1 tracking-tight mt-2">Signal Scan</h3>
                     <div class="text-brand-muted font-mono text-[10px] font-bold uppercase tracking-widest mb-5">2–4 Weeks</div>
                     <div class="text-3xl font-extrabold text-brand-navy mb-6 tracking-tight">$15k – $25k</div>
-                    <p class="text-brand-muted mb-6 leading-relaxed font-light text-sm">Forensic diagnostic mapped against 12 structural fault lines. Backed by a findings guarantee: we identify &ge;3x the engagement fee in verified leakage, or full refund.</p>
+                    <p class="text-brand-muted mb-6 leading-relaxed font-light text-sm">Forensic diagnostic mapped against 12 structural fault lines. If we do not identify verified leakage equal to at least 3x the engagement fee, we refund the fee.</p>
                     <ul class="space-y-3 mb-8 text-sm text-brand-navy font-medium">
                         <li class="flex items-start"><svg class="h-4 w-4 text-brand-orange mr-2.5 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg> Ranked Fault Line Cards</li>
                         <li class="flex items-start"><svg class="h-4 w-4 text-brand-orange mr-2.5 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg> CPR Baseline + Financial Model</li>
@@ -1356,11 +1356,11 @@
                 </div>
             </div>
 
-            <!-- Savings Guarantee -->
+            <!-- Findings Guarantee -->
             <div class="mt-12 text-center reveal-on-scroll">
                 <div class="inline-flex items-center px-8 py-4 rounded-2xl bg-brand-navy text-white">
-                    <span class="text-lg font-bold">$250K Savings Guarantee</span>
-                    <span class="text-sm text-slate-300 ml-3">If we don't find it, you don't pay.</span>
+                    <span class="text-lg font-bold">Findings Guarantee</span>
+                    <span class="text-sm text-slate-300 ml-3">If we don't identify verified leakage, you don't pay.</span>
                 </div>
             </div>
         </div>
@@ -1389,24 +1389,16 @@
                 </div>
                 <!-- Bio -->
                 <div class="md:w-2/3">
-                    <div class="inline-flex items-center px-3 py-1 rounded-full text-[10px] font-bold bg-slate-100 text-brand-navy mb-4 uppercase tracking-widest border border-slate-200">
-                        Founder &amp; Product Architect
-                    </div>
-                    <h2 class="text-3xl md:text-4xl font-extrabold text-brand-navy mb-4 tracking-tight">Brandon Burdin</h2>
+                    <h2 class="text-3xl md:text-4xl font-extrabold text-brand-navy mb-2 tracking-tight">Brandon Burdin</h2>
                     <p class="text-brand-orange font-mono text-sm font-bold uppercase tracking-widest mb-6">Founder &amp; Product Architect</p>
-                    <p class="text-brand-muted text-lg leading-relaxed font-light mb-6">
-                        15 years in contact center operations across insurance, healthcare, and BPO. Built and led teams from 50 to 2,000+ seats. Spent a decade watching the same problem: every dashboard says green while margin bleeds out through repeat contacts, transfer chains, and escalation loops nobody is measuring.
-                    </p>
+                    <ul class="space-y-2 mb-6">
+                        <li class="flex items-center text-brand-navy font-medium"><svg class="w-4 h-4 text-brand-orange mr-2.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> 15 years in contact center operations</li>
+                        <li class="flex items-center text-brand-navy font-medium"><svg class="w-4 h-4 text-brand-orange mr-2.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Led teams from 50 to 2,000+ seats</li>
+                        <li class="flex items-center text-brand-navy font-medium"><svg class="w-4 h-4 text-brand-orange mr-2.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Insurance, healthcare, BPO, ITSM, field service</li>
+                    </ul>
                     <p class="text-brand-muted leading-relaxed font-light mb-8">
-                        MarginSignal OS exists because I got tired of seeing operations report Cost Per Call at $8 while the real Cost Per Resolution was $43. The gap isn't a rounding error — it's a structural failure in how we measure service operations. I built the diagnostic to find it.
+                        MarginSignal OS exists because I got tired of seeing operations report Cost Per Call at $8 while the real Cost Per Resolution was $43. The gap is structural, not seasonal. I built the diagnostic to find it.
                     </p>
-                    <div class="flex flex-wrap gap-3">
-                        <span class="inline-flex items-center px-3 py-1.5 rounded-lg bg-slate-50 border border-slate-200 text-xs font-semibold text-brand-navy">Insurance Claims</span>
-                        <span class="inline-flex items-center px-3 py-1.5 rounded-lg bg-slate-50 border border-slate-200 text-xs font-semibold text-brand-navy">Healthcare RCM</span>
-                        <span class="inline-flex items-center px-3 py-1.5 rounded-lg bg-slate-50 border border-slate-200 text-xs font-semibold text-brand-navy">BPO Vendor Management</span>
-                        <span class="inline-flex items-center px-3 py-1.5 rounded-lg bg-slate-50 border border-slate-200 text-xs font-semibold text-brand-navy">ITSM & Field Service</span>
-                        <span class="inline-flex items-center px-3 py-1.5 rounded-lg bg-slate-50 border border-slate-200 text-xs font-semibold text-brand-navy">WFM & Quality</span>
-                    </div>
                     <div class="mt-8 flex flex-wrap items-center gap-4">
                         <a href="https://www.linkedin.com/in/brandon-b-9656732a5/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-brand-orange hover:text-orange-600 font-semibold text-sm transition-colors">
                             <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
@@ -1421,18 +1413,56 @@
         </div>
     </section>
 
+    <!-- Sample Fault Line Card (proof artifact) -->
+    <section class="py-16 bg-white border-b border-brand-border">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 reveal-on-scroll">
+            <div class="text-center mb-8">
+                <div class="inline-flex items-center px-3 py-1 rounded-full text-[10px] font-bold bg-orange-50 text-brand-orange mb-4 uppercase tracking-widest border border-orange-200">Sample Artifact</div>
+                <h2 class="text-2xl font-extrabold text-brand-navy tracking-tight">What a Fault Line Card Looks Like</h2>
+            </div>
+            <div class="bg-brand-dark rounded-2xl border border-slate-700 p-8 shadow-lg">
+                <div class="flex items-center justify-between mb-6 pb-4 border-b border-slate-700">
+                    <div>
+                        <div class="text-[10px] font-mono text-slate-500 uppercase tracking-widest font-bold mb-1">Fault Line #01</div>
+                        <h3 class="text-white font-bold text-lg">Field Revisit Normalization</h3>
+                    </div>
+                    <span class="bg-red-950/50 text-red-400 px-3 py-1 rounded text-[10px] font-bold uppercase tracking-widest border border-red-900/50">Critical</span>
+                </div>
+                <div class="grid sm:grid-cols-2 gap-6 mb-6">
+                    <div>
+                        <div class="text-[10px] font-mono text-slate-500 uppercase tracking-widest font-bold mb-1">Predictive Driver</div>
+                        <p class="text-brand-orange font-mono text-sm">7-Day Repeat Rate: 22%</p>
+                    </div>
+                    <div>
+                        <div class="text-[10px] font-mono text-slate-500 uppercase tracking-widest font-bold mb-1">Annual Exposure</div>
+                        <p class="text-red-400 font-mono text-lg font-bold">$1,200,000</p>
+                    </div>
+                </div>
+                <div class="mb-6">
+                    <div class="text-[10px] font-mono text-slate-500 uppercase tracking-widest font-bold mb-2">Behavioral Root Cause</div>
+                    <p class="text-slate-300 text-sm font-light leading-relaxed">Adjusters closing claims as resolved while 22% generate a second site visit within 14 days. Each revisit costs $180-$400 in direct dispatch plus reprocessing. Logged as new contacts, making them invisible to FCR reporting.</p>
+                </div>
+                <div>
+                    <div class="text-[10px] font-mono text-slate-500 uppercase tracking-widest font-bold mb-2">Recommended Containment</div>
+                    <p class="text-slate-300 text-sm font-light leading-relaxed">30-day coaching intervention on resolution verification protocols. Moves-First Metric: reduce 7-day repeat rate from 22% to 18% within first cycle.</p>
+                </div>
+            </div>
+            <p class="text-center text-brand-muted text-xs font-light mt-4">Representative sample from a regional P&C insurance carrier diagnostic. <a href="/sample" class="text-brand-orange hover:text-orange-600 font-semibold">See full sample output &rarr;</a></p>
+        </div>
+    </section>
+
     <!-- Intake Form Section -->
     <section id="intake-form" class="pb-24 bg-brand-bg relative overflow-hidden">
         <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="bg-white rounded-3xl shadow-2xl border border-brand-border p-8 md:p-12 reveal-on-scroll">
-                
+
                 <div class="text-center mb-8">
                     <div class="inline-flex items-center px-3 py-1 rounded-full text-[10px] font-bold bg-slate-100 text-brand-navy mb-4 uppercase tracking-widest border border-slate-200">
                         <span class="w-1.5 h-1.5 rounded-full bg-brand-orange mr-2"></span> Start Here
                     </div>
                     <h2 class="text-3xl md:text-4xl font-bold text-brand-navy mb-4 tracking-tight">Request a Diagnostic</h2>
                     <p class="text-brand-muted font-light text-sm max-w-lg mx-auto">
-                        Every engagement is led directly by our founder. We take on a small number of clients at a time to ensure hands-on execution.
+                        Every engagement is led directly by the founder and scoped for hands-on execution.
                     </p>
                 </div>
 
