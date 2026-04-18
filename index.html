@@ -287,9 +287,21 @@
                     </span>
                 </div>
                 <!-- Desktop Nav -->
-                <div class="hidden md:flex space-x-8 items-center">
-                    <a href="#problem" class="text-sm font-medium text-brand-muted hover:text-brand-navy transition-colors">The Gap</a>
-                    <a href="#frameworks" class="text-sm font-medium text-brand-muted hover:text-brand-navy transition-colors">Methodology</a>
+                <div class="hidden md:flex space-x-6 items-center">
+                    <div class="relative group">
+                        <button class="text-sm font-medium text-brand-muted hover:text-brand-navy transition-colors flex items-center">
+                            Industries
+                            <svg class="w-3.5 h-3.5 ml-1 text-brand-muted group-hover:text-brand-navy transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </button>
+                        <div class="absolute top-full left-0 mt-2 w-56 bg-white border border-brand-border rounded-xl shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                            <div class="py-2">
+                                <a href="/insurance-claims" class="block px-4 py-2.5 text-sm text-brand-navy hover:bg-brand-bg transition-colors">Insurance Claims Ops</a>
+                                <a href="/healthcare-rcm" class="block px-4 py-2.5 text-sm text-brand-navy hover:bg-brand-bg transition-colors">Healthcare &amp; RCM</a>
+                                <a href="/bpo-msp" class="block px-4 py-2.5 text-sm text-brand-navy hover:bg-brand-bg transition-colors">BPO / MSP</a>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="/sample" class="text-sm font-medium text-brand-muted hover:text-brand-navy transition-colors">Sample Output</a>
                     <a href="#offer-ladder" class="text-sm font-medium text-brand-muted hover:text-brand-navy transition-colors">Pricing</a>
                     <a href="#founder" class="text-sm font-medium text-brand-muted hover:text-brand-navy transition-colors">About</a>
                     <a href="/blog/what-is-cost-per-resolution" class="text-sm font-medium text-brand-muted hover:text-brand-navy transition-colors">Blog</a>
@@ -313,8 +325,12 @@
     <!-- Mobile Menu -->
     <div id="mobile-menu" class="hidden fixed top-20 left-0 right-0 z-40 bg-white border-b border-brand-border shadow-lg md:hidden">
         <div class="px-4 py-6 space-y-4">
-            <a href="#problem" onclick="document.getElementById('mobile-menu').classList.add('hidden')" class="block text-sm font-medium text-brand-navy py-2">The Gap</a>
-            <a href="#frameworks" onclick="document.getElementById('mobile-menu').classList.add('hidden')" class="block text-sm font-medium text-brand-navy py-2">Methodology</a>
+            <div class="text-[10px] font-mono font-bold text-brand-muted uppercase tracking-widest pt-1">Industries</div>
+            <a href="/insurance-claims" class="block text-sm font-medium text-brand-navy py-1 pl-3 border-l-2 border-brand-border hover:border-brand-orange transition-colors">Insurance Claims Ops</a>
+            <a href="/healthcare-rcm" class="block text-sm font-medium text-brand-navy py-1 pl-3 border-l-2 border-brand-border hover:border-brand-orange transition-colors">Healthcare &amp; RCM</a>
+            <a href="/bpo-msp" class="block text-sm font-medium text-brand-navy py-1 pl-3 border-l-2 border-brand-border hover:border-brand-orange transition-colors">BPO / MSP</a>
+            <div class="border-t border-brand-border pt-4"></div>
+            <a href="/sample" class="block text-sm font-medium text-brand-navy py-2">Sample Output</a>
             <a href="#offer-ladder" onclick="document.getElementById('mobile-menu').classList.add('hidden')" class="block text-sm font-medium text-brand-navy py-2">Pricing</a>
             <a href="#founder" onclick="document.getElementById('mobile-menu').classList.add('hidden')" class="block text-sm font-medium text-brand-navy py-2">About</a>
             <a href="/blog/what-is-cost-per-resolution" class="block text-sm font-medium text-brand-navy py-2">Blog</a>
@@ -360,9 +376,9 @@
 
         <div class="flex items-center justify-center flex-wrap gap-4 md:space-x-8 text-sm font-medium text-slate-400 reveal-on-scroll" style="transition-delay: 400ms;">
             <span class="text-xs uppercase tracking-widest font-mono text-slate-400">Built For:</span>
-            <span class="flex items-center text-brand-navy"><svg class="w-4 h-4 mr-1.5 text-brand-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Insurance Claims Ops</span>
-            <span class="flex items-center text-brand-navy"><svg class="w-4 h-4 mr-1.5 text-brand-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Healthcare &amp; RCM</span>
-            <span class="flex items-center text-brand-navy"><svg class="w-4 h-4 mr-1.5 text-brand-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> BPO / MSP</span>
+            <a href="/insurance-claims" class="flex items-center text-brand-navy hover:text-brand-orange transition-colors"><svg class="w-4 h-4 mr-1.5 text-brand-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Insurance Claims Ops</a>
+            <a href="/healthcare-rcm" class="flex items-center text-brand-navy hover:text-brand-orange transition-colors"><svg class="w-4 h-4 mr-1.5 text-brand-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Healthcare &amp; RCM</a>
+            <a href="/bpo-msp" class="flex items-center text-brand-navy hover:text-brand-orange transition-colors"><svg class="w-4 h-4 mr-1.5 text-brand-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> BPO / MSP</a>
         </div>
     </section>
 
