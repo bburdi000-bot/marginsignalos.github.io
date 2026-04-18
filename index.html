@@ -572,46 +572,65 @@
                 <p class="text-slate-400 font-light leading-relaxed">MarginSignal OS turns operational telemetry into an executive view of margin health, drift signals, proof windows, and fix accountability.</p>
             </div>
 
-            <!-- Primary Screenshot -->
+            <!-- Primary Screenshot — Full Dashboard -->
             <div class="mb-8 reveal-on-scroll">
-                <div class="rounded-2xl border border-slate-700 overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] cursor-pointer group" onclick="this.classList.toggle('fixed');this.classList.toggle('inset-4');this.classList.toggle('z-[100]');this.classList.toggle('mb-8');this.classList.toggle('bg-black/90');this.classList.toggle('p-4');this.classList.toggle('flex');this.classList.toggle('items-center');this.classList.toggle('justify-center');">
-                    <img src="/assets/proof-scorecard.png"
-                         alt="MarginSignal OS 90-Day Proof Scorecard showing fix accountability, completion tracking, and blocker identification across decision rights, workflow design, instrumentation, and behavioral categories"
-                         class="w-full h-auto group-hover:scale-[1.01] transition-transform duration-300"
+                <div class="rounded-2xl border border-slate-700 overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] cursor-pointer" onclick="openLightbox('/assets/dashboard.png','Illustrative Margin Index dashboard showing margin health, CPR drift, alert conditions, predictive signals, and operating context in a single executive view.')">
+                    <img src="/assets/dashboard.png"
+                         alt="MarginSignal OS full dashboard showing Margin Index at 74.2, CPR drift chart with $94,500 protected margin, alert feed, predictive forecasts, and executive operating context"
+                         class="w-full h-auto hover:brightness-110 transition-all duration-300"
                          loading="lazy"
                          decoding="async">
                 </div>
                 <p class="text-center text-slate-500 text-xs font-light mt-3">
-                    <span class="text-slate-400 font-medium">Illustrative sample environment.</span> 90-day proof scorecard tying fixes to ownership, blockers, and completion status so improvement can be verified, not just observed.
+                    <span class="text-slate-400 font-medium">Illustrative sample environment.</span> Margin Index dashboard showing margin health, CPR drift, alert conditions, predictive signals, and operating context in a single executive view. <span class="text-slate-600 ml-1 cursor-pointer hover:text-slate-400" onclick="openLightbox('/assets/dashboard.png','Full dashboard view')">Click to enlarge.</span>
                 </p>
             </div>
 
             <!-- Supporting Screenshots -->
-            <div class="grid md:grid-cols-2 gap-6 reveal-on-scroll" style="transition-delay: 150ms;">
+            <div class="grid md:grid-cols-3 gap-6 reveal-on-scroll" style="transition-delay: 150ms;">
                 <div>
-                    <div class="rounded-xl border border-slate-700 overflow-hidden shadow-lg cursor-pointer group" onclick="this.classList.toggle('fixed');this.classList.toggle('inset-8');this.classList.toggle('z-[100]');this.classList.toggle('bg-black/90');this.classList.toggle('p-4');this.classList.toggle('flex');this.classList.toggle('items-center');this.classList.toggle('justify-center');">
+                    <div class="rounded-xl border border-slate-700 overflow-hidden shadow-lg cursor-pointer" onclick="openLightbox('/assets/proof-scorecard.png','90-day proof scorecard tying fixes to ownership, blockers, and completion status.')">
+                        <img src="/assets/proof-scorecard.png"
+                             alt="90-Day Proof Scorecard showing 2 of 6 fixes complete with fix accountability across decision rights, workflow design, instrumentation, and behavioral categories"
+                             class="w-full h-auto hover:brightness-110 transition-all duration-300"
+                             loading="lazy"
+                             decoding="async">
+                    </div>
+                    <p class="text-slate-500 text-xs font-light mt-3">
+                        <span class="text-slate-400 font-medium">Illustrative sample environment.</span> 90-day proof scorecard.
+                    </p>
+                </div>
+                <div>
+                    <div class="rounded-xl border border-slate-700 overflow-hidden shadow-lg cursor-pointer" onclick="openLightbox('/assets/cpr-drift.png','Protected margin view connecting CPR movement to projected margin exposure.')">
                         <img src="/assets/cpr-drift.png"
                              alt="Monthly Cost-Per-Resolution Drift chart showing $94,500 protected margin over 30 days with -$1.84 per resolution drift"
-                             class="w-full h-auto group-hover:scale-[1.02] transition-transform duration-300"
+                             class="w-full h-auto hover:brightness-110 transition-all duration-300"
                              loading="lazy"
                              decoding="async">
                     </div>
                     <p class="text-slate-500 text-xs font-light mt-3">
-                        <span class="text-slate-400 font-medium">Illustrative sample environment.</span> Protected margin view connecting cost-per-resolution movement to projected margin exposure within the current review period.
+                        <span class="text-slate-400 font-medium">Illustrative sample environment.</span> CPR drift view.
                     </p>
                 </div>
                 <div>
-                    <div class="rounded-xl border border-slate-700 overflow-hidden shadow-lg cursor-pointer group" onclick="this.classList.toggle('fixed');this.classList.toggle('inset-8');this.classList.toggle('z-[100]');this.classList.toggle('bg-black/90');this.classList.toggle('p-4');this.classList.toggle('flex');this.classList.toggle('items-center');this.classList.toggle('justify-center');">
+                    <div class="rounded-xl border border-slate-700 overflow-hidden shadow-lg cursor-pointer" onclick="openLightbox('/assets/predictive-forecasts.png','Predictive forecast layer surfacing threshold breaches and directional risk.')">
                         <img src="/assets/predictive-forecasts.png"
                              alt="Predictive Forecasts showing 3-month projections for Transfer Depth, Cost Per Touch, Cost Per Resolution, and Margin Health with threshold breach warnings"
-                             class="w-full h-auto group-hover:scale-[1.02] transition-transform duration-300"
+                             class="w-full h-auto hover:brightness-110 transition-all duration-300"
                              loading="lazy"
                              decoding="async">
                     </div>
                     <p class="text-slate-500 text-xs font-light mt-3">
-                        <span class="text-slate-400 font-medium">Illustrative sample environment.</span> Predictive forecast layer surfacing threshold breaches and directional risk across transfer depth, cost per touch, CPR, and margin health.
+                        <span class="text-slate-400 font-medium">Illustrative sample environment.</span> Predictive forecasts.
                     </p>
                 </div>
+            </div>
+
+            <!-- Lightbox Modal -->
+            <div id="lightbox-modal" class="fixed inset-0 z-[200] bg-black/95 hidden items-center justify-center p-4 md:p-8 cursor-pointer" onclick="closeLightbox()">
+                <button class="absolute top-4 right-4 text-white/60 hover:text-white text-3xl font-light z-[201] w-10 h-10 flex items-center justify-center">&times;</button>
+                <img id="lightbox-img" src="" alt="" class="max-w-full max-h-[90vh] object-contain rounded-lg shadow-2xl">
+                <p id="lightbox-caption" class="absolute bottom-4 left-1/2 -translate-x-1/2 text-slate-400 text-xs font-light text-center max-w-xl"></p>
             </div>
 
             <div class="text-center mt-10 reveal-on-scroll">
@@ -1713,6 +1732,26 @@
 
             const matrixTable = document.getElementById('diagnostic-matrix');
             if(matrixTable) matrixObserver.observe(matrixTable);
+        });
+
+        // Lightbox
+        function openLightbox(src, caption) {
+            var modal = document.getElementById('lightbox-modal');
+            document.getElementById('lightbox-img').src = src;
+            document.getElementById('lightbox-img').alt = caption;
+            document.getElementById('lightbox-caption').textContent = caption;
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            document.body.style.overflow = 'hidden';
+        }
+        function closeLightbox() {
+            var modal = document.getElementById('lightbox-modal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+            document.body.style.overflow = '';
+        }
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') closeLightbox();
         });
 
         // Quick Fill Example Text
