@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cost Per Resolution: The Metric Your CFO Should Be Obsessed With | MarginSignal OS</title>
+    <meta name="description" content="You know how many interactions your service org handles. You don't know what each one actually costs. Here's why Cost Per Resolution is the number that matters.">
+    <meta name="keywords" content="cost per resolution, CPR metric, contact center cost, service operations margin, repeat contact cost, escalation economics, margin intelligence">
+
+    <link rel="canonical" href="https://www.marginsignalos.com/blog/cost-per-resolution-metric">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Cost Per Resolution: The Metric Your CFO Should Be Obsessed With">
+    <meta property="og:description" content="You know how many interactions your service org handles. You don't know what each one actually costs. Here's why Cost Per Resolution is the number that matters.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://www.marginsignalos.com/blog/cost-per-resolution-metric">
+    <meta property="og:site_name" content="MarginSignal OS">
+    <meta property="article:author" content="Brandon Burdin">
+    <meta property="article:published_time" content="2026-04-19">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Cost Per Resolution: The Metric Your CFO Should Be Obsessed With">
+    <meta name="twitter:description" content="You know how many interactions your service org handles. You don't know what each one actually costs. Here's why Cost Per Resolution is the number that matters.">
+
+    <!-- Structured Data: Article -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Cost Per Resolution: The Metric Your CFO Should Be Obsessed With",
+      "description": "You know how many interactions your service org handles. You don't know what each one actually costs. Here's why Cost Per Resolution is the number that matters.",
+      "author": {
+        "@type": "Person",
+        "name": "Brandon Burdin",
+        "jobTitle": "Founder & Forensic Margin Analyst",
+        "url": "https://www.linkedin.com/in/brandon-b-9656732a5/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "MarginSignal OS",
+        "url": "https://www.marginsignalos.com"
+      },
+      "datePublished": "2026-04-19",
+      "dateModified": "2026-04-19",
+      "mainEntityOfPage": "https://www.marginsignalos.com/blog/cost-per-resolution-metric",
+      "keywords": ['cost per resolution', 'CPR metric', 'contact center cost', 'service operations margin', 'repeat contact cost', 'escalation economics', 'margin intelligence']
+    }
+    </script>
+
+    <!-- Microsoft Clarity -->
+    <script type="text/javascript">
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "vtbd9ybs7t");
+    </script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'SF Pro Display', 'sans-serif'],
+                        mono: ['Fira Code', 'monospace'],
+                    },
+                    colors: {
+                        brand: {
+                            bg: '#F8FAFC',
+                            navy: '#0F172A',
+                            orange: '#F97316',
+                            muted: '#64748B',
+                            border: '#E2E8F0',
+                            dark: '#020617',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { background-color: #F8FAFC; color: #0F172A; -webkit-font-smoothing: antialiased; }
+        .glass-nav { background-color: rgba(248, 250, 252, 0.85); backdrop-filter: blur(12px); }
+        .prose h2 { font-size: 1.5rem; font-weight: 700; margin-top: 3rem; margin-bottom: 1rem; color: #0F172A; }
+        .prose h3 { font-size: 1.25rem; font-weight: 600; margin-top: 2rem; margin-bottom: 0.75rem; color: #0F172A; }
+        .prose p { margin-bottom: 1.25rem; line-height: 1.8; color: #334155; }
+        .prose ul, .prose ol { margin-bottom: 1.25rem; padding-left: 1.5rem; }
+        .prose li { margin-bottom: 0.5rem; line-height: 1.7; color: #334155; }
+        .prose strong { color: #0F172A; }
+        .prose table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-size: 0.9rem; }
+        .prose th { background: #F1F5F9; padding: 0.75rem 1rem; text-align: left; font-weight: 600; border-bottom: 2px solid #E2E8F0; }
+        .prose td { padding: 0.75rem 1rem; border-bottom: 1px solid #E2E8F0; }
+        .prose blockquote { border-left: 3px solid #F97316; padding-left: 1rem; margin: 1.5rem 0; color: #475569; font-style: italic; }
+        .prose hr { border: none; border-top: 1px solid #E2E8F0; margin: 2.5rem 0; }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full top-0 z-50 glass-nav border-b border-brand-border">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <a href="/" class="flex-shrink-0 flex items-center group">
+                    <span class="font-extrabold text-xl tracking-tight text-brand-navy">
+                        MarginSignal<span class="text-brand-orange">OS&trade;</span>
+                    </span>
+                </a>
+                <div class="flex space-x-6 items-center">
+                    <a href="/" class="text-sm font-medium text-brand-muted hover:text-brand-navy transition-colors">Home</a>
+                    <a href="/blog/" class="text-sm font-medium text-brand-muted hover:text-brand-navy transition-colors">Blog</a>
+                    <a href="/#intake-form" class="bg-brand-navy text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-gray-800 transition-all">
+                        Book Diagnostic
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Article -->
+    <article class="pt-28 pb-20 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
+
+        <!-- Article Header -->
+        <header class="mb-12">
+            <div class="flex items-center space-x-3 mb-6">
+                <span class="text-xs font-mono font-bold text-brand-orange uppercase tracking-widest">Operational Intelligence</span>
+                <span class="text-brand-border">|</span>
+                <time datetime="2026-04-19" class="text-xs font-mono text-brand-muted">April 19, 2026</time>
+                <span class="text-brand-border">|</span>
+                <span class="text-xs font-mono text-brand-muted">9 min read</span>
+            </div>
+            <h1 class="text-4xl md:text-5xl font-extrabold text-brand-navy leading-tight mb-6">
+                Cost Per Resolution:<br><span class="text-brand-orange">The Metric Your CFO Should Be Obsessed With</span>
+            </h1>
+            <p class="text-xl text-slate-600 leading-relaxed max-w-3xl">
+                You know how many interactions your service org handles. You don't know what each one actually costs. Here's why Cost Per Resolution is the number that matters.
+            </p>
+        </header>
+
+        <!-- Article Body -->
+        <div class="prose max-w-none">
+            <hr>
+            <h2>The Number Nobody Knows</h2>
+            <p>Ask a VP of Operations how many customer interactions they handled last month. They&rsquo;ll give you a number within seconds.</p>
+            <p>Ask them what it cost to resolve each one. The room goes quiet.</p>
+            <p>Cost Per Resolution (CPR) is the single most important metric for any service organization &mdash; and almost nobody measures it properly.</p>
+            <p>They measure average handle time. They measure first-contact resolution percentage. They measure CSAT scores. They measure volume by channel.</p>
+            <p>But none of those tell you what you&rsquo;re actually paying to make a customer problem go away.</p>
+            <h2>What Cost Per Resolution Actually Includes</h2>
+            <p>Most organizations calculate their "cost per contact" as something like: total contact center budget divided by total interactions. That gives you a number. It also gives you a lie.</p>
+            <p>Real Cost Per Resolution includes:</p>
+            <p><strong>Direct costs:</strong></p>
+            <ul>
+            <li>Agent labor for the initial contact</li>
+            <li>Agent labor for every follow-up contact (the repeat)</li>
+            <li>Agent labor for every escalation</li>
+            <li>Agent labor for every transfer</li>
+            <li>Supervisor time for escalated cases</li>
+            <li>Subject matter expert time for complex issues</li>
+            </ul>
+            <p><strong>Hidden costs:</strong></p>
+            <ul>
+            <li>Training costs attributable to the process gap that caused the repeat</li>
+            <li>Quality assurance costs for re-reviewing failed interactions</li>
+            <li>Technology costs per interaction (telephony, CRM licenses, AI tools)</li>
+            <li>Workforce management overhead for scheduling around peak failure patterns</li>
+            </ul>
+            <p><strong>Consequential costs:</strong></p>
+            <ul>
+            <li>Revenue lost from customers who churned because it took 3 contacts to resolve</li>
+            <li>Revenue lost from customers who downgraded after a bad experience</li>
+            <li>Brand damage from negative reviews tied to unresolved issues</li>
+            <li>Compliance costs when failures trigger regulatory scrutiny</li>
+            </ul>
+            <p>When you add all of that up, your real Cost Per Resolution is often significantly higher than the number on your dashboard &mdash; industry benchmarks from COPC and Forrester consistently show organizations underestimate true resolution costs by a wide margin.</p>
+            <h2>Where the Money Actually Goes</h2>
+            <p>Here&rsquo;s what industry research consistently shows across service organizations:</p>
+            <h3>Repeat Contacts: The 30% Tax</h3>
+            <p>Industry data consistently shows that 20-30% of customer contacts are repeats &mdash; the customer calling back because their issue wasn&rsquo;t actually resolved the first time.</p>
+            <p>Each repeat doubles your cost for that resolution. At scale, that&rsquo;s 20-30% of your service budget spent on work that should have been done right the first time.</p>
+            <p>But here&rsquo;s what your dashboard doesn&rsquo;t tell you: <strong>which processes generate the most repeats, which agents have the highest repeat rates, and which issue types are structurally unresolvable on first contact.</strong></p>
+            <p>Without that signal, you&rsquo;re spending money on the same failures every month.</p>
+            <h3>Unnecessary Escalations: The 4x Multiplier</h3>
+            <p>An escalation costs 3-5x a first-contact resolution. Some of those escalations are necessary &mdash; complex cases that require specialized knowledge or authority.</p>
+            <p>But a significant percentage are unnecessary. The agent didn&rsquo;t have the information they needed. The policy was unclear. The system didn&rsquo;t give them the authority to resolve it. The customer asked for a manager and the agent had no retention tools.</p>
+            <p>Every unnecessary escalation is a process failure you&rsquo;re paying a premium for.</p>
+            <h3>Blind Transfers: The Churn Signal</h3>
+            <p>When a customer gets transferred without context, two things happen: the resolution cost doubles (the receiving agent starts from scratch) and the customer&rsquo;s likelihood of churning spikes.</p>
+            <p>Transfers aren&rsquo;t inherently bad. Blind transfers &mdash; where the customer has to re-explain their issue &mdash; are operational malpractice at scale.</p>
+            <h2>What Your Dashboard Isn&rsquo;t Telling You</h2>
+            <p>If you&rsquo;re using Tableau, Power BI, or a built-in CRM analytics module, you&rsquo;re seeing charts. You&rsquo;re not seeing signals.</p>
+            <p>A chart tells you: "Escalations increased 12% this month."</p>
+            <p>A signal tells you: "Escalations on billing disputes for customers in their first 90 days increased 12%, driven by a policy change on payment plan eligibility that wasn&rsquo;t reflected in the agent knowledge base. Estimated margin impact: $47,000/month."</p>
+            <p>The first gives you a number to report. The second gives you a decision to make.</p>
+            <p><strong>That&rsquo;s the difference between analytics and operational intelligence.</strong></p>
+            <p>Analytics shows you what happened. Operational intelligence shows you what&rsquo;s costing you money and what to do about it.</p>
+            <h2>How to Start Measuring Real CPR</h2>
+            <p>You don&rsquo;t need to rip out your existing stack. You need to layer signal detection on top of it.</p>
+            <h3>Step 1: Link interactions to resolutions</h3>
+            <p>Stop counting contacts. Start counting resolutions. A resolution is when the customer&rsquo;s issue is actually solved &mdash; not when the call ends. Link every follow-up, escalation, and transfer back to the original issue.</p>
+            <h3>Step 2: Cost every path</h3>
+            <p>Assign real costs to each interaction type: first contact, repeat, escalation, transfer. Include fully loaded agent costs (salary + benefits + training + technology + management overhead).</p>
+            <h3>Step 3: Identify your top margin leaks</h3>
+            <p>Sort your issue types by total resolution cost, not by volume. The highest-volume issue type might not be your biggest problem. The issue type that generates the most repeats and escalations is.</p>
+            <h3>Step 4: Signal, don&rsquo;t report</h3>
+            <p>Set up alerts for when specific margin signals change: repeat rate by issue type, escalation rate by agent cohort, transfer rate by time of day. React to signals in real time instead of discovering problems in monthly reports.</p>
+            <h3>Step 5: Track the trend</h3>
+            <p>CPR should go down over time if you&rsquo;re fixing the right things. If it&rsquo;s flat or rising, you&rsquo;re spending money on the wrong improvements.</p>
+            <h2>The CFO Conversation</h2>
+            <p>The next time your CFO asks why the service organization needs more budget, don&rsquo;t show them volume growth charts.</p>
+            <p>Show them this:</p>
+            <p>"Our average Cost Per Resolution is $X. Of that, $Y is waste from repeats, unnecessary escalations, and blind transfers. If we reduce repeat contacts by 15%, we save $Z per year &mdash; without reducing headcount, without changing technology, without restructuring."</p>
+            <p>That&rsquo;s a margin conversation. That&rsquo;s the conversation CFOs want to have.</p>
+            <p><strong>And it starts with measuring the number nobody knows.</strong></p>
+            <hr>
+            <p>MarginSignal OS tracks Cost Per Resolution, repeat contact rates, escalation economics, and margin signals across your service operations &mdash; powered by the same runtime architecture that governs AI agent execution with bounded controls and decision provenance.</p>
+            <p><strong>Get the Cost Per Resolution Calculator at marginsignalos.com</strong></p>
+        </div>
+
+    </article>
+
+    <!-- CTA Banner -->
+    <section class="bg-brand-navy py-16 px-4">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-2xl font-bold text-white mb-4">Ready to see what your operations are really costing?</h2>
+            <p class="text-slate-400 mb-8 max-w-2xl mx-auto">MarginSignal OS runs a forensic diagnostic that reveals the gap between what you report and what you actually spend. Runtime governance meets operational intelligence.</p>
+            <a href="/#intake-form" class="bg-brand-orange text-white px-8 py-3 rounded-lg font-semibold hover:bg-orange-600 transition-all inline-block">
+                Request a Diagnostic
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-brand-dark py-12 px-4">
+        <div class="max-w-4xl mx-auto text-center">
+            <p class="text-slate-500 text-sm">&copy; 2026 MarginSignal OS LLC. All rights reserved.</p>
+            <p class="text-slate-600 text-xs mt-2">
+                <a href="/" class="hover:text-slate-400">Home</a> &middot;
+                <a href="/blog/" class="hover:text-slate-400">Blog</a> &middot;
+                <a href="/#intake-form" class="hover:text-slate-400">Contact</a>
+            </p>
+        </div>
+    </footer>
+
+</body>
+</html>
