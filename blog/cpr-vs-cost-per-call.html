@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CPR vs Cost Per Call: Why the Metric Shift Matters | MarginSignal OS</title>
+    <meta name="description" content="Every contact center reports cost per call. Almost none report cost per resolution. The gap between those two numbers is where margin disappears.">
+    <meta name="keywords" content="cost per resolution vs cost per call, CPR vs CPC, contact center metrics, resolution economics, margin leak, service operations">
+
+    <link rel="canonical" href="https://www.marginsignalos.com/blog/cpr-vs-cost-per-call">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="CPR vs Cost Per Call: Why the Metric Shift Matters">
+    <meta property="og:description" content="Every contact center reports cost per call. Almost none report cost per resolution. The gap between those two numbers is where margin disappears.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://www.marginsignalos.com/blog/cpr-vs-cost-per-call">
+    <meta property="og:site_name" content="MarginSignal OS">
+    <meta property="article:author" content="Brandon Burdin">
+    <meta property="article:published_time" content="2026-05-02">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="CPR vs Cost Per Call: Why the Metric Shift Matters">
+    <meta name="twitter:description" content="Every contact center reports cost per call. Almost none report cost per resolution. The gap between those two numbers is where margin disappears.">
+
+    <!-- Structured Data: Article -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "CPR vs Cost Per Call: Why the Metric Shift Matters",
+      "description": "Every contact center reports cost per call. Almost none report cost per resolution. The gap between those two numbers is where margin disappears.",
+      "author": {
+        "@type": "Person",
+        "name": "Brandon Burdin",
+        "jobTitle": "Founder & Forensic Margin Analyst",
+        "url": "https://www.linkedin.com/in/brandon-b-9656732a5/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "MarginSignal OS",
+        "url": "https://www.marginsignalos.com"
+      },
+      "datePublished": "2026-05-02",
+      "dateModified": "2026-05-02",
+      "mainEntityOfPage": "https://www.marginsignalos.com/blog/cpr-vs-cost-per-call",
+      "keywords": "cost per resolution vs cost per call, CPR vs CPC, contact center metrics, resolution economics, margin leak, service operations"
+    }
+    </script>
+
+    <!-- Microsoft Clarity -->
+    <script type="text/javascript">
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "vtbd9ybs7t");
+    </script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'SF Pro Display', 'sans-serif'],
+                        mono: ['Fira Code', 'monospace'],
+                    },
+                    colors: {
+                        brand: {
+                            bg: '#F8FAFC',
+                            navy: '#0F172A',
+                            orange: '#F97316',
+                            muted: '#64748B',
+                            border: '#E2E8F0',
+                            dark: '#020617',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { background-color: #F8FAFC; color: #0F172A; -webkit-font-smoothing: antialiased; }
+        .glass-nav { background-color: rgba(248, 250, 252, 0.85); backdrop-filter: blur(12px); }
+        .prose h2 { font-size: 1.5rem; font-weight: 700; margin-top: 3rem; margin-bottom: 1rem; color: #0F172A; }
+        .prose h3 { font-size: 1.25rem; font-weight: 600; margin-top: 2rem; margin-bottom: 0.75rem; color: #0F172A; }
+        .prose p { margin-bottom: 1.25rem; line-height: 1.8; color: #334155; }
+        .prose ul, .prose ol { margin-bottom: 1.25rem; padding-left: 1.5rem; }
+        .prose li { margin-bottom: 0.5rem; line-height: 1.7; color: #334155; }
+        .prose strong { color: #0F172A; }
+        .prose table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-size: 0.9rem; }
+        .prose th { background: #F1F5F9; padding: 0.75rem 1rem; text-align: left; font-weight: 600; border-bottom: 2px solid #E2E8F0; }
+        .prose td { padding: 0.75rem 1rem; border-bottom: 1px solid #E2E8F0; }
+        .prose blockquote { border-left: 3px solid #F97316; padding-left: 1rem; margin: 1.5rem 0; color: #475569; font-style: italic; }
+        .prose hr { border: none; border-top: 1px solid #E2E8F0; margin: 2.5rem 0; }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full top-0 z-50 glass-nav border-b border-brand-border">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <a href="/" class="flex-shrink-0 flex items-center group">
+                    <span class="font-extrabold text-xl tracking-tight text-brand-navy">
+                        MarginSignal<span class="text-brand-orange">OS&trade;</span>
+                    </span>
+                </a>
+                <div class="flex space-x-6 items-center">
+                    <a href="/" class="text-sm font-medium text-brand-muted hover:text-brand-navy transition-colors">Home</a>
+                    <a href="/blog/" class="text-sm font-medium text-brand-muted hover:text-brand-navy transition-colors">Blog</a>
+                    <a href="/#intake-form" class="bg-brand-navy text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-gray-800 transition-all">
+                        Book Diagnostic
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Article -->
+    <article class="pt-28 pb-20 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
+
+        <!-- Article Header -->
+        <header class="mb-12">
+            <div class="flex items-center space-x-3 mb-6">
+                <span class="text-xs font-mono font-bold text-brand-orange uppercase tracking-widest">Resolution Economics</span>
+                <span class="text-brand-border">|</span>
+                <time datetime="2026-05-02" class="text-xs font-mono text-brand-muted">May 2, 2026</time>
+                <span class="text-brand-border">|</span>
+                <span class="text-xs font-mono text-brand-muted">9 min read</span>
+            </div>
+            <h1 class="text-4xl md:text-5xl font-extrabold text-brand-navy leading-tight mb-6">
+                CPR vs Cost Per Call:<br><span class="text-brand-orange">Why the Metric Shift Matters</span>
+            </h1>
+            <p class="text-xl text-slate-600 leading-relaxed max-w-3xl">
+                Every contact center reports cost per call. Almost none report cost per resolution. The gap between those two numbers is where margin disappears.
+            </p>
+        </header>
+
+        <!-- Article Body -->
+        <div class="prose max-w-none">
+            <hr>
+            <h2>The Two Formulas</h2>
+            <p><strong>Cost Per Call (CPC):</strong></p>
+            <blockquote>CPC = Total Operating Cost / Total Contacts Handled</blockquote>
+            <p><strong>Cost Per Resolution (CPR):</strong></p>
+            <blockquote>CPR = (Direct Labor + Indirect Labor + Technology + Overhead + Failure Demand Cost) / Verified Resolutions</blockquote>
+            <p>CPC divides by every interaction that touches the system. CPR divides by the number of customer issues that were actually resolved. The numerator in CPR is also larger, because it includes failure demand &mdash; the cost of callbacks, transfers, re-opens, and escalations generated by incomplete first contacts.</p>
+            <p>The formulas look similar. The outputs are not.</p>
+
+            <h2>The $42 Gap</h2>
+            <p>A mid-size contact center reports cost per contact at $12. That number is derived by dividing total operating cost by total contact volume. It is arithmetically correct.</p>
+            <p>Now adjust the denominator. Count verified resolutions instead of raw contacts. If 26% of contacts are repeats, and another 8&ndash;12% involve transfers or rework that generate downstream cost, the effective resolution count drops by a third or more. That $12 cost per contact becomes $54 cost per resolution.</p>
+            <p><strong>The $42 gap between those two numbers is not a rounding error. It is real margin waste</strong> &mdash; dollars consumed by repeat handling, transfers, rework, and channel switching that cost-per-call reporting structurally cannot surface.</p>
+
+            <h2>Why CPC Masks Waste</h2>
+            <p>CPC was designed for a simpler era, when one call equaled one issue equaled one resolution. That assumption broke years ago.</p>
+            <p><strong>Repeat contacts vanish.</strong> When a customer calls back because the first call did not resolve their issue, CPC logs a new contact. It does not flag that the second call exists because the first one failed.</p>
+            <p><strong>Transfers add cost invisibly.</strong> A warm transfer adds 40&ndash;60% to the cost of a resolution. A cold transfer adds 80&ndash;150%. CPC reports the transfer as a single contact at average cost.</p>
+            <p><strong>Channel switches compound silently.</strong> A customer who calls, then emails, then chats generates three contacts across three channels. CPC counts three interactions. The customer had one problem.</p>
+
+            <h2>What CPR Reveals That CPC Cannot</h2>
+            <p><strong>Failure demand becomes visible.</strong> CPR isolates the cost of contacts that exist only because a prior contact failed to resolve the issue. In most operations, failure demand accounts for 30&ndash;60% of total contact volume.</p>
+            <p><strong>Resolution paths become comparable.</strong> A billing inquiry resolved in one call at $7 and a claims dispute resolved across four contacts at $68 should not be averaged into a single number.</p>
+            <p><strong>Automation impact becomes honest.</strong> When an organization automates its simplest contacts, CPC drops. But the remaining human-handled issues are harder and more expensive. CPR captures this shift. CPC hides it behind a blended average.</p>
+            <p><strong>Intervention ROI becomes measurable.</strong> Every proposed change can be modeled against its impact on cost per resolution instead of cost per call. The question is no longer &ldquo;does this reduce call volume&rdquo; but &ldquo;does this reduce the number of contacts required to resolve an issue.&rdquo;</p>
+
+            <h2>How to Start the Shift</h2>
+            <ol>
+            <li><strong>Track issue-level resolution, not contact-level resolution.</strong> Assign a unique identifier to each customer issue and trace every contact associated with it.</li>
+            <li><strong>Measure CPR for your top five contact types.</strong> Compare to your reported CPC. The gap tells you where to focus.</li>
+            <li><strong>Separate AI-deflected contacts from human-handled contacts.</strong> Your human-handled CPR is rising even if blended averages look stable. Measure them independently.</li>
+            </ol>
+            <p>The $42 gap is not theoretical. It is sitting in your operation right now, between the number on your dashboard and the number that hits your P&amp;L.</p>
+            <p><strong>Your CCaaS vendor reports your CPR. We verify it. They cannot do both.</strong></p>
+            <hr>
+            <p><em>Brandon Burdin is the founder of MarginSignal OS, a forensic margin diagnostic for contact center operations. We do not guess. We map. More at <a href="https://marginsignalos.com" class="text-brand-orange hover:underline">marginsignalos.com</a>.</em></p>
+        </div>
+
+    </article>
+
+    <!-- CTA Banner -->
+    <section class="bg-brand-navy py-16 px-4">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-2xl font-bold text-white mb-4">Ready to see what your operations are really costing?</h2>
+            <p class="text-slate-400 mb-8 max-w-2xl mx-auto">MarginSignal OS runs a forensic diagnostic that reveals the gap between what you report and what you actually spend. Runtime governance meets operational intelligence.</p>
+            <a href="/#intake-form" class="bg-brand-orange text-white px-8 py-3 rounded-lg font-semibold hover:bg-orange-600 transition-all inline-block">
+                Request a Diagnostic
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-brand-dark py-12 px-4">
+        <div class="max-w-4xl mx-auto text-center">
+            <p class="text-slate-500 text-sm">&copy; 2026 MarginSignal OS LLC. All rights reserved.</p>
+            <p class="text-slate-600 text-xs mt-2">
+                <a href="/" class="hover:text-slate-400">Home</a> &middot;
+                <a href="/blog/" class="hover:text-slate-400">Blog</a> &middot;
+                <a href="/#intake-form" class="hover:text-slate-400">Contact</a>
+            </p>
+        </div>
+    </footer>
+
+</body>
+</html>

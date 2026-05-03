@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Why First Call Resolution Is a Misleading KPI | MarginSignal OS</title>
+    <meta name="description" content="FCR measures whether a contact was resolved on the first attempt. It says nothing about cost. Here's why Cost Per Resolution is the metric that matters.">
+    <meta name="keywords" content="first call resolution, FCR misleading, cost per resolution, contact center KPI, resolution economics, margin intelligence">
+
+    <link rel="canonical" href="https://www.marginsignalos.com/blog/why-fcr-is-misleading">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Why First Call Resolution Is a Misleading KPI">
+    <meta property="og:description" content="FCR measures whether a contact was resolved on the first attempt. It says nothing about cost. Here's why Cost Per Resolution is the metric that matters.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://www.marginsignalos.com/blog/why-fcr-is-misleading">
+    <meta property="og:site_name" content="MarginSignal OS">
+    <meta property="article:author" content="Brandon Burdin">
+    <meta property="article:published_time" content="2026-05-02">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Why First Call Resolution Is a Misleading KPI">
+    <meta name="twitter:description" content="FCR measures whether a contact was resolved on the first attempt. It says nothing about cost. Here's why Cost Per Resolution is the metric that matters.">
+
+    <!-- Structured Data: Article -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Why First Call Resolution Is a Misleading KPI",
+      "description": "FCR measures whether a contact was resolved on the first attempt. It says nothing about cost. Here's why Cost Per Resolution is the metric that matters.",
+      "author": {
+        "@type": "Person",
+        "name": "Brandon Burdin",
+        "jobTitle": "Founder & Forensic Margin Analyst",
+        "url": "https://www.linkedin.com/in/brandon-b-9656732a5/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "MarginSignal OS",
+        "url": "https://www.marginsignalos.com"
+      },
+      "datePublished": "2026-05-02",
+      "dateModified": "2026-05-02",
+      "mainEntityOfPage": "https://www.marginsignalos.com/blog/why-fcr-is-misleading",
+      "keywords": "first call resolution, FCR misleading, cost per resolution, contact center KPI, resolution economics, margin intelligence"
+    }
+    </script>
+
+    <!-- Microsoft Clarity -->
+    <script type="text/javascript">
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "vtbd9ybs7t");
+    </script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'SF Pro Display', 'sans-serif'],
+                        mono: ['Fira Code', 'monospace'],
+                    },
+                    colors: {
+                        brand: {
+                            bg: '#F8FAFC',
+                            navy: '#0F172A',
+                            orange: '#F97316',
+                            muted: '#64748B',
+                            border: '#E2E8F0',
+                            dark: '#020617',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { background-color: #F8FAFC; color: #0F172A; -webkit-font-smoothing: antialiased; }
+        .glass-nav { background-color: rgba(248, 250, 252, 0.85); backdrop-filter: blur(12px); }
+        .prose h2 { font-size: 1.5rem; font-weight: 700; margin-top: 3rem; margin-bottom: 1rem; color: #0F172A; }
+        .prose h3 { font-size: 1.25rem; font-weight: 600; margin-top: 2rem; margin-bottom: 0.75rem; color: #0F172A; }
+        .prose p { margin-bottom: 1.25rem; line-height: 1.8; color: #334155; }
+        .prose ul, .prose ol { margin-bottom: 1.25rem; padding-left: 1.5rem; }
+        .prose li { margin-bottom: 0.5rem; line-height: 1.7; color: #334155; }
+        .prose strong { color: #0F172A; }
+        .prose table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-size: 0.9rem; }
+        .prose th { background: #F1F5F9; padding: 0.75rem 1rem; text-align: left; font-weight: 600; border-bottom: 2px solid #E2E8F0; }
+        .prose td { padding: 0.75rem 1rem; border-bottom: 1px solid #E2E8F0; }
+        .prose blockquote { border-left: 3px solid #F97316; padding-left: 1rem; margin: 1.5rem 0; color: #475569; font-style: italic; }
+        .prose hr { border: none; border-top: 1px solid #E2E8F0; margin: 2.5rem 0; }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full top-0 z-50 glass-nav border-b border-brand-border">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <a href="/" class="flex-shrink-0 flex items-center group">
+                    <span class="font-extrabold text-xl tracking-tight text-brand-navy">
+                        MarginSignal<span class="text-brand-orange">OS&trade;</span>
+                    </span>
+                </a>
+                <div class="flex space-x-6 items-center">
+                    <a href="/" class="text-sm font-medium text-brand-muted hover:text-brand-navy transition-colors">Home</a>
+                    <a href="/blog/" class="text-sm font-medium text-brand-muted hover:text-brand-navy transition-colors">Blog</a>
+                    <a href="/#intake-form" class="bg-brand-navy text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-gray-800 transition-all">
+                        Book Diagnostic
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Article -->
+    <article class="pt-28 pb-20 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
+
+        <!-- Article Header -->
+        <header class="mb-12">
+            <div class="flex items-center space-x-3 mb-6">
+                <span class="text-xs font-mono font-bold text-brand-orange uppercase tracking-widest">Resolution Economics</span>
+                <span class="text-brand-border">|</span>
+                <time datetime="2026-05-02" class="text-xs font-mono text-brand-muted">May 2, 2026</time>
+                <span class="text-brand-border">|</span>
+                <span class="text-xs font-mono text-brand-muted">8 min read</span>
+            </div>
+            <h1 class="text-4xl md:text-5xl font-extrabold text-brand-navy leading-tight mb-6">
+                Why First Call Resolution<br><span class="text-brand-orange">Is a Misleading KPI</span>
+            </h1>
+            <p class="text-xl text-slate-600 leading-relaxed max-w-3xl">
+                FCR measures whether a contact was resolved on the first attempt. It says nothing about cost. Here's why Cost Per Resolution is the metric that matters.
+            </p>
+        </header>
+
+        <!-- Article Body -->
+        <div class="prose max-w-none">
+            <hr>
+            <h2>The FCR Illusion</h2>
+            <p>First Call Resolution has been the gold standard of contact center performance for two decades. It shouldn&rsquo;t be.</p>
+            <p>FCR measures whether a contact was resolved on the first attempt &mdash; but it says nothing about the cost of resolution, and it structurally obscures the most expensive failures in your operation.</p>
+            <p>When a contact center reports 70% FCR, leadership hears: &ldquo;70% of our customer issues are handled efficiently.&rdquo; That interpretation is wrong in two ways.</p>
+            <p>First, FCR is typically measured at the contact level, not the issue level. If a customer calls about a billing dispute, gets transferred to a specialist, and the specialist resolves it, that interaction may be coded as &ldquo;resolved on first contact&rdquo; because the specialist closed the ticket. The transfer, the duplicate handling, and the wait time vanish from the metric.</p>
+            <p>Second, FCR treats all resolutions as equal. A password reset that takes 90 seconds and a complex claims dispute that takes 38 minutes across two departments both count as one resolved contact. The operational cost difference between them is invisible.</p>
+
+            <h2>What FCR Misses</h2>
+            <p>The contacts that fail first-call resolution do not simply cost twice as much. They cost three to five times as much. Here is what happens downstream of an unresolved first contact:</p>
+            <p><strong>Repeat contacts.</strong> According to SQM Group, the average contact center with 1,000 agents generates approximately 540,000 repeat calls per year, costing $4.8 million annually. Every 1% improvement in FCR saves approximately $286,000 per year. These are significant numbers &mdash; but FCR itself does not capture them. FCR tells you the rate. It does not tell you the cost.</p>
+            <p><strong>Transfers and escalations.</strong> Each transfer adds labor cost from a second (or third) agent, increases handle time, and degrades customer experience. In many organizations, transferred contacts are still coded as &ldquo;resolved&rdquo; by the receiving agent &mdash; meaning FCR never registers the failure.</p>
+            <p><strong>Rework.</strong> When a contact is improperly resolved &mdash; a claim processed incorrectly, a policy change entered wrong, an eligibility determination made with incomplete data &mdash; the rework cost is absorbed by back-office operations. It never touches the contact center dashboard. FCR cannot see it.</p>
+            <p><strong>Channel switching.</strong> A customer who calls, then emails, then chats generates three contacts across three channels. Each channel may report its own FCR independently. The customer&rsquo;s issue was resolved once. The cost was incurred three times.</p>
+
+            <h2>Introducing Cost Per Resolution</h2>
+            <p>If FCR measures the rate of first-contact success, Cost Per Resolution (CPR) measures the total economic cost of actually resolving a customer issue &mdash; regardless of how many contacts, transfers, channels, or rework cycles it required.</p>
+            <blockquote>CPR = (Total Labor + Overhead + Technology) / Verified Resolved Outcomes</blockquote>
+            <p>The denominator is critical. &ldquo;Verified Resolved Outcomes&rdquo; means unique customer issues confirmed as resolved &mdash; not contacts handled, not tickets closed, not calls answered. This is the number most organizations do not track, and it is the reason their cost reporting is structurally inaccurate.</p>
+
+            <h2>The $42 Gap</h2>
+            <p>Consider a mid-size contact center reporting a cost per contact of $12. That number is derived by dividing total operating cost by total contact volume. It is arithmetically correct and operationally useless.</p>
+            <p>When you adjust the denominator to count verified resolutions instead of raw contacts, the number changes. If 26% of contacts are repeats, and another 8-12% involve transfers or rework that generate downstream cost, the effective resolution count drops significantly. In a typical operation, that $12 cost per contact becomes $54 cost per resolution.</p>
+            <p><strong>The $42 gap between those two numbers is not a rounding error. It is hidden margin waste.</strong></p>
+
+            <h2>What to Do About It</h2>
+            <p>Operations leaders who suspect their FCR metric is masking resolution economics can take three concrete steps:</p>
+            <ol>
+            <li><strong>Track issue-level resolution, not contact-level resolution.</strong> Assign a unique identifier to each customer issue and trace every contact, transfer, and rework event associated with it.</li>
+            <li><strong>Measure cost per resolution for your top five contact types.</strong> Calculate CPR for each and compare the results to your reported cost per contact. The gap will tell you where to focus.</li>
+            <li><strong>Separate AI-deflected contacts from human-handled contacts.</strong> If automation is absorbing low-complexity contacts, your human-handled cost per resolution is rising &mdash; even if blended averages look stable.</li>
+            </ol>
+
+            <h2>The Metric You Trust Most May Be the One Lying the Loudest</h2>
+            <p>FCR is not a bad metric. It measures what it measures. The problem is that organizations use it as a proxy for cost efficiency, and it is not built to carry that weight. Cost Per Resolution closes the gap between what dashboards report and what operations actually cost.</p>
+            <p><strong>Your CCaaS vendor reports your CPR. We verify it. They cannot do both.</strong></p>
+            <hr>
+            <p><em>Brandon Burdin is the founder of MarginSignal OS, a forensic margin diagnostic for contact center operations. 15 years in contact center operations. 50 to 2,000+ seats. Insurance, healthcare, BPO, ITSM, field service.</em></p>
+        </div>
+
+    </article>
+
+    <!-- CTA Banner -->
+    <section class="bg-brand-navy py-16 px-4">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-2xl font-bold text-white mb-4">Ready to see what your operations are really costing?</h2>
+            <p class="text-slate-400 mb-8 max-w-2xl mx-auto">MarginSignal OS runs a forensic diagnostic that reveals the gap between what you report and what you actually spend. Runtime governance meets operational intelligence.</p>
+            <a href="/#intake-form" class="bg-brand-orange text-white px-8 py-3 rounded-lg font-semibold hover:bg-orange-600 transition-all inline-block">
+                Request a Diagnostic
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-brand-dark py-12 px-4">
+        <div class="max-w-4xl mx-auto text-center">
+            <p class="text-slate-500 text-sm">&copy; 2026 MarginSignal OS LLC. All rights reserved.</p>
+            <p class="text-slate-600 text-xs mt-2">
+                <a href="/" class="hover:text-slate-400">Home</a> &middot;
+                <a href="/blog/" class="hover:text-slate-400">Blog</a> &middot;
+                <a href="/#intake-form" class="hover:text-slate-400">Contact</a>
+            </p>
+        </div>
+    </footer>
+
+</body>
+</html>
