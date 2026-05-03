@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diagnostic Methodology: The Eight Operational Indices | MarginSignal OS</title>
+    <meta name="description" content="MarginSignal OS measures eight operational indices: ECI, CPR, ERS, R7, TDI, EDR, RCEI, and DLI. Here is what each one measures, why it matters, and how it is calculated.">
+    <meta name="keywords" content="cost per resolution methodology, ECI index, CPR metric, escalation resolution score, transfer depth index, demand leakage index, contact center diagnostic methodology, resolution economics indices">
+    <link rel="canonical" href="https://www.marginsignalos.com/methodology">
+    <meta property="og:title" content="Diagnostic Methodology: The Eight Operational Indices">
+    <meta property="og:description" content="MarginSignal OS measures eight operational indices: ECI, CPR, ERS, R7, TDI, EDR, RCEI, and DLI. Here is what each one measures, why it matters, and how it is calculated.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.marginsignalos.com/methodology">
+    <meta property="og:site_name" content="MarginSignal OS">
+    <meta property="article:author" content="Brandon Burdin">
+    <meta property="article:published_time" content="2026-05-02">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Diagnostic Methodology: The Eight Operational Indices">
+    <meta name="twitter:description" content="MarginSignal OS measures eight operational indices: ECI, CPR, ERS, R7, TDI, EDR, RCEI, and DLI. Here is what each one measures, why it matters, and how it is calculated.">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "headline": "Diagnostic Methodology: The Eight Operational Indices",
+      "description": "MarginSignal OS measures eight operational indices: ECI, CPR, ERS, R7, TDI, EDR, RCEI, and DLI. Here is what each one measures, why it matters, and how it is calculated.",
+      "author": {"@type": "Person", "name": "Brandon Burdin", "jobTitle": "Founder & Forensic Margin Analyst"},
+      "publisher": {"@type": "Organization", "name": "MarginSignal OS", "url": "https://www.marginsignalos.com"},
+      "datePublished": "2026-05-02",
+      "dateModified": "2026-05-02",
+      "mainEntityOfPage": "https://www.marginsignalos.com/methodology"
+    }
+    </script>
+    <script type="text/javascript">
+        (function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window, document, "clarity", "script", "vtbd9ybs7t");
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: { extend: {
+                fontFamily: { sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'SF Pro Display', 'sans-serif'], mono: ['Fira Code', 'monospace'] },
+                colors: { brand: { bg: '#F8FAFC', navy: '#0F172A', orange: '#F97316', muted: '#64748B', border: '#E2E8F0', dark: '#020617' } }
+            } }
+        }
+    </script>
+    <style>
+        body { background-color: #F8FAFC; color: #0F172A; -webkit-font-smoothing: antialiased; }
+        .glass-nav { background-color: rgba(248, 250, 252, 0.85); backdrop-filter: blur(12px); }
+        .prose h2 { font-size: 1.5rem; font-weight: 700; margin-top: 3rem; margin-bottom: 1rem; color: #0F172A; }
+        .prose h3 { font-size: 1.25rem; font-weight: 600; margin-top: 2rem; margin-bottom: 0.75rem; color: #0F172A; }
+        .prose p { margin-bottom: 1.25rem; line-height: 1.8; color: #334155; }
+        .prose ul, .prose ol { margin-bottom: 1.25rem; padding-left: 1.5rem; }
+        .prose li { margin-bottom: 0.5rem; line-height: 1.7; color: #334155; }
+        .prose strong { color: #0F172A; }
+        .prose table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-size: 0.9rem; }
+        .prose th { background: #F1F5F9; padding: 0.75rem 1rem; text-align: left; font-weight: 600; border-bottom: 2px solid #E2E8F0; }
+        .prose td { padding: 0.75rem 1rem; border-bottom: 1px solid #E2E8F0; }
+        .prose blockquote { border-left: 3px solid #F97316; padding-left: 1rem; margin: 1.5rem 0; color: #475569; font-style: italic; }
+        .prose hr { border: none; border-top: 1px solid #E2E8F0; margin: 2.5rem 0; }
+    </style>
+</head>
+<body class="antialiased">
+    <nav class="fixed w-full top-0 z-50 glass-nav border-b border-brand-border">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <a href="/" class="flex-shrink-0 flex items-center group">
+                    <span class="font-extrabold text-xl tracking-tight text-brand-navy">MarginSignal<span class="text-brand-orange">OS&trade;</span></span>
+                </a>
+                <div class="flex space-x-6 items-center">
+                    <a href="/" class="text-sm font-medium text-brand-muted hover:text-brand-navy transition-colors">Home</a>
+                    <a href="/blog/" class="text-sm font-medium text-brand-muted hover:text-brand-navy transition-colors">Blog</a>
+                    <a href="/#intake-form" class="bg-brand-navy text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-gray-800 transition-all">Book Diagnostic</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="pt-28 pb-20 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto">
+        <header class="mb-16 text-center">
+            <h1 class="text-4xl md:text-5xl font-extrabold text-brand-navy leading-tight mb-6">
+                Diagnostic<br><span class="text-brand-orange">Methodology</span>
+            </h1>
+            <p class="text-xl text-slate-600 leading-relaxed max-w-3xl mx-auto">
+                MarginSignal OS measures eight operational indices. Each one tracks a specific dimension of resolution economics. Here is what they measure and why they matter.
+            </p>
+        </header>
+
+        <div class="space-y-12 max-w-4xl mx-auto">
+
+            <div class="border border-brand-border rounded-xl p-8 bg-white">
+                <div class="flex items-center mb-4">
+                    <span class="text-xs font-mono font-bold text-brand-orange uppercase tracking-widest bg-orange-50 px-3 py-1 rounded-lg mr-3">ECI</span>
+                    <h2 class="text-xl font-bold text-brand-navy">Engagement Coherence Index</h2>
+                </div>
+                <p class="text-brand-muted font-light leading-relaxed">Composite health score across all operational dimensions. ECI is the single number that answers &ldquo;how healthy is this operation?&rdquo; Ranges from 0 to 100. Healthy operations score 65+. Distressed operations score below 50. Calculated from the weighted combination of all other indices.</p>
+            </div>
+
+            <div class="border border-brand-border rounded-xl p-8 bg-white">
+                <div class="flex items-center mb-4">
+                    <span class="text-xs font-mono font-bold text-brand-orange uppercase tracking-widest bg-orange-50 px-3 py-1 rounded-lg mr-3">CPR</span>
+                    <h2 class="text-xl font-bold text-brand-navy">Cost Per Resolution</h2>
+                </div>
+                <p class="text-brand-muted font-light leading-relaxed">The fully loaded cost to resolve a single customer issue to completion &mdash; including all contacts, transfers, callbacks, escalations, and channel switches. Unlike Cost Per Call, CPR measures outcome economics. The gap between CPC and CPR is typically $35+ and represents structural margin waste.</p>
+            </div>
+
+            <div class="border border-brand-border rounded-xl p-8 bg-white">
+                <div class="flex items-center mb-4">
+                    <span class="text-xs font-mono font-bold text-brand-orange uppercase tracking-widest bg-orange-50 px-3 py-1 rounded-lg mr-3">ERS</span>
+                    <h2 class="text-xl font-bold text-brand-navy">Escalation Resolution Score</h2>
+                </div>
+                <p class="text-brand-muted font-light leading-relaxed">Measures whether escalations produce resolutions or bounces. A high ERS means escalations are working &mdash; complex issues are reaching the right people and getting resolved. A low ERS means escalations are a cost multiplier without a resolution outcome. Directly tied to the Escalation Bounce fault line.</p>
+            </div>
+
+            <div class="border border-brand-border rounded-xl p-8 bg-white">
+                <div class="flex items-center mb-4">
+                    <span class="text-xs font-mono font-bold text-brand-orange uppercase tracking-widest bg-orange-50 px-3 py-1 rounded-lg mr-3">R7</span>
+                    <h2 class="text-xl font-bold text-brand-navy">Repeat Contact Rate (7-Day Window)</h2>
+                </div>
+                <p class="text-brand-muted font-light leading-relaxed">Percentage of customer issues that generate a repeat contact within 7 days. Industry average: 20&ndash;30%. Every repeat doubles the resolution cost. R7 is the purest measure of first-contact resolution failure &mdash; more honest than FCR because it tracks at the issue level, not the contact level.</p>
+            </div>
+
+            <div class="border border-brand-border rounded-xl p-8 bg-white">
+                <div class="flex items-center mb-4">
+                    <span class="text-xs font-mono font-bold text-brand-orange uppercase tracking-widest bg-orange-50 px-3 py-1 rounded-lg mr-3">TDI</span>
+                    <h2 class="text-xl font-bold text-brand-navy">Transfer Depth Index</h2>
+                </div>
+                <p class="text-brand-muted font-light leading-relaxed">Average number of handoffs per resolution. A TDI of 1.0 means most issues resolve on first contact. A TDI of 2.5+ means the average issue bounces through 2&ndash;3 agents before resolution. Each additional transfer adds 40&ndash;60% to resolution cost and drops CSAT by 10&ndash;15 points.</p>
+            </div>
+
+            <div class="border border-brand-border rounded-xl p-8 bg-white">
+                <div class="flex items-center mb-4">
+                    <span class="text-xs font-mono font-bold text-brand-orange uppercase tracking-widest bg-orange-50 px-3 py-1 rounded-lg mr-3">EDR</span>
+                    <h2 class="text-xl font-bold text-brand-navy">Escalation Depth Ratio</h2>
+                </div>
+                <p class="text-brand-muted font-light leading-relaxed">Ratio of escalated contacts to total contacts, weighted by resolution outcome at the escalated tier. EDR distinguishes between necessary escalations (complex issues that require specialist resolution) and unnecessary escalations (issues that could have been resolved at Tier 1 with better tools or authority).</p>
+            </div>
+
+            <div class="border border-brand-border rounded-xl p-8 bg-white">
+                <div class="flex items-center mb-4">
+                    <span class="text-xs font-mono font-bold text-brand-orange uppercase tracking-widest bg-orange-50 px-3 py-1 rounded-lg mr-3">RCEI</span>
+                    <h2 class="text-xl font-bold text-brand-navy">Resolution Cost Efficiency Index</h2>
+                </div>
+                <p class="text-brand-muted font-light leading-relaxed">Measures how efficiently the operation converts spend into resolved outcomes. RCEI compares actual resolution cost against the theoretical minimum cost (if every issue resolved on first contact with no transfers, repeats, or escalations). The gap between actual and theoretical is your recoverable margin.</p>
+            </div>
+
+            <div class="border border-brand-border rounded-xl p-8 bg-white">
+                <div class="flex items-center mb-4">
+                    <span class="text-xs font-mono font-bold text-brand-orange uppercase tracking-widest bg-orange-50 px-3 py-1 rounded-lg mr-3">DLI</span>
+                    <h2 class="text-xl font-bold text-brand-navy">Demand Leakage Index</h2>
+                </div>
+                <p class="text-brand-muted font-light leading-relaxed">Percentage of total contact volume that is failure demand &mdash; contacts that exist only because a prior contact failed to resolve the issue. Industry range: 30&ndash;60% of all volume is failure demand. DLI quantifies the share of your operation that is paying to handle its own mistakes.</p>
+            </div>
+
+        </div>
+
+        <!-- Methodology Note -->
+        <div class="mt-16 max-w-4xl mx-auto bg-slate-50 border border-brand-border rounded-xl p-8">
+            <h3 class="text-lg font-bold text-brand-navy mb-4">Methodology Note</h3>
+            <p class="text-brand-muted font-light leading-relaxed mb-4">All indices are calculated from operational data &mdash; ticket records, interaction logs, and resolution outcomes. No surveys. No interviews. No self-reported metrics. The diagnostic runs on anonymized CSV exports from your existing platforms (ConnectWise, Autotask, ServiceNow, Freshdesk, or custom CSV).</p>
+            <p class="text-brand-muted font-light leading-relaxed mb-4">Index calculations reference established frameworks from COPC, ICMI, HDI, and published research from Deloitte and McKinsey. MarginSignal OS does not claim to have invented these measurement concepts. We have built a system that computes them forensically from operational data &mdash; which is something no BI tool or CCaaS platform does out of the box.</p>
+            <p class="text-brand-navy font-semibold">We do not guess. We map.</p>
+        </div>
+    </main>
+    <section class="bg-brand-navy py-16 px-4">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-2xl font-bold text-white mb-4">Ready to see what your operations are really costing?</h2>
+            <p class="text-slate-400 mb-8 max-w-2xl mx-auto">MarginSignal OS runs a forensic diagnostic that reveals the gap between what you report and what you actually spend.</p>
+            <a href="/#intake-form" class="bg-brand-orange text-white px-8 py-3 rounded-lg font-semibold hover:bg-orange-600 transition-all inline-block">Request a Diagnostic</a>
+        </div>
+    </section>
+    <footer class="bg-brand-dark py-12 px-4">
+        <div class="max-w-4xl mx-auto text-center">
+            <p class="text-slate-500 text-sm">&copy; 2026 MarginSignal OS LLC. All rights reserved.</p>
+            <p class="text-slate-600 text-xs mt-2">
+                <a href="/" class="hover:text-slate-400">Home</a> &middot;
+                <a href="/blog/" class="hover:text-slate-400">Blog</a> &middot;
+                <a href="/#intake-form" class="hover:text-slate-400">Contact</a>
+            </p>
+        </div>
+    </footer>
+</body>
+</html>

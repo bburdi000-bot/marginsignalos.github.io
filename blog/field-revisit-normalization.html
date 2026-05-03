@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Field Revisit Normalization: When Repeat Truck Rolls Become 'Normal' | MarginSignal OS</title>
+    <meta name="description" content="Field Revisit Normalization is the pattern where repeat field service visits become so common that the organization stops treating them as failures. The cost is enormous.">
+    <meta name="keywords" content="field revisit normalization, repeat truck roll cost, field service revisit rate, dispatch failure, first visit resolution, field service margin leak">
+    <link rel="canonical" href="https://www.marginsignalos.com/blog/field-revisit-normalization">
+    <meta property="og:title" content="Field Revisit Normalization: When Repeat Truck Rolls Become 'Normal'">
+    <meta property="og:description" content="Field Revisit Normalization is the pattern where repeat field service visits become so common that the organization stops treating them as failures. The cost is enormous.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://www.marginsignalos.com/blog/field-revisit-normalization">
+    <meta property="og:site_name" content="MarginSignal OS">
+    <meta property="article:author" content="Brandon Burdin">
+    <meta property="article:published_time" content="2026-05-02">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Field Revisit Normalization: When Repeat Truck Rolls Become 'Normal'">
+    <meta name="twitter:description" content="Field Revisit Normalization is the pattern where repeat field service visits become so common that the organization stops treating them as failures. The cost is enormous.">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Field Revisit Normalization: When Repeat Truck Rolls Become 'Normal'",
+      "description": "Field Revisit Normalization is the pattern where repeat field service visits become so common that the organization stops treating them as failures. The cost is enormous.",
+      "author": {"@type": "Person", "name": "Brandon Burdin", "jobTitle": "Founder & Forensic Margin Analyst"},
+      "publisher": {"@type": "Organization", "name": "MarginSignal OS", "url": "https://www.marginsignalos.com"},
+      "datePublished": "2026-05-02",
+      "dateModified": "2026-05-02",
+      "mainEntityOfPage": "https://www.marginsignalos.com/blog/field-revisit-normalization"
+    }
+    </script>
+    <script type="text/javascript">
+        (function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window, document, "clarity", "script", "vtbd9ybs7t");
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: { extend: {
+                fontFamily: { sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'SF Pro Display', 'sans-serif'], mono: ['Fira Code', 'monospace'] },
+                colors: { brand: { bg: '#F8FAFC', navy: '#0F172A', orange: '#F97316', muted: '#64748B', border: '#E2E8F0', dark: '#020617' } }
+            } }
+        }
+    </script>
+    <style>
+        body { background-color: #F8FAFC; color: #0F172A; -webkit-font-smoothing: antialiased; }
+        .glass-nav { background-color: rgba(248, 250, 252, 0.85); backdrop-filter: blur(12px); }
+        .prose h2 { font-size: 1.5rem; font-weight: 700; margin-top: 3rem; margin-bottom: 1rem; color: #0F172A; }
+        .prose h3 { font-size: 1.25rem; font-weight: 600; margin-top: 2rem; margin-bottom: 0.75rem; color: #0F172A; }
+        .prose p { margin-bottom: 1.25rem; line-height: 1.8; color: #334155; }
+        .prose ul, .prose ol { margin-bottom: 1.25rem; padding-left: 1.5rem; }
+        .prose li { margin-bottom: 0.5rem; line-height: 1.7; color: #334155; }
+        .prose strong { color: #0F172A; }
+        .prose table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-size: 0.9rem; }
+        .prose th { background: #F1F5F9; padding: 0.75rem 1rem; text-align: left; font-weight: 600; border-bottom: 2px solid #E2E8F0; }
+        .prose td { padding: 0.75rem 1rem; border-bottom: 1px solid #E2E8F0; }
+        .prose blockquote { border-left: 3px solid #F97316; padding-left: 1rem; margin: 1.5rem 0; color: #475569; font-style: italic; }
+        .prose hr { border: none; border-top: 1px solid #E2E8F0; margin: 2.5rem 0; }
+    </style>
+</head>
+<body class="antialiased">
+    <nav class="fixed w-full top-0 z-50 glass-nav border-b border-brand-border">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <a href="/" class="flex-shrink-0 flex items-center group">
+                    <span class="font-extrabold text-xl tracking-tight text-brand-navy">MarginSignal<span class="text-brand-orange">OS&trade;</span></span>
+                </a>
+                <div class="flex space-x-6 items-center">
+                    <a href="/" class="text-sm font-medium text-brand-muted hover:text-brand-navy transition-colors">Home</a>
+                    <a href="/blog/" class="text-sm font-medium text-brand-muted hover:text-brand-navy transition-colors">Blog</a>
+                    <a href="/#intake-form" class="bg-brand-navy text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-gray-800 transition-all">Book Diagnostic</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <article class="pt-28 pb-20 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
+        <header class="mb-12">
+            <div class="flex items-center space-x-3 mb-6">
+                <span class="text-xs font-mono font-bold text-brand-orange uppercase tracking-widest">Resolution Economics</span>
+                <span class="text-brand-border">|</span>
+                <time datetime="2026-05-02" class="text-xs font-mono text-brand-muted">May 2, 2026</time>
+                <span class="text-brand-border">|</span>
+                <span class="text-xs font-mono text-brand-muted">10 min read</span>
+            </div>
+            <h1 class="text-4xl md:text-5xl font-extrabold text-brand-navy leading-tight mb-6">Field Revisit Normalization:<br><span class="text-brand-orange">When Repeat Truck Rolls Become &ldquo;Normal&rdquo;</span></h1>
+            <p class="text-xl text-slate-600 leading-relaxed max-w-3xl">Field Revisit Normalization is the pattern where repeat field service visits become so common that the organization stops treating them as failures. The cost is enormous.</p>
+        </header>
+        <div class="prose max-w-none">
+            <hr>
+            <h2>What Is Field Revisit Normalization?</h2>
+            <p>Field Revisit Normalization is the pattern where repeat field service visits become so common that the organization stops treating them as failures and starts treating them as normal operations.</p>
+            <p>A technician visits a site. The issue is not resolved. A second visit is scheduled. Sometimes a third. Each visit costs $150&ndash;$400 in direct labor, truck roll, parts, and scheduling overhead. But because revisits have always happened at a certain rate, nobody flags them as structural waste. They are &ldquo;just how field service works.&rdquo;</p>
+            <p>They are not how field service works. They are how field service fails &mdash; and the cost is enormous.</p>
+
+            <h2>The Economics of a Revisit</h2>
+            <p>The canonical example from our diagnostic work:</p>
+            <blockquote>A 7-minute interaction became 47 minutes of total operational capacity consumed, plus a $180 truck roll. The customer&rsquo;s issue was a wiring configuration that could have been diagnosed remotely with the right troubleshooting tree. Instead, the contact center dispatched a technician on the first call because the agent lacked the authority and the tools to attempt remote resolution.</blockquote>
+            <p>That single revisit cost the operation $240. Multiply by the field service revisit rate &mdash; typically 15&ndash;25% of all dispatches &mdash; and you are looking at <strong>$1.2M&ndash;$3.6M per year</strong> for a mid-size field service operation with 50 daily dispatches.</p>
+
+            <h2>Why Revisits Get Normalized</h2>
+            <p><strong>1. First-visit resolution is measured at the visit level, not the issue level.</strong> If a technician arrives, performs work, and closes the ticket, the visit is coded as &ldquo;completed.&rdquo; When the customer calls back three days later with the same problem, it generates a new ticket. The revisit is invisible to first-visit resolution metrics.</p>
+            <p><strong>2. Revisit costs are absorbed into general operating expense.</strong> Each truck roll is logged as a standard dispatch. The incremental cost of the revisit &mdash; the wasted first visit, the scheduling overhead, the customer downtime &mdash; is never attributed to the original failure. It vanishes into the average cost per dispatch.</p>
+            <p><strong>3. Contact center and field service operate on separate dashboards.</strong> The contact center sees a &ldquo;dispatch request.&rdquo; Field service sees a &ldquo;work order.&rdquo; Neither one tracks whether the dispatch was caused by an incomplete remote troubleshooting attempt. The hand-off between the two systems is where the revisit pattern hides.</p>
+
+            <h2>How to Detect It</h2>
+            <p><strong>Step 1:</strong> Link dispatch records to the originating contact center interaction. If a dispatch was triggered by a call, the two records must be joined.</p>
+            <p><strong>Step 2:</strong> Track issue-level resolution, not visit-level completion. A &ldquo;completed&rdquo; visit that generates a callback within 7 days for the same address or account is a revisit, not a new issue.</p>
+            <p><strong>Step 3:</strong> Calculate the Field Revisit Rate: <em>(Dispatches followed by a related dispatch within 14 days) / (Total dispatches)</em></p>
+            <p><strong>Step 4:</strong> Calculate the Revisit Cost Exposure: <em>Field Revisit Rate &times; Average Dispatch Cost &times; Annual Dispatch Volume</em></p>
+            <p><strong>Step 5:</strong> Segment by failure reason. &ldquo;Wrong part ordered&rdquo; has a different fix than &ldquo;could have been resolved remotely.&rdquo; The segmentation drives the intervention.</p>
+
+            <h2>The Three Root Causes</h2>
+            <p><strong>Dispatch Authority Gap:</strong> Contact center agents dispatch technicians because they lack the authority or the tools to attempt remote resolution. Expanding remote resolution authority for the top 5 dispatch reasons eliminates 20&ndash;30% of unnecessary dispatches.</p>
+            <p><strong>Diagnostic Incompleteness:</strong> The technician arrives without the right information. The contact center collected the symptom but not the equipment model, the configuration history, or the prior service record. The technician diagnoses on-site what could have been diagnosed remotely.</p>
+            <p><strong>Parts and Scheduling Mismatch:</strong> The technician arrives with the wrong part or without the access required to complete the work. A second visit is scheduled. The root cause is upstream &mdash; in the intake process that failed to capture the right information.</p>
+
+            <h2>What Healthy Looks Like</h2>
+            <table>
+            <thead><tr><th>Metric</th><th>Healthy</th><th>Warning</th><th>Critical</th></tr></thead>
+            <tbody>
+            <tr><td>Field Revisit Rate</td><td>&lt;10%</td><td>10&ndash;20%</td><td>&gt;20%</td></tr>
+            <tr><td>Remote Resolution Attempt Rate</td><td>&gt;60%</td><td>40&ndash;60%</td><td>&lt;40%</td></tr>
+            <tr><td>Annual exposure per 50 daily dispatches</td><td>&lt;$500K</td><td>$500K&ndash;$1.5M</td><td>&gt;$1.5M</td></tr>
+            </tbody>
+            </table>
+
+            <h2>Why This Matters for Insurance and Telecom</h2>
+            <p><strong>Insurance claims:</strong> Property inspections that require a second visit because the adjuster lacked photos, prior claim history, or coverage verification from the first notice of loss call. Each revisit adds 3&ndash;5 days to claim cycle time and $200&ndash;$400 in direct cost.</p>
+            <p><strong>Telecom:</strong> Technician dispatches for issues that could have been resolved remotely through guided troubleshooting. The 7-minute call that becomes a $180 truck roll is the signature pattern of Field Revisit Normalization in telecom operations.</p>
+            <p>If revisits are &ldquo;normal&rdquo; in your operation, they are normalized waste. The first step is measuring them as failures, not as routine.</p>
+            <p><strong>We do not guess. We map.</strong></p>
+            <hr>
+            <p><em>Brandon Burdin is the founder of MarginSignal OS, a forensic margin diagnostic for contact center and field service operations. More at <a href="https://marginsignalos.com" class="text-brand-orange hover:underline">marginsignalos.com</a>.</em></p>
+        </div>
+    </article>
+    <section class="bg-brand-navy py-16 px-4">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-2xl font-bold text-white mb-4">Ready to see what your operations are really costing?</h2>
+            <p class="text-slate-400 mb-8 max-w-2xl mx-auto">MarginSignal OS runs a forensic diagnostic that reveals the gap between what you report and what you actually spend.</p>
+            <a href="/#intake-form" class="bg-brand-orange text-white px-8 py-3 rounded-lg font-semibold hover:bg-orange-600 transition-all inline-block">Request a Diagnostic</a>
+        </div>
+    </section>
+    <footer class="bg-brand-dark py-12 px-4">
+        <div class="max-w-4xl mx-auto text-center">
+            <p class="text-slate-500 text-sm">&copy; 2026 MarginSignal OS LLC. All rights reserved.</p>
+            <p class="text-slate-600 text-xs mt-2">
+                <a href="/" class="hover:text-slate-400">Home</a> &middot;
+                <a href="/blog/" class="hover:text-slate-400">Blog</a> &middot;
+                <a href="/#intake-form" class="hover:text-slate-400">Contact</a>
+            </p>
+        </div>
+    </footer>
+</body>
+</html>
