@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Diagnostic Methodology: The Eight Operational Indices | MarginSignal OS</title>
-    <meta name="description" content="MarginSignal OS measures eight operational indices: ECI, CPR, ERS, R7, TDI, EDR, RCEI, and DLI. Here is what each one measures, why it matters, and how it is calculated.">
-    <meta name="keywords" content="cost per resolution methodology, ECI index, CPR metric, escalation resolution score, transfer depth index, demand leakage index, contact center diagnostic methodology, resolution economics indices">
+    <title>Diagnostic Methodology: Proprietary Operating Signals | MarginSignal OS</title>
+    <meta name="description" content="MarginSignal OS measures eight proprietary operating signals across resolution economics, escalation pressure, transfer depth, repeat demand, and margin efficiency. Here is what each measures and what data it requires.">
+    <meta name="keywords" content="cost per resolution methodology, margin health score, contact center diagnostic methodology, resolution economics, operational intelligence, forensic margin diagnostic">
     <link rel="canonical" href="https://www.marginsignalos.com/methodology">
     <meta property="og:title" content="Diagnostic Methodology: The Eight Operational Indices">
     <meta property="og:description" content="MarginSignal OS measures eight operational indices: ECI, CPR, ERS, R7, TDI, EDR, RCEI, and DLI. Here is what each one measures, why it matters, and how it is calculated.">
@@ -83,7 +83,7 @@
                 Diagnostic<br><span class="text-brand-orange">Methodology</span>
             </h1>
             <p class="text-xl text-slate-600 leading-relaxed max-w-3xl mx-auto">
-                MarginSignal OS measures eight operational indices. Each one tracks a specific dimension of resolution economics. Here is what they measure and why they matter.
+                MarginSignal OS measures eight proprietary operating signals. Each one tracks a specific dimension of resolution economics. Here is what they measure and what data they require.
             </p>
         </header>
 
@@ -91,66 +91,90 @@
 
             <div class="border border-brand-border rounded-xl p-8 bg-white">
                 <div class="flex items-center mb-4">
-                    <span class="text-xs font-mono font-bold text-brand-orange uppercase tracking-widest bg-orange-50 px-3 py-1 rounded-lg mr-3">ECI</span>
-                    <h2 class="text-xl font-bold text-brand-navy">Engagement Coherence Index</h2>
+                    <span class="text-xs font-mono font-bold text-brand-orange uppercase tracking-widest bg-orange-50 px-3 py-1 rounded-lg">Composite Signal</span>
                 </div>
-                <p class="text-brand-muted font-light leading-relaxed">Composite health score across all operational dimensions. ECI is the single number that answers &ldquo;how healthy is this operation?&rdquo; Ranges from 0 to 100. Healthy operations score 65+. Distressed operations score below 50. Calculated from the weighted combination of all other indices.</p>
+                <h2 class="text-xl font-bold text-brand-navy mb-3">Margin Health Score</h2>
+                <p class="text-brand-muted font-light leading-relaxed mb-2"><strong class="text-brand-navy">What it measures:</strong> Composite health score across all operational dimensions &mdash; the single number that answers &ldquo;how healthy is this operation?&rdquo;</p>
+                <p class="text-brand-muted font-light leading-relaxed mb-2"><strong class="text-brand-navy">What data it requires:</strong> Anonymized interaction-level CSV with ticket timestamps, resolution status, and agent assignment fields.</p>
+                <p class="text-brand-muted font-light leading-relaxed mb-2"><strong class="text-brand-navy">Range:</strong> 0&ndash;100, where higher values indicate healthier resolution economics. Healthy operations score 65+. Distressed operations score below 50.</p>
+                <p class="text-brand-muted font-light leading-relaxed"><strong class="text-brand-navy">Refresh:</strong> Recalculated on a 30-day rolling basis.</p>
             </div>
 
             <div class="border border-brand-border rounded-xl p-8 bg-white">
                 <div class="flex items-center mb-4">
-                    <span class="text-xs font-mono font-bold text-brand-orange uppercase tracking-widest bg-orange-50 px-3 py-1 rounded-lg mr-3">CPR</span>
-                    <h2 class="text-xl font-bold text-brand-navy">Cost Per Resolution</h2>
+                    <span class="text-xs font-mono font-bold text-brand-orange uppercase tracking-widest bg-orange-50 px-3 py-1 rounded-lg">Core Metric</span>
                 </div>
-                <p class="text-brand-muted font-light leading-relaxed">The fully loaded cost to resolve a single customer issue to completion &mdash; including all contacts, transfers, callbacks, escalations, and channel switches. Unlike Cost Per Call, CPR measures outcome economics. The gap between CPC and CPR is typically $35+ and represents structural margin waste.</p>
+                <h2 class="text-xl font-bold text-brand-navy mb-3">Cost Per Resolution</h2>
+                <p class="text-brand-muted font-light leading-relaxed mb-2"><strong class="text-brand-navy">What it measures:</strong> The fully loaded cost to resolve a single customer issue to completion &mdash; including all contacts, transfers, callbacks, escalations, and channel switches.</p>
+                <p class="text-brand-muted font-light leading-relaxed mb-2"><strong class="text-brand-navy">What data it requires:</strong> Interaction-level CSV with ticket ID, timestamps, agent ID, channel, and resolution status.</p>
+                <p class="text-brand-muted font-light leading-relaxed mb-2"><strong class="text-brand-navy">Range:</strong> Dollar value per resolved issue. The gap between Cost Per Call and Cost Per Resolution is typically $35+ and represents structural margin waste.</p>
+                <p class="text-brand-muted font-light leading-relaxed"><strong class="text-brand-navy">Refresh:</strong> Recalculated on a 30-day rolling basis.</p>
             </div>
 
             <div class="border border-brand-border rounded-xl p-8 bg-white">
                 <div class="flex items-center mb-4">
-                    <span class="text-xs font-mono font-bold text-brand-orange uppercase tracking-widest bg-orange-50 px-3 py-1 rounded-lg mr-3">ERS</span>
-                    <h2 class="text-xl font-bold text-brand-navy">Escalation Resolution Score</h2>
+                    <span class="text-xs font-mono font-bold text-brand-orange uppercase tracking-widest bg-orange-50 px-3 py-1 rounded-lg">Operating Signal</span>
                 </div>
-                <p class="text-brand-muted font-light leading-relaxed">Measures whether escalations produce resolutions or bounces. A high ERS means escalations are working &mdash; complex issues are reaching the right people and getting resolved. A low ERS means escalations are a cost multiplier without a resolution outcome. Directly tied to the Escalation Bounce fault line.</p>
+                <h2 class="text-xl font-bold text-brand-navy mb-3">Escalation Resolution Signal</h2>
+                <p class="text-brand-muted font-light leading-relaxed mb-2"><strong class="text-brand-navy">What it measures:</strong> Whether escalations produce resolutions or bounces. Distinguishes between necessary escalations and cost-multiplying dead ends.</p>
+                <p class="text-brand-muted font-light leading-relaxed mb-2"><strong class="text-brand-navy">What data it requires:</strong> Interaction-level CSV with escalation flags, receiving queue, and resolution outcome at escalated tier.</p>
+                <p class="text-brand-muted font-light leading-relaxed mb-2"><strong class="text-brand-navy">Range:</strong> 0&ndash;100, where higher values indicate escalations that produce resolution outcomes.</p>
+                <p class="text-brand-muted font-light leading-relaxed"><strong class="text-brand-navy">Refresh:</strong> Recalculated on a 30-day rolling basis.</p>
             </div>
 
             <div class="border border-brand-border rounded-xl p-8 bg-white">
                 <div class="flex items-center mb-4">
-                    <span class="text-xs font-mono font-bold text-brand-orange uppercase tracking-widest bg-orange-50 px-3 py-1 rounded-lg mr-3">R7</span>
-                    <h2 class="text-xl font-bold text-brand-navy">Repeat Contact Rate (7-Day Window)</h2>
+                    <span class="text-xs font-mono font-bold text-brand-orange uppercase tracking-widest bg-orange-50 px-3 py-1 rounded-lg">Operating Signal</span>
                 </div>
-                <p class="text-brand-muted font-light leading-relaxed">Percentage of customer issues that generate a repeat contact within 7 days. Industry average: 20&ndash;30%. Every repeat doubles the resolution cost. R7 is the purest measure of first-contact resolution failure &mdash; more honest than FCR because it tracks at the issue level, not the contact level.</p>
+                <h2 class="text-xl font-bold text-brand-navy mb-3">7-Day Repeat Rate</h2>
+                <p class="text-brand-muted font-light leading-relaxed mb-2"><strong class="text-brand-navy">What it measures:</strong> Percentage of customer issues that generate a repeat contact within 7 days. The purest measure of first-contact resolution failure.</p>
+                <p class="text-brand-muted font-light leading-relaxed mb-2"><strong class="text-brand-navy">What data it requires:</strong> Interaction-level CSV with customer/account ID, ticket ID, and timestamps.</p>
+                <p class="text-brand-muted font-light leading-relaxed mb-2"><strong class="text-brand-navy">Range:</strong> Industry average 20&ndash;30%. Every repeat doubles the resolution cost.</p>
+                <p class="text-brand-muted font-light leading-relaxed"><strong class="text-brand-navy">Refresh:</strong> Recalculated on a 30-day rolling basis.</p>
             </div>
 
             <div class="border border-brand-border rounded-xl p-8 bg-white">
                 <div class="flex items-center mb-4">
-                    <span class="text-xs font-mono font-bold text-brand-orange uppercase tracking-widest bg-orange-50 px-3 py-1 rounded-lg mr-3">TDI</span>
-                    <h2 class="text-xl font-bold text-brand-navy">Transfer Depth Index</h2>
+                    <span class="text-xs font-mono font-bold text-brand-orange uppercase tracking-widest bg-orange-50 px-3 py-1 rounded-lg">Operating Signal</span>
                 </div>
-                <p class="text-brand-muted font-light leading-relaxed">Average number of handoffs per resolution. A TDI of 1.0 means most issues resolve on first contact. A TDI of 2.5+ means the average issue bounces through 2&ndash;3 agents before resolution. Each additional transfer adds 40&ndash;60% to resolution cost and drops CSAT by 10&ndash;15 points.</p>
+                <h2 class="text-xl font-bold text-brand-navy mb-3">Transfer Depth Signal</h2>
+                <p class="text-brand-muted font-light leading-relaxed mb-2"><strong class="text-brand-navy">What it measures:</strong> Average number of handoffs per resolution. Each additional transfer adds 40&ndash;60% to resolution cost and drops CSAT by 10&ndash;15 points.</p>
+                <p class="text-brand-muted font-light leading-relaxed mb-2"><strong class="text-brand-navy">What data it requires:</strong> Interaction-level CSV with transfer events, queue assignments, and agent IDs.</p>
+                <p class="text-brand-muted font-light leading-relaxed mb-2"><strong class="text-brand-navy">Range:</strong> 1.0 means most issues resolve on first contact. 2.5+ means average issues bounce through 3+ agents.</p>
+                <p class="text-brand-muted font-light leading-relaxed"><strong class="text-brand-navy">Refresh:</strong> Recalculated on a 30-day rolling basis.</p>
             </div>
 
             <div class="border border-brand-border rounded-xl p-8 bg-white">
                 <div class="flex items-center mb-4">
-                    <span class="text-xs font-mono font-bold text-brand-orange uppercase tracking-widest bg-orange-50 px-3 py-1 rounded-lg mr-3">EDR</span>
-                    <h2 class="text-xl font-bold text-brand-navy">Escalation Depth Ratio</h2>
+                    <span class="text-xs font-mono font-bold text-brand-orange uppercase tracking-widest bg-orange-50 px-3 py-1 rounded-lg">Operating Signal</span>
                 </div>
-                <p class="text-brand-muted font-light leading-relaxed">Ratio of escalated contacts to total contacts, weighted by resolution outcome at the escalated tier. EDR distinguishes between necessary escalations (complex issues that require specialist resolution) and unnecessary escalations (issues that could have been resolved at Tier 1 with better tools or authority).</p>
+                <h2 class="text-xl font-bold text-brand-navy mb-3">Escalation Density Signal</h2>
+                <p class="text-brand-muted font-light leading-relaxed mb-2"><strong class="text-brand-navy">What it measures:</strong> The structural pressure exerted by escalation volume on operating margin, weighted by resolution outcome at the escalated tier.</p>
+                <p class="text-brand-muted font-light leading-relaxed mb-2"><strong class="text-brand-navy">What data it requires:</strong> Interaction-level CSV with escalation flags, tier routing, and resolution status.</p>
+                <p class="text-brand-muted font-light leading-relaxed mb-2"><strong class="text-brand-navy">Range:</strong> 0&ndash;100, where lower values indicate healthier escalation economics.</p>
+                <p class="text-brand-muted font-light leading-relaxed"><strong class="text-brand-navy">Refresh:</strong> Recalculated on a 30-day rolling basis.</p>
             </div>
 
             <div class="border border-brand-border rounded-xl p-8 bg-white">
                 <div class="flex items-center mb-4">
-                    <span class="text-xs font-mono font-bold text-brand-orange uppercase tracking-widest bg-orange-50 px-3 py-1 rounded-lg mr-3">RCEI</span>
-                    <h2 class="text-xl font-bold text-brand-navy">Resolution Cost Efficiency Index</h2>
+                    <span class="text-xs font-mono font-bold text-brand-orange uppercase tracking-widest bg-orange-50 px-3 py-1 rounded-lg">Composite Signal</span>
                 </div>
-                <p class="text-brand-muted font-light leading-relaxed">Measures how efficiently the operation converts spend into resolved outcomes. RCEI compares actual resolution cost against the theoretical minimum cost (if every issue resolved on first contact with no transfers, repeats, or escalations). The gap between actual and theoretical is your recoverable margin.</p>
+                <h2 class="text-xl font-bold text-brand-navy mb-3">Resolution Efficiency Signal</h2>
+                <p class="text-brand-muted font-light leading-relaxed mb-2"><strong class="text-brand-navy">What it measures:</strong> How efficiently the operation converts spend into resolved outcomes. Compares actual resolution cost against the theoretical minimum cost.</p>
+                <p class="text-brand-muted font-light leading-relaxed mb-2"><strong class="text-brand-navy">What data it requires:</strong> Interaction-level CSV with fully loaded cost data, resolution chains, and outcome flags.</p>
+                <p class="text-brand-muted font-light leading-relaxed mb-2"><strong class="text-brand-navy">Range:</strong> 0&ndash;100, where higher values indicate more efficient resolution economics. The gap between actual and theoretical is your recoverable margin.</p>
+                <p class="text-brand-muted font-light leading-relaxed"><strong class="text-brand-navy">Refresh:</strong> Recalculated on a 30-day rolling basis.</p>
             </div>
 
             <div class="border border-brand-border rounded-xl p-8 bg-white">
                 <div class="flex items-center mb-4">
-                    <span class="text-xs font-mono font-bold text-brand-orange uppercase tracking-widest bg-orange-50 px-3 py-1 rounded-lg mr-3">DLI</span>
-                    <h2 class="text-xl font-bold text-brand-navy">Demand Leakage Index</h2>
+                    <span class="text-xs font-mono font-bold text-brand-orange uppercase tracking-widest bg-orange-50 px-3 py-1 rounded-lg">Operating Signal</span>
                 </div>
-                <p class="text-brand-muted font-light leading-relaxed">Percentage of total contact volume that is failure demand &mdash; contacts that exist only because a prior contact failed to resolve the issue. Industry range: 30&ndash;60% of all volume is failure demand. DLI quantifies the share of your operation that is paying to handle its own mistakes.</p>
+                <h2 class="text-xl font-bold text-brand-navy mb-3">Demand Leakage Signal</h2>
+                <p class="text-brand-muted font-light leading-relaxed mb-2"><strong class="text-brand-navy">What it measures:</strong> Percentage of total contact volume that is failure demand &mdash; contacts that exist only because a prior contact failed to resolve the issue.</p>
+                <p class="text-brand-muted font-light leading-relaxed mb-2"><strong class="text-brand-navy">What data it requires:</strong> Interaction-level CSV with customer/account ID, ticket linkage, and resolution timestamps.</p>
+                <p class="text-brand-muted font-light leading-relaxed mb-2"><strong class="text-brand-navy">Range:</strong> Industry range 30&ndash;60% of all volume is failure demand. Lower is healthier.</p>
+                <p class="text-brand-muted font-light leading-relaxed"><strong class="text-brand-navy">Refresh:</strong> Recalculated on a 30-day rolling basis.</p>
             </div>
 
         </div>
