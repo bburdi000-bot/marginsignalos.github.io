@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo Access | MarginSignal OS</title>
+    <meta name="description" content="MarginSignal OS demo terminal access is scheduled and guided. Request a walkthrough or use the client portal if you are already authorized.">
+    <meta name="robots" content="noindex, nofollow">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'], mono: ['Fira Code', 'monospace'] },
+                    colors: {
+                        brand: {
+                            bg: '#F8FAFC',
+                            navy: '#0F172A',
+                            orange: '#F97316',
+                            muted: '#64748B',
+                            border: '#E2E8F0',
+                            dark: '#020617'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-brand-bg text-brand-navy antialiased">
+    <main class="min-h-screen px-4 py-8 sm:px-6">
+        <div class="mx-auto flex min-h-[calc(100vh-4rem)] max-w-5xl flex-col">
+            <header class="flex items-center justify-between border-b border-brand-border pb-6">
+                <a href="/" class="text-xl font-extrabold tracking-tight">
+                    MarginSignal<span class="text-brand-orange">OS&trade;</span>
+                </a>
+                <a href="https://portal.marginsignalos.com/login" class="rounded-lg border border-brand-border bg-white px-4 py-2 text-xs font-bold uppercase tracking-widest text-brand-muted transition-colors hover:text-brand-navy">
+                    Client Portal
+                </a>
+            </header>
+
+            <section class="grid flex-1 items-center gap-8 py-16 lg:grid-cols-[1.05fr_0.95fr]">
+                <div>
+                    <p class="mb-4 text-xs font-black uppercase tracking-[0.24em] text-brand-orange">Guided Access Only</p>
+                    <h1 class="max-w-3xl text-4xl font-black leading-tight tracking-tight sm:text-5xl">
+                        Demo Terminal access is scheduled, not public.
+                    </h1>
+                    <p class="mt-6 max-w-2xl text-lg leading-8 text-brand-muted">
+                        We do not expose the live demo terminal as an open public destination. Sample environments are opened for internal review, scheduled walkthroughs, or authorized client sessions so the experience stays controlled and the security boundary stays clean.
+                    </p>
+                    <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+                        <a href="/#intake-form" class="inline-flex items-center justify-center rounded-xl bg-brand-navy px-6 py-3 text-sm font-bold text-white transition-all hover:bg-slate-800">
+                            Schedule Demo Walkthrough
+                        </a>
+                        <a href="https://portal.marginsignalos.com/login" class="inline-flex items-center justify-center rounded-xl border border-brand-border bg-white px-6 py-3 text-sm font-bold text-brand-navy transition-all hover:border-brand-orange">
+                            Authorized Portal Login
+                        </a>
+                    </div>
+                </div>
+
+                <div class="rounded-3xl border border-brand-border bg-white p-6 shadow-sm">
+                    <div class="rounded-2xl bg-brand-dark p-5 text-white">
+                        <div class="mb-5 flex items-center justify-between">
+                            <span class="text-[10px] font-bold uppercase tracking-[0.24em] text-slate-400">Access Policy</span>
+                            <span class="rounded-full border border-brand-orange/30 bg-brand-orange/10 px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-brand-orange">Controlled</span>
+                        </div>
+                        <div class="space-y-4 text-sm leading-6 text-slate-300">
+                            <p><strong class="text-white">Public visitors:</strong> request a scheduled walkthrough.</p>
+                            <p><strong class="text-white">Clients:</strong> use the invite-only portal login.</p>
+                            <p><strong class="text-white">Internal team:</strong> use approved admin/demo environments only.</p>
+                        </div>
+                    </div>
+                    <p class="mt-5 text-xs leading-5 text-brand-muted">
+                        Demo data is illustrative sample data. Client outputs require approved operational inputs and written scope.
+                    </p>
+                </div>
+            </section>
+        </div>
+    </main>
+</body>
+</html>
