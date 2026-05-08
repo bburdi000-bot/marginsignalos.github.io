@@ -5,11 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
     <meta http-equiv="X-Frame-Options" content="DENY">
-    <title>Quick Assessment | MarginSignal OS — What Does One Resolution Actually Cost?</title>
-    <meta name="description" content="Answer 9 questions about your operation. Get your estimated Cost Per Resolution, top fault lines, and annual margin gap — instantly.">
+    <title>Exposure Review | MarginSignal OS — What Does One Resolution Actually Cost?</title>
+    <meta name="description" content="Answer 9 questions about your operation. Estimate Cost Per Resolution, top fault lines, and whether a Signal Scan is the right next step.">
     <link rel="canonical" href="https://www.marginsignalos.com/assessment.html">
 
-    <meta property="og:title" content="Resolution Economics Quick Assessment — MarginSignal OS">
+    <meta property="og:title" content="Resolution Economics Exposure Review — MarginSignal OS">
     <meta property="og:description" content="Most operations report $7-12 per contact. The actual Cost Per Resolution is $35+ higher. Find your gap in 5 minutes.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.marginsignalos.com/assessment.html">
@@ -85,25 +85,21 @@
         </p>
     </section>
 
-    <!-- Payment Gate (shown if no checkout_session in URL) -->
-    <section id="payment-gate" class="pb-24 px-4 sm:px-6 max-w-3xl mx-auto hidden">
+    <!-- Exposure Review Intro -->
+    <section id="exposure-review" class="pb-12 px-4 sm:px-6 max-w-3xl mx-auto">
         <div class="bg-white rounded-3xl shadow-xl border border-brand-border p-8 md:p-12 text-center">
             <div class="w-16 h-16 bg-orange-50 border border-orange-200 rounded-full flex items-center justify-center mx-auto mb-6">
                 <svg class="w-8 h-8 text-brand-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
             </div>
-            <h2 class="text-2xl font-bold text-brand-navy mb-3 tracking-tight">Purchase Your Assessment</h2>
+            <h2 class="text-2xl font-bold text-brand-navy mb-3 tracking-tight">Request an Exposure Review</h2>
             <p class="text-brand-muted font-light mb-2 max-w-lg mx-auto">
-                Get your estimated Cost Per Resolution, top 3 fault lines, annual margin gap, and a 15-minute findings call with the founder.
+                Use this form to share operating context, estimate Cost Per Resolution, and help us determine whether a Signal Scan is the right next step.
             </p>
-            <p class="text-3xl font-extrabold text-brand-navy mb-8 font-mono">$500</p>
-            <a href="https://buy.stripe.com/6oU00cccRfhGfkGcHogbm00" class="inline-block bg-brand-orange text-white px-10 py-4 rounded-xl text-base font-bold hover:bg-orange-600 transition-all shadow-[0_4px_14px_rgba(249,115,22,0.3)]">
-                Purchase Assessment
-            </a>
-            <p class="text-xs text-brand-muted mt-4">Secure checkout powered by Stripe. One-time payment.</p>
+            <p class="text-xs text-brand-muted mt-4">Commercial terms are scoped separately after fit, data readiness, and governance requirements are confirmed.</p>
         </div>
     </section>
 
-    <!-- Assessment Form (shown after payment) -->
+    <!-- Assessment Form -->
     <section id="assessment-form" class="pb-24 px-4 sm:px-6 max-w-3xl mx-auto">
         <div class="bg-white rounded-3xl shadow-xl border border-brand-border p-8 md:p-12">
 
@@ -248,7 +244,7 @@
                 <div class="bg-brand-navy rounded-2xl p-8 md:p-10 text-center border border-slate-700">
                     <h3 class="text-2xl font-bold text-white mb-3 tracking-tight">This Assessment Estimates. A Signal Scan Verifies.</h3>
                     <p class="text-slate-400 font-light text-sm mb-6 max-w-lg mx-auto">
-                        We analyze your actual operational data — anonymized CSV exports, no API integration required — and map all 12 structural fault lines. Findings guarantee: we identify at least 3x the fee in verified leakage, or you pay nothing.
+                        We analyze approved operational exports, no API integration required for the initial diagnostic, and map 13 structural fault lines including AI handoff degradation where data supports it. Findings and commercial terms are governed by written agreement.
                     </p>
                     <a href="/#intake-form" class="inline-block bg-brand-orange text-white px-8 py-4 rounded-xl font-bold hover:bg-orange-600 transition-all shadow-[0_4px_14px_rgba(249,115,22,0.3)]">
                         Book a 15-Minute Findings Call
@@ -268,21 +264,6 @@
     </footer>
 
     <script>
-        // Payment gate logic — check for Stripe redirect
-        (function() {
-            const params = new URLSearchParams(window.location.search);
-            const paid = params.has('checkout_session') || params.has('session_id') || params.get('paid') === 'true';
-            const gate = document.getElementById('payment-gate');
-            const form = document.getElementById('assessment-form');
-            if (paid) {
-                gate.classList.add('hidden');
-                form.classList.remove('hidden');
-            } else {
-                gate.classList.remove('hidden');
-                form.classList.add('hidden');
-            }
-        })();
-
         // Industry benchmarks: [low, mid, high]
         const benchmarks = {
             'Insurance':   [28, 42, 65],
@@ -435,7 +416,7 @@
             formData.append('Estimated CPR', fmt(estCPR));
             formData.append('Estimated Annual Gap', fmt(annualGap));
             formData.append('Total Leakage', fmt(totalLeakage));
-            formData.append('_subject', 'Quick Assessment: ' + company + ' — ' + fmt(annualGap) + ' gap');
+            formData.append('_subject', 'Exposure Review: ' + company + ' — ' + fmt(annualGap) + ' gap');
             formData.append('_template', 'table');
             formData.append('_captcha', 'false');
 
@@ -447,7 +428,7 @@
             // GA event
             if (typeof gtag === 'function') {
                 gtag('event', 'assessment_complete', {
-                    'event_category': 'Quick Assessment',
+                    'event_category': 'Exposure Review',
                     'event_label': industry,
                     'value': Math.round(annualGap)
                 });
