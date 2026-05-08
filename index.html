@@ -302,6 +302,8 @@
                         </div>
                     </div>
                     <a href="/sample" class="text-sm font-medium text-brand-muted hover:text-brand-navy transition-colors">Sample Output</a>
+                    <a href="https://demo.marginsignalos.com" class="text-sm font-medium text-brand-muted hover:text-brand-navy transition-colors">Demo Terminal</a>
+                    <a href="https://portal.marginsignalos.com/login" class="text-sm font-medium text-brand-muted hover:text-brand-navy transition-colors">Client Portal</a>
                     <a href="#offer-ladder" class="text-sm font-medium text-brand-muted hover:text-brand-navy transition-colors">Pricing</a>
                     <a href="#founder" class="text-sm font-medium text-brand-muted hover:text-brand-navy transition-colors">About</a>
                     <div class="relative group">
@@ -343,6 +345,8 @@
             <a href="/bpo-msp" class="block text-sm font-medium text-brand-navy py-1 pl-3 border-l-2 border-brand-border hover:border-brand-orange transition-colors">BPO / MSP</a>
             <div class="border-t border-brand-border pt-4"></div>
             <a href="/sample" class="block text-sm font-medium text-brand-navy py-2">Sample Output</a>
+            <a href="https://demo.marginsignalos.com" class="block text-sm font-medium text-brand-navy py-2">Demo Terminal</a>
+            <a href="https://portal.marginsignalos.com/login" class="block text-sm font-medium text-brand-navy py-2">Client Portal</a>
             <a href="#offer-ladder" onclick="document.getElementById('mobile-menu').classList.add('hidden')" class="block text-sm font-medium text-brand-navy py-2">Pricing</a>
             <a href="#founder" onclick="document.getElementById('mobile-menu').classList.add('hidden')" class="block text-sm font-medium text-brand-navy py-2">About</a>
             <div class="text-[10px] font-mono font-bold text-brand-muted uppercase tracking-widest pt-4 border-t border-brand-border">Resources</div>
@@ -393,6 +397,9 @@
             </a>
             <a href="/sample" onclick="if(typeof gtag==='function')gtag('event','sample_output_cta_click',{'event_category':'Hero','event_label':'See Sample Output'});" class="bg-white text-brand-navy border border-brand-border px-8 py-4 rounded-xl text-base font-bold hover:bg-gray-50 transition-all shadow-sm hover:shadow text-center flex items-center justify-center">
                 <svg class="w-5 h-5 mr-2 text-brand-muted" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg> See Sample Output
+            </a>
+            <a href="https://demo.marginsignalos.com" onclick="if(typeof gtag==='function')gtag('event','demo_terminal_cta_click',{'event_category':'Hero','event_label':'Open Demo Terminal'});" class="bg-brand-navy text-white border border-brand-navy px-8 py-4 rounded-xl text-base font-bold hover:bg-slate-800 transition-all shadow-sm hover:shadow text-center flex items-center justify-center">
+                <svg class="w-5 h-5 mr-2 text-brand-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg> Open Demo Terminal
             </a>
         </div>
 
@@ -689,14 +696,17 @@
             </div>
 
             <div class="text-center mt-10 reveal-on-scroll">
-                <p class="text-slate-500 text-sm font-light">Available as part of the Signal Scan and Margin Diagnostic workflow. Live Terminal reserved for engagement clients.</p>
+                <p class="text-slate-500 text-sm font-light">Explore a sample-data terminal now. Live client portals remain invite-only and use authenticated tenant access.</p>
                 <div class="flex items-center justify-center gap-4 mt-4 flex-wrap">
                     <a href="/sample" class="inline-flex items-center text-brand-orange hover:text-orange-400 font-semibold text-sm transition-colors">
                         See full sample deliverable set
                         <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
                     </a>
-                    <a href="#intake-form" class="inline-flex items-center text-slate-400 hover:text-white font-semibold text-sm transition-colors border border-slate-700 px-4 py-2 rounded-lg hover:border-brand-orange">
-                        Request Live Demo
+                    <a href="https://demo.marginsignalos.com" class="inline-flex items-center text-slate-400 hover:text-white font-semibold text-sm transition-colors border border-slate-700 px-4 py-2 rounded-lg hover:border-brand-orange">
+                        Open Demo Terminal
+                    </a>
+                    <a href="https://portal.marginsignalos.com/login" class="inline-flex items-center text-slate-400 hover:text-white font-semibold text-sm transition-colors border border-slate-700 px-4 py-2 rounded-lg hover:border-brand-orange">
+                        Client Portal Login
                     </a>
                 </div>
             </div>
@@ -1464,9 +1474,9 @@
                         <div class="text-[10px] font-mono font-bold text-brand-muted uppercase tracking-widest mb-4">Security &amp; Handling</div>
                         <ul class="space-y-3 text-sm text-brand-navy">
                             <li class="flex items-center"><svg class="w-4 h-4 text-brand-orange mr-2 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Anonymized CSV intake</li>
-                            <li class="flex items-center"><svg class="w-4 h-4 text-brand-orange mr-2 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> No live system integration</li>
+                            <li class="flex items-center"><svg class="w-4 h-4 text-brand-orange mr-2 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> CSV-first diagnostic path</li>
                             <li class="flex items-center"><svg class="w-4 h-4 text-brand-orange mr-2 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> 72-hour data wipe certificate</li>
-                            <li class="flex items-center"><svg class="w-4 h-4 text-brand-orange mr-2 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> E&amp;O insured</li>
+                            <li class="flex items-center"><svg class="w-4 h-4 text-brand-orange mr-2 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Support excludes raw data dumps</li>
                         </ul>
                     </div>
                     <!-- Operational Trust -->
@@ -1476,7 +1486,7 @@
                             <li class="flex items-center"><svg class="w-4 h-4 text-brand-orange mr-2 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Founder-led diagnostic</li>
                             <li class="flex items-center"><svg class="w-4 h-4 text-brand-orange mr-2 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Executive briefing included</li>
                             <li class="flex items-center"><svg class="w-4 h-4 text-brand-orange mr-2 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Sample output available</li>
-                            <li class="flex items-center"><svg class="w-4 h-4 text-brand-orange mr-2 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> 90-day proof window</li>
+                            <li class="flex items-center"><svg class="w-4 h-4 text-brand-orange mr-2 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Invite-only client portal</li>
                         </ul>
                     </div>
                     <!-- Commercial Assurance -->
@@ -1484,8 +1494,8 @@
                         <div class="text-[10px] font-mono font-bold text-brand-muted uppercase tracking-widest mb-4">Commercial Assurance</div>
                         <ul class="space-y-3 text-sm text-brand-navy">
                             <li class="flex items-center"><svg class="w-4 h-4 text-brand-orange mr-2 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Findings guarantee</li>
-                            <li class="flex items-center"><svg class="w-4 h-4 text-brand-orange mr-2 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> U.S. Patent Pending</li>
-                            <li class="flex items-center"><svg class="w-4 h-4 text-brand-orange mr-2 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> CAIQ-aligned controls</li>
+                            <li class="flex items-center"><svg class="w-4 h-4 text-brand-orange mr-2 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Demo uses sample data only</li>
+                            <li class="flex items-center"><svg class="w-4 h-4 text-brand-orange mr-2 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Connector automation scoped separately</li>
                             <li class="flex items-center"><svg class="w-4 h-4 text-brand-orange mr-2 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Terms available on request</li>
                         </ul>
                     </div>
@@ -1749,6 +1759,10 @@
             <div class="border-t border-[#1E293B] pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-slate-500 font-mono gap-4">
                 <p>&copy; 2026 MarginSignal OS&trade; LLC. All rights reserved.</p>
                 <div class="flex items-center space-x-6 flex-wrap gap-y-2">
+                    <a href="https://demo.marginsignalos.com" class="text-slate-600 hover:text-slate-400 transition-colors">Demo Terminal</a>
+                    <span class="text-slate-700">|</span>
+                    <a href="https://portal.marginsignalos.com/login" class="text-slate-600 hover:text-slate-400 transition-colors">Client Portal</a>
+                    <span class="text-slate-700">|</span>
                     <a href="/methodology" class="text-slate-600 hover:text-slate-400 transition-colors">Methodology</a>
                     <span class="text-slate-700">|</span>
                     <a href="/how-we-differ" class="text-slate-600 hover:text-slate-400 transition-colors">How We Differ</a>
