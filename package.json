@@ -1,0 +1,13 @@
+{
+  "name": "marginsignalos-site",
+  "version": "1.0.0",
+  "private": true,
+  "description": "MarginSignal OS marketing site — static HTML with a compiled Tailwind stylesheet.",
+  "scripts": {
+    "build:css": "tailwindcss -i ./src/input.css -o ./styles.css --minify",
+    "watch:css": "tailwindcss -i ./src/input.css -o ./styles.css --watch"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.0"
+  }
+}

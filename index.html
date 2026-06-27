@@ -6,7 +6,7 @@
     <!-- Security Headers (meta-tag equivalent for GitHub Pages) -->
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
     <meta http-equiv="X-Frame-Options" content="DENY">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.tailwindcss.com https://www.googletagmanager.com https://www.google-analytics.com https://www.clarity.ms; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://www.google-analytics.com; connect-src 'self' https://www.google-analytics.com https://region1.google-analytics.com https://formsubmit.co https://www.clarity.ms; frame-ancestors 'none';">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://www.clarity.ms; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://www.google-analytics.com; connect-src 'self' https://www.google-analytics.com https://region1.google-analytics.com https://formsubmit.co https://www.clarity.ms; frame-ancestors 'none';">
     <title>MarginSignal OS | Independent Verification That Your AI Actually Works</title>
     <meta name="description" content="Independent verification of whether your deployed AI lowered the true cost of a resolution — and who's at fault when it didn't. Because it isn't yours.">
     <meta name="keywords" content="independent AI verification, AI assurance, agentic AI accountability, AI fault attribution, Trustworthy AI, AI outcome measurement, Cost Per Resolution, CPR, AI monitoring, AI governance, contact center cost optimization, insurance claims AI, healthcare RCM AI, BPO AI measurement">
@@ -141,47 +141,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
     
     <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'SF Pro Display', 'sans-serif'],
-                        mono: ['Fira Code', 'monospace'],
-                    },
-                    colors: {
-                        brand: {
-                            bg: '#F8FAFC',     /* Slate 50 - Primary Light Bg */
-                            navy: '#0F172A',   /* Slate 900 - Executive Navy */
-                            orange: '#F97316', /* Orange 500 - Signal Accent */
-                            muted: '#64748B',  /* Slate 500 - Muted Text */
-                            border: '#E2E8F0', /* Slate 200 - Borders */
-                            dark: '#020617',   /* Slate 950 - Deep Terminal Bg */
-                        }
-                    },
-                    backgroundImage: {
-                        'grid-light': "url(\"data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h40v40H0V0zm1 1h38v38H1V1z' fill='%23e2e8f0' fill-opacity='0.4' fill-rule='evenodd'/%3E%3C/svg%3E\")",
-                    },
-                    animation: {
-                        'loadingBar': 'loadingBar 1.8s ease-in-out infinite',
-                        'fadeInUp': 'fadeInUp 0.5s ease-out forwards',
-                    },
-                    keyframes: {
-                        loadingBar: {
-                            '0%': { width: '0%', opacity: '1' },
-                            '70%': { width: '100%', opacity: '1' },
-                            '100%': { width: '100%', opacity: '0' }
-                        },
-                        fadeInUp: {
-                            '0%': { opacity: '0', transform: 'translateY(10px)' },
-                            '100%': { opacity: '1', transform: 'translateY(0)' }
-                        }
-                    }
-                }
-            }
-        }
-    </script>
+    <link rel="stylesheet" href="/styles.css">
     <style>
         body { 
             background-color: #F8FAFC; 
