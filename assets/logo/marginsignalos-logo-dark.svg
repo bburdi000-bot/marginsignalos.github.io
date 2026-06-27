@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 110" role="img" aria-label="MarginSignalOS trademark">
+  <!-- MarginSignal OS™ wordmark. Font: Inter ExtraBold (800). Navy #FFFFFF, Orange #F97316. -->
+  <text x="0" y="82" font-family="Inter, -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif"
+        font-weight="800" font-size="80" letter-spacing="-1.6">
+    <tspan fill="#FFFFFF">MarginSignal</tspan><tspan fill="#F97316">OS</tspan><tspan fill="#F97316" font-size="34" dy="-26">™</tspan>
+  </text>
+</svg>

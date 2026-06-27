@@ -33,6 +33,22 @@
         body { background-color:#F8FAFC; color:#0F172A; -webkit-font-smoothing:antialiased; }
         .glass-nav { background-color:rgba(248,250,252,0.85); backdrop-filter:blur(12px); }
     </style>
+    <!-- Google Analytics (GA4) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q93WQ98N9L"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-Q93WQ98N9L');
+    </script>
+    <!-- Microsoft Clarity - UX Session Recording -->
+    <script type="text/javascript">
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "vtbd9ybs7t");
+    </script>
 </head>
 <body class="antialiased">
     <nav class="fixed w-full top-0 z-50 glass-nav border-b border-brand-border">
@@ -123,10 +139,9 @@
             <div class="bg-white rounded-2xl border border-brand-border p-8 max-w-2xl mx-auto shadow-sm">
                 <h2 class="text-2xl font-extrabold text-brand-navy mb-2 tracking-tight">Apply to go first</h2>
                 <p class="text-sm text-brand-muted font-light mb-6">A few questions about scope and authority &mdash; not your operational numbers. The founder reviews every one.</p>
-                <form action="https://formsubmit.co/support@marginsignalos.com" method="POST" class="space-y-4">
+                <form id="dpForm" onsubmit="event.preventDefault(); submitDesignPartner();" class="space-y-4">
                     <input type="hidden" name="_subject" value="Design Partner application">
                     <input type="hidden" name="_captcha" value="false">
-                    <input type="hidden" name="_template" value="table">
                     <div class="grid sm:grid-cols-2 gap-4">
                         <input name="Name" required placeholder="Name" class="w-full rounded-lg border border-brand-border px-4 py-2.5 text-sm focus:outline-none focus:border-brand-orange">
                         <input name="Organization" required placeholder="Organization" class="w-full rounded-lg border border-brand-border px-4 py-2.5 text-sm focus:outline-none focus:border-brand-orange">
@@ -147,9 +162,13 @@
                     </select>
                     <input name="Timeline" placeholder="Timeline (optional)" class="w-full rounded-lg border border-brand-border px-4 py-2.5 text-sm focus:outline-none focus:border-brand-orange">
                     <textarea name="Context" rows="3" placeholder="One line of context (optional)" class="w-full rounded-lg border border-brand-border px-4 py-2.5 text-sm focus:outline-none focus:border-brand-orange"></textarea>
-                    <button type="submit" class="w-full bg-brand-orange text-white px-6 py-3 rounded-lg font-bold hover:bg-orange-600 transition-all">Apply to be a design partner</button>
+                    <button type="submit" id="dpSubmit" class="w-full bg-brand-orange text-white px-6 py-3 rounded-lg font-bold hover:bg-orange-600 transition-all">Apply to be a design partner</button>
                     <p class="text-[11px] text-slate-400 text-center">De-identified data only. No PHI/PII to start. Terms governed by written agreement.</p>
                 </form>
+                <div id="dpSuccess" class="hidden text-center py-10">
+                    <div class="text-2xl font-extrabold text-brand-navy mb-2 tracking-tight">Application received.</div>
+                    <p class="text-sm text-brand-muted font-light max-w-md mx-auto">The founder reviews every one. If it's a fit, you'll hear back directly &mdash; from a person, not a sequence.</p>
+                </div>
             </div>
         </section>
 
@@ -171,5 +190,41 @@
             <p class="text-slate-600 text-[11px] mt-3">Core methods patent-pending. Illustrative outputs are labeled and conditional until validated against your data.</p>
         </div>
     </footer>
+
+    <script>
+        function submitDesignPartner() {
+            var form = document.getElementById('dpForm');
+            var btn = document.getElementById('dpSubmit');
+            var orig = btn.innerHTML;
+            btn.disabled = true;
+            btn.innerHTML = '<div class="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin mx-auto"></div>';
+
+            var payload = {};
+            new FormData(form).forEach(function (v, k) { payload[k] = v; });
+
+            var _fs = ['support', 'marginsignalos', 'com'];
+            fetch('https://formsubmit.co/ajax/' + _fs[0] + '@' + _fs[1] + '.' + _fs[2], {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                body: JSON.stringify(payload)
+            })
+            .then(function (r) { return r.json(); })
+            .then(function () {
+                form.classList.add('hidden');
+                document.getElementById('dpSuccess').classList.remove('hidden');
+                if (typeof gtag === 'function') {
+                    gtag('event', 'design_partner_apply', {
+                        'event_category': 'Design Partner',
+                        'event_label': payload['Use case to scope'] || 'unspecified'
+                    });
+                }
+            })
+            .catch(function () {
+                btn.disabled = false;
+                btn.innerHTML = orig;
+                alert('Submission failed. Please email support@marginsignalos.com directly.');
+            });
+        }
+    </script>
 </body>
 </html>

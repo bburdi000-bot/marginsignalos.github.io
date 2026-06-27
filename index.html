@@ -1217,7 +1217,7 @@
 
                 <!-- Form Container -->
                 <div class="relative overflow-hidden" style="min-height: 380px;">
-                    <!-- No backend required: Uses FormSubmit to securely send leads directly to Support@marginsignalos.com -->
+                    <!-- No backend required: Uses FormSubmit to securely send leads directly to support@marginsignalos.com -->
                     <form id="leadForm" onsubmit="event.preventDefault(); submitForm();">
                         
                         <!-- Step 1: Contact Details -->
@@ -1534,7 +1534,7 @@
             });
 
             // Submit form
-            var _fs = ['Support','marginsignalos','com'];
+            var _fs = ['support','marginsignalos','com'];
             fetch("https://formsubmit.co/ajax/" + _fs[0] + '@' + _fs[1] + '.' + _fs[2], {
                 method: "POST",
                 headers: { 
