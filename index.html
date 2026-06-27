@@ -288,7 +288,6 @@
                 </div>
                 <!-- Desktop Nav -->
                 <div class="hidden md:flex space-x-6 items-center">
-                    <a href="#offer-ladder" class="text-sm font-medium text-brand-muted hover:text-brand-navy transition-colors">Engagement Options</a>
                     <div class="relative group">
                         <button class="text-sm font-medium text-brand-muted hover:text-brand-navy transition-colors flex items-center">
                             Resources
@@ -299,7 +298,6 @@
                                 <div class="px-4 py-2 text-[10px] font-mono font-bold text-brand-muted uppercase tracking-widest">Product</div>
                                 <a href="/sample" class="block px-4 py-2.5 text-sm text-brand-navy hover:bg-brand-bg transition-colors">Sample Output</a>
                                 <a href="#ai-demo" class="block px-4 py-2.5 text-sm text-brand-navy hover:bg-brand-bg transition-colors">Preliminary Scanner</a>
-                                <a href="/demo-access" class="block px-4 py-2.5 text-sm text-brand-navy hover:bg-brand-bg transition-colors">Book a Live Demo</a>
                                 <div class="my-2 border-t border-brand-border"></div>
                                 <div class="px-4 py-2 text-[10px] font-mono font-bold text-brand-muted uppercase tracking-widest">Industries</div>
                                 <a href="/insurance-claims" class="block px-4 py-2.5 text-sm text-brand-navy hover:bg-brand-bg transition-colors">Insurance Claims Ops</a>
@@ -315,8 +313,8 @@
                             </div>
                         </div>
                     </div>
-                    <a href="#intake-form" class="bg-brand-navy text-white px-5 py-2.5 rounded-lg text-sm font-medium hover:bg-gray-800 transition-all shadow-sm hover:shadow-md transform hover:-translate-y-0.5">
-                        Book Diagnostic
+                    <a href="#intake-form" class="bg-brand-orange text-white px-5 py-2.5 rounded-lg text-sm font-bold hover:bg-orange-600 transition-all shadow-sm hover:shadow-md transform hover:-translate-y-0.5">
+                        Book a Findings Call
                     </a>
                 </div>
                 <!-- Mobile Menu Button -->
@@ -332,11 +330,9 @@
     <!-- Mobile Menu -->
     <div id="mobile-menu" class="hidden fixed top-20 left-0 right-0 z-40 bg-white border-b border-brand-border shadow-lg md:hidden">
         <div class="px-4 py-6 space-y-4">
-            <a href="#offer-ladder" onclick="document.getElementById('mobile-menu').classList.add('hidden')" class="block text-sm font-medium text-brand-navy py-2">Engagement Options</a>
             <div class="text-[10px] font-mono font-bold text-brand-muted uppercase tracking-widest pt-4 border-t border-brand-border">Resources</div>
             <a href="/sample" class="block text-sm font-medium text-brand-navy py-1 pl-3 border-l-2 border-brand-border hover:border-brand-orange transition-colors">Sample Output</a>
             <a href="#ai-demo" onclick="document.getElementById('mobile-menu').classList.add('hidden')" class="block text-sm font-medium text-brand-navy py-1 pl-3 border-l-2 border-brand-border hover:border-brand-orange transition-colors">Preliminary Scanner</a>
-            <a href="/demo-access" class="block text-sm font-medium text-brand-navy py-1 pl-3 border-l-2 border-brand-border hover:border-brand-orange transition-colors">Book a Live Demo</a>
             <div class="text-[10px] font-mono font-bold text-brand-muted uppercase tracking-widest pt-4 border-t border-brand-border">Industries</div>
             <a href="/insurance-claims" class="block text-sm font-medium text-brand-navy py-1 pl-3 border-l-2 border-brand-border hover:border-brand-orange transition-colors">Insurance Claims Ops</a>
             <a href="/healthcare-rcm" class="block text-sm font-medium text-brand-navy py-1 pl-3 border-l-2 border-brand-border hover:border-brand-orange transition-colors">Healthcare &amp; RCM</a>
@@ -370,7 +366,7 @@
         </div>
 
         <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight mb-6 max-w-4xl leading-[1.1] text-brand-navy reveal-on-scroll" style="transition-delay: 100ms;">
-            Did your AI actually work?
+            Your AI closed the ticket. Did it solve the problem?
         </h1>
 
         <p class="text-lg md:text-xl text-brand-muted max-w-3xl mb-6 leading-relaxed font-light reveal-on-scroll" style="transition-delay: 200ms;">
@@ -383,17 +379,12 @@
             </div>
         </div>
 
-        <!-- Conversion Optimized CTAs -->
-        <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 w-full sm:w-auto mb-10 reveal-on-scroll" style="transition-delay: 300ms;">
-            <a href="#intake-form" onclick="if(typeof gtag==='function')gtag('event','hero_primary_cta_click',{'event_category':'Hero','event_label':'Book Diagnostic'});" class="bg-brand-orange text-white px-8 py-4 rounded-xl text-base font-bold hover:bg-orange-600 transition-all shadow-[0_4px_14px_rgba(249,115,22,0.3)] hover:shadow-[0_6px_20px_rgba(249,115,22,0.4)] hover:-translate-y-0.5 text-center flex items-center justify-center group">
-                <svg class="w-5 h-5 mr-2 group-hover:rotate-12 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg> Book Diagnostic
+        <!-- Single primary CTA + one secondary text link -->
+        <div class="flex flex-col sm:flex-row items-center gap-4 sm:gap-6 mb-10 reveal-on-scroll" style="transition-delay: 300ms;">
+            <a href="#intake-form" onclick="if(typeof gtag==='function')gtag('event','hero_primary_cta_click',{'event_category':'Hero','event_label':'Book a Findings Call'});" class="bg-brand-orange text-white px-8 py-4 rounded-xl text-base font-bold hover:bg-orange-600 transition-all shadow-[0_4px_14px_rgba(249,115,22,0.3)] hover:shadow-[0_6px_20px_rgba(249,115,22,0.4)] hover:-translate-y-0.5 text-center flex items-center justify-center group">
+                <svg class="w-5 h-5 mr-2 group-hover:rotate-12 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg> Book a Findings Call
             </a>
-            <a href="/sample" onclick="if(typeof gtag==='function')gtag('event','sample_output_cta_click',{'event_category':'Hero','event_label':'See Sample Output'});" class="bg-white text-brand-navy border border-brand-border px-8 py-4 rounded-xl text-base font-bold hover:bg-gray-50 transition-all shadow-sm hover:shadow text-center flex items-center justify-center">
-                <svg class="w-5 h-5 mr-2 text-brand-muted" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg> See Sample Output
-            </a>
-            <a href="/demo-access" onclick="if(typeof gtag==='function')gtag('event','demo_access_cta_click',{'event_category':'Hero','event_label':'Book a Live Demo'});" class="bg-brand-navy text-white border border-brand-navy px-8 py-4 rounded-xl text-base font-bold hover:bg-slate-800 transition-all shadow-sm hover:shadow text-center flex items-center justify-center">
-                <svg class="w-5 h-5 mr-2 text-brand-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg> Book a Live Demo
-            </a>
+            <a href="#sample-verdict" class="text-base font-semibold text-brand-navy hover:text-brand-orange transition-colors inline-flex items-center">See a sample verdict <span class="ml-1">&rarr;</span></a>
         </div>
 
         <div class="flex items-center justify-center flex-wrap gap-4 md:space-x-8 text-sm font-medium text-slate-400 reveal-on-scroll" style="transition-delay: 400ms;">
@@ -466,7 +457,7 @@
     </section>
 
     <!-- AI Verification Readout (sample) -->
-    <section class="py-16 bg-white border-y border-brand-border">
+    <section id="sample-verdict" class="py-16 bg-white border-y border-brand-border scroll-mt-20">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-8">
                 <span class="text-[10px] font-mono font-bold text-brand-orange uppercase tracking-widest">Independent AI Verification &middot; Sample Readout</span>
@@ -478,7 +469,7 @@
                     <div>
                         <div class="text-[10px] font-mono font-bold text-slate-400 uppercase tracking-widest">Did the AI work?</div>
                         <div class="text-white font-extrabold text-xl mt-1">Not resolved</div>
-                        <div class="text-slate-400 text-xs mt-1">Closed by the agent &mdash; reopened by the customer 9 days later.</div>
+                        <div class="text-slate-400 text-xs mt-1">A contact like this would close as &lsquo;resolved&rsquo; &mdash; then the customer comes back 9 days later.</div>
                     </div>
                     <div class="text-right shrink-0">
                         <div class="text-[10px] font-mono font-bold text-slate-400 uppercase tracking-widest">True cost to resolve</div>
@@ -494,7 +485,7 @@
                         <div class="rounded-lg border border-green-200 bg-green-50 py-3"><div class="text-[11px] font-bold text-green-700">Operator</div><div class="text-green-600 text-lg leading-none mt-1">&#10003;</div></div>
                         <div class="rounded-lg border border-red-200 bg-red-50 py-3"><div class="text-[11px] font-bold text-red-700">Agent handoff</div><div class="text-red-600 text-lg leading-none mt-1">&#10007;</div></div>
                     </div>
-                    <p class="text-sm text-brand-navy font-semibold mt-4">Fault: model-vendor &mdash; correct inputs, wrong determination, dropped at the agent-3 handoff.</p>
+                    <p class="text-sm text-brand-navy font-semibold mt-4">On a failure like this, fault would land on the model-vendor &mdash; correct inputs, wrong determination, dropped at the agent-3 handoff.</p>
                 </div>
                 <div class="bg-slate-50 border-t border-brand-border px-6 py-3 flex items-center gap-2">
                     <svg class="w-4 h-4 text-brand-orange shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
@@ -686,8 +677,8 @@
                         See full sample deliverable set
                         <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
                     </a>
-                    <a href="/demo-access" class="inline-flex items-center text-slate-400 hover:text-white font-semibold text-sm transition-colors border border-slate-700 px-4 py-2 rounded-lg hover:border-brand-orange">
-                        Book a Live Demo
+                    <a href="/design-partner" class="inline-flex items-center text-slate-400 hover:text-white font-semibold text-sm transition-colors border border-slate-700 px-4 py-2 rounded-lg hover:border-brand-orange">
+                        Become a Design Partner
                     </a>
                 </div>
             </div>
@@ -831,9 +822,9 @@
             <div class="grid md:grid-cols-3 gap-8 pt-8">
                 <div class="bg-[#0F172A] p-8 rounded-2xl border border-[#1E293B] hover:border-slate-600 transition-colors reveal-on-scroll">
                     <div class="text-brand-orange font-mono text-[10px] font-bold uppercase tracking-widest mb-4">01 // DIAGNOSE</div>
-                    <h3 class="text-xl font-bold mb-3">13 Fault Line Cards</h3>
+                    <h3 class="text-xl font-bold mb-3">16 Fault Line Cards</h3>
                     <p class="text-slate-400 leading-relaxed font-light text-sm">
-                        We map your telemetry against 13 structural fault lines, including AI handoff degradation where supporting data exists. No 8-week baselining period required.
+                        We map your telemetry against 16 structural fault lines, including AI handoff degradation where supporting data exists. No 8-week baselining period required.
                     </p>
                 </div>
                 <div class="bg-[#0F172A] p-8 rounded-2xl border border-[#1E293B] hover:border-slate-600 transition-colors reveal-on-scroll" style="transition-delay: 100ms;">
@@ -854,6 +845,17 @@
         </div>
     </section>
 
+    <!-- Become a Design Partner -->
+    <section class="py-20 bg-brand-navy">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <span class="text-[10px] font-mono font-bold text-brand-orange uppercase tracking-widest">Design Partner Program</span>
+            <h2 class="text-3xl md:text-4xl font-extrabold text-white mt-3 mb-4 tracking-tight">Be the first reproducible AI verdict.</h2>
+            <p class="text-slate-400 font-light leading-relaxed max-w-2xl mx-auto mb-2">We're selecting a small number of design partners to produce the first public, reproducible CPR verdicts &mdash; on defined terms, at no or reduced fee. Going first should be easier than not.</p>
+            <p class="text-slate-500 text-sm font-light max-w-2xl mx-auto mb-8">No client logos to show you yet. That's the point: no other operator to protect, no result we've had reason to soften.</p>
+            <a href="/design-partner" class="inline-block bg-brand-orange text-white px-8 py-3.5 rounded-lg font-bold hover:bg-orange-600 transition-all">See the terms &amp; apply</a>
+        </div>
+    </section>
+
     <!-- Interactive AI Diagnostic Demo (Mock Integration) -->
     <section id="ai-demo" class="py-24 bg-white border-b border-brand-border overflow-hidden relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -866,7 +868,7 @@
                     </div>
                     <h2 class="text-3xl md:text-4xl font-bold text-brand-navy mb-6 tracking-tight">Run a Preliminary Diagnostic.</h2>
                     <p class="text-brand-muted text-lg mb-8 leading-relaxed font-light">
-                        Describe a friction pattern you are seeing on the floor. The Scanner will map it to one of 13 structural Fault Lines and surface a preliminary financial exposure range. Run a full Signal Scan to confirm against your data.
+                        Describe a friction pattern wherever AI is handling resolutions. The Scanner maps it to one of 16 structural fault lines and surfaces a preliminary exposure range. Book a Findings Call to confirm against your data.
                     </p>
                     
                     <div class="bg-brand-bg border border-brand-border rounded-2xl p-6 md:p-8 shadow-sm">
@@ -1095,108 +1097,6 @@
     </section>
 
 
-    <!-- Engagement Options -->
-    <section id="offer-ladder" class="py-24 bg-white border-b border-brand-border">
-        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto mb-6 reveal-on-scroll">
-                <h2 class="text-3xl md:text-5xl font-extrabold mb-4 text-brand-navy tracking-tight">Engagement Options</h2>
-                <p class="text-lg text-brand-muted font-light">Commercial terms may include scoped diagnostic fees, monitoring retainers, or performance-linked structures depending on data readiness, client scope, and governance requirements.</p>
-            </div>
-            <p class="text-center text-brand-muted text-sm font-light max-w-2xl mx-auto mb-16">Most teams start by confirming fit and data readiness, then move into a Signal Scan or continuous monitoring path when the evidence supports it.</p>
-
-            <div class="grid md:grid-cols-3 gap-8 items-stretch">
-
-                <!-- Option 1: Exposure Review -->
-                <div class="flex flex-col bg-white rounded-2xl border border-brand-border p-8 hover:shadow-lg transition-all reveal-on-scroll">
-                    <h3 class="text-xl font-bold text-brand-navy mb-1 tracking-tight">Exposure Review</h3>
-                    <div class="text-brand-muted font-mono text-[10px] font-bold uppercase tracking-widest mb-5">Fit Check + Data Readiness</div>
-                    <p class="text-brand-muted mb-6 leading-relaxed font-light text-sm">A lightweight fit check that confirms the operating model, likely fault-line hypothesis, and whether client-supplied exports can support a diagnostic.</p>
-                    <ul class="space-y-3 mb-8 text-sm text-brand-navy font-medium">
-                        <li class="flex items-start"><svg class="h-4 w-4 text-emerald-500 mr-2.5 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg> Preliminary exposure hypothesis</li>
-                        <li class="flex items-start"><svg class="h-4 w-4 text-emerald-500 mr-2.5 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg> Data availability checklist</li>
-                        <li class="flex items-start"><svg class="h-4 w-4 text-emerald-500 mr-2.5 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg> Recommended next step</li>
-                    </ul>
-                    <div class="mt-auto space-y-3">
-                        <a href="#intake-form" class="block w-full text-center bg-brand-navy text-white font-bold py-3 rounded-xl hover:bg-slate-800 transition-colors">
-                            Request Exposure Review
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Option 2: Signal Scan -->
-                <div class="flex flex-col bg-brand-bg rounded-2xl border-2 border-brand-orange p-8 hover:shadow-lg transition-all reveal-on-scroll relative">
-                    <div class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-brand-orange text-white px-4 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest shadow-md">
-                        Typical Starting Point
-                    </div>
-                    <h3 class="text-xl font-bold text-brand-navy mb-1 tracking-tight mt-2">Signal Scan</h3>
-                    <div class="text-brand-muted font-mono text-[10px] font-bold uppercase tracking-widest mb-5">Scoped Diagnostic</div>
-                    <p class="text-brand-muted mb-6 leading-relaxed font-light text-sm">A forensic diagnostic using client-supplied operational exports, mapped against 13 structural fault lines including AI handoff degradation where data supports it.</p>
-                    <ul class="space-y-3 mb-8 text-sm text-brand-navy font-medium">
-                        <li class="flex items-start"><svg class="h-4 w-4 text-brand-orange mr-2.5 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg> Ranked Fault Line Cards</li>
-                        <li class="flex items-start"><svg class="h-4 w-4 text-brand-orange mr-2.5 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg> CPR Baseline + Financial Model</li>
-                        <li class="flex items-start"><svg class="h-4 w-4 text-brand-orange mr-2.5 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg> Diagnostic Dashboard</li>
-                        <li class="flex items-start"><svg class="h-4 w-4 text-brand-orange mr-2.5 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg> Executive Briefing</li>
-                        <li class="flex items-start"><svg class="h-4 w-4 text-brand-orange mr-2.5 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg> Written scope and findings terms</li>
-                    </ul>
-                    <a href="#intake-form" class="mt-auto block w-full text-center bg-brand-orange text-white font-bold py-3 rounded-xl hover:bg-orange-600 transition-colors shadow-md">
-                        Request Signal Scan
-                    </a>
-                </div>
-
-                <!-- Option 3: Continuous Monitoring -->
-                <div class="flex flex-col bg-white rounded-2xl border border-brand-border p-8 hover:shadow-lg transition-all reveal-on-scroll">
-                    <h3 class="text-xl font-bold text-brand-navy mb-1 tracking-tight">Continuous Monitoring / Performance Path</h3>
-                    <div class="text-brand-muted font-mono text-[10px] font-bold uppercase tracking-widest mb-5">Custom Scope</div>
-                    <p class="text-brand-muted mb-6 leading-relaxed font-light text-sm">A custom path after diagnostic proof, including monitoring retainers, executive governance, and possible savings-linked structures when contract language is ready.</p>
-                    <ul class="space-y-3 mb-8 text-sm text-brand-navy font-medium">
-                        <li class="flex items-start"><svg class="h-4 w-4 text-brand-orange mr-2.5 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg> Dashboard and drift monitoring</li>
-                        <li class="flex items-start"><svg class="h-4 w-4 text-brand-orange mr-2.5 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg> Full CPR Financial Model</li>
-                        <li class="flex items-start"><svg class="h-4 w-4 text-brand-orange mr-2.5 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg> Governance review cadence</li>
-                        <li class="flex items-start"><svg class="h-4 w-4 text-brand-orange mr-2.5 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg> Performance-linked options where appropriate</li>
-                    </ul>
-                    <a href="#intake-form" class="mt-auto block w-full text-center bg-brand-navy text-white font-bold py-3 rounded-xl hover:bg-slate-800 transition-colors">
-                        Request Diagnostic Scope
-                    </a>
-                </div>
-
-            </div>
-
-            <!-- Enterprise footnote -->
-            <div class="text-center mt-12 reveal-on-scroll">
-                <p class="text-brand-muted text-sm font-light">
-                    <strong class="text-brand-navy font-semibold">Enterprise &amp; BPO networks:</strong> For multi-site deployments or performance-linked structures,
-                    <a href="#intake-form" class="text-brand-orange hover:text-orange-600 font-semibold transition-colors">contact us for custom scoping</a>.
-                </p>
-            </div>
-
-            <!-- What You Need to Get Started -->
-            <div class="mt-16 bg-brand-bg rounded-2xl border border-brand-border p-8 reveal-on-scroll">
-                <h3 class="text-lg font-bold text-brand-navy mb-6 text-center tracking-tight">What You Need to Get Started</h3>
-                <div class="flex flex-wrap justify-center gap-6">
-                    <div class="flex items-center text-sm text-brand-navy font-medium">
-                        <svg class="w-4 h-4 text-brand-orange mr-2 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                        30 days of anonymized data
-                    </div>
-                    <div class="flex items-center text-sm text-brand-navy font-medium">
-                        <svg class="w-4 h-4 text-brand-orange mr-2 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                        CSV exports accepted
-                    </div>
-                    <div class="flex items-center text-sm text-brand-navy font-medium">
-                        <svg class="w-4 h-4 text-brand-orange mr-2 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                        No API integration
-                    </div>
-                    <div class="flex items-center text-sm text-brand-navy font-medium">
-                        <svg class="w-4 h-4 text-brand-orange mr-2 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                        Intake under 1 hour
-                    </div>
-                    <div class="flex items-center text-sm text-brand-navy font-medium">
-                        <svg class="w-4 h-4 text-brand-orange mr-2 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                        First review within days
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- FAQ & Objection Handling -->
     <section class="py-24 bg-brand-bg relative z-10">
@@ -1237,7 +1137,7 @@
                         </span>
                     </summary>
                     <div class="text-brand-muted px-6 pb-6 leading-relaxed font-light text-sm border-t border-gray-100 pt-4">
-                        BI teams are excellent at building dashboards that show you <em>averages</em>. However, BI teams are rarely operational practitioners. MarginSignal OS doesn't just display data; we map the data to 13 specific fault-line patterns and translate those structural failures into a CFO-ready financial exposure model.
+                        BI teams are excellent at building dashboards that show you <em>averages</em>. However, BI teams are rarely operational practitioners. MarginSignal OS doesn't just display data; we map the data to 16 specific fault-line patterns and translate those structural failures into a CFO-ready financial exposure model.
                     </div>
                 </details>
             </div>
@@ -1465,7 +1365,6 @@
             <div class="border-t border-[#1E293B] pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-slate-500 font-mono gap-4">
                 <p>&copy; 2026 MarginSignal OS&trade; LLC. All rights reserved.</p>
                 <div class="flex items-center space-x-6 flex-wrap gap-y-2">
-                    <a href="/demo-access" class="text-slate-600 hover:text-slate-400 transition-colors">Book a Live Demo</a>
                     <span class="text-slate-700">|</span>
                     <a href="/independence" class="text-slate-600 hover:text-slate-400 transition-colors">Independence</a>
                     <span class="text-slate-700">|</span>
@@ -1758,7 +1657,6 @@
         // Section visibility tracking via IntersectionObserver
         var sectionMap = {
             'sample-output': 'sample_output_section_view',
-            'offer-ladder': 'engagement_options_section_view',
             'case-study': 'case_study_section_view',
             'founder': 'founder_section_view'
         };
