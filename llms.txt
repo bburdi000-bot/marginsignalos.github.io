@@ -1,0 +1,40 @@
+# MarginSignal OS
+
+> The independent referee for whether deployed AI actually worked. MarginSignal OS independently verifies whether AI lowered the true Cost Per Resolution and attributes fault across data, model-vendor, operator, and agent — neutral, reproducible evidence for government, insurance, healthcare, and BPO, because it isn't yours.
+
+MarginSignal OS is operator-independent: it is not run by, or paid by, the operator whose AI it grades. Core methods are patent-pending. Outputs are labeled and conditional until validated against client data.
+
+## Core
+- [MarginSignal OS | Independent Verification That Your AI Actually Works](https://www.marginsignalos.com/): Independent verification of whether your deployed AI lowered the true cost of a resolution — and who's at fault when it didn't. Because it isn't yours.
+- [The Moat: The Builder Can't Certify the AI Worked](https://www.marginsignalos.com/independence): Every other AI-assurance vendor is paid by the operator it grades. We're structurally not: buyer-pays, reproducible, EU AI Act Art. 31.
+- [How We Measure AI Outcomes — Methodology](https://www.marginsignalos.com/methodology): How MarginSignal OS measures whether deployed AI actually worked — eight operating signals across resolution economics, escalation, repeat demand, and margin.
+- [Did Your AI Actually Work? Here's How You'd Know](https://www.marginsignalos.com/verify): Most vendors show you a dashboard. We show you a verdict — then let you re-run it. See a sample verdict and estimate your own true Cost Per Resolution.
+
+## Industries
+- [Independent AI Resolution-Cost Verification for Insurance Claims](https://www.marginsignalos.com/insurance-claims): As AI moves into claims, MarginSignal OS independently verifies whether it lowered the true Cost Per Resolution — or just closed files faster. P&C and health.
+- [Independent AI Resolution-Cost Verification for Healthcare RCM](https://www.marginsignalos.com/healthcare-rcm): As AI moves into authorizations and billing, MarginSignal OS independently verifies whether it lowered the cost of a resolved case — not just denial rates.
+- [Independent AI Resolution-Cost Verification for BPO & MSP](https://www.marginsignalos.com/bpo-msp): SLA-compliant delivery can bleed margin. As AI handles more of the queue, MarginSignal OS independently verifies whether it lowered your true cost-to-resolve.
+
+## Decision-makers
+- [Independent Post-Deployment AI Impact for Federal](https://www.marginsignalos.com/for-federal): OMB M-25-21 requires independent post-deployment AI review. We give agencies an outside read on whether veteran-facing AI works — in weeks, de-identified.
+- [The Moat Isn't the Model — It's Who's Allowed to Grade It](https://www.marginsignalos.com/for-investors): Every funded AI-assurance incumbent is paid by the operator it grades. MarginSignal OS structurally can't be. The moat, the category, and a dated catalyst.
+
+## Tools & engagement
+- [Is Your AI Actually Lowering the Cost of a Resolution?](https://www.marginsignalos.com/exposure-review): Answer 9 questions for an independent estimate of your true Cost Per Resolution — and whether your AI is lowering it, or just closing tickets faster.
+- [The CPR Gap Calculator — What Your AI Actually Costs Per Resolution](https://www.marginsignalos.com/cpr-gap): Your dashboard shows cost per contact. The real number is Cost Per Resolution — and the gap between them is where your margin leaks. Estimate yours in 30 seconds, no signup.
+- [Become a Design Partner — Be the First Reproducible AI Verdict](https://www.marginsignalos.com/design-partner): Help produce the first public, reproducible verdicts on whether deployed AI actually worked. Defined terms in your favor, 30–60 days. Commercial & federal.
+
+## Blog
+- [Blog — Independent AI Outcome Verification](https://www.marginsignalos.com/blog/): Articles on Cost Per Resolution, failure demand, automation economics, and AI outcome verification for contact center operations. By MarginSignal OS.
+- [The AI Handoff Problem Nobody Is Measuring](https://www.marginsignalos.com/blog/ai-handoff-degradation)
+- [Cost Per Resolution: The Metric Your CFO Should Be Obsessed With](https://www.marginsignalos.com/blog/cost-per-resolution-metric)
+- [CPR vs Cost Per Call: Why the Metric Shift Matters](https://www.marginsignalos.com/blog/cpr-vs-cost-per-call)
+- [Escalation Bounce Rate: The $600K Signal Nobody Tracks](https://www.marginsignalos.com/blog/escalation-bounce-rate)
+- [Failure Demand: The Hidden Cost Eating Your Contact Center Margin](https://www.marginsignalos.com/blog/failure-demand-hidden-cost)
+- [Field Revisit Normalization: When Repeat Truck Rolls Become 'Normal'](https://www.marginsignalos.com/blog/field-revisit-normalization)
+- [The Automation Tax: Why Your IVR Is Costing More Than You Think](https://www.marginsignalos.com/blog/the-automation-tax)
+- [The Uninsured Gap: Why Cyber Insurers Are Adding Exclusions for Autonomous AI](https://www.marginsignalos.com/blog/the-uninsured-gap)
+- [What Is Cost Per Resolution? The Definitive Guide](https://www.marginsignalos.com/blog/what-is-cost-per-resolution)
+- [Why First Call Resolution Is a Misleading KPI](https://www.marginsignalos.com/blog/why-fcr-is-misleading)
+- [Why Your Service Dashboard Is Lying to You About Margin: You Have More Data Than Ever. You're Making Worse Decisions.](https://www.marginsignalos.com/blog/why-your-dashboard-is-lying)
+- [Your AI Has No Kill Switch: Why Deployment-Time Governance Is the Missing Layer](https://www.marginsignalos.com/blog/your-ai-has-no-kill-switch)
