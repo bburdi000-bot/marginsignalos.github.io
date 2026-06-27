@@ -2,6 +2,12 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "cleanUrls": true,
   "trailingSlash": false,
+  "redirects": [
+    { "source": "/assessment", "destination": "/exposure-review", "permanent": true },
+    { "source": "/sample", "destination": "/verify", "permanent": true },
+    { "source": "/how-we-differ", "destination": "/independence", "permanent": true },
+    { "source": "/demo-access", "destination": "/exposure-review", "permanent": true }
+  ],
   "headers": [
     {
       "source": "/(.*)",
