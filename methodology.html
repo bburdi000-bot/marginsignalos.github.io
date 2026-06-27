@@ -93,6 +93,38 @@
       ]
     }
     </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How does MarginSignal OS measure whether AI worked?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It computes eight proprietary operating signals across resolution economics — independently and reproducibly — from anonymized interaction-level data, to measure whether deployed AI lowered the true cost of a correct outcome."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is Cost Per Resolution (CPR)?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The fully loaded cost to resolve a single customer issue to completion, including all contacts, transfers, callbacks, escalations, and channel switches. The gap between Cost Per Call and Cost Per Resolution is typically $35 or more and represents structural margin waste."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What data does MarginSignal OS require?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "An anonymized, interaction-level CSV with fields such as ticket ID, timestamps, agent ID, channel, and resolution status. Signals are recalculated on a 30-day rolling basis, using de-identified data only to start."
+          }
+        }
+      ]
+    }
+    </script>
 </head>
 <body class="antialiased">
     <nav class="fixed w-full top-0 z-50 glass-nav border-b border-brand-border">
