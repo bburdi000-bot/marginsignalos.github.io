@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The CPR Gap Calculator — What Your AI Actually Costs Per Resolution | MarginSignal OS</title>
+    <meta name="description" content="Your dashboard shows cost per contact. The real number is Cost Per Resolution — and the gap between them is where your margin leaks. Estimate yours in 30 seconds, no signup.">
+    <link rel="canonical" href="https://www.marginsignalos.com/cpr-gap">
+    <!-- Open Graph (shareable) -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="What is your AI actually costing per resolution?">
+    <meta property="og:description" content="Dashboards count cost per contact. The real number is Cost Per Resolution. Estimate your hidden annual gap in 30 seconds.">
+    <meta property="og:url" content="https://www.marginsignalos.com/cpr-gap">
+    <meta property="og:image" content="https://www.marginsignalos.com/og-default.png">
+    <meta property="og:site_name" content="MarginSignal OS">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="What is your AI actually costing per resolution?">
+    <meta name="twitter:description" content="Dashboards count cost per contact. The real number is Cost Per Resolution. Estimate your hidden annual gap in 30 seconds.">
+    <meta name="twitter:image" content="https://www.marginsignalos.com/og-default.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', '-apple-system', 'sans-serif'], mono: ['Fira Code', 'monospace'] },
+                    colors: {
+                        brand: {
+                            bg: '#F8FAFC', navy: '#0F172A', orange: '#F97316',
+                            muted: '#64748B', border: '#E2E8F0', dark: '#020617',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style> body { font-family: 'Inter', sans-serif; } .num { font-variant-numeric: tabular-nums; } </style>
+</head>
+<body class="bg-brand-bg text-brand-navy antialiased">
+
+    <!-- Nav -->
+    <nav class="border-b border-brand-border bg-white/80 backdrop-blur sticky top-0 z-40">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+            <a href="/" class="font-extrabold text-xl tracking-tight">MarginSignal<span class="text-brand-orange">OS&trade;</span></a>
+            <a href="/exposure-review" class="text-sm font-bold bg-brand-navy text-white px-4 py-2 rounded-lg hover:bg-slate-800 transition-all">Full Exposure Review &rarr;</a>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <header class="max-w-3xl mx-auto px-4 sm:px-6 pt-16 pb-8 text-center">
+        <p class="text-xs font-mono font-bold uppercase tracking-widest text-brand-orange mb-4">The CPR Gap Calculator</p>
+        <h1 class="text-3xl md:text-5xl font-extrabold tracking-tight leading-tight mb-5">What is your AI <span class="text-brand-orange">actually</span> costing per resolution?</h1>
+        <p class="text-lg text-brand-muted font-light max-w-2xl mx-auto leading-relaxed">
+            Your dashboard counts <strong class="font-semibold text-brand-navy">cost per contact</strong>. The number that decides your margin is <strong class="font-semibold text-brand-navy">Cost Per Resolution</strong> — and the gap between them is where the money leaks. Estimate yours in 30 seconds. No signup.
+        </p>
+    </header>
+
+    <!-- Calculator -->
+    <main class="max-w-3xl mx-auto px-4 sm:px-6 pb-24">
+        <div class="bg-white rounded-3xl shadow-xl border border-brand-border p-6 md:p-10">
+            <div class="grid sm:grid-cols-2 gap-5">
+                <div>
+                    <label class="block text-sm font-semibold mb-2">Industry</label>
+                    <select id="c-industry" class="w-full border border-brand-border rounded-lg px-3 py-2.5 text-sm focus:ring-2 focus:ring-brand-orange focus:border-brand-orange outline-none">
+                        <option value="BPO">BPO / Outsourcing</option>
+                        <option value="Insurance">Insurance</option>
+                        <option value="Healthcare">Healthcare / RCM</option>
+                        <option value="MSP">MSP / Telecom</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-sm font-semibold mb-2"># of agents</label>
+                    <input id="c-agents" type="number" inputmode="numeric" placeholder="e.g. 120" class="w-full border border-brand-border rounded-lg px-3 py-2.5 text-sm focus:ring-2 focus:ring-brand-orange focus:border-brand-orange outline-none">
+                </div>
+                <div>
+                    <label class="block text-sm font-semibold mb-2">Monthly contact volume</label>
+                    <input id="c-volume" type="number" inputmode="numeric" placeholder="e.g. 90000" class="w-full border border-brand-border rounded-lg px-3 py-2.5 text-sm focus:ring-2 focus:ring-brand-orange focus:border-brand-orange outline-none">
+                </div>
+                <div>
+                    <label class="block text-sm font-semibold mb-2">First-contact resolution (FCR) %</label>
+                    <input id="c-fcr" type="number" inputmode="decimal" placeholder="e.g. 68" class="w-full border border-brand-border rounded-lg px-3 py-2.5 text-sm focus:ring-2 focus:ring-brand-orange focus:border-brand-orange outline-none">
+                </div>
+                <div>
+                    <label class="block text-sm font-semibold mb-2">Fully-loaded annual cost / agent</label>
+                    <input id="c-cost" type="number" inputmode="numeric" placeholder="e.g. 52000" class="w-full border border-brand-border rounded-lg px-3 py-2.5 text-sm focus:ring-2 focus:ring-brand-orange focus:border-brand-orange outline-none">
+                </div>
+                <div>
+                    <label class="block text-sm font-semibold mb-2">Avg handle time (min) <span class="text-brand-muted font-normal">— optional</span></label>
+                    <input id="c-aht" type="number" inputmode="decimal" placeholder="e.g. 8" class="w-full border border-brand-border rounded-lg px-3 py-2.5 text-sm focus:ring-2 focus:ring-brand-orange focus:border-brand-orange outline-none">
+                </div>
+            </div>
+            <button onclick="runCPR()" class="w-full mt-6 bg-brand-orange text-white font-bold py-3.5 rounded-xl hover:bg-orange-600 transition-all shadow-[0_4px_14px_rgba(249,115,22,0.3)]">Reveal my CPR gap &rarr;</button>
+            <p id="c-error" class="text-sm text-red-500 mt-3 hidden text-center">Fill in agents, volume, FCR, and cost to calculate.</p>
+        </div>
+
+        <!-- Result -->
+        <div id="c-result" class="hidden mt-6">
+            <div class="bg-brand-dark text-white rounded-3xl shadow-xl p-6 md:p-10 text-center">
+                <p class="text-xs font-mono font-bold uppercase tracking-widest text-slate-400 mb-3">Estimated hidden gap, per year</p>
+                <p id="r-gap" class="num text-5xl md:text-6xl font-extrabold text-brand-orange mb-2">$0</p>
+                <p class="text-slate-400 text-sm mb-8 max-w-md mx-auto" id="r-gap-sub">the difference between what you report and what a resolution truly costs</p>
+
+                <div class="grid grid-cols-2 gap-4 max-w-lg mx-auto mb-8">
+                    <div class="bg-white/5 rounded-xl p-4 border border-white/10">
+                        <p class="text-[10px] font-mono uppercase tracking-wider text-slate-500 mb-1">Reported cost / contact</p>
+                        <p id="r-cpc" class="num text-2xl font-bold text-white">$0</p>
+                    </div>
+                    <div class="bg-white/5 rounded-xl p-4 border border-brand-orange/30">
+                        <p class="text-[10px] font-mono uppercase tracking-wider text-slate-500 mb-1">True Cost Per Resolution</p>
+                        <p id="r-cpr" class="num text-2xl font-bold text-brand-orange">$0</p>
+                    </div>
+                </div>
+                <p id="r-interpret" class="text-slate-300 text-sm max-w-lg mx-auto mb-2"></p>
+                <p id="r-bench" class="text-slate-500 text-xs max-w-lg mx-auto"></p>
+            </div>
+
+            <!-- CTA -->
+            <div class="bg-white rounded-3xl border border-brand-border p-6 md:p-8 mt-4 text-center">
+                <h3 class="text-xl font-bold mb-2">This is an estimate from public benchmarks.</h3>
+                <p class="text-brand-muted text-sm font-light mb-6 max-w-lg mx-auto">A full <strong class="text-brand-navy font-semibold">Exposure Review</strong> runs this on your data and attributes the gap to its fault lines — failure demand, transfer tax, rework, silent leakage — so you know <em>where</em> it breaks, not just that it does.</p>
+                <div class="flex flex-col sm:flex-row gap-3 justify-center">
+                    <a href="/exposure-review" class="bg-brand-navy text-white font-bold px-6 py-3 rounded-xl hover:bg-slate-800 transition-all">Get the full fault-line read &rarr;</a>
+                    <a href="https://calendly.com/marginsignalos" target="_blank" rel="noopener noreferrer" class="bg-white text-brand-navy border border-brand-border font-bold px-6 py-3 rounded-xl hover:border-brand-orange transition-all">Book a call with the founder</a>
+                </div>
+                <button onclick="shareCPR()" class="mt-5 text-sm text-brand-muted hover:text-brand-orange font-medium transition-colors">↗ Share this calculator</button>
+            </div>
+        </div>
+
+        <p class="text-center text-xs text-brand-muted mt-6 max-w-xl mx-auto leading-relaxed">Illustrative estimate from industry benchmarks and the figures you enter; labeled and conditional until validated against your operational data. Not financial advice.</p>
+    </main>
+
+    <!-- Footer w/ trust strip -->
+    <footer class="bg-brand-navy py-10 border-t border-[#1E293B] text-white">
+        <div class="pb-6 text-center text-xs text-slate-400 leading-relaxed max-w-2xl mx-auto px-4"><span class="text-brand-orange font-semibold">Structurally independent.</span> No equity, board seats, or consulting fees from any party we rate. Buyer-paid, not issuer-paid &mdash; fees decoupled from the verdict. <a href="/independence" class="underline hover:text-slate-200 transition-colors">Why this matters &rarr;</a></div>
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 flex flex-col md:flex-row justify-between items-center text-xs text-slate-500 font-mono gap-2">
+            <p>&copy; 2026 MarginSignal OS&trade; LLC. All rights reserved.</p>
+            <div class="flex gap-4">
+                <a href="/" class="hover:text-white transition-colors">Home</a>
+                <a href="/independence" class="hover:text-white transition-colors">Independence</a>
+                <a href="/methodology" class="hover:text-white transition-colors">Methodology</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Industry benchmarks: [low, mid, high] true CPR — mirrors the Exposure Review engine
+        const benchmarks = { 'Insurance':[28,42,65],'Healthcare':[32,48,72],'BPO':[18,30,50],'MSP':[22,35,55],'Other':[20,35,55] };
+        const fmt = n => '$' + Math.round(n).toLocaleString('en-US');
+
+        function runCPR() {
+            const industry = document.getElementById('c-industry').value;
+            const agents = parseFloat(document.getElementById('c-agents').value);
+            const volume = parseFloat(document.getElementById('c-volume').value);
+            const fcr    = parseFloat(document.getElementById('c-fcr').value) / 100;
+            const annCost= parseFloat(document.getElementById('c-cost').value);
+            const ahtRaw = document.getElementById('c-aht').value;
+
+            if (!(agents>0) || !(volume>0) || !(fcr>0) || !(annCost>0)) {
+                document.getElementById('c-error').classList.remove('hidden'); return;
+            }
+            document.getElementById('c-error').classList.add('hidden');
+
+            // Core engine (identical to Exposure Review)
+            const monthlyAgentCost = annCost / 12;
+            const monthlyLabor = agents * monthlyAgentCost;
+            const monthlyRes   = volume * (fcr + (1 - fcr) * 0.6);
+            const estCPR       = monthlyLabor / monthlyRes;
+            const reportedCPC  = monthlyLabor / volume;
+            const cprGap       = estCPR - reportedCPC;
+            const annualRes    = monthlyRes * 12;
+            const annualGap    = cprGap * annualRes;
+
+            // Optional failure-demand color
+            let faultLine = '';
+            if (ahtRaw && parseFloat(ahtRaw) > 0) {
+                const hourlyRate = annCost / 2080;
+                const ahtHours = parseFloat(ahtRaw) / 60;
+                const annFailureDemand = (volume * (1 - fcr)) * (hourlyRate * ahtHours) * 12;
+                faultLine = ' Of that, an estimated <strong class="text-white">' + fmt(annFailureDemand) + '/yr</strong> is failure demand — repeat contacts your FCR rate is quietly generating.';
+            }
+
+            document.getElementById('r-gap').textContent = fmt(annualGap);
+            document.getElementById('r-cpc').textContent = fmt(reportedCPC);
+            document.getElementById('r-cpr').textContent = fmt(estCPR);
+            const mult = (estCPR / reportedCPC);
+            document.getElementById('r-interpret').innerHTML =
+                'Your true Cost Per Resolution is about <strong class="text-white num">' + mult.toFixed(1) + '×</strong> your reported cost per contact, because not every contact resolves the issue.' + faultLine;
+
+            const b = benchmarks[industry] || benchmarks['Other'];
+            let pos = estCPR <= b[0] ? 'below the typical range — verify it holds under independent measurement'
+                    : estCPR <= b[1] ? 'within the typical range for ' + industry
+                    : estCPR <= b[2] ? 'above the median for ' + industry + ' — a likely margin leak'
+                    : 'well above the typical ' + industry + ' range — a strong candidate for a fault-line review';
+            document.getElementById('r-bench').textContent = 'Typical ' + industry + ' Cost Per Resolution runs ' + fmt(b[0]) + '–' + fmt(b[2]) + '. Your estimate sits ' + pos + '.';
+
+            const res = document.getElementById('c-result');
+            res.classList.remove('hidden');
+            res.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        function shareCPR() {
+            const url = 'https://www.marginsignalos.com/cpr-gap';
+            if (navigator.share) { navigator.share({ title: 'The CPR Gap Calculator', text: 'What is your AI actually costing per resolution?', url }); }
+            else { navigator.clipboard.writeText(url); alert('Link copied: ' + url); }
+        }
+    </script>
+</body>
+</html>
