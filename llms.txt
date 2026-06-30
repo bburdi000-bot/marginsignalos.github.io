@@ -7,6 +7,7 @@ MarginSignal OS is operator-independent: it is not run by, or paid by, the opera
 ## Core
 - [MarginSignal OS | Independent Verification That Your AI Actually Works](https://www.marginsignalos.com/): Independent verification of whether your deployed AI lowered the true cost of a resolution — and who's at fault when it didn't. Because it isn't yours.
 - [The Moat: The Builder Can't Certify the AI Worked](https://www.marginsignalos.com/independence): Every other AI-assurance vendor is paid by the operator it grades. We're structurally not: buyer-pays, reproducible, EU AI Act Art. 31.
+- [Independence Charter (v1.0)](https://www.marginsignalos.com/independence-charter): The formal, signable independence policy of MarginSignal OS LLC — buyer-pays, no entanglement with rated parties, reproducible, disclosed. The data-room version of /independence.
 - [How We Measure AI Outcomes — Methodology](https://www.marginsignalos.com/methodology): How MarginSignal OS measures whether deployed AI actually worked — eight operating signals across resolution economics, escalation, repeat demand, and margin.
 - [Did Your AI Actually Work? Here's How You'd Know](https://www.marginsignalos.com/verify): Most vendors show you a dashboard. We show you a verdict — then let you re-run it. See a sample verdict and estimate your own true Cost Per Resolution.
 
