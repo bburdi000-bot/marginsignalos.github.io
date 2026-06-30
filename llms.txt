@@ -23,6 +23,7 @@ MarginSignal OS is operator-independent: it is not run by, or paid by, the opera
 - [Is Your AI Actually Lowering the Cost of a Resolution?](https://www.marginsignalos.com/exposure-review): Answer 9 questions for an independent estimate of your true Cost Per Resolution — and whether your AI is lowering it, or just closing tickets faster.
 - [The CPR Gap Calculator — What Your AI Actually Costs Per Resolution](https://www.marginsignalos.com/cpr-gap): Your dashboard shows cost per contact. The real number is Cost Per Resolution — and the gap between them is where your margin leaks. Estimate yours in 30 seconds, no signup.
 - [Become a Design Partner — Be the First Reproducible AI Verdict](https://www.marginsignalos.com/design-partner): Help produce the first public, reproducible verdicts on whether deployed AI actually worked. Defined terms in your favor, 30–60 days. Commercial & federal.
+- [Capability Statement](https://www.marginsignalos.com/capabilities): MarginSignal OS LLC capability statement for procurement — independent verification (IV&V / TEVV) and cross-party fault attribution for AI-enabled and autonomous systems. UEI, CAGE, NAICS, PSC.
 
 ## Blog
 - [Blog — Independent AI Outcome Verification](https://www.marginsignalos.com/blog/): Articles on Cost Per Resolution, failure demand, automation economics, and AI outcome verification for contact center operations. By MarginSignal OS.
