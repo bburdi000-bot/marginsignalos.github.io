@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<!--
+  ⚠️ TEMPLATE — DO NOT PUBLISH AS-IS. This page is noindex + unlisted (not in nav, sitemap, or llms.txt).
+  TO PUBLISH A REAL VERDICT:
+   1. Copy this file to a real slug, e.g. proof-first-verdict.html (or case-study-<partner>.html).
+   2. Replace every {{PLACEHOLDER}}. Use ONLY real, permissioned, reproducible results — no invented numbers (BRAND_VOICE rule 6).
+   3. Confirm the partner's approved anonymization level (named / sector-only / fully blind).
+   4. Remove the orange DRAFT ribbon and the <meta name="robots" content="noindex,nofollow"> line.
+   5. Fill the JSON-LD (Article/@graph) block, add the page to sitemap.xml + llms.txt + a footer link, run `npm run build:css`, commit, push.
+  Capture checklist for the required inputs: 04_RUNBOOKS/FIRST_VERDICT_CASE_STUDY_KIT_2026-07-01.md
+-->
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow"><!-- REMOVE on publish -->
+    <title>{{VERDICT_HEADLINE}} | MarginSignal OS</title>
+    <meta name="description" content="{{META_DESCRIPTION — <=160 chars, e.g. 'An independent, reproducible verdict on whether a deployed AI lowered the true Cost Per Resolution for a [sector] operation.'}}">
+    <link rel="canonical" href="https://www.marginsignalos.com/{{SLUG}}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles.css">
+    <style>
+        body { background-color:#F8FAFC; color:#0F172A; -webkit-font-smoothing:antialiased; }
+        .glass-nav { background-color:rgba(248,250,252,0.85); backdrop-filter:blur(12px); }
+    </style>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q93WQ98N9L"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-Q93WQ98N9L');</script>
+    <!-- Microsoft Clarity -->
+    <script type="text/javascript">
+        (function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window, document, "clarity", "script", "vtbd9ybs7t");
+    </script>
+    <!-- ON PUBLISH: add JSON-LD @graph (ProfessionalService + WebSite + Article/WebPage + BreadcrumbList), mirroring for-federal.html. -->
+</head>
+<body class="antialiased">
+    <!-- REMOVE this ribbon on publish -->
+    <div class="bg-brand-orange text-white text-center text-xs font-mono font-bold py-2 px-4">DRAFT TEMPLATE — not live · noindex · fill with real permissioned data before publishing</div>
+
+    <nav class="fixed w-full top-9 z-50 glass-nav border-b border-brand-border">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <a href="/" class="flex-shrink-0"><span class="font-extrabold text-xl tracking-tight text-brand-navy">MarginSignal<span class="text-brand-orange">OS&trade;</span></span></a>
+                <div class="flex space-x-5 items-center">
+                    <a href="/independence" class="hidden sm:inline text-sm font-medium text-brand-muted hover:text-brand-navy transition-colors">Independence</a>
+                    <a href="/verify" class="hidden sm:inline text-sm font-medium text-brand-muted hover:text-brand-navy transition-colors">Verify</a>
+                    <a href="/exposure-review#exposure-review" class="bg-brand-orange text-white px-4 py-2 rounded-lg text-sm font-bold hover:bg-orange-600 transition-all">Book a Findings Call</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="pt-36 pb-4 px-4 sm:px-6 lg:px-8 max-w-3xl mx-auto">
+        <!-- §1 Hero -->
+        <header class="mb-12 text-center">
+            <span class="text-[11px] font-mono font-bold text-brand-orange uppercase tracking-widest">Independent Verdict &middot; Case Study</span>
+            <h1 class="text-3xl md:text-4xl font-extrabold text-brand-navy leading-[1.15] mt-4 mb-5">{{VERDICT_HEADLINE — e.g. "Did a national BPO's AI actually lower the cost of a resolution? We checked — independently."}}</h1>
+            <p class="text-lg text-slate-600 leading-relaxed max-w-2xl mx-auto">{{ONE_LINE_SUMMARY — the outcome in a sentence, AI-first. e.g. "The dashboard showed containment up and cost down. The independent read showed true Cost Per Resolution moved the other way — and named where."}}</p>
+        </header>
+
+        <!-- §2 Engagement facts -->
+        <section class="mb-12">
+            <div class="grid sm:grid-cols-4 gap-3 text-center">
+                <div class="bg-white border border-brand-border rounded-xl p-4"><p class="text-[10px] font-mono text-brand-muted uppercase tracking-wider">Sector</p><p class="text-sm font-semibold text-brand-navy mt-1">{{SECTOR}}</p></div>
+                <div class="bg-white border border-brand-border rounded-xl p-4"><p class="text-[10px] font-mono text-brand-muted uppercase tracking-wider">Scope</p><p class="text-sm font-semibold text-brand-navy mt-1">{{SCOPE — e.g. one deployed use case}}</p></div>
+                <div class="bg-white border border-brand-border rounded-xl p-4"><p class="text-[10px] font-mono text-brand-muted uppercase tracking-wider">Data basis</p><p class="text-sm font-semibold text-brand-navy mt-1">De-identified</p></div>
+                <div class="bg-white border border-brand-border rounded-xl p-4"><p class="text-[10px] font-mono text-brand-muted uppercase tracking-wider">Window</p><p class="text-sm font-semibold text-brand-navy mt-1">{{DURATION — e.g. 45 days}}</p></div>
+            </div>
+        </section>
+
+        <!-- §3 The verdict -->
+        <section class="mb-12">
+            <div class="bg-brand-navy rounded-2xl p-7 md:p-10 shadow-xl text-center">
+                <p class="text-[11px] font-mono font-bold text-amber-300 uppercase tracking-widest mb-5">The verdict</p>
+                <p class="text-2xl md:text-3xl font-extrabold text-white leading-tight max-w-2xl mx-auto">{{VERDICT — plain, one line. e.g. "The AI did not lower the true cost of a resolution. It lowered the reported one."}}</p>
+                <div class="grid sm:grid-cols-3 gap-5 mt-8 text-center">
+                    <div class="bg-white/5 rounded-xl p-5 border border-white/10"><p class="text-[11px] font-mono text-slate-400 uppercase tracking-wider">Reported metric</p><p class="text-3xl font-extrabold text-white mt-2 font-mono">{{REPORTED}}</p><p class="text-xs text-slate-400 mt-1">{{what the dashboard claimed}}</p></div>
+                    <div class="bg-white/5 rounded-xl p-5 border border-white/10"><p class="text-[11px] font-mono text-slate-400 uppercase tracking-wider">True Cost Per Resolution</p><p class="text-3xl font-extrabold text-white mt-2 font-mono">{{TRUE_CPR}}</p><p class="text-xs text-slate-400 mt-1">{{what actually held}}</p></div>
+                    <div class="bg-white/5 rounded-xl p-5 border border-white/10"><p class="text-[11px] font-mono text-slate-400 uppercase tracking-wider">Where it leaked</p><p class="text-3xl font-extrabold text-brand-orange mt-2 font-mono">{{FAULT}}</p><p class="text-xs text-slate-400 mt-1">{{attributed party/stage}}</p></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- §4 What the dashboard said vs what held -->
+        <section class="mb-12">
+            <h2 class="text-2xl font-extrabold text-brand-navy mb-3">What the dashboard said — and what actually held</h2>
+            <div class="prose-sm text-slate-600 leading-relaxed space-y-4">
+                <p>{{NARRATIVE_1 — the reported picture: containment/deflection/cost-per-contact trending green.}}</p>
+                <p>{{NARRATIVE_2 — the independent read: how many "resolutions" reopened / bounced / generated failure demand, and what that did to true CPR.}}</p>
+            </div>
+        </section>
+
+        <!-- §5 Fault attribution -->
+        <section class="mb-12">
+            <h2 class="text-2xl font-extrabold text-brand-navy mb-3">Where the cost actually leaked</h2>
+            <p class="text-slate-600 leading-relaxed mb-4">{{FAULT_NARRATIVE — attribute to a specific party/stage: data, model-vendor, integration, or human queue. This is the differentiator — not "the AI," but which layer.}}</p>
+            <ul class="space-y-2">
+                <li class="relative pl-5 text-[15px] text-brand-navy leading-snug"><span class="absolute left-0 top-2 w-1.5 h-1.5 bg-brand-orange"></span>{{FINDING_1}}</li>
+                <li class="relative pl-5 text-[15px] text-brand-navy leading-snug"><span class="absolute left-0 top-2 w-1.5 h-1.5 bg-brand-orange"></span>{{FINDING_2}}</li>
+                <li class="relative pl-5 text-[15px] text-brand-navy leading-snug"><span class="absolute left-0 top-2 w-1.5 h-1.5 bg-brand-orange"></span>{{FINDING_3}}</li>
+            </ul>
+        </section>
+
+        <!-- §6 Why you can trust this read -->
+        <section class="mb-12">
+            <div class="bg-white border border-brand-border rounded-2xl p-8 shadow-sm">
+                <h2 class="text-xl font-extrabold text-brand-navy mb-4">Why this verdict holds up</h2>
+                <div class="grid sm:grid-cols-3 gap-5">
+                    <div><p class="text-sm font-bold text-brand-navy">Independent</p><p class="text-xs text-slate-600 mt-1.5 leading-snug">We didn't build or operate the AI. Nothing to defend by inflating the result.</p></div>
+                    <div><p class="text-sm font-bold text-brand-navy">Reproducible</p><p class="text-xs text-slate-600 mt-1.5 leading-snug">Same inputs, same method, same answer — re-runnable by the partner or a third party.</p></div>
+                    <div><p class="text-sm font-bold text-brand-navy">Buyer-paid</p><p class="text-xs text-slate-600 mt-1.5 leading-snug">Engaged by the operator, not the AI vendor. Fee decoupled from the verdict.</p></div>
+                </div>
+                <!-- OPTIONAL partner quote — only with written approval -->
+                <blockquote class="mt-6 border-l-4 border-brand-orange pl-5 text-slate-700 italic">{{PARTNER_QUOTE — optional, approved verbatim}}<span class="block not-italic text-sm font-semibold text-brand-navy mt-2">&mdash; {{PARTNER_ATTRIBUTION — title, sector; or "Design partner, [sector]" if blind}}</span></blockquote>
+            </div>
+        </section>
+
+        <!-- §7 CTA -->
+        <section class="mb-16">
+            <div class="bg-brand-dark rounded-2xl p-8 md:p-12 text-center shadow-xl">
+                <h2 class="text-2xl md:text-3xl font-extrabold text-white mb-4">Want this read on your own AI?</h2>
+                <p class="text-slate-300 max-w-xl mx-auto mb-8 leading-relaxed">A 30&ndash;60 day independent verdict on a single deployed use case, on de-identified data. An outside answer to whether it's working &mdash; and where it isn't.</p>
+                <div class="flex flex-wrap justify-center gap-4 items-center">
+                    <a href="/design-partner" class="bg-brand-orange text-white px-8 py-4 rounded-lg text-base font-bold hover:bg-orange-600 hover:-translate-y-0.5 transition-all shadow-lg shadow-orange-500/20">Become a design partner &rarr;</a>
+                    <a href="/cpr-gap" class="text-base font-semibold text-slate-200 hover:text-white transition-colors">Estimate your CPR gap first &rarr;</a>
+                </div>
+            </div>
+            <p class="text-center text-xs text-slate-500 mt-4">Core methods patent-pending. Figures are the partner's actual de-identified results, reproducible on request.</p>
+        </section>
+    </main>
+
+    <footer class="bg-brand-dark py-12 px-4">
+        <div class="max-w-4xl mx-auto text-center">
+            <p class="text-slate-400 text-xs mt-4 mb-1 leading-relaxed max-w-2xl mx-auto"><span class="text-brand-orange font-semibold">Structurally independent.</span> No equity, board seats, or consulting fees from any party we rate. Buyer-paid, not issuer-paid. <a href="/independence" class="underline hover:text-slate-200 transition-colors">Why this matters &rarr;</a></p>
+            <p class="text-slate-500 text-sm">&copy; 2026 MarginSignal OS LLC. All rights reserved.</p>
+            <p class="text-slate-600 text-[11px] mt-3">Core methods patent-pending. Verdicts are the partner's actual de-identified results, reproducible on request.</p>
+        </div>
+    </footer>
+</body>
+</html>
