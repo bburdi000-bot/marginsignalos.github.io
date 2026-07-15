@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Independent Verification Report #002 — AI-Governance Claims vs. Primary Sources | MarginSignal OS</title>
+<meta name="description" content="MarginSignal OS checks three widely-repeated AI-governance claims against primary sources: the federal state-AI moratorium, Texas TRAIGA, and California's SB 1120. Verdicts with citations.">
+<link rel="canonical" href="https://www.marginsignalos.com/reports/ivr-002">
+<meta property="og:title" content="Independent Verification Report #002 — AI-Governance Claims vs. Primary Sources">
+<meta property="og:description" content="Three claims everyone repeats. Checked against the record. One false, one true, one garbled — with sources and the precise position.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://www.marginsignalos.com/reports/ivr-002">
+<meta property="og:site_name" content="MarginSignal OS">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#F8FAFC; --card:#FFFFFF; --ink:#0F172A; --sub:#334155; --muted:#64748B;
+    --line:#E2E8F0; --brand:#F97316;
+    --red-bg:#FEF2F2; --red-tx:#B91C1C; --red-bd:#FCA5A5;
+    --amb-bg:#FFFBEB; --amb-tx:#B45309; --amb-bd:#FCD34D;
+    --grn-bg:#ECFDF5; --grn-tx:#047857; --grn-bd:#6EE7B7;
+  }
+  *{box-sizing:border-box; margin:0; padding:0; -webkit-print-color-adjust:exact; print-color-adjust:exact;}
+  body{background:var(--bg); color:var(--ink); font-family:'Inter',sans-serif; -webkit-font-smoothing:antialiased; line-height:1.6;}
+  .wrap{max-width:820px; margin:0 auto; padding:40px 32px 72px;}
+  .topbar{display:flex; justify-content:space-between; align-items:center; padding-bottom:18px; border-bottom:1px solid var(--line); margin-bottom:6px;}
+  .topbar img{height:26px; width:auto;}
+  .backlink{font-family:'Fira Code',monospace; font-size:13px; letter-spacing:.02em; color:var(--muted); text-decoration:none;}
+  .backlink:hover{color:var(--brand);}
+  .rule{height:3px; background:var(--brand); width:64px; margin:30px 0 22px;}
+  .eyebrow{font-family:'Fira Code',monospace; font-size:13px; letter-spacing:.18em; text-transform:uppercase; color:var(--brand); font-weight:600;}
+  h1{font-size:38px; line-height:1.15; font-weight:800; letter-spacing:-.02em; margin-top:10px;}
+  .meta{font-family:'Fira Code',monospace; font-size:13px; color:var(--muted); margin-top:16px; display:flex; flex-wrap:wrap; gap:18px;}
+  .meta b{color:var(--sub); font-weight:600;}
+  h2{font-size:15px; font-family:'Fira Code',monospace; letter-spacing:.14em; text-transform:uppercase; color:var(--muted); font-weight:600; margin:44px 0 14px;}
+  p{font-size:17px; color:var(--sub); margin-bottom:16px;}
+  p b, li b{color:var(--ink); font-weight:600;}
+  .lead{font-size:18.5px; color:var(--ink);}
+  ol.disc{margin:0 0 8px 20px;} ol.disc li{font-size:16.5px; color:var(--sub); margin-bottom:10px;}
+  .finding{background:var(--card); border:1px solid var(--line); border-radius:14px; padding:30px 30px 26px; margin:20px 0; box-shadow:0 1px 2px rgba(15,23,42,.04);}
+  .finding.red{border-left:5px solid var(--red-bd);}
+  .finding.amb{border-left:5px solid var(--amb-bd);}
+  .finding.grn{border-left:5px solid var(--grn-bd);}
+  .fhead{display:flex; align-items:baseline; justify-content:space-between; gap:16px; flex-wrap:wrap;}
+  .fnum{font-family:'Fira Code',monospace; font-size:13px; letter-spacing:.1em; color:var(--muted);}
+  .badge{font-family:'Fira Code',monospace; font-size:12.5px; font-weight:600; letter-spacing:.06em; padding:6px 12px; border-radius:999px; white-space:nowrap;}
+  .badge.red{background:var(--red-bg); color:var(--red-tx); border:1px solid var(--red-bd);}
+  .badge.amb{background:var(--amb-bg); color:var(--amb-tx); border:1px solid var(--amb-bd);}
+  .badge.grn{background:var(--grn-bg); color:var(--grn-tx); border:1px solid var(--grn-bd);}
+  .claim{font-size:20px; font-weight:700; color:var(--ink); margin:14px 0 18px; line-height:1.35;}
+  .claim .q{color:var(--muted); font-weight:400;}
+  .lbl{font-family:'Fira Code',monospace; font-size:12.5px; letter-spacing:.1em; text-transform:uppercase; color:var(--brand); font-weight:600; margin-top:16px; margin-bottom:5px;}
+  .src{font-family:'Fira Code',monospace; font-size:12.5px; line-height:1.7; color:var(--muted); margin-top:14px; padding-top:12px; border-top:1px dashed var(--line);}
+  .pattern{background:#0F172A; color:#E2E8F0; border-radius:14px; padding:34px 32px; margin:34px 0;}
+  .pattern h2{color:#F97316; margin-top:0;}
+  .pattern p{color:#CBD5E1;} .pattern p b{color:#fff;}
+  .disclaimer{font-size:14.5px; color:var(--muted); border:1px solid var(--line); border-radius:12px; padding:22px 24px; background:#fff;}
+  .disclaimer li{font-size:14.5px; color:var(--muted); margin:0 0 8px 18px;}
+  .foot{margin-top:40px; padding-top:20px; border-top:1px solid var(--line); font-size:14px; color:var(--muted);}
+  .foot .brandline{font-weight:600; color:var(--sub);}
+  a.cite{color:var(--sub); text-decoration:none; border-bottom:1px dotted var(--muted);}
+  .printbtn{position:fixed; right:22px; bottom:22px; background:var(--brand); color:#fff; border:none; border-radius:999px; padding:12px 20px; font-family:'Fira Code',monospace; font-size:13px; font-weight:600; cursor:pointer; box-shadow:0 4px 14px rgba(249,115,22,.35);}
+  @media print{
+    @page{ size:letter; margin:0.7in; }
+    body{background:#fff;}
+    .wrap{max-width:none; padding:0;}
+    .noprint{display:none !important;}
+    .finding, .disclaimer{box-shadow:none; break-inside:avoid;}
+    .pattern{break-inside:avoid;}
+    a.cite{border:none; color:var(--sub);}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="topbar">
+    <img src="../assets/logo/marginsignalos-logo-dark.svg" alt="MarginSignal OS" onerror="this.onerror=null;this.src='../assets/logo/marginsignalos-logo-dark.png'">
+    <a class="backlink noprint" href="/">marginsignalos.com →</a>
+  </div>
+
+  <div class="rule"></div>
+  <div class="eyebrow">Independent Verification Report</div>
+  <h1>AI-Governance Claims, Checked Against Primary Sources</h1>
+  <div class="meta">
+    <span><b>Report</b> IVR-002</span>
+    <span><b>Issued</b> July 15, 2026</span>
+    <span><b>Issuer</b> MarginSignal OS</span>
+    <span><b>Classification</b> Public</span>
+  </div>
+
+  <h2>Why this report exists</h2>
+  <p class="lead">Most claims about AI never get independently checked. They get repeated — and in a field moving this fast, a "fact" that was true six months ago can be repealed, deferred, or never enacted at all. The decisions built on it inherit the error, silently.</p>
+  <p>Second in a standing series. We take claims circulating widely in the AI-governance market and check each against the <b>primary source</b> — the statute, the regulator, the official record. Nothing here is a hot take; every verdict is sourced. Two disciplines govern the report:</p>
+  <ol class="disc">
+    <li><b>We verify claims, not claimants.</b> No company is named. We are not grading anyone's product or character — only whether a statement holds against the record.</li>
+    <li><b>Precision over posture.</b> The goal is not to "debunk." It is to state the exact position, including the nuance. An overcorrection is just a new error.</li>
+  </ol>
+  <p style="font-family:'Fira Code',monospace; font-size:13px; color:var(--muted);">Verdict scale &nbsp;·&nbsp; <span style="color:var(--grn-tx)">VERIFIED</span> &nbsp;/&nbsp; <span style="color:var(--amb-tx)">PARTIALLY VERIFIED</span> &nbsp;/&nbsp; <span style="color:var(--red-tx)">NOT VERIFIED</span></p>
+
+  <!-- FINDING 1 -->
+  <div class="finding red">
+    <div class="fhead"><span class="fnum">FINDING 01 — FEDERAL MORATORIUM ON STATE AI LAWS</span><span class="badge red">NOT VERIFIED · REMOVED</span></div>
+    <div class="claim"><span class="q">As circulating:</span> "A 10-year federal moratorium now blocks states from enforcing their AI laws."</div>
+    <div class="lbl">The record</div>
+    <p>A 10-year moratorium on state enforcement of AI laws passed the U.S. House inside the budget reconciliation bill (the "One Big Beautiful Bill Act") on <b>May 22, 2025</b>. The U.S. Senate <b>stripped it by a 99–1 vote on July 1, 2025</b> — a revised version conditioning it on BEAD broadband funding, and a Blackburn–Cruz compromise, both collapsed. The President signed the bill on <b>July 4, 2025 with no moratorium in it.</b> States never lost the authority to regulate AI.</p>
+    <div class="lbl">Precise position</div>
+    <p>"There is a federal moratorium" is false. But "the idea is dead" overstates it — federal preemption proposals continue to circulate. As of mid-2026, <b>no federal moratorium exists</b>, and state AI laws remain enforceable.</p>
+    <div class="src">Sources — <a class="cite" href="https://www.mintz.com/insights-center/viewpoints/54731/2025-07-02-senate-strikes-10-year-state-law-moratorium-budget">Mintz</a> · <a class="cite" href="https://iapp.org/news/a/us-senate-abandons-proposed-state-ai-law-as-compromise-falls-through">IAPP</a> · Goodwin, Brownstein Hyatt, McDermott Will &amp; Emery analyses.</div>
+  </div>
+
+  <!-- FINDING 2 -->
+  <div class="finding grn">
+    <div class="fhead"><span class="fnum">FINDING 02 — TEXAS AI LAW (TRAIGA)</span><span class="badge grn">VERIFIED · WITH A SCOPE NUANCE</span></div>
+    <div class="claim"><span class="q">As circulating:</span> "The Texas Responsible AI Governance Act takes effect January 1, 2026 and imposes sweeping AI obligations on every business."</div>
+    <div class="lbl">The record</div>
+    <p>TRAIGA (<b>HB 149</b>) was signed in 2025 and <b>takes effect January 1, 2026.</b> It reaches entities that develop or deploy AI in Texas or serve Texas residents, and prohibits specific uses — behavioral manipulation, unlawful discrimination, unlawful deepfakes / CSAM, and infringement of constitutional rights. It adds disclosure, social-scoring and biometric restrictions for <b>government</b> entities, is enforced by the <b>Texas Attorney General</b> (with a cure period), and creates a regulatory sandbox and an AI advisory council.</p>
+    <div class="lbl">Precise position</div>
+    <p>The effective date and existence are <b>verified</b>. But "a sweeping mandate on every business" is overstated: several private-sector prohibitions are <b>intent-based</b>, and the heaviest obligations fall on <b>government</b> use. Real and imminent — narrower than the headlines.</p>
+    <div class="src">Sources — <a class="cite" href="https://capitol.texas.gov/tlodocs/89R/analysis/html/HB00149S.htm">Texas Legislature (HB 149)</a> · <a class="cite" href="https://www.nortonrosefulbright.com/en/knowledge/publications/c6c60e0c/the-texas-responsible-ai-governance-act">Norton Rose Fulbright</a> · Latham &amp; Watkins, Baker Botts analyses.</div>
+  </div>
+
+  <!-- FINDING 3 -->
+  <div class="finding amb">
+    <div class="fhead"><span class="fnum">FINDING 03 — CALIFORNIA, AI IN HEALTH-INSURANCE DENIALS</span><span class="badge amb">PARTIALLY VERIFIED · MISDATED</span></div>
+    <div class="claim"><span class="q">As circulating:</span> "California's new 2026 law bans health insurers from using AI to deny claims."</div>
+    <div class="lbl">The record</div>
+    <p>SB 1120 — the <b>Physicians Make Decisions Act</b> — took effect <b>January 1, 2025</b>, not 2026. It does <b>not ban AI</b> in utilization review. It requires that an AI or algorithmic tool <b>not be the sole basis</b> for a medical-necessity denial; that a <b>licensed clinician make the final medical-necessity determination</b>; that decisions rest on the <b>individual patient's</b> information, not solely group datasets; with transparency and oversight by the California DMHC and Department of Insurance.</p>
+    <div class="lbl">Precise position</div>
+    <p>The core — <b>a human, not an algorithm, makes the final medical-necessity call</b> — is real and holds. But "bans AI" overstates it (AI may still assist), and the effective date is <b>January 1, 2025</b>, already in force. A 2026 roadmap citing it as an upcoming ban is wrong on both the date and the scope.</p>
+    <div class="src">Sources — <a class="cite" href="https://www.insurance.ca.gov/0250-insurers/0500-legal-info/0200-regulations/HealthGuidance/upload/SB-1120-1-Guidance-Use-of-Artificial-Intelligence-Algorithms-and-Other-Software-Tools-in-Utilization-Management.pdf">California DOI SB 1120 guidance</a> · <a class="cite" href="https://calmatters.digitaldemocracy.org/bills/ca_202320240sb1120">CalMatters bill record</a> · <a class="cite" href="https://www.fenwick.com/insights/publications/californias-sb-1120-regulates-ai-in-health-plan-utilization-review-and-management-activities-starting-in-january">Fenwick</a>, DLA Piper analyses.</div>
+  </div>
+
+  <!-- PATTERN -->
+  <div class="pattern">
+    <h2>The pattern — and why it matters</h2>
+    <p>Three widely-repeated claims: <b>one flatly false</b> (the moratorium was removed), <b>one true</b> (Texas, on Jan 1, 2026), <b>one true-but-garbled</b> (California — right principle, wrong year and wrong scope). Each is shaping decisions right now, and each is a 30-second check against the public record away from being right.</p>
+    <p>That is the quiet risk under the loud AI-governance conversation. A compliance roadmap, a board memo, a market thesis, or an AI system's own "we're compliant" dashboard is only as current as the last time someone independent checked its inputs against the source. Self-report and repetition are not verification. <b>This report is a small, public demonstration of the difference.</b></p>
+  </div>
+
+  <h2>What this report is — and isn't</h2>
+  <div class="disclaimer">
+    <ul>
+      <li>It is an <b style="color:var(--sub)">independent check of public claims against primary sources</b>, issued at no charge.</li>
+      <li>It is <b style="color:var(--sub)">not legal advice</b>, and not a compliance opinion for any organization. Confirm your own obligations with counsel and the current statute text.</li>
+      <li>It <b style="color:var(--sub)">names no company</b> and evaluates no product. It grades statements, not people.</li>
+    </ul>
+  </div>
+
+  <div class="foot">
+    <p class="brandline">MarginSignal OS — independent verification of what deployed AI, and the claims around it, actually do.</p>
+    <p style="margin-top:6px;">Corrections to any finding in this report are welcome and will be issued publicly. That is the point.</p>
+  </div>
+
+</div>
+<button class="printbtn noprint" onclick="window.print()">⌘P — Save as PDF</button>
+</body>
+</html>
