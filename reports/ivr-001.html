@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Independent Verification Report #001 — AI-Governance Claims vs. Primary Sources | MarginSignal OS</title>
+<meta name="description" content="MarginSignal OS checks three widely-repeated AI-governance claims against primary sources: the EU AI Act high-risk timeline, Colorado's repealed SB 205, and NAIC bulletin adoption. Verdicts with citations.">
+<link rel="canonical" href="https://www.marginsignalos.com/reports/ivr-001">
+<meta property="og:title" content="Independent Verification Report #001 — AI-Governance Claims vs. Primary Sources">
+<meta property="og:description" content="Three claims everyone repeats. Checked against the record. Verdicts, sources, and the precise position — from an independent verifier.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://www.marginsignalos.com/reports/ivr-001">
+<meta property="og:site_name" content="MarginSignal OS">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#F8FAFC; --card:#FFFFFF; --ink:#0F172A; --sub:#334155; --muted:#64748B;
+    --line:#E2E8F0; --brand:#F97316;
+    --red-bg:#FEF2F2; --red-tx:#B91C1C; --red-bd:#FCA5A5;
+    --amb-bg:#FFFBEB; --amb-tx:#B45309; --amb-bd:#FCD34D;
+    --grn-bg:#ECFDF5; --grn-tx:#047857; --grn-bd:#6EE7B7;
+  }
+  *{box-sizing:border-box; margin:0; padding:0; -webkit-print-color-adjust:exact; print-color-adjust:exact;}
+  body{background:var(--bg); color:var(--ink); font-family:'Inter',sans-serif; -webkit-font-smoothing:antialiased; line-height:1.6;}
+  .wrap{max-width:820px; margin:0 auto; padding:40px 32px 72px;}
+  .topbar{display:flex; justify-content:space-between; align-items:center; padding-bottom:18px; border-bottom:1px solid var(--line); margin-bottom:6px;}
+  .topbar img{height:26px; width:auto;}
+  .backlink{font-family:'Fira Code',monospace; font-size:13px; letter-spacing:.02em; color:var(--muted); text-decoration:none;}
+  .backlink:hover{color:var(--brand);}
+  .rule{height:3px; background:var(--brand); width:64px; margin:30px 0 22px;}
+  .eyebrow{font-family:'Fira Code',monospace; font-size:13px; letter-spacing:.18em; text-transform:uppercase; color:var(--brand); font-weight:600;}
+  h1{font-size:38px; line-height:1.15; font-weight:800; letter-spacing:-.02em; margin-top:10px;}
+  .meta{font-family:'Fira Code',monospace; font-size:13px; color:var(--muted); margin-top:16px; display:flex; flex-wrap:wrap; gap:18px;}
+  .meta b{color:var(--sub); font-weight:600;}
+  h2{font-size:15px; font-family:'Fira Code',monospace; letter-spacing:.14em; text-transform:uppercase; color:var(--muted); font-weight:600; margin:44px 0 14px;}
+  p{font-size:17px; color:var(--sub); margin-bottom:16px;}
+  p b, li b{color:var(--ink); font-weight:600;}
+  .lead{font-size:18.5px; color:var(--ink);}
+  ol.disc{margin:0 0 8px 20px;} ol.disc li{font-size:16.5px; color:var(--sub); margin-bottom:10px;}
+  /* finding cards */
+  .finding{background:var(--card); border:1px solid var(--line); border-radius:14px; padding:30px 30px 26px; margin:20px 0; box-shadow:0 1px 2px rgba(15,23,42,.04);}
+  .finding.red{border-left:5px solid var(--red-bd);}
+  .finding.amb{border-left:5px solid var(--amb-bd);}
+  .finding.grn{border-left:5px solid var(--grn-bd);}
+  .fhead{display:flex; align-items:baseline; justify-content:space-between; gap:16px; flex-wrap:wrap;}
+  .fnum{font-family:'Fira Code',monospace; font-size:13px; letter-spacing:.1em; color:var(--muted);}
+  .badge{font-family:'Fira Code',monospace; font-size:12.5px; font-weight:600; letter-spacing:.06em; padding:6px 12px; border-radius:999px; white-space:nowrap;}
+  .badge.red{background:var(--red-bg); color:var(--red-tx); border:1px solid var(--red-bd);}
+  .badge.amb{background:var(--amb-bg); color:var(--amb-tx); border:1px solid var(--amb-bd);}
+  .badge.grn{background:var(--grn-bg); color:var(--grn-tx); border:1px solid var(--grn-bd);}
+  .claim{font-size:20px; font-weight:700; color:var(--ink); margin:14px 0 18px; line-height:1.35;}
+  .claim .q{color:var(--muted); font-weight:400;}
+  .lbl{font-family:'Fira Code',monospace; font-size:12.5px; letter-spacing:.1em; text-transform:uppercase; color:var(--brand); font-weight:600; margin-top:16px; margin-bottom:5px;}
+  .src{font-family:'Fira Code',monospace; font-size:12.5px; line-height:1.7; color:var(--muted); margin-top:14px; padding-top:12px; border-top:1px dashed var(--line);}
+  .pattern{background:#0F172A; color:#E2E8F0; border-radius:14px; padding:34px 32px; margin:34px 0;}
+  .pattern h2{color:#F97316; margin-top:0;}
+  .pattern p{color:#CBD5E1;} .pattern p b{color:#fff;}
+  .disclaimer{font-size:14.5px; color:var(--muted); border:1px solid var(--line); border-radius:12px; padding:22px 24px; background:#fff;}
+  .disclaimer li{font-size:14.5px; color:var(--muted); margin:0 0 8px 18px;}
+  .foot{margin-top:40px; padding-top:20px; border-top:1px solid var(--line); font-size:14px; color:var(--muted);}
+  .foot .brandline{font-weight:600; color:var(--sub);}
+  a.cite{color:var(--sub); text-decoration:none; border-bottom:1px dotted var(--muted);}
+  .printbtn{position:fixed; right:22px; bottom:22px; background:var(--brand); color:#fff; border:none; border-radius:999px; padding:12px 20px; font-family:'Fira Code',monospace; font-size:13px; font-weight:600; cursor:pointer; box-shadow:0 4px 14px rgba(249,115,22,.35);}
+  @media print{
+    @page{ size:letter; margin:0.7in; }
+    body{background:#fff;}
+    .wrap{max-width:none; padding:0;}
+    .noprint{display:none !important;}
+    .finding, .disclaimer{box-shadow:none; break-inside:avoid;}
+    .pattern{break-inside:avoid;}
+    a.cite{border:none; color:var(--sub);}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="topbar">
+    <img src="../assets/logo/marginsignalos-logo-dark.svg" alt="MarginSignal OS" onerror="this.onerror=null;this.src='../assets/logo/marginsignalos-logo-dark.png'">
+    <a class="backlink noprint" href="/">marginsignalos.com →</a>
+  </div>
+
+  <div class="rule"></div>
+  <div class="eyebrow">Independent Verification Report</div>
+  <h1>AI-Governance Claims, Checked Against Primary Sources</h1>
+  <div class="meta">
+    <span><b>Report</b> IVR-001</span>
+    <span><b>Issued</b> July 14, 2026</span>
+    <span><b>Issuer</b> MarginSignal OS</span>
+    <span><b>Classification</b> Public</span>
+  </div>
+
+  <h2>Why this report exists</h2>
+  <p class="lead">Most claims about AI never get independently checked. They get repeated. In a field moving this fast, a "fact" that was true six months ago can be repealed, deferred, or superseded — and the decisions built on it inherit the error, silently.</p>
+  <p>This is the first in a standing series. We take claims circulating widely in the AI-governance market and check each against the <b>primary source</b> — the statute, the regulator, the official record. Nothing here is a hot take; every verdict is sourced. Two disciplines govern the report:</p>
+  <ol class="disc">
+    <li><b>We verify claims, not claimants.</b> No company is named. We are not grading anyone's product or character — only whether a statement holds against the record.</li>
+    <li><b>Precision over posture.</b> The goal is not to "debunk." It is to state the exact position, including the nuance. An overcorrection is just a new error.</li>
+  </ol>
+  <p style="font-family:'Fira Code',monospace; font-size:13px; color:var(--muted);">Verdict scale &nbsp;·&nbsp; <span style="color:var(--grn-tx)">VERIFIED</span> &nbsp;/&nbsp; <span style="color:var(--amb-tx)">PARTIALLY VERIFIED</span> &nbsp;/&nbsp; <span style="color:var(--red-tx)">NOT VERIFIED</span></p>
+
+  <!-- FINDING 1 -->
+  <div class="finding red">
+    <div class="fhead"><span class="fnum">FINDING 01 — EU AI ACT, HIGH-RISK OBLIGATIONS</span><span class="badge red">NOT VERIFIED · SUPERSEDED</span></div>
+    <div class="claim"><span class="q">As circulating:</span> "The EU AI Act's high-risk requirements become enforceable August 2, 2026."</div>
+    <div class="lbl">The record</div>
+    <p>The European Commission's <b>Digital Omnibus</b> on AI (proposed Nov 19, 2025) deferred the high-risk compliance deadlines. Political agreement was reached May 6–7, 2026; the European Parliament endorsed it June 16, 2026; and the <b>Council of the EU gave final approval on June 29, 2026.</b> The deferred dates:</p>
+    <ol class="disc">
+      <li><b>Annex III (stand-alone high-risk systems):</b> now <b>December 2, 2027</b> — a 16-month deferral.</li>
+      <li><b>Annex I (AI embedded in regulated products):</b> now <b>August 2, 2028.</b></li>
+    </ol>
+    <p><b>The nuance most corrections miss:</b> the deferral is targeted, not total. <b>Article 50 transparency obligations remain effective August 2, 2026</b> — they were not moved. (Prohibited-practice rules have applied since Feb 2025; GPAI obligations since Aug 2025.)</p>
+    <div class="lbl">Precise position</div>
+    <p>"Everything is enforced Aug 2, 2026" is wrong. "Nothing happens Aug 2, 2026" is <b>also</b> wrong. High-risk obligations moved to <b>Dec 2, 2027 / Aug 2, 2028</b>; transparency obligations stay on <b>Aug 2, 2026.</b></p>
+    <div class="src">Sources — <a class="cite" href="https://www.consilium.europa.eu/en/press/press-releases/2026/05/07/artificial-intelligence-council-and-parliament-agree-to-simplify-and-streamline-rules/">Council of the EU (07 May 2026)</a> · Council final approval (29 Jun 2026) · European Commission Digital Strategy, AI Act · <a class="cite" href="https://www.gibsondunn.com/eu-ai-act-omnibus-agreement-postponed-high-risk-deadlines-and-other-key-changes/">Gibson Dunn</a>, DLA Piper, Travers Smith analyses.</div>
+  </div>
+
+  <!-- FINDING 2 -->
+  <div class="finding red">
+    <div class="fhead"><span class="fnum">FINDING 02 — COLORADO STATE AI LAW</span><span class="badge red">NOT VERIFIED · REPEALED</span></div>
+    <div class="claim"><span class="q">As circulating:</span> "Colorado's SB 205 AI Act is the leading US state AI law to prepare for."</div>
+    <div class="lbl">The record</div>
+    <p>Colorado's original AI Act (<b>SB 24-205</b>, signed May 2024) never took effect as enacted. Its enforcement was <b>stayed by a federal magistrate on April 27, 2026</b>, and on <b>May 14, 2026 Governor Polis signed SB 26-189, which repeals SB 24-205</b> and replaces it with a disclosure-and-rights framework for automated decision-making technology (ADMT), <b>effective January 1, 2027.</b></p>
+    <div class="lbl">Precise position</div>
+    <p>SB 205 is no longer operative law. Any 2026 compliance plan, market map, or "why now" built on "Colorado SB 205" is built on a repealed statute. The live instrument is <b>SB 26-189 (ADMT), effective Jan 1, 2027.</b></p>
+    <div class="src">Sources — <a class="cite" href="https://leg.colorado.gov/bills/sb24-205">Colorado General Assembly (SB24-205 record)</a> · <a class="cite" href="https://www.troutmanprivacy.com/2026/05/colorado-legislature-passes-bill-to-repeal-and-replace-colorado-ai-act/">Troutman</a>, Hunton, Norton Rose Fulbright, Seyfarth analyses of SB 26-189.</div>
+  </div>
+
+  <!-- FINDING 3 -->
+  <div class="finding amb">
+    <div class="fhead"><span class="fnum">FINDING 03 — NAIC MODEL BULLETIN ADOPTION</span><span class="badge amb">PARTIALLY VERIFIED · OVERSTATED</span></div>
+    <div class="claim"><span class="q">As circulating:</span> "Over half of US states have adopted the NAIC AI Model Bulletin."</div>
+    <div class="lbl">The record</div>
+    <p>As of early-to-mid 2026, <b>23–24 states plus the District of Columbia</b> have adopted the NAIC Model Bulletin on the Use of AI Systems by Insurers or substantially similar guidance — accurately described as <b>"nearly half,"</b> not a majority. The operative 2026 development is the <b>NAIC AI Systems Evaluation Tool</b>, a <b>12-state pilot running January–September 2026</b> that brings insurer AI governance into market-conduct examinations.</p>
+    <div class="lbl">Precise position</div>
+    <p>"Nearly half the states (≈23–24 + DC)" is correct; "over half" is not. The examination tool — not the raw adoption count — is what changes insurer obligations in 2026.</p>
+    <div class="src">Sources — <a class="cite" href="https://content.naic.org/sites/default/files/legal-adoption-map-ai-model-bulletin.pdf">NAIC adoption map</a> &amp; AI bulletin implementation · <a class="cite" href="https://www.quarles.com/newsroom/publications/nearly-half-of-states-have-now-adopted-naic-model-bulletin-on-insurers-use-of-ai">Quarles</a>, Kennedys, WaterStreet analyses.</div>
+  </div>
+
+  <!-- PATTERN -->
+  <div class="pattern">
+    <h2>The pattern — and why it matters</h2>
+    <p>Three widely-repeated claims. Within roughly six months, <b>all three moved</b>: one deadline deferred, one law repealed, one count overstated. None of these shifts were hidden — they are in the public record. They persist in circulation because <b>the claims were repeated, not re-checked.</b></p>
+    <p>That is the quiet risk under the loud AI-governance conversation. A compliance roadmap, a board memo, a market thesis, or an AI system's own "we're compliant" dashboard is only as current as the last time someone independent checked its inputs against the source. Self-report and repetition are not verification. <b>This report is a small, public demonstration of the difference.</b></p>
+  </div>
+
+  <h2>What this report is — and isn't</h2>
+  <div class="disclaimer">
+    <ul>
+      <li>It is an <b style="color:var(--sub)">independent check of public claims against primary sources</b>, issued at no charge.</li>
+      <li>It is <b style="color:var(--sub)">not legal advice</b>, and not a compliance opinion for any organization. Confirm your own obligations with counsel and the current Official Journal / statute text.</li>
+      <li>It <b style="color:var(--sub)">names no company</b> and evaluates no product. It grades statements, not people.</li>
+    </ul>
+  </div>
+
+  <div class="foot">
+    <p class="brandline">MarginSignal OS — independent verification of what deployed AI, and the claims around it, actually do.</p>
+    <p style="margin-top:6px;">Corrections to any finding in this report are welcome and will be issued publicly. That is the point.</p>
+  </div>
+
+</div>
+<button class="printbtn noprint" onclick="window.print()">⌘P — Save as PDF</button>
+</body>
+</html>
