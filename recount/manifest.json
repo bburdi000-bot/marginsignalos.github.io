@@ -22,6 +22,11 @@
         "https://github.com/vectara/hallucination-leaderboard",
         "https://github.com/vectara/FaithJudge",
         "https://arxiv.org/abs/2505.04847"
+      ],
+      "claims": [
+        { "id": "c1", "statement": "Vectara publishes a public LLM hallucination leaderboard that is scored using its HHEM (Hughes Hallucination Evaluation Model) detection model.", "source": "https://github.com/vectara/hallucination-leaderboard" },
+        { "id": "c2", "statement": "The HHEM detection model behind the leaderboard is versioned, having advanced through releases such as HHEM 2.1 and HHEM 2.3.", "source": "https://github.com/vectara/hallucination-leaderboard" },
+        { "id": "c3", "statement": "Vectara also maintains FaithJudge, a stricter LLM-as-judge faithfulness evaluation that is distinct from the grounded-summarization hallucination leaderboard.", "source": "https://github.com/vectara/FaithJudge" }
       ]
     }
   ],
