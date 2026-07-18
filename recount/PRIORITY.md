@@ -8,6 +8,7 @@ Frozen artifacts are the citable study files (`.md` / `.pdf`). The `/recount` pa
 - **First published:** 2026-07-18
 - **Canonical:** https://www.marginsignalos.com/recount
 - **DOI:** 10.5281/zenodo.21424795 — https://doi.org/10.5281/zenodo.21424795
+- **Zenodo record:** https://zenodo.org/records/21424795
 - **Artifacts & SHA-256:**
   - `recount/study-01-measurement-gap.md` — `2c395be68a5a548ad8be341147c4f50e24c7a2bee9d5540a6a2426411191fd36`
   - `recount/study-01-measurement-gap.pdf` — `c7ac37ddf04164207969b0b6da06652b0afed9958f5d8600cc67673ba7e9e869`
