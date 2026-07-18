@@ -1,0 +1,21 @@
+name: Recount freshness check
+
+# Keeps The Recount honest: verifies every cited primary source and published
+# artifact still resolves. Runs weekly and on demand. A failure means a citation
+# may have rotted — review and add a dated "revisited" annotation, never a silent edit.
+
+on:
+  schedule:
+    - cron: "17 13 * * 1"   # Mondays 13:17 UTC
+  workflow_dispatch: {}
+
+jobs:
+  check-sources:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Check Recount source freshness
+        run: node recount/check-sources.mjs

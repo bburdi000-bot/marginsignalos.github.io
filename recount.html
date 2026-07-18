@@ -138,24 +138,27 @@
             </div>
         </div>
 
-        <!-- STUDY 01 -->
-        <div class="max-w-4xl mx-auto mb-20">
+        <!-- STUDIES (generated from recount/manifest.json — edit the manifest, then run `npm run build:recount`) -->
+        <div class="max-w-4xl mx-auto mb-20 space-y-8">
+            <!-- RECOUNT:STUDIES:START -->
             <div class="border border-brand-border rounded-xl p-8 bg-white">
                 <div class="flex items-center justify-between mb-4 flex-wrap gap-2">
-                    <span class="text-xs font-mono font-bold text-brand-orange uppercase tracking-widest bg-orange-50 px-3 py-1 rounded-lg">Study 01 &middot; The Measurement Gap</span>
-                    <span class="text-xs font-mono text-slate-400">Published 2026-07-18</span>
+                    <span class="text-xs font-mono font-bold text-brand-orange uppercase tracking-widest bg-orange-50 px-3 py-1 rounded-lg">Study 01 · The Measurement Gap</span>
+                    <span class="text-xs font-mono text-slate-400">Published 2026-07-18 &middot; <a href="https://doi.org/10.5281/zenodo.21424795" class="text-brand-orange hover:text-orange-600" rel="noopener" target="_blank">DOI</a></span>
                 </div>
-                <h2 class="text-2xl font-bold text-brand-navy mb-4">There is no single &ldquo;AI hallucination rate.&rdquo; The number depends on who measures, how, and when.</h2>
-                <p class="text-brand-muted font-light leading-relaxed mb-4">If you cannot pin down the accuracy of the models everyone benchmarks in the open, what confidence do you have in a vendor&rsquo;s single self-reported figure? Consider the public, well-regarded work of one measurement provider, Vectara &mdash; used here not as a target but as an ally in rigor.</p>
+                <h2 class="text-2xl font-bold text-brand-navy mb-4">There is no single “AI hallucination rate.” The number depends on who measures, how, and when.</h2>
+                <p class="text-brand-muted font-light leading-relaxed mb-4">If you cannot pin down the accuracy of the models everyone benchmarks in the open, what confidence do you have in a vendor’s single self-reported figure? Consider the public, well-regarded work of one measurement provider, Vectara — used here not as a target but as an ally in rigor.</p>
                 <ul class="space-y-3 mb-4 text-brand-muted font-light leading-relaxed list-disc pl-5">
-                    <li>Vectara maintains a <a href="https://github.com/vectara/hallucination-leaderboard" class="text-brand-orange underline hover:text-orange-600" rel="noopener" target="_blank">public hallucination leaderboard</a>, scored by its HHEM detection model &mdash; and the yardstick itself is versioned (HHEM 2.1 &rarr; 2.3).</li>
-                    <li>The same provider also maintains <a href="https://github.com/vectara/FaithJudge" class="text-brand-orange underline hover:text-orange-600" rel="noopener" target="_blank">FaithJudge</a>, a stricter judge method that surfaces materially higher hallucination rates than the summarization leaderboard &mdash; two credible methods, different numbers.</li>
-                    <li>The rankings move: as of the leaderboard&rsquo;s May&nbsp;11,&nbsp;2026 update (HHEM-2.3), the lowest-hallucination model was measured at 3.3% &mdash; a snapshot, not a fixed truth.</li>
+                    <li>Vectara maintains a <a href="https://github.com/vectara/hallucination-leaderboard" class="text-brand-orange underline hover:text-orange-600" rel="noopener" target="_blank">public hallucination leaderboard</a>, scored by its HHEM detection model — and the yardstick itself is versioned (HHEM 2.1 &rarr; 2.3).</li>
+                    <li>The same provider also maintains <a href="https://github.com/vectara/FaithJudge" class="text-brand-orange underline hover:text-orange-600" rel="noopener" target="_blank">FaithJudge</a>, a stricter judge method that surfaces materially higher hallucination rates than the summarization leaderboard — two credible methods, different numbers.</li>
+                    <li>The rankings move: as of the leaderboard’s May&nbsp;11,&nbsp;2026 update (HHEM-2.3), the lowest-hallucination model was measured at 3.3% — a snapshot, not a fixed truth.</li>
                 </ul>
                 <p class="text-brand-navy font-semibold mb-2">The implication:</p>
-                <p class="text-brand-muted font-light leading-relaxed mb-4">If even the referee&rsquo;s own number is a moving target &mdash; two methods, a versioned yardstick, a shifting board &mdash; then a deployed system&rsquo;s single self-reported accuracy figure is close to meaningless without a fixed, named, dated method behind it. That method is what a standard provides. That is the entire reason The Recount exists.</p>
+                <p class="text-brand-muted font-light leading-relaxed mb-4">If even the referee’s own number is a moving target — two methods, a versioned yardstick, a shifting board — then a deployed system’s single self-reported accuracy figure is close to meaningless without a fixed, named, dated method behind it. That method is what a standard provides. That is the entire reason The Recount exists.</p>
+                <p class="text-sm text-slate-500 mb-3">Cite: <a href="https://doi.org/10.5281/zenodo.21424795" class="text-brand-orange underline hover:text-orange-600" rel="noopener" target="_blank">doi.org/10.5281/zenodo.21424795</a> &middot; Download: <a href="/recount/study-01-measurement-gap.pdf" class="text-brand-orange underline hover:text-orange-600">PDF</a> &middot; <a href="/recount/study-01-measurement-gap.md" class="text-brand-orange underline hover:text-orange-600">source</a></p>
                 <p class="text-[11px] text-slate-400 font-light">Sources verified against primary publications on 2026-07-18. Vectara HHEM leaderboard (HHEM-2.3, last updated 2026-05-11) and FaithJudge (arXiv:2505.04847). Figures are point-in-time snapshots of a living leaderboard and will change; that is precisely the finding. References do not imply endorsement or affiliation.</p>
             </div>
+            <!-- RECOUNT:STUDIES:END -->
         </div>
 
         <!-- CASE FILES -->
@@ -163,6 +166,7 @@
             <h2 class="text-3xl font-bold text-brand-navy text-center mb-3">Case files</h2>
             <p class="text-center text-slate-500 mb-10 max-w-2xl mx-auto">Independent Verification Reports &mdash; individual recounts, each traced to primary sources, each a fixed and citable record.</p>
             <div class="grid md:grid-cols-2 gap-6">
+                <!-- RECOUNT:CASEFILES:START -->
                 <a href="/reports/ivr-001" class="border border-brand-border rounded-xl p-6 bg-white hover:border-brand-orange transition-all block">
                     <div class="text-brand-orange font-mono font-bold text-sm mb-2">IVR-001</div>
                     <p class="text-brand-navy font-semibold">Independent Verification Report #001</p>
@@ -171,8 +175,9 @@
                 <a href="/reports/ivr-002" class="border border-brand-border rounded-xl p-6 bg-white hover:border-brand-orange transition-all block">
                     <div class="text-brand-orange font-mono font-bold text-sm mb-2">IVR-002</div>
                     <p class="text-brand-navy font-semibold">Independent Verification Report #002</p>
-                    <p class="text-slate-500 text-sm mt-1">Federal moratorium, Texas TRAIGA, California SB 1120 &mdash; verified, partially verified, not verified.</p>
+                    <p class="text-slate-500 text-sm mt-1">Federal moratorium, Texas TRAIGA, California SB 1120 — verified, partially verified, not verified.</p>
                 </a>
+            <!-- RECOUNT:CASEFILES:END -->
             </div>
         </div>
 

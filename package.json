@@ -5,7 +5,9 @@
   "description": "MarginSignal OS marketing site — static HTML with a compiled Tailwind stylesheet.",
   "scripts": {
     "build:css": "tailwindcss -i ./src/input.css -o ./styles.css --minify",
-    "watch:css": "tailwindcss -i ./src/input.css -o ./styles.css --watch"
+    "watch:css": "tailwindcss -i ./src/input.css -o ./styles.css --watch",
+    "build:recount": "node recount/build.mjs",
+    "check:recount": "node recount/check-sources.mjs"
   },
   "devDependencies": {
     "tailwindcss": "^3.4.0"

@@ -1,0 +1,42 @@
+{
+  "_comment": "Single source of truth for The Recount. Add a study or case file here, then run `npm run build:recount` to regenerate recount.html + sitemap lastmod. Never hand-edit the generated blocks in recount.html.",
+  "studies": [
+    {
+      "id": "study-01",
+      "kicker": "Study 01 · The Measurement Gap",
+      "published": "2026-07-18",
+      "doi": "10.5281/zenodo.21424795",
+      "headline": "There is no single “AI hallucination rate.” The number depends on who measures, how, and when.",
+      "lede": "If you cannot pin down the accuracy of the models everyone benchmarks in the open, what confidence do you have in a vendor’s single self-reported figure? Consider the public, well-regarded work of one measurement provider, Vectara — used here not as a target but as an ally in rigor.",
+      "points": [
+        "Vectara maintains a <a href=\"https://github.com/vectara/hallucination-leaderboard\" class=\"text-brand-orange underline hover:text-orange-600\" rel=\"noopener\" target=\"_blank\">public hallucination leaderboard</a>, scored by its HHEM detection model — and the yardstick itself is versioned (HHEM 2.1 &rarr; 2.3).",
+        "The same provider also maintains <a href=\"https://github.com/vectara/FaithJudge\" class=\"text-brand-orange underline hover:text-orange-600\" rel=\"noopener\" target=\"_blank\">FaithJudge</a>, a stricter judge method that surfaces materially higher hallucination rates than the summarization leaderboard — two credible methods, different numbers.",
+        "The rankings move: as of the leaderboard’s May&nbsp;11,&nbsp;2026 update (HHEM-2.3), the lowest-hallucination model was measured at 3.3% — a snapshot, not a fixed truth."
+      ],
+      "implicationLabel": "The implication:",
+      "implication": "If even the referee’s own number is a moving target — two methods, a versioned yardstick, a shifting board — then a deployed system’s single self-reported accuracy figure is close to meaningless without a fixed, named, dated method behind it. That method is what a standard provides. That is the entire reason The Recount exists.",
+      "pdf": "/recount/study-01-measurement-gap.pdf",
+      "source": "/recount/study-01-measurement-gap.md",
+      "footnote": "Sources verified against primary publications on 2026-07-18. Vectara HHEM leaderboard (HHEM-2.3, last updated 2026-05-11) and FaithJudge (arXiv:2505.04847). Figures are point-in-time snapshots of a living leaderboard and will change; that is precisely the finding. References do not imply endorsement or affiliation.",
+      "sources": [
+        "https://github.com/vectara/hallucination-leaderboard",
+        "https://github.com/vectara/FaithJudge",
+        "https://arxiv.org/abs/2505.04847"
+      ]
+    }
+  ],
+  "caseFiles": [
+    {
+      "id": "IVR-001",
+      "title": "Independent Verification Report #001",
+      "blurb": "A recount against primary sources.",
+      "url": "/reports/ivr-001"
+    },
+    {
+      "id": "IVR-002",
+      "title": "Independent Verification Report #002",
+      "blurb": "Federal moratorium, Texas TRAIGA, California SB 1120 — verified, partially verified, not verified.",
+      "url": "/reports/ivr-002"
+    }
+  ]
+}
