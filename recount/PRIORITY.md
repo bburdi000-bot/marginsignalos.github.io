@@ -16,7 +16,8 @@ Frozen artifacts are the citable study files (`.md` / `.pdf`). The `/recount` pa
 ## The Verification Gap — Independent Findings Report (v1.0)
 - **First published:** 2026-07-18
 - **Canonical:** https://www.marginsignalos.com/recount/verification-gap-report.pdf
-- **DOI:** pending Zenodo deposit
+- **DOI:** 10.5281/zenodo.21436466 — https://doi.org/10.5281/zenodo.21436466
+- **Zenodo record:** https://zenodo.org/records/21436466
 - **Artifacts & SHA-256:**
   - `recount/verification-gap-report.md` — `c63e373f51bcb849fde17941a06516f81f587837560f0ed39bf7e3fbfbef48aa`
   - `recount/verification-gap-report.pdf` — `4d5465f45d7888bc877359baca11f5982f2f548b8f767d0082290498f70c813d`
