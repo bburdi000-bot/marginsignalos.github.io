@@ -42,6 +42,12 @@
       "title": "Independent Verification Report #002",
       "blurb": "Federal moratorium, Texas TRAIGA, California SB 1120 — verified, partially verified, not verified.",
       "url": "/reports/ivr-002"
+    },
+    {
+      "id": "IVR-003",
+      "title": "Independent Verification Report #003",
+      "blurb": "Algorithmic denials in Medicare Advantage — three repeated claims checked against the HHS-OIG audit record. No company named.",
+      "url": "/reports/ivr-003"
     }
   ]
 }

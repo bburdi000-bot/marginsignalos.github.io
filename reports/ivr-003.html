@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Independent Verification Report #003 — AI Denials in Medicare Advantage vs. Primary Sources | MarginSignal OS</title>
+<meta name="description" content="MarginSignal OS checks three widely-repeated claims about automated and algorithmic coverage denials in Medicare Advantage against the primary HHS-OIG audit record. Verdicts with citations. No company named.">
+<link rel="canonical" href="https://www.marginsignalos.com/reports/ivr-003">
+<meta property="og:title" content="Independent Verification Report #003 — Algorithmic Denials in Medicare Advantage, Checked">
+<meta property="og:description" content="Three claims about how AI-driven coverage denials work. Checked against the government's own audits. The reported story, next to the verified one.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://www.marginsignalos.com/reports/ivr-003">
+<meta property="og:site_name" content="MarginSignal OS">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#F8FAFC; --card:#FFFFFF; --ink:#0F172A; --sub:#334155; --muted:#64748B;
+    --line:#E2E8F0; --brand:#F97316;
+    --red-bg:#FEF2F2; --red-tx:#B91C1C; --red-bd:#FCA5A5;
+    --amb-bg:#FFFBEB; --amb-tx:#B45309; --amb-bd:#FCD34D;
+    --grn-bg:#ECFDF5; --grn-tx:#047857; --grn-bd:#6EE7B7;
+  }
+  *{box-sizing:border-box; margin:0; padding:0; -webkit-print-color-adjust:exact; print-color-adjust:exact;}
+  body{background:var(--bg); color:var(--ink); font-family:'Inter',sans-serif; -webkit-font-smoothing:antialiased; line-height:1.6;}
+  .wrap{max-width:820px; margin:0 auto; padding:40px 32px 72px;}
+  .topbar{display:flex; justify-content:space-between; align-items:center; padding-bottom:18px; border-bottom:1px solid var(--line); margin-bottom:6px;}
+  .topbar img{height:26px; width:auto;}
+  .backlink{font-family:'Fira Code',monospace; font-size:13px; letter-spacing:.02em; color:var(--muted); text-decoration:none;}
+  .backlink:hover{color:var(--brand);}
+  .rule{height:3px; background:var(--brand); width:64px; margin:30px 0 22px;}
+  .eyebrow{font-family:'Fira Code',monospace; font-size:13px; letter-spacing:.18em; text-transform:uppercase; color:var(--brand); font-weight:600;}
+  h1{font-size:38px; line-height:1.15; font-weight:800; letter-spacing:-.02em; margin-top:10px;}
+  .meta{font-family:'Fira Code',monospace; font-size:13px; color:var(--muted); margin-top:16px; display:flex; flex-wrap:wrap; gap:18px;}
+  .meta b{color:var(--sub); font-weight:600;}
+  h2{font-size:15px; font-family:'Fira Code',monospace; letter-spacing:.14em; text-transform:uppercase; color:var(--muted); font-weight:600; margin:44px 0 14px;}
+  p{font-size:17px; color:var(--sub); margin-bottom:16px;}
+  p b, li b{color:var(--ink); font-weight:600;}
+  .lead{font-size:18.5px; color:var(--ink);}
+  ol.disc{margin:0 0 8px 20px;} ol.disc li{font-size:16.5px; color:var(--sub); margin-bottom:10px;}
+  .finding{background:var(--card); border:1px solid var(--line); border-radius:14px; padding:30px 30px 26px; margin:20px 0; box-shadow:0 1px 2px rgba(15,23,42,.04);}
+  .finding.red{border-left:5px solid var(--red-bd);}
+  .finding.amb{border-left:5px solid var(--amb-bd);}
+  .finding.grn{border-left:5px solid var(--grn-bd);}
+  .fhead{display:flex; align-items:baseline; justify-content:space-between; gap:16px; flex-wrap:wrap;}
+  .fnum{font-family:'Fira Code',monospace; font-size:13px; letter-spacing:.1em; color:var(--muted);}
+  .badge{font-family:'Fira Code',monospace; font-size:12.5px; font-weight:600; letter-spacing:.06em; padding:6px 12px; border-radius:999px; white-space:nowrap;}
+  .badge.red{background:var(--red-bg); color:var(--red-tx); border:1px solid var(--red-bd);}
+  .badge.amb{background:var(--amb-bg); color:var(--amb-tx); border:1px solid var(--amb-bd);}
+  .badge.grn{background:var(--grn-bg); color:var(--grn-tx); border:1px solid var(--grn-bd);}
+  .claim{font-size:20px; font-weight:700; color:var(--ink); margin:14px 0 18px; line-height:1.35;}
+  .claim .q{color:var(--muted); font-weight:400;}
+  .lbl{font-family:'Fira Code',monospace; font-size:12.5px; letter-spacing:.1em; text-transform:uppercase; color:var(--brand); font-weight:600; margin-top:16px; margin-bottom:5px;}
+  .src{font-family:'Fira Code',monospace; font-size:12.5px; line-height:1.7; color:var(--muted); margin-top:14px; padding-top:12px; border-top:1px dashed var(--line);}
+  .pattern{background:#0F172A; color:#E2E8F0; border-radius:14px; padding:34px 32px; margin:34px 0;}
+  .pattern h2{color:#F97316; margin-top:0;}
+  .pattern p{color:#CBD5E1;} .pattern p b{color:#fff;}
+  .disclaimer{font-size:14.5px; color:var(--muted); border:1px solid var(--line); border-radius:12px; padding:22px 24px; background:#fff;}
+  .disclaimer li{font-size:14.5px; color:var(--muted); margin:0 0 8px 18px;}
+  .foot{margin-top:40px; padding-top:20px; border-top:1px solid var(--line); font-size:14px; color:var(--muted);}
+  .foot .brandline{font-weight:600; color:var(--sub);}
+  a.cite{color:var(--sub); text-decoration:none; border-bottom:1px dotted var(--muted);}
+  .printbtn{position:fixed; right:22px; bottom:22px; background:var(--brand); color:#fff; border:none; border-radius:999px; padding:12px 20px; font-family:'Fira Code',monospace; font-size:13px; font-weight:600; cursor:pointer; box-shadow:0 4px 14px rgba(249,115,22,.35);}
+  @media print{
+    @page{ size:letter; margin:0.7in; }
+    body{background:#fff;}
+    .wrap{max-width:none; padding:0;}
+    .noprint{display:none !important;}
+    .finding, .disclaimer{box-shadow:none; break-inside:avoid;}
+    .pattern{break-inside:avoid;}
+    a.cite{border:none; color:var(--sub);}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="topbar">
+    <img src="../assets/logo/marginsignalos-logo-dark.svg" alt="MarginSignal OS" onerror="this.onerror=null;this.src='../assets/logo/marginsignalos-logo-dark.png'">
+    <a class="backlink noprint" href="/">marginsignalos.com →</a>
+  </div>
+
+  <div class="rule"></div>
+  <div class="eyebrow">Independent Verification Report</div>
+  <h1>AI-Governance Claims, Checked Against Primary Sources</h1>
+  <div class="meta">
+    <span><b>Report</b> IVR-003</span>
+    <span><b>Issued</b> July 20, 2026</span>
+    <span><b>Issuer</b> MarginSignal OS</span>
+    <span><b>Classification</b> Public</span>
+  </div>
+
+  <h2>Why this report exists</h2>
+  <p class="lead">Most claims about AI never get independently checked. They get repeated. This report turns the series toward a live, high-stakes deployment: the automated and algorithmic tools used to deny health coverage in Medicare Advantage.</p>
+  <p>Third in a standing series. We take claims circulating widely in the market and check each against the <b>primary source</b>. Here, that source is the <b>U.S. Department of Health &amp; Human Services, Office of Inspector General (HHS-OIG)</b> — official government audits, not litigation, advocacy, or press. Where a figure reflects a specific audit period, we say so; an audit of 2019 denials is not a claim about today. Two disciplines govern the report:</p>
+  <ol class="disc">
+    <li><b>We verify claims, not claimants.</b> No company is named. We are not grading anyone's product or character — only whether a statement holds against the record.</li>
+    <li><b>Precision over posture.</b> The goal is not to "debunk." It is to state the exact position, including the nuance. An overcorrection is just a new error.</li>
+  </ol>
+  <p style="font-family:'Fira Code',monospace; font-size:13px; color:var(--muted);">Verdict scale &nbsp;·&nbsp; <span style="color:var(--grn-tx)">VERIFIED</span> &nbsp;/&nbsp; <span style="color:var(--amb-tx)">PARTIALLY VERIFIED</span> &nbsp;/&nbsp; <span style="color:var(--red-tx)">NOT VERIFIED</span></p>
+
+  <!-- FINDING 1 -->
+  <div class="finding amb">
+    <div class="fhead"><span class="fnum">FINDING 01 — MEDICARE ADVANTAGE DENIALS &amp; MEDICARE'S OWN RULES</span><span class="badge amb">PARTIALLY VERIFIED · WITH EXCEPTIONS</span></div>
+    <div class="claim"><span class="q">As circulating:</span> "Medicare Advantage plans must cover what Original Medicare covers, so when they deny a service the denial reflects Medicare's coverage rules."</div>
+    <div class="lbl">The record</div>
+    <p>HHS-OIG audited a stratified random sample of denials from the 15 largest Medicare Advantage organizations (<b>OEI-09-18-00260</b>, issued April 27, 2022; denials drawn from June 2019). Among <b>prior-authorization</b> requests the plans denied, <b>13% actually met Medicare coverage rules</b> — the care likely would have been approved under Original Medicare. Among <b>payment</b> requests denied, an estimated <b>18% met both Medicare coverage rules and the plan's own billing rules.</b></p>
+    <div class="lbl">Precise position</div>
+    <p>The rule — MA plans must cover at least what Original Medicare covers — is real. But compliance is not automatic: a measurable share of denials in the sample failed Medicare's own standard. "Every denial reflects Medicare's rules" is not supported by the record. <b>(Scope: an audit of 2019 denials published in 2022, not a current-year rate.)</b></p>
+    <div class="src">Source — <a class="cite" href="https://oig.hhs.gov/reports/all/2022/some-medicare-advantage-organization-denials-of-prior-authorization-requests-raise-concerns-about-beneficiary-access-to-medically-necessary-care/">HHS-OIG, OEI-09-18-00260 (Apr 2022)</a> — "Some Medicare Advantage Organization Denials of Prior Authorization Requests Raise Concerns About Beneficiary Access to Medically Necessary Care."</div>
+  </div>
+
+  <!-- FINDING 2 -->
+  <div class="finding amb">
+    <div class="fhead"><span class="fnum">FINDING 02 — THE APPEALS "SAFETY NET"</span><span class="badge amb">PARTIALLY VERIFIED · RARELY USED</span></div>
+    <div class="claim"><span class="q">As circulating:</span> "Beneficiaries who are wrongly denied can appeal, and the process fixes the error — so wrongful denials get caught."</div>
+    <div class="lbl">The record</div>
+    <p>HHS-OIG (<b>OEI-09-16-00410</b>, September 2018; 2014–2016 data) found that when denials <i>were</i> appealed, Medicare Advantage organizations <b>overturned 75% of their own denials</b> — roughly <b>216,000 overturned denials per year.</b> But in the same period, <b>only 1% of denials were ever appealed.</b> Separately, CMS audits cited <b>56% of audited MA contracts for inappropriate denials</b> and <b>45% for sending incomplete or incorrect denial letters.</b></p>
+    <div class="lbl">Precise position</div>
+    <p>The appeals mechanism does work — it reverses most denials that reach it. That is exactly why the 1% appeal rate matters: a correction process that overturns three of every four challenges, but is triggered on one in a hundred denials, is not a safety net the system leans on. High overturn plus low appeal is not reassurance — it is the shape of a problem.</p>
+    <div class="src">Source — <a class="cite" href="https://oig.hhs.gov/reports/all/2018/medicare-advantage-appeal-outcomes-and-audit-findings-raise-concerns-about-service-and-payment-denials/">HHS-OIG, OEI-09-16-00410 (Sep 2018)</a> — "Medicare Advantage Appeal Outcomes and Audit Findings Raise Concerns About Service and Payment Denials."</div>
+  </div>
+
+  <!-- FINDING 3 -->
+  <div class="finding red">
+    <div class="fhead"><span class="fnum">FINDING 03 — PREDICTIVE TOOLS IN POST-ACUTE CARE</span><span class="badge red">NOT VERIFIED · AS STATED</span></div>
+    <div class="claim"><span class="q">As circulating:</span> "Algorithmic and predictive tools used to review post-acute care (like skilled-nursing stays) make coverage decisions faster and more accurate."</div>
+    <div class="lbl">The record</div>
+    <p>A June 2026 HHS-OIG post-acute audit (<b>OEI-09-24-00331</b>, published June 11, 2026; June 2024 data across 19 MA organizations) found that when <b>skilled-nursing-facility prior-authorization denials were appealed, plans overturned 95% of them in favor of the enrollee.</b> For the single review contractor that <b>processed roughly half of all SNF admission requests</b> — the largest user of a predictive post-acute tool in the market — <b>97% of its appealed denials were overturned,</b> against a <b>14% initial denial rate.</b> Only <b>18% of SNF denials were appealed</b> at all.</p>
+    <div class="lbl">Precise position</div>
+    <p>"Faster" may hold; <b>"more accurate" does not</b> on this evidence. A decision process whose denials are overturned 95–97% of the time on appeal is not demonstrating accuracy — it is demonstrating that the initial "no" rarely survives independent review. The claim that predictive tooling improves <i>accuracy</i> in this setting is unsupported by the audited outcomes. <b>(We name no vendor or plan; the contractor and rates above are as characterized in the OIG report.)</b></p>
+    <div class="src">Source — <a class="cite" href="https://oig.hhs.gov/reports/all/2026/medicare-advantage-organizations-overturned-nearly-all-appealed-prior-authorization-denials-for-skilled-nursing-facility-admission-raising-concerns-about-initial-denials/">HHS-OIG, OEI-09-24-00331 (Jun 2026)</a>. A 2024 U.S. Senate Permanent Subcommittee on Investigations majority-staff report separately raised concerns about post-acute prior-authorization practices; cited here as context, not as a verified figure.</div>
+  </div>
+
+  <!-- PATTERN -->
+  <div class="pattern">
+    <h2>The pattern — the Verification Gap</h2>
+    <p>Three claims that shape how a high-stakes AI deployment is defended, checked against the government's own audits: <b>one true-but-incomplete, one true-but-rarely-triggered, one unsupported as stated.</b></p>
+    <p>The thread is the gap between the <b>reported</b> account of these systems — "denials reflect the rules," "appeals catch the errors," "the tools improve accuracy" — and the <b>independently verified</b> record: a measurable share of denials failed Medicare's own rules; the appeal that would catch them is filed 1% of the time; and where it is filed, 95–97% of post-acute denials are reversed. That gap — reported versus independently verified — is the whole reason independent verification exists.</p>
+    <p>None of this is an accusation against any company. It is the public audit record, read precisely. <b>Self-report and repetition are not verification.</b></p>
+  </div>
+
+  <h2>What this report is — and isn't</h2>
+  <div class="disclaimer">
+    <ul>
+      <li>It is an <b style="color:var(--sub)">independent check of public claims against primary sources</b>, issued at no charge.</li>
+      <li>It is <b style="color:var(--sub)">not legal advice</b>, and not a compliance opinion for any organization. Confirm your own obligations with counsel and the current record.</li>
+      <li>It <b style="color:var(--sub)">names no company</b> and evaluates no product. It grades statements, not people.</li>
+    </ul>
+  </div>
+
+  <div class="foot">
+    <p class="brandline">MarginSignal OS — independent verification of what deployed AI, and the claims around it, actually do.</p>
+    <p style="margin-top:6px;">Corrections to any finding in this report are welcome and will be issued publicly. That is the point.</p>
+  </div>
+
+</div>
+<button class="printbtn noprint" onclick="window.print()">⌘P — Save as PDF</button>
+</body>
+</html>
