@@ -196,6 +196,17 @@
                 </div>
                 <button onclick="shareCPR()" class="mt-5 text-sm text-brand-muted hover:text-brand-orange font-medium transition-colors">↗ Share this calculator</button>
             </div>
+
+            <!-- Email capture: send the full breakdown -->
+            <div id="c-capture" class="bg-brand-navy text-white rounded-3xl p-6 md:p-8 mt-4 text-center">
+                <h3 class="text-lg font-bold mb-2">Want this breakdown in writing?</h3>
+                <p class="text-slate-300 text-sm font-light mb-5 max-w-md mx-auto">We'll email you a one-page copy of your CPR gap plus how it typically splits across the four fault lines — no obligation.</p>
+                <form id="cprLead" onsubmit="event.preventDefault(); sendCPRLead();" class="flex flex-col sm:flex-row gap-3 justify-center max-w-lg mx-auto">
+                    <input id="lead-email" type="email" required placeholder="you@company.com" class="flex-1 rounded-xl px-4 py-3 text-sm text-brand-navy outline-none focus:ring-2 focus:ring-brand-orange">
+                    <button type="submit" class="bg-brand-orange text-white font-bold px-6 py-3 rounded-xl hover:bg-orange-600 transition-all whitespace-nowrap">Email me the read &rarr;</button>
+                </form>
+                <p id="lead-done" class="hidden text-brand-orange font-semibold text-sm mt-4">Sent. Check your inbox — we'll follow up with the fault-line detail.</p>
+            </div>
         </div>
 
         <p class="text-center text-xs text-brand-muted mt-6 max-w-xl mx-auto leading-relaxed">Illustrative estimate from industry benchmarks and the figures you enter; labeled and conditional until validated against your operational data. Not financial advice.</p>
@@ -265,9 +276,47 @@
                     : 'well above the typical ' + industry + ' range — a strong candidate for a fault-line review';
             document.getElementById('r-bench').textContent = 'Typical ' + industry + ' Cost Per Resolution runs ' + fmt(b[0]) + '–' + fmt(b[2]) + '. Your estimate sits ' + pos + '.';
 
+            // Stash the computed read so the email capture can send it
+            window._cprRead = {
+                industry: industry,
+                agents: agents, monthly_volume: volume, fcr_pct: (fcr*100),
+                reported_cpc: Math.round(reportedCPC),
+                true_cpr: Math.round(estCPR),
+                cpr_multiple: mult.toFixed(1),
+                estimated_annual_gap: Math.round(annualGap)
+            };
+
             const res = document.getElementById('c-result');
             res.classList.remove('hidden');
             res.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        function sendCPRLead() {
+            const email = document.getElementById('lead-email').value;
+            const r = window._cprRead || {};
+            fetch('https://formsubmit.co/ajax/support@marginsignalos.com', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                body: JSON.stringify({
+                    _subject: 'CPR-Gap lead: ' + email,
+                    email: email,
+                    source: 'cpr-gap calculator',
+                    industry: r.industry || '',
+                    reported_cost_per_contact: r.reported_cpc || '',
+                    true_cost_per_resolution: r.true_cpr || '',
+                    cpr_multiple: r.cpr_multiple || '',
+                    estimated_annual_gap: r.estimated_annual_gap || '',
+                    inputs_agents: r.agents || '',
+                    inputs_monthly_volume: r.monthly_volume || '',
+                    inputs_fcr_pct: r.fcr_pct || ''
+                })
+            }).then(function(){
+                document.getElementById('cprLead').classList.add('hidden');
+                document.getElementById('lead-done').classList.remove('hidden');
+            }).catch(function(){
+                document.getElementById('lead-done').textContent = 'Something went wrong — email support@marginsignalos.com and we’ll send it over.';
+                document.getElementById('lead-done').classList.remove('hidden');
+            });
         }
 
         function shareCPR() {
