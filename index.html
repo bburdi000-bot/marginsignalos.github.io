@@ -262,6 +262,8 @@
                                 <a href="/cpr-gap" class="block px-4 py-2.5 text-sm text-brand-navy hover:bg-brand-bg transition-colors">CPR Gap Calculator</a>
                                 <div class="my-2 border-t border-brand-border"></div>
                                 <div class="px-4 py-2 text-[10px] font-mono font-bold text-brand-muted uppercase tracking-widest">Industries</div>
+                                <a href="/for-health-plans" class="block px-4 py-2 text-sm text-slate-600 hover:text-brand-orange hover:bg-orange-50">Health Plans</a>
+                                <a href="/for-federal" class="block px-4 py-2 text-sm text-slate-600 hover:text-brand-orange hover:bg-orange-50">Federal &amp; VA</a>
                                 <a href="/insurance-claims" class="block px-4 py-2.5 text-sm text-brand-navy hover:bg-brand-bg transition-colors">Insurance Claims Ops</a>
                                 <a href="/for-insurers" class="block px-4 py-2.5 text-sm text-brand-navy hover:bg-brand-bg transition-colors">Insurers &amp; Underwriters</a>
                                 <a href="/healthcare-rcm" class="block px-4 py-2.5 text-sm text-brand-navy hover:bg-brand-bg transition-colors">Healthcare &amp; RCM</a>
@@ -273,7 +275,7 @@
                                 <a href="/methodology" class="block px-4 py-2.5 text-sm text-brand-navy hover:bg-brand-bg transition-colors">Methodology</a>
                                 <a href="/independence" class="block px-4 py-2.5 text-sm text-brand-navy hover:bg-brand-bg transition-colors">How We Differ</a>
                                 <a href="/independence" class="block px-4 py-2.5 text-sm text-brand-navy hover:bg-brand-bg transition-colors">Independence</a>
-                                <a href="#founder" class="block px-4 py-2.5 text-sm text-brand-navy hover:bg-brand-bg transition-colors">About</a>
+                                <a href="/about" class="block px-4 py-2.5 text-sm text-brand-navy hover:bg-brand-bg transition-colors">About</a>
                             </div>
                         </div>
                     </div>
@@ -298,6 +300,8 @@
             <a href="/verify" class="block text-sm font-medium text-brand-navy py-1 pl-3 border-l-2 border-brand-border hover:border-brand-orange transition-colors">Sample Output</a>
             <a href="#ai-demo" onclick="document.getElementById('mobile-menu').classList.add('hidden')" class="block text-sm font-medium text-brand-navy py-1 pl-3 border-l-2 border-brand-border hover:border-brand-orange transition-colors">Preliminary Scanner</a>
             <div class="text-[10px] font-mono font-bold text-brand-muted uppercase tracking-widest pt-4 border-t border-brand-border">Industries</div>
+            <a href="/for-health-plans" class="block py-2 text-slate-600">Health Plans</a>
+            <a href="/for-federal" class="block py-2 text-slate-600">Federal &amp; VA</a>
             <a href="/insurance-claims" class="block text-sm font-medium text-brand-navy py-1 pl-3 border-l-2 border-brand-border hover:border-brand-orange transition-colors">Insurance Claims Ops</a>
             <a href="/for-insurers" class="block text-sm font-medium text-brand-navy py-1 pl-3 border-l-2 border-brand-border hover:border-brand-orange transition-colors">Insurers &amp; Underwriters</a>
             <a href="/healthcare-rcm" class="block text-sm font-medium text-brand-navy py-1 pl-3 border-l-2 border-brand-border hover:border-brand-orange transition-colors">Healthcare &amp; RCM</a>
@@ -308,7 +312,7 @@
             <a href="/methodology" class="block text-sm font-medium text-brand-navy py-1 pl-3 border-l-2 border-brand-border hover:border-brand-orange transition-colors">Methodology</a>
             <a href="/independence" class="block text-sm font-medium text-brand-navy py-1 pl-3 border-l-2 border-brand-border hover:border-brand-orange transition-colors">How We Differ</a>
             <a href="/independence" class="block text-sm font-medium text-brand-navy py-1 pl-3 border-l-2 border-brand-border hover:border-brand-orange transition-colors">Independence</a>
-            <a href="#founder" onclick="document.getElementById('mobile-menu').classList.add('hidden')" class="block text-sm font-medium text-brand-navy py-1 pl-3 border-l-2 border-brand-border hover:border-brand-orange transition-colors">About</a>
+            <a href="/about" onclick="document.getElementById('mobile-menu').classList.add('hidden')" class="block text-sm font-medium text-brand-navy py-1 pl-3 border-l-2 border-brand-border hover:border-brand-orange transition-colors">About</a>
             <div class="border-t border-brand-border pt-4"></div>
             <a href="#intake-form" onclick="document.getElementById('mobile-menu').classList.add('hidden')" class="block w-full text-center bg-brand-navy text-white px-5 py-3 rounded-lg text-sm font-medium mt-4">Book a Findings Call</a>
         </div>
@@ -1316,12 +1320,8 @@
                 <div>
                     <h4 class="text-[10px] font-mono font-bold uppercase tracking-widest text-slate-500 mb-6">Contact</h4>
                     <p class="text-sm text-slate-400 mb-4 font-light">Have questions before booking? Send an email or connect on LinkedIn.</p>
-                    <a id="contactEmail" href="#" class="text-brand-orange hover:text-orange-400 font-medium transition-colors text-sm" onclick="return false;">
-                        <span id="emailDisplay"></span>
-                    </a>
-                    <script>
-                        (function(){var a=['support','marginsignalos','com'];var e=a[0]+'@'+a[1]+'.'+a[2];var el=document.getElementById('contactEmail');el.href='mai'+'lto:'+e;document.getElementById('emailDisplay').textContent=e;})();
-                    </script>
+                    <a id="contactEmail" href="mailto:support@marginsignalos.com" class="text-brand-orange hover:text-orange-400 font-medium transition-colors text-sm">support@marginsignalos.com</a>
+                    <p class="text-sm text-slate-400 mt-2 font-light">(678) 480-8524 &middot; Lawrenceville, GA</p>
                     <a href="https://calendly.com/marginsignalos" target="_blank" rel="noopener noreferrer" class="block mt-4 text-slate-300 hover:text-white font-medium transition-colors text-sm">or book a call directly &rarr;</a>
                 </div>
             </div>
@@ -1333,7 +1333,7 @@
 
             <div class="pb-6 text-center text-xs text-slate-400 leading-relaxed max-w-2xl mx-auto"><span class="text-brand-orange font-semibold">Structurally independent.</span> No equity, board seats, or consulting fees from any party we rate. Buyer-paid, not issuer-paid &mdash; fees decoupled from the verdict. <a href="/independence" class="underline hover:text-slate-200 transition-colors">Why this matters &rarr;</a></div>
             <div class="border-t border-[#1E293B] pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-slate-500 font-mono gap-4">
-                <p>&copy; 2026 MarginSignal OS LLC. All rights reserved.</p>
+                <p>&copy; 2026 MarginSignal OS LLC. All rights reserved. &middot; <a href="/privacy" class="hover:text-slate-300">Privacy</a> &middot; <a href="/terms" class="hover:text-slate-300">Terms</a> &middot; <a href="/about" class="hover:text-slate-300">About</a></p>
                 <div class="flex items-center space-x-6 flex-wrap gap-y-2">
                     <span class="text-slate-700">|</span>
                     <a href="/independence" class="text-slate-600 hover:text-slate-400 transition-colors">Independence</a>
